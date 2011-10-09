@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="myProject" default="build.dev" basedir="../"> <!-- one back since we're in /build -->
+
+	<description>JS/CSS Dev Build for myProject</description>
+
+    <!-- 
+	****************************************************************************
+	* CONFIG 
+	****************************************************************************
+	-->
+	
+	<!-- Load config properties for this build -->
+    <property file="build/config/default.properties"/>
+
+
+	
+    <!-- 
+	****************************************************************************
+	* TEST TARGETS [public]
+	****************************************************************************
+	-->
+    <!-- CHECK JAVASCRIPT CODE QUALITY [public]-->	
+	<!-- JSLint (option 1) - Keep this public so it can be run independantly -->
+    <target name="js.lint" depends="-js.copy" description="(PUBLIC) Runs JSLint against all non-lib JS. Outputs to console.">		
+		<echo message="Running JSLint..."/>
+		<!-- execute jslint on the javascript, with options -->
+		<apply executable="java" parallel="false" failonerror="true">
+			<!-- Take all the JS files except for those listed in exclude -->
+            <fileset 
+				dir="${build.dir}/${publish.dir}/${temp.dir}/js"
+                includes="*.js"	
+				excludes="
+					*.min.js, 
+					*-min.js, 
+					*.minified.js, 
+					*.pack.js,
+					dd_belatedpng.js,
+					imgsizer.js,
+					selectivizr.js
+					"/>
+            <arg value="-jar" />
+            <arg path="${tool.rhino}" />
+            <arg path="${tool.jslint}" />
+            <srcfile/>
+            <arg value="${tool.jslint.opts}" />
+        </apply>        
+        <echo>JSLint Successful</echo>
+    </target>     			
+	<!-- JSHint (option 2) - Keep this public so it can be run independantly -->
+    <target name="js.hint" depends="-js.copy" description="(PUBLIC) Runs JSHint against all non-lib JS. Outputs to console.">
+		<echo message="Running JSHint..."/>		
+		<!-- execute jshint on the javascript, with options -->
+		<apply executable="java" parallel="false" failonerror="true">
+			<!-- Take all the JS files except for those listed in exclude -->
+			<fileset 
+				dir="${build.dir}/${publish.dir}/${temp.dir}/js"
+                includes="*.js"	
+				excludes="
+					*.min.js, 
+					*-min.js, 
+					*.minified.js, 
+					*.pack.js,
+					dd_belatedpng.js,
+					imgsizer.js,
+					selectivizr.js
+					"/>
+            <arg value="-jar" />
+            <arg path="${tool.rhino}" />
+            <arg path="${tool.jshint}" />
+            <srcfile/>
+            <arg value="${tool.jshint.opts}" />
+        </apply>        
+        <echo>JSHint Successful</echo>
+    </target>    
+       
+
+    <!-- CHECK CSS CODE QUALITY [public] -->	
+	<!-- CSSLint - Keep this public so it can be run independantly - FINISH OPTIONS BIT IN CONFIGURATION -->	
+    <target name="css.lint" depends="-css.copy" description="(PUBLIC) Runs CSSLint against all CSS files. Outputs to console">
+		<echo message="Running CSSLint..."/>
+		<apply executable="java" parallel="false" failonerror="true">
+			<!-- Take all the CSS files except for those listed in exclude -->
+            <fileset 
+				dir="${build.dir}/${publish.dir}/${temp.dir}/css"
+				includes="*.css"	
+				excludes="
+					*.min.css, 
+					*-min.css, 
+					*.minified.css, 
+					*.pack.css"/>	
+            <arg value="-jar" />
+            <arg path="${tool.rhino}" />
+            <arg path="${tool.csslint}" />
+            <srcfile/>
+            <arg value="${tool.csslint.opts}" />
+        </apply>
+        <echo>CSSLint Successful</echo>
+    </target>
+	
+
+
+	<!--
+    ****************************************************************************
+	* BUILD TARGETS [public call to private targets]
+    ****************************************************************************
+    -->	
+	<target name="build.dev" description="(PUBLIC) sets and kicks off the Dev site build"
+        depends="
+            -init,
+			-js.minify, 
+            -js.concatenate,
+			-css.minify,
+            -css.concatenate, 
+			-cleanup
+            ">
+	</target>
+	
+	
+	
+    <!-- 
+	****************************************************************************
+	* FUNCTIONAL TARGETS [private]
+	****************************************************************************
+	-->
+
+    <!--Create build dirs-->
+	<target name="-init" description="(PRIVATE) Deletes the previous build files and creates the new build directory structure">
+        
+		<!--Create a time stamp-->
+		<tstamp>
+			<format property="TODAY" pattern="EEE, d MMM yyyy HH:mm:ss Z"/>
+		</tstamp>
+
+		<!--Delete previous build dir and files-->
+        <echo message="Cleaning up previous build directory..."/>		
+		<delete dir="${build.dir}/${publish.dir}"/>
+
+		<!--Recreate build structure-->
+        <echo message="Creating new build directory..."/>				
+		<mkdir dir="${build.dir}/${publish.dir}"/>
+		<mkdir dir="${build.dir}/${publish.dir}/js"/>
+		<mkdir dir="${build.dir}/${publish.dir}/css"/>
+		<mkdir dir="${build.dir}/${publish.dir}/${temp.dir}"/>
+		
+		<!--Write build time stamp into a file, for reference-->
+		<echo file="${build.dir}/${publish.dir}/js/tstamp.txt" append="false">Build Date: ${TODAY}</echo>
+		<echo file="${build.dir}/${publish.dir}/css/tstamp.txt" append="false">Build Date: ${TODAY}</echo>
+	</target>
+
+
+	
+    <!-- COPY FILES FOR MANIPULATION [private]-->
+	<!-- Make a temporary dir, and flatten out the JS files into that folder -->
+	<target name="-js.copy" depends="-init" description="(PRIVATE) Copies JS files into a temp dir (removes any sub dirs)">
+		<echo message="Copying JavaScript files..."/>		
+		<copy todir="${build.dir}/${publish.dir}/${temp.dir}/js" flatten="true">
+			<fileset 
+                dir="${src.js.dir}" 
+                includes="
+					*.js,
+					**/*.js"/>
+		</copy>
+		<echo message="JavaScript files are now in ${build.dir}/${publish.dir}/${temp.dir}/js"/>
+	</target>
+	<!-- Make a temporary dir and copy the CSS files (except for IE specific styles) into that folder -->
+	<target name="-css.copy" depends="-init" description="(PRIVATE) Copies CSS files into a temp dir (removes any sub dirs)">
+		<echo message="Copying CSS files..."/>		
+		<copy todir="${build.dir}/${publish.dir}/${temp.dir}/css">
+			<fileset 
+                dir="${src.css.dir}" 
+                includes="
+					*.css,
+					**/*.css"
+				excludes="ie/*.css"/>
+		</copy>
+		<echo message="CSS files are now in ${build.dir}/${publish.dir}/${temp.dir}/css"/>						
+	</target>		
+	
+
+
+    <!-- OPTIMIZE JAVASCRIPT FILES [private]-->
+	<!--Minify JS files, excluding third party scripts that have already been minified-->
+	<target name="-js.minify" depends="js.lint" description="(PRIVATE) Minifies JavaScript files">
+		<apply executable="java" parallel="false">
+			<fileset 
+                dir="${build.dir}/${publish.dir}/${temp.dir}/js" 
+                includes="*.js"	
+				excludes="
+					*.min.js, 
+					*-min.js, 
+					*.minified.js, 
+					*.pack.js"/>
+			<arg line="-jar"/>
+			<arg path="${tool.yuicompressor}"/>
+			<srcfile/>
+			<arg line="-o"/>
+			<mapper type="glob" from="*.js" to="${publish.dir}/${temp.dir}/js/*-min.js"/>
+			<targetfile/>
+		</apply>
+		<echo>Done!</echo>
+	</target>
+    <!--Concatenate JS files-->
+	<target name="-js.concatenate" depends="-js.minify" description="(PRIVATE) Concatenates JavaScript files">
+		<concat destfile="${build.dir}/${publish.dir}/js/custom-min.js">
+            <!--jquery should be first in the concatenated file-->
+			<filelist 
+                dir="${build.dir}/${publish.dir}/${temp.dir}/js" 
+                files="${jquery.js}"
+				/>
+			<!--All of the other files in the directory should appear after (except for Modernizr which is included separately in the page header)-->
+			<fileset 
+                dir="${build.dir}/${publish.dir}/${temp.dir}/js"
+                includes="
+					*.min.js, 
+					*-min.js, 
+					*.minified.js, 
+					*.pack.js" 
+                excludes="
+					${jquery.js}, 
+					${modernizr.js}
+					"/>
+		</concat>
+		<echo>Done!</echo>
+	</target>
+				
+
+    <!-- OPTIMIZE CSS FILES [private]-->	
+    <!--Minify CSS files-->
+	<target name="-css.minify" depends="css.lint" description="(PRIVATE) Minifies CSS files">
+		<apply executable="java" parallel="false">				
+			<fileset 
+                dir="${build.dir}/${publish.dir}/${temp.dir}/css" 
+                includes="
+					*.css"
+				excludes="
+					*.min.css, 
+					*-min.css, 
+					*.minified.css, 
+					*.pack.css"/>
+			<arg line="-jar"/>
+			<arg path="${tool.yuicompressor}"/>
+			<arg line="--line-break 0"/>
+			<srcfile/>
+			<arg line="-o"/>
+			<mapper type="glob" from="*.css" to="${publish.dir}/${temp.dir}/css/*-min.css"/>
+			<targetfile/>
+		</apply>
+		<echo>Done!</echo>
+	</target>
+	<!--Concatenate CSS files-->
+	<target name="-css.concatenate" depends="-css.minify" description="(PRIVATE) Concatenates CSS files">
+		<concat destfile="${build.dir}/${publish.dir}/css/custom-min.css">
+            <!--normalize.css and base.css should be first in the concatenated file-->
+			<filelist 
+                dir="${build.dir}/${publish.dir}/${temp.dir}/css" 
+                files="normalize-min.css, base-min.css"/>
+			<!--All of the other files in the directory should appear after-->			
+			<fileset 
+                dir="${build.dir}/${publish.dir}/${temp.dir}/css"
+                includes="
+					*.min.css, 
+					*-min.css, 
+					*.minified.css, 
+					*.pack.css"
+                excludes="normalize-min.css, base-min.css"/>
+		</concat>
+		<echo>Done!</echo>
+	</target>
+				
+					
+    <!--Delete temporary dir where the minified files were copied before being concatenated-->
+	<target name="-cleanup" depends="-css.concatenate" description="(PRIVATE) Deletes the previous build files and creates a new build directory structure">
+		<echo message="Deleting the temp directory..."/>
+		<!--Delete previous build files-->
+		<delete dir="${build.dir}/${publish.dir}/${temp.dir}"/>		
+		<echo message="We're done!"/>		
+	</target>
+	
+</project>
