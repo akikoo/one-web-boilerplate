@@ -10,9 +10,9 @@
  * @url http://www.akikoo.org
  * Twitter: http://twitter.com/akikoo
  *
- */
- 
- 
+*/
+
+
 
 /* 1) Non-semantic helper classes from the HTML5 boilerplate
 ------------------------------------------------------------------------------*/
@@ -90,9 +90,9 @@
 https://github.com/shichuan/mobile-html5-boilerplate/wiki/The-Style
 */
 .ellipsis {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 /* A hack for HTML5 contenteditable attribute on mobile */

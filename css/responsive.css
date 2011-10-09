@@ -17,9 +17,9 @@
  * @url http://www.akikoo.org
  * Twitter: http://twitter.com/akikoo
  *
- */
+*/
 
- 
+
 
 /*==============================================================================	
  1)	320px and up
@@ -31,8 +31,8 @@
 
 	/* Generic style adjustments for viewports 320px and over go here */
 	/* Remember these styles cascade into all sizes above 320px */
-	
-	
+
+
 	/*We sometimes want the footer to always stay at the bottom*/	
 	/**  
 	 * Sticky Footer Solution by Steve Hatcher 
@@ -48,8 +48,8 @@
 		 </div>
 	   <div role="contentinfo">
 	   </div>
-	 */
-	 
+	*/
+
 	html, body {
 		height:100%;
 	}
@@ -68,7 +68,7 @@
 	} 
 	/*END Sticky footer
 	--------------------------------------------------------------------------*/
-	
+
 }
 
 
@@ -95,7 +95,7 @@
 	768 ÷ 16 = 48em
 ==============================================================================*/
 @media only screen and (min-width: 48em) {
-	
+
 	/* Style adjustments for viewports 768px and over go here */
 
 }
@@ -110,7 +110,7 @@
 	992 ÷ 16 = 62em
 ==============================================================================*/
 @media only screen and (min-width: 62em) {
-	
+
 	/* Style adjustments for viewports 992px and over go here */
 
 }
@@ -124,7 +124,7 @@
 	1382 ÷ 16 = 86.375em
 ==============================================================================*/
 @media only screen and (min-width: 86.375em) {
-	
+
 	/* Style adjustments for viewports 1382px and over go here */
 	/* Consider using max-width here, for better readability... */
 
@@ -138,12 +138,12 @@
 6)	iPhone 4, Opera Mobile 11 and other high pixel ratio devices 
 ==============================================================================*/
 @media
-	only screen and (-webkit-min-device-pixel-ratio: 1.5),
-	only screen and (-o-min-device-pixel-ratio: 3/2),
-	only screen and (min-device-pixel-ratio: 1.5) {
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5) {
 
 	/* Styles */
-		
+
 }
 
 
@@ -179,7 +179,7 @@
 
 	/* Style adjustments for viewports between 768px and 1024px go here */
 	/* Desktop browsers don't get this */
-	
+
 }
 
 

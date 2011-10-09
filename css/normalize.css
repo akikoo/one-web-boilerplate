@@ -6,7 +6,7 @@
 
 /*
  * Corrects block display not defined in IE6/7/8/9 & FF3
- */
+*/
 
 article,
 aside,
@@ -23,7 +23,7 @@ section {
 
 /*
  * Corrects inline-block display not defined in IE6/7/8/9 & FF3
- */
+*/
 
 audio,
 canvas,
@@ -35,7 +35,7 @@ video {
 
 /*
  * Prevents modern browsers from displaying 'audio' without controls
- */
+*/
 
 audio:not([controls]) {
     display: none;
@@ -44,7 +44,7 @@ audio:not([controls]) {
 /*
  * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
  * Known issue: no IE6 support
- */
+*/
 
 [hidden] {
     display: none;
@@ -61,7 +61,7 @@ audio:not([controls]) {
  * 2. Keeps page centred in all browsers regardless of content height
  * 3. Prevents iOS text size adjust after orientation change, without disabling user zoom
  *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
- */
+*/
 
 html {
     font-size: 100%; /* 1 */
@@ -72,7 +72,7 @@ html {
 
 /*
  * Addresses margins handled incorrectly in IE6/7
- */
+*/
 
 body {
     margin: 0;
@@ -80,7 +80,7 @@ body {
 
 /* 
  * Addresses font-family inconsistency between 'textarea' and other form elements.
- */
+*/
 
 body,
 button,
@@ -105,7 +105,7 @@ a:visited {
 
 /*
  * Addresses outline displayed oddly in Chrome
- */
+*/
 
 a:focus {
     outline: thin dotted;
@@ -114,7 +114,7 @@ a:focus {
 /*
  * Improves readability when focused and also mouse hovered in all browsers
  * people.opera.com/patrickl/experiments/keyboard/test
- */
+*/
 
 a:hover,
 a:active {
@@ -128,7 +128,7 @@ a:active {
 
 /*
  * Addresses styling not present in IE7/8/9, S5, Chrome
- */
+*/
 
 abbr[title] {
     border-bottom: 1px dotted;
@@ -149,7 +149,7 @@ blockquote {
 
 /*
  * Addresses styling not present in S5, Chrome
- */
+*/
 
 dfn {
     font-style: italic;
@@ -157,7 +157,7 @@ dfn {
 
 /*
  * Addresses styling not present in IE6/7/8/9
- */
+*/
 
 mark {
     background: #ff0;
@@ -167,7 +167,7 @@ mark {
 /*
  * Corrects font family set oddly in IE6, S4/5, Chrome
  * en.wikipedia.org/wiki/User:Davidgothberg/Test59
- */
+*/
 
 pre,
 code,
@@ -180,7 +180,7 @@ samp {
 
 /*
  * Improves readability of pre-formatted text in all browsers
- */
+*/
 
 pre {
     white-space: pre;
@@ -191,7 +191,7 @@ pre {
 /*
  * 1. Addresses CSS quotes not supported in IE6/7
  * 2. Addresses quote property not supported in S4
- */
+*/
 
 /* 1 */
 
@@ -214,7 +214,7 @@ small {
 /*
  * Prevents sub and sup affecting line-height in all browsers
  * gist.github.com/413930
- */
+*/
 
 sub,
 sup {
@@ -262,7 +262,7 @@ nav ol {
  * 1. Removes border when inside 'a' element in IE6/7/8/9, FF3
  * 2. Improves image quality when scaled in IE7
  *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
- */
+*/
 
 img {
     border: 0; /* 1 */
@@ -271,7 +271,7 @@ img {
 
 /*
  * Corrects overflow displayed oddly in IE9 
- */
+*/
 
 svg:not(:root) {
     overflow: hidden;
@@ -284,7 +284,7 @@ svg:not(:root) {
 
 /*
  * Addresses margin not present in IE6/7/8/9, S5, O11
- */
+*/
 
 figure {
     margin: 0;
@@ -297,7 +297,7 @@ figure {
 
 /*
  * Corrects margin displayed oddly in IE6/7
- */
+*/
 
 form {
     margin: 0;
@@ -305,7 +305,7 @@ form {
 
 /*
  * Define consistent border, margin, and padding
- */
+*/
 
 fieldset {
     border: 1px solid #c0c0c0;
@@ -316,7 +316,7 @@ fieldset {
 /*
  * 1. Corrects color not being inherited in IE6/7/8/9
  * 2. Corrects alignment displayed oddly in IE6/7
- */
+*/
 
 legend {
     border: 0; /* 1 */
@@ -327,7 +327,7 @@ legend {
  * 1. Corrects font size not being inherited in all browsers
  * 2. Addresses margins set differently in IE6/7, FF3/4, S5, Chrome
  * 3. Improves appearance and consistency in all browsers
- */
+*/
 
 button,
 input,
@@ -341,7 +341,7 @@ textarea {
 
 /*
  * Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
- */
+*/
 
 button,
 input {
@@ -353,7 +353,7 @@ input {
  * 2. Corrects inability to style clickable 'input' types in iOS
  * 3. Corrects inner spacing displayed oddly in IE7 without effecting normal text inputs
  *    Known issue: inner spacing remains in IE6
- */
+*/
 
 button,
 input[type="button"], 
@@ -367,7 +367,7 @@ input[type="submit"] {
 /*
  * 1. Addresses box sizing set to content-box in IE8/9
  * 2. Addresses excess padding in IE8/9
- */
+*/
 
 input[type="checkbox"],
 input[type="radio"] {
@@ -378,7 +378,7 @@ input[type="radio"] {
 /*
  * 1. Addresses appearance set to searchfield in S5, Chrome
  * 2. Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof)
- */
+*/
 
 input[type="search"] {
     -webkit-appearance: textfield; /* 1 */
@@ -389,7 +389,7 @@ input[type="search"] {
 
 /*
  * Corrects inner padding displayed oddly in S5, Chrome on OSX
- */
+*/
 
 input[type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
@@ -398,7 +398,7 @@ input[type="search"]::-webkit-search-decoration {
 /*
  * Corrects inner padding and border displayed oddly in FF3/4
  * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
- */
+*/
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
@@ -409,7 +409,7 @@ input::-moz-focus-inner {
 /*
  * 1. Removes default vertical scrollbar in IE6/7/8/9
  * 2. Improves readability and alignment in all browsers
- */
+*/
 
 textarea {
     overflow: auto; /* 1 */
@@ -423,7 +423,7 @@ textarea {
 
 /* 
  * Remove most spacing between table cells
- */
+*/
 
 table {
     border-collapse: collapse;

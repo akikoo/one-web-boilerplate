@@ -10,7 +10,7 @@
 	-->
 	
 	<!-- Load config properties for this build -->
-    <property file="build/config/default.properties"/>
+	<property file="build/config/default.properties"/>
 
 
 	
@@ -21,12 +21,12 @@
 	-->
     <!-- CHECK JAVASCRIPT CODE QUALITY [public]-->	
 	<!-- JSLint (option 1) - Keep this public so it can be run independantly -->
-    <target name="js.lint" depends="-js.copy" description="(PUBLIC) Runs JSLint against all non-lib JS. Outputs to console.">		
+	<target name="js.lint" depends="-js.copy" description="(PUBLIC) Runs JSLint against all non-lib JS. Outputs to console.">		
 		<echo message="Running JSLint..."/>
 		<!-- execute jslint on the javascript, with options -->
 		<apply executable="java" parallel="false" failonerror="true">
 			<!-- Take all the JS files except for those listed in exclude -->
-            <fileset 
+			<fileset 
 				dir="${build.dir}/${publish.dir}/${temp.dir}/js"
                 includes="*.js"	
 				excludes="
@@ -38,16 +38,16 @@
 					imgsizer.js,
 					selectivizr.js
 					"/>
-            <arg value="-jar" />
-            <arg path="${tool.rhino}" />
-            <arg path="${tool.jslint}" />
-            <srcfile/>
-            <arg value="${tool.jslint.opts}" />
-        </apply>        
-        <echo>JSLint Successful</echo>
-    </target>     			
+			<arg value="-jar" />
+			<arg path="${tool.rhino}" />
+			<arg path="${tool.jslint}" />
+			<srcfile/>
+			<arg value="${tool.jslint.opts}" />
+		</apply>        
+		<echo>JSLint Successful</echo>
+	</target>     			
 	<!-- JSHint (option 2) - Keep this public so it can be run independantly -->
-    <target name="js.hint" depends="-js.copy" description="(PUBLIC) Runs JSHint against all non-lib JS. Outputs to console.">
+	<target name="js.hint" depends="-js.copy" description="(PUBLIC) Runs JSHint against all non-lib JS. Outputs to console.">
 		<echo message="Running JSHint..."/>		
 		<!-- execute jshint on the javascript, with options -->
 		<apply executable="java" parallel="false" failonerror="true">
@@ -64,23 +64,23 @@
 					imgsizer.js,
 					selectivizr.js
 					"/>
-            <arg value="-jar" />
-            <arg path="${tool.rhino}" />
-            <arg path="${tool.jshint}" />
-            <srcfile/>
-            <arg value="${tool.jshint.opts}" />
-        </apply>        
-        <echo>JSHint Successful</echo>
-    </target>    
+			<arg value="-jar" />
+			<arg path="${tool.rhino}" />
+			<arg path="${tool.jshint}" />
+			<srcfile/>
+			<arg value="${tool.jshint.opts}" />
+		</apply>        
+		<echo>JSHint Successful</echo>
+	</target>    
        
 
     <!-- CHECK CSS CODE QUALITY [public] -->	
 	<!-- CSSLint - Keep this public so it can be run independantly - FINISH OPTIONS BIT IN CONFIGURATION -->	
-    <target name="css.lint" depends="-css.copy" description="(PUBLIC) Runs CSSLint against all CSS files. Outputs to console">
+	<target name="css.lint" depends="-css.copy" description="(PUBLIC) Runs CSSLint against all CSS files. Outputs to console">
 		<echo message="Running CSSLint..."/>
 		<apply executable="java" parallel="false" failonerror="true">
 			<!-- Take all the CSS files except for those listed in exclude -->
-            <fileset 
+			<fileset 
 				dir="${build.dir}/${publish.dir}/${temp.dir}/css"
 				includes="*.css"	
 				excludes="
@@ -88,14 +88,14 @@
 					*-min.css, 
 					*.minified.css, 
 					*.pack.css"/>	
-            <arg value="-jar" />
-            <arg path="${tool.rhino}" />
-            <arg path="${tool.csslint}" />
-            <srcfile/>
-            <arg value="${tool.csslint.opts}" />
-        </apply>
-        <echo>CSSLint Successful</echo>
-    </target>
+			<arg value="-jar" />
+			<arg path="${tool.rhino}" />
+			<arg path="${tool.csslint}" />
+			<srcfile/>
+			<arg value="${tool.csslint.opts}" />
+		</apply>
+		<echo>CSSLint Successful</echo>
+	</target>
 	
 
 
@@ -132,11 +132,11 @@
 		</tstamp>
 
 		<!--Delete previous build dir and files-->
-        <echo message="Cleaning up previous build directory..."/>		
+		<echo message="Cleaning up previous build directory..."/>		
 		<delete dir="${build.dir}/${publish.dir}"/>
 
 		<!--Recreate build structure-->
-        <echo message="Creating new build directory..."/>				
+		<echo message="Creating new build directory..."/>				
 		<mkdir dir="${build.dir}/${publish.dir}"/>
 		<mkdir dir="${build.dir}/${publish.dir}/js"/>
 		<mkdir dir="${build.dir}/${publish.dir}/css"/>

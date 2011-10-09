@@ -41,7 +41,7 @@ mySite.functions = {
 		// Functions calls go here
 		// eg. mySite.lib.loadJS();
 		
-	});
+		});
 
 
 	//Methods that should be executed after ALL assets have been loaded (incl. images)
@@ -52,7 +52,7 @@ mySite.functions = {
 
 			// Functions calls go here
 		
-		}, 100);
+			}, 100);
 		
 	});
 

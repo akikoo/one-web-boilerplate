@@ -29,8 +29,8 @@ mySite.lib = {
 			t		= 'script',
 			s		= d.createElement(t),
 			x		= d.getElementsByTagName(t)[0];
-			s.async = true;
-			s.src	= url;
+		s.async = true;
+		s.src	= url;
 			
 		d.body.appendChild(s);				
 		x.parentNode.insertBefore(s,x);		
