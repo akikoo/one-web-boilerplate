@@ -1,8 +1,5 @@
 <!doctype html>
 
-<!-- Set to true for production-->
-<!--#set var="OPTIMISEDASSETS" value="" -->
-
 <!-- 
 Mobile First Responsive One Web Boilerplate
 Credits: See inline, but in general this stuff is pulled from the following sources:
