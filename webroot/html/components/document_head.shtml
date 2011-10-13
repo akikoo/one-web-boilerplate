@@ -6,6 +6,7 @@ Credits: See inline, but in general this stuff is pulled from the following sour
 http://html5boilerplate.com
 http://html5boilerplate.com/mobile
 http://forabeautifulweb.com/blog/about/320_and_up/
+
 Author: Aki Karkkainen
 URL: http://akikoo.org
 Twitter: http://twitter.com/akikoo
@@ -72,9 +73,8 @@ Twitter: http://twitter.com/akikoo
 	<noscript>
 	<!-- For more info, see http://labjs.com/ -->
 	<!-- For example, unhide any content hidden by your main CSS
-	Essentially, undo the CSS hiding of content, since there won't otherwise be any JavaScript to do so
+		 Essentially, undo the CSS hiding of content, since there won't otherwise be any JavaScript to do so
 	-->
-	<link rel="stylesheet" href="fallback.css" />
 	</noscript>
 
 	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->

@@ -1,11 +1,12 @@
 <!doctype html>
 
 <!-- 
-Mobile First Responsive One Web Boilerplate
+Mobile First Responsive One Web Boilerplate - static version
 Credits: See inline, but in general this stuff is pulled from the following sources:
 http://html5boilerplate.com
 http://html5boilerplate.com/mobile
 http://forabeautifulweb.com/blog/about/320_and_up/
+
 Author: Aki Karkkainen
 URL: http://akikoo.org
 Twitter: http://twitter.com/akikoo
@@ -70,9 +71,8 @@ Twitter: http://twitter.com/akikoo
 	<noscript>
 	<!-- For more info, see http://labjs.com/ -->
 	<!-- For example, unhide any content hidden by your main CSS
-	Essentially, undo the CSS hiding of content, since there won't otherwise be any JavaScript to do so
+		 Essentially, undo the CSS hiding of content, since there won't otherwise be any JavaScript to do so
 	-->
-	<link rel="stylesheet" href="fallback.css" />
 	</noscript>
 
 	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
@@ -119,9 +119,9 @@ Twitter: http://twitter.com/akikoo
 								<!-- hCard microformat -->							
 								<p class="vcard author">
 									<span class="fn">Aki Karkkainen</span>, 
-									<time class="published" datetime="2011-10-09" pubdate>
-										9 October, 2011								
-										<span class="value-title" title="2011-10-09"> </span>
+									<time class="published" datetime="2011-10-13" pubdate>
+										13 October, 2011								
+										<span class="value-title" title="2011-10-13"> </span>
 									</time>	
 								</p>
 							</footer>
@@ -144,8 +144,8 @@ Twitter: http://twitter.com/akikoo
 
 	<!-- For improving flexible images quality on IE6/7 -->  
 	<!--[if (lt IE 9) & (!IEMobile)]>
-		<script src="webroot/assets/js/lib/selectivizr.js"></script> 
-		<script src="webroot/assets/js/lib/imgsizer.js"></script>   
+		<script src="/webroot/assets/js/lib/selectivizr.js"></script> 
+		<script src="/webroot/assets/js/lib/imgsizer.js"></script>   
 	<![endif]-->
 
 	<!--#if expr="${OPTIMISEDASSETS}" -->
@@ -170,7 +170,7 @@ Twitter: http://twitter.com/akikoo
 
 	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
 	   chromium.org/developers/how-tos/chrome-frame-getting-started -->
-	<!--[if lt IE 9 ]>
+	<!--[if lt IE 7 ]>
 	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
 	<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
 	<![endif]-->
