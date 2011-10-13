@@ -6,11 +6,11 @@
 <!--#else-->
 	<!--#set var="lang-dir" value="ltr" -->
 <!--#endif -->
+
 <!--#set var="title" value="One Web/Mobile First Responsive Boilerplate"-->
-<!--#set var="page-heading" value="Page heading to go here" -->
+<!--#set var="page-heading" value="This is the page heading h1" -->
 
 <!--#set var="documenthead" value="./../components/document_head.shtml"-->
-<!--#set var="view1" value="/webroot/html/pages/boilerplate/view1.shtml"-->
-<!--#set var="documentfooter" value="./../components/document_head.shtml"-->
-
-<!--#include virtual="/webroot/html/templates/default.shtml" -->
+<!--#set var="documentfooter" value="./../components/document_footer.shtml"-->
+<!--#set var="view1" value="./../pages/boilerplate/view1.shtml"-->
+<!--#include virtual="./../templates/default.shtml" -->
