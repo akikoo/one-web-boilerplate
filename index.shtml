@@ -11,6 +11,8 @@ URL: http://akikoo.org
 Twitter: http://twitter.com/akikoo
 -->
 
+<!--#include virtual="config.shtml" -->
+
 <!--[if IEMobile 7]><html class="no-js iem7 oldie" lang="en" dir="ltr"><![endif]-->
 <!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en" dir="ltr"><![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js ie7 oldie" lang="en" dir="ltr"><![endif]-->
@@ -49,20 +51,20 @@ Twitter: http://twitter.com/akikoo
 
 	<!--#if expr="${OPTIMISEDASSETS}" -->
 	<!-- PROD: styles concatenated and minified via ant build script -->
-	<link rel="stylesheet" href="build/publish/css/custom-min.css">	
+	<link rel="stylesheet" href="/build/publish/css/custom-min.css">	
 	<!--#else -->
 	<!-- DEV: scripts included separately -->			
 	<!-- 1. Reset styles -->				
-	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="/webroot/assets/css/normalize.css">
 
 	<!-- 2. Mobile first styles for all browsers -->		
-	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="/webroot/assets/css/base.css">
 
 	<!-- 3. Responsive larger screen styles, using Media Queries -->
-	<link rel="stylesheet" href="css/responsive.css">		
+	<link rel="stylesheet" href="/webroot/assets/css/responsive.css">		
 
 	<!-- 4. HTML5 boilerplate helper classes -->				
-	<link rel="stylesheet" href="css/utilities.css">
+	<link rel="stylesheet" href="/webroot/assets/css/utilities.css">
 	<!--#endif -->
 
 	<noscript>
@@ -74,7 +76,7 @@ Twitter: http://twitter.com/akikoo
 	</noscript>
 
 	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="js/lib/modernizr-2.0.6.min.js"></script>
+	<script src="webroot/assets/js/lib/modernizr-2.0.6.min.js"></script>
 </head>
 
 <body>
@@ -142,8 +144,8 @@ Twitter: http://twitter.com/akikoo
 
 	<!-- For improving flexible images quality on IE6/7 -->  
 	<!--[if (lt IE 9) & (!IEMobile)]>
-		<script src="js/lib/selectivizr.js"></script> 
-		<script src="js/lib/imgsizer.js"></script>   
+		<script src="webroot/assets/js/lib/selectivizr.js"></script> 
+		<script src="webroot/assets/js/lib/imgsizer.js"></script>   
 	<![endif]-->
 
 	<!--#if expr="${OPTIMISEDASSETS}" -->
@@ -154,8 +156,8 @@ Twitter: http://twitter.com/akikoo
 	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/lib/jquery-1.6.2.min.js"><\/script>')</script>
-	<script defer src="js/mylib.js"></script>
-	<script defer src="js/script.js"></script>
+	<script defer src="webroot/assets/js/mylib.js"></script>
+	<script defer src="webroot/assets/js/script.js"></script>
 	<!--#endif -->
 
 	<!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
