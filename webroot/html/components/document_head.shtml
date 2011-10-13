@@ -50,20 +50,20 @@ Twitter: http://twitter.com/akikoo
 
 	<!--#if expr="${OPTIMISEDASSETS}" -->
 		<!-- PROD: styles concatenated and minified via ant build script -->
-		<link rel="stylesheet" href="/build/publish/css/custom-min.css">	
+		<link rel="stylesheet" href="<!--#echo var="PUBLISH" -->/css/custom-min.css">	
 	<!--#else -->
 		<!-- DEV: scripts included separately -->			
 		<!-- 1. Reset styles -->				
-		<link rel="stylesheet" href="<!--#echo var="SHARD" -->css/normalize.css">
+		<link rel="stylesheet" href="<!--#echo var="SHARD" -->/css/normalize.css">
 
 		<!-- 2. Mobile first styles for all browsers -->		
-		<link rel="stylesheet" href="<!--#echo var="SHARD" -->css/base.css">
+		<link rel="stylesheet" href="<!--#echo var="SHARD" -->/css/base.css">
 
 		<!-- 3. Responsive larger screen styles, using Media Queries -->
-		<link rel="stylesheet" href="<!--#echo var="SHARD" -->css/responsive.css">		
+		<link rel="stylesheet" href="<!--#echo var="SHARD" -->/css/responsive.css">		
 
 		<!-- 4. HTML5 boilerplate helper classes -->				
-		<link rel="stylesheet" href="<!--#echo var="SHARD" -->css/utilities.css">
+		<link rel="stylesheet" href="<!--#echo var="SHARD" -->/css/utilities.css">
 		
 		<!-- 5. Any module CSS files go here... -->						
 		
@@ -78,5 +78,5 @@ Twitter: http://twitter.com/akikoo
 	</noscript>
 
 	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="<!--#echo var="SHARD" -->js/lib/modernizr-2.0.6.min.js"></script>
+	<script src="<!--#echo var="SHARD" -->/js/lib/modernizr-2.0.6.min.js"></script>
 </head>
