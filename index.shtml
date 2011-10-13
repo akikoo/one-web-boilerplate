@@ -66,6 +66,9 @@ Twitter: http://twitter.com/akikoo
 
 	<!-- 4. HTML5 boilerplate helper classes -->				
 	<link rel="stylesheet" href="/webroot/assets/css/utilities.css">
+
+	<!-- 5. Any module CSS files go here... -->						
+		
 	<!--#endif -->
 
 	<noscript>
