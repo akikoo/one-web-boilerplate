@@ -1,0 +1,44 @@
+
+<!--#include virtual="../../../project.shtml" -->
+<!--#include virtual="{$documenthead}" -->
+
+<body>
+
+	<div class="page">
+
+		<div class="accessibility">
+			<a href="#main-content">Skip to Main Content</a>
+		</div>
+
+		<header role="banner">
+
+			<!-- No h1 here since this is not the homepage-->
+			<div class="masthead">
+				<a href="#">One Web/Mobile First Responsive Boilerplate</a>  
+			</div> 
+
+			<nav role="navigation">
+			</nav>
+
+		</header>
+
+		<div id="#main-content" role="main">
+			<!--#include virtual="${view1}" -->
+		</div>
+
+		<!--#if expr="${view2}" -->
+			<aside role="complementary">
+				<!--#include virtual="${view2}" -->
+			</aside>
+		<!--#endif -->
+				
+	</div>
+
+	<footer role="contentinfo">
+		<p>Oh, site info goes here by the way (by default, anyway)</p>
+	</footer>
+				
+<!--#include virtual="$documenthead" -->
+
+</body>
+</html>

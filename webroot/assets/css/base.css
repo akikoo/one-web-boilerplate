@@ -1,0 +1,111 @@
+/**
+ * $Id$
+ * Mobile first stylesheet for all the browsers out there
+ *
+ * @author Aki Karkkainen
+ * @url http://www.akikoo.org
+ * Twitter: http://twitter.com/akikoo
+ * 
+*/
+
+
+
+/*==============================================================================
+1)	Mini reset and global base styles, to extend normalize.css which is included 
+	before these styles
+==============================================================================*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 100%; /* 16px (assuming browser default is 16px) */
+	line-height: 1; /* 16px */
+}
+
+
+/*Focus styles
+------------------------------------------------------------------------------*/
+
+a {
+	outline: none;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover, a:active {
+	outline: none;
+}
+
+/* Visually hiding content that will be read by a screen reader
+------------------------------------------------------------------------------*/
+.accessibility a {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+/*active when the user tabs to the link*/
+.accessibility a:focus {
+	position: static;
+	width: auto;
+	height: auto;
+}
+
+/*Typefaces: Sans-serif
+------------------------------------------------------------------------------*/
+
+
+/*Typefaces: Serif
+------------------------------------------------------------------------------*/
+
+
+
+/*==============================================================================
+2)	Mobile first styles: Only colour and typography
+	Begin with a layout-less version and serve only default, linear layout
+	Remember these rules are applied also in older desktop browsers that don't 
+	support media queries
+==============================================================================*/
+
+/*Flexible images and embedded videos
+------------------------------------------------------------------------------*/
+img,
+video,
+object,
+embed {
+	max-width: 100%;
+}
+
+/*Put your styles here...*/
+
+
+/*TEMP: Used only for quick and dirty demonstration, remove these before doing anything else
+--------------------------------------------------------------------------------------------------*/
+.masthead {
+	display: none;
+}
+
+.hfeed,
+[role="contentinfo"] {
+	width: 50%;
+	margin: 40px auto 0;
+}
+
+h1 {
+	margin-bottom: 60px;
+}
+
+h2 {
+	margin-bottom: 20px;	
+}
+
+.vcard {
+	margin: 20px 0;	
+}

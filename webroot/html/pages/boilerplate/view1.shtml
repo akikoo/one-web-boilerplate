@@ -1,0 +1,29 @@
+<section>
+	<div class="section hfeed">
+
+		<h1>One Web/Mobile First Responsive Boilerplate (what a mouthful!)</h1>
+
+		<!-- hAtom microformat -->
+		<article>
+			<div class="hentry">							
+				<h2 class="entry-title">Information and Credits</h2>
+				<div class="entry-summary">
+					<p>Here we will have an explanation in the near future.</p>
+				</div>
+				<div class="entry-content">
+				</div>
+				<footer>
+					<!-- hCard microformat -->							
+					<p class="vcard author">
+						<span class="fn">Aki Karkkainen</span>, 
+						<time class="published" datetime="2011-10-09" pubdate>
+							9 October, 2011								
+							<span class="value-title" title="2011-10-09"> </span>
+						</time>	
+					</p>
+				</footer>
+			</div>
+		</article>
+
+	</div>
+</section>

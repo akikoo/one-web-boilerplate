@@ -1,0 +1,101 @@
+/**
+ * $Id$
+ * Utility styles from the HTML5 boilerplate (both mobile and desktop versions)
+ * 
+ * Credits: big thanks to the H5BP dev community and team
+ * http://html5boilerplate.com
+ * http://html5boilerplate.com/mobile
+ * 
+ * @author Aki Karkkainen (I'm only pulling stuff together from the fantastic resources mentioned above)
+ * @url http://www.akikoo.org
+ * Twitter: http://twitter.com/akikoo
+ *
+*/
+
+
+
+/* 1) Non-semantic helper classes from the HTML5 boilerplate
+------------------------------------------------------------------------------*/
+/* For image replacement */
+.ir { 
+	display: block; 
+	border: 0; 
+	text-indent: -999em; 
+	overflow: hidden; 
+	background-color: transparent; 
+	background-repeat: no-repeat; 
+	text-align: left; 
+	direction: ltr; 
+}
+
+.ir br { 
+	display: none; 
+}
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden { 
+	display: none !important; 
+	visibility: hidden; 
+}
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { 
+	border: 0; 
+	clip: rect(0 0 0 0); 
+	height: 1px; 
+	margin: -1px; 
+	overflow: hidden; 
+	padding: 0; 
+	position: absolute; 
+	width: 1px; 
+}
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, 
+.visuallyhidden.focusable:focus { 
+	clip: auto; 
+	height: auto; 
+	margin: 0; 
+	overflow: visible; 
+	position: static; 
+	width: auto; 
+}
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { 
+	visibility: hidden; 
+}
+
+/* Contain floats: h5bp.com/q */ 
+.clearfix:before, 
+.clearfix:after { 
+	content: ""; 
+	display: table; 
+}
+
+.clearfix:after { 
+	clear: both; 
+}
+
+.clearfix { 
+	zoom: 1; 
+}
+
+
+
+
+/* 2) Styles from the HTML5 Mobile boilerplate
+------------------------------------------------------------------------------*/
+/*Text overflow with ellipsis
+https://github.com/shichuan/mobile-html5-boilerplate/wiki/The-Style
+*/
+.ellipsis {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+/* A hack for HTML5 contenteditable attribute on mobile */
+textarea.contenteditable {
+	-webkit-appearance: none;
+}
