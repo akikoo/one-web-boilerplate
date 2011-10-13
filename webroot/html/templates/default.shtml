@@ -1,5 +1,5 @@
 
-<!--#include virtual="../../../project.shtml" -->
+<!--#include virtual="../../../config.shtml" -->
 <!--#include virtual="{$documenthead}" -->
 
 <body>
@@ -38,7 +38,7 @@
 		<p>Oh, site info goes here by the way (by default, anyway)</p>
 	</footer>
 				
-<!--#include virtual="$documenthead" -->
+<!--#include virtual="$documentfooter" -->
 
 </body>
 </html>
