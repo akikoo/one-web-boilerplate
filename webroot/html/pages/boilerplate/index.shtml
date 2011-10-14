@@ -1,4 +1,4 @@
-<!--#include virtual="/config.shtml" -->
+<!--#include virtual="../../../config.shtml" -->
 
 <!--#if expr="${lang}" -->
 <!--#else-->
