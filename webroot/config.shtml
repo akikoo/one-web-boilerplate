@@ -1,7 +1,7 @@
 <!--#set var="OPTIMISEDASSETS" value="" -->
 
-<!--#set var="SHARD" value="/webroot/assets" -->
-<!--#set var="HTML" value="/webroot/html" -->
+<!--#set var="SHARD" value="/assets" -->
+<!--#set var="HTML" value="/html" -->
 
 <!--#set var="COMPONENTS" value="${HTML}/components" -->
 <!--#set var="MODULES" value="${HTML}/modules" -->
