@@ -3,16 +3,25 @@
 
 	<description>JS/CSS Dev Build for myProject</description>
 
+
     <!-- 
 	****************************************************************************
 	* CONFIG 
 	****************************************************************************
 	-->
+
+    <!-- Load in Ant-Contrib to give us access to some very useful tasks! -->
+    <!-- the .jar file is located in the tools directory -->
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+        <classpath>
+            <pathelement location="${tool.antcontrib}"/>
+        </classpath>
+    </taskdef>
 	
 	<!-- Load config properties for this build -->
 	<property file="build/config/default.properties"/>
 
-	
+
     <!-- 
 	****************************************************************************
 	* TEST TARGETS [public]
