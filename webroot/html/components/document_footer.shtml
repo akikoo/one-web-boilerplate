@@ -1,12 +1,16 @@
+<!-- This will be set by the build script and reverted back at the end of the build process-->
+<!--#set var='OPTIMISEDASSETS' value='' -->
+
 <!-- For improving flexible images quality on IE6/7 for responsive web sites -->  
 <!--[if (lt IE 9) & (!IEMobile)]>
 	<script src="<!--#echo var="SHARD" -->/js/lib/selectivizr.js"></script> 
 	<script src="<!--#echo var="SHARD" -->/js/lib/imgsizer.js"></script>   
 <![endif]-->
 
+<!-- This variable will be toggled automatically by the build script -->
 <!--#if expr="${OPTIMISEDASSETS}" -->
 	<!-- PROD: scripts concatenated and minified via ant build script -->
-	<script src="<!--#echo var="PUBLISH" -->/js/custom-min.js"></script>
+	<script src="<!--#echo var="PUBLISH" -->/js/scripts-concat.min.js"></script>
 <!--#else -->
 	<!-- DEV: scripts included separately -->			
 	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->

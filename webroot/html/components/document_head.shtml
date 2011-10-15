@@ -12,6 +12,8 @@ URL: http://akikoo.org
 Twitter: http://twitter.com/akikoo
 -->
 
+<!-- This will be set by the build script and reverted back at the end of the build process-->
+<!--#set var='OPTIMISEDASSETS' value='' -->
 
 <!--[if IEMobile 7]><html class="no-js iem7 oldie" lang="<!--#echo var="lang" -->" dir="<!--#echo var="lang-dir"-->"><![endif]-->
 <!--[if lt IE 7]><html class="no-js ie6 oldie" lang="<!--#echo var="lang" -->" dir="<!--#echo var="lang-dir"-->"><![endif]-->
@@ -49,9 +51,10 @@ Twitter: http://twitter.com/akikoo
 	<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
 	<meta http-equiv="cleartype" content="on">
 
+	<!-- This variable will be toggled automatically by the build script -->
 	<!--#if expr="${OPTIMISEDASSETS}" -->
 		<!-- PROD: styles concatenated and minified via ant build script -->
-		<link rel="stylesheet" href="<!--#echo var="PUBLISH" -->/css/custom-min.css">	
+		<link rel="stylesheet" href="<!--#echo var="PUBLISH" -->/css/styles-concat.min.css">	
 	<!--#else -->
 		<!-- DEV: scripts included separately -->			
 		<!-- 1. Reset styles -->				
