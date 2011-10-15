@@ -58,11 +58,7 @@
 	</target>
 	<!-- Add other build targets here if necessary (build.dev is the default) -->
 	
-					
-	<!-- 
-	-compress
-	-->
-
+	
 
     <!-- 
 	****************************************************************************
