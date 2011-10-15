@@ -19,11 +19,11 @@
     <!-- Load in Ant-Contrib to give us access to some very useful tasks -->
     <!-- the .jar file is located in the tools directory -->
 	<!-- See http://ant-contrib.sourceforge.net/ -->
-    <taskdef resource="net/sf/antcontrib/antcontrib.properties">
-        <classpath>
-            <pathelement location="${tool.antcontrib}"/>
-        </classpath>
-    </taskdef>
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="${tool.antcontrib}"/>
+		</classpath>
+	</taskdef>
 
 	<!-- This is the jsdocs task --> 
 	<!-- Using an Ant task wrapper around the JsDoc Toolkit application -->
@@ -43,6 +43,7 @@
 	<target name="-build.dev" description="(PRIVATE) calls all Dev site targets"
         depends="
             -init,
+			-useminified, 
 			-make_shtml_into_html, 
 			-html.minify, 
 			-css.minify, 
@@ -51,6 +52,7 @@
 			-doc.jsdoc, 
 			-js.minify, 
             -js.concatenate, 
+			-useseparate, 			
 			-cleanup
             ">
 	</target>
@@ -213,7 +215,7 @@
 			<arg value="-jar"/>
 			<arg path="${tool.htmlcompressor}"/>
 			<arg line="--type html"/>
-            <arg line="--preserve-line-breaks"/>
+			<arg line="--preserve-line-breaks"/>
 			<srcfile/>
 			<arg value="-o"/>
 			<mapper type="glob" from="*" to="${publish.dir}/html-compressed/pages/*"/>
@@ -239,10 +241,10 @@
 			<targetfile/>
 		</apply>
 		<echo>Done!</echo>
-	</target>
+	</target>	
 	<!--Concatenate CSS files-->
 	<target name="-css.concatenate" depends="-css.minify" description="(PRIVATE) Concatenates CSS files">
-		<concat destfile="${build.dir}/${publish.dir}/assets/css/custom-min.css">
+		<concat destfile="${build.dir}/${publish.dir}/assets/css/styles-concat.min.css">
             <!-- ${file.concatenate.first.css} contains a comma separated list of files that should be first in the concatenated file-->
 			<filelist 
                 dir="${build.dir}/${publish.dir}/${temp.dir}/css" 
@@ -276,7 +278,7 @@
 	</target>
     <!--Concatenate JS files-->
 	<target name="-js.concatenate" depends="-js.minify" description="(PRIVATE) Concatenates JavaScript files">
-		<concat destfile="${build.dir}/${publish.dir}/assets/js/custom-min.js">
+		<concat destfile="${build.dir}/${publish.dir}/assets/js/scripts-concat.min.js">
             <!-- ${file.concatenate.first.js} contains a comma separated list of files that should be first in the concatenated file-->
 			<filelist 
                 dir="${build.dir}/${publish.dir}/${temp.dir}/js" 
@@ -360,6 +362,31 @@
 	
 
 	
+	<!-- Update HTML header and footer files to use the minified assets -->
+	<!-- For syntax, see http://www.jajakarta.org/ant/ant-1.6.1/docs/en/manual/OptionalTasks/replaceregexp.html -->	
+	<target name="-useminified" description="(PRIVATE) Sets the value of OPTIMISEDASSETS to true so we can use minified assets">
+		<echo message="Including minified assets in HTML header and footer..."/>
+		<replaceregexp byline="true">
+			<regexp pattern="\'OPTIMISEDASSETS\' value=\'\'"/>
+			<substitution expression="\'OPTIMISEDASSETS\' value=\'true\'"/>
+			<fileset 
+				dir="${src.html.usemin.dir}" 
+				includes="${file.usemin.html}"/>
+		</replaceregexp>
+	</target>
+	<!-- Revert HTML header and footer files back to using individual assets after the build -->	
+	<target name="-useseparate" description="(PRIVATE) Resets the value of OPTIMISEDASSETS after we're done with the build">
+		<echo message="Reverting, now including individual assets in HTML header and footer..."/>
+		<replaceregexp byline="true">
+			<regexp pattern="\'OPTIMISEDASSETS\' value=\'true\'"/>
+			<substitution expression="\'OPTIMISEDASSETS\' value=\'\'"/>
+			<fileset 
+				dir="${src.html.usemin.dir}" 
+				includes="${file.usemin.html}"/>
+		</replaceregexp>
+	</target>
+	
+	
     <!-- FINISH BY CLEANING UP TEMP DIR -->
 	<!--Delete temporary dir where the minified files were copied before being concatenated-->
 	<target name="-cleanup" depends="-css.concatenate" description="(PRIVATE) Deletes the previous build files and creates a new build directory structure">
@@ -370,3 +397,7 @@
 	</target>
 	
 </project>
+
+
+
+
