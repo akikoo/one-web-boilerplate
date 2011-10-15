@@ -164,8 +164,6 @@ in /webroot/assets/js.
 ### JavaScript:
 * http://labjs.com/
 
-> There's no mobile, everything's mobile.
-
 
 ## Ant build process
 
@@ -189,7 +187,7 @@ setup, to match your local development environment.
 6. CSS and JS files are copied to a temporary folder for manipulation, flattening 
 	folders
 7. CSS files are minified and concatenated, and placed in build/publish/assets/css
-8. JSLint or JSHint tools (you decide which one) are run against JavaScript code
+8. JSLint or JSHint tool (you decide which one) is run against JavaScript code
 9. JSDoc documentation is created and placed in build/publish/docs/jsdocs
 10. JavaScript files are minified and concatenated and placed in 
 	/build/publish/assets/js
@@ -212,3 +210,7 @@ following four directories:
 You can now deploy the site using your favourite 
 Continuous Integration server. It could be Jenkins (http://jenkins-ci.org) or 
 Bamboo (http://www.atlassian.com/software/bamboo/). You decide.
+
+Thanks and good luck! 
+
+> There's no mobile, everything's mobile.
