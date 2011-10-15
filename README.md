@@ -12,11 +12,12 @@ includes Ant build script that runs code quality tools against JavaScript and
 CSS files, minifying and concatenating them at the end of the process. 
 
 There's nothing really new in this boilerplate, but it works well for me which is 
-why I'm publishing it. It builds on many of the best practices found in the resources 
-listed under Credits. It basically extends popular boilerplates with Server Side 
-Includes. The goal is to achieve a modular and responsive frontend build 
-environment, following industry best practices. The framework can easily be plugged 
-into Continuous Integration solutions, such as Jenkins: http://jenkins-ci.org. 
+why I'm publishing it here for you to use and improve. It builds on many of the 
+best practices found in the resources listed under Credits. It basically extends 
+popular boilerplates with Server Side Includes. The goal is to achieve a modular 
+and responsive frontend build environment, following industry best practices. 
+The framework can easily be plugged into Continuous Integration solutions, 
+such as Jenkins: http://jenkins-ci.org. 
 
 
 ## File structure
@@ -38,7 +39,7 @@ into Continuous Integration solutions, such as Jenkins: http://jenkins-ci.org.
 
 * Ant (http://ant.apache.org/)
 * Ant-Contrib Tasks (http://ant-contrib.sourceforge.net/)
-* YUI Compressor (YUI Compressor)
+* YUI Compressor (http://developer.yahoo.com/yui/compressor/)
 * Rhino (http://www.mozilla.org/rhino/)
 * JSLint (http://www.jslint.com/)
 * JSHint (http://www.jshint.com/)
@@ -52,9 +53,8 @@ into Continuous Integration solutions, such as Jenkins: http://jenkins-ci.org.
 * Media Queries are based on 16px default font size and defined in ems. 
 	If you don't go for responsive design (you should!), just remove 
 	/webroot/assets/css/responsive.css. The framework is designed to be modular 
-	so if you only want to build a desktop site (you shouldn't!) you can split 
-	your layout into modules, and place the styles in /webroot/assets/css/modules. 
-	You decide.
+	so you should split the rules into logical modules, and place the styles in 
+	/webroot/assets/css/modules. 
 
 * JavaScript should not be relied on for layout. That's why I'm using the following 
 	method, adopted from Nicholas Zakas and Tantek Çelik: 
@@ -62,10 +62,10 @@ into Continuous Integration solutions, such as Jenkins: http://jenkins-ci.org.
 	http://tantek.com/presentations/2010/11/html5-now/
 
 	Example:
-	<section><div class="section content"></div></section>
+		<section><div class="section content"></div></section>
 
 	Styles: 
-	.content {}
+		.content {}
 
 * Don’t use IDs in CSS selectors. Use classes, or ARIA landmark roles instead 
 	(referenced with CSS attribute selectors). See also http://oli.jp/2011/ids/.
@@ -88,7 +88,7 @@ into Continuous Integration solutions, such as Jenkins: http://jenkins-ci.org.
 * /webroot/assets/css/normalize.css (reset styles)
 * /webroot/assets/css/base.css (global, mobile first styles, containing only 
 	common colour and typographic rules for basic experience to all users)
-* /webroot/assets/css/responsive.css (Add layout with Media Queries for responsive, 
+* /webroot/assets/css/responsive.css (layout with Media Queries for responsive, 
 	enhanced design for smartphones, tablets and larger screens)
 * /webroot/assets/css/utilities.css (helper styles from HTML5 Boilerplate and 
 	HTML5 Mobile Boilerplate)
@@ -159,7 +159,6 @@ in /webroot/assets/js.
 ### JavaScript:
 * http://labjs.com/
 
-**There's no mobile, everything's mobile.**
+> There's no mobile, everything's mobile.
 
 (TO-DO: Add Ant build documentation)
-
