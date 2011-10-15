@@ -17,8 +17,10 @@ var mySite = window.mySite || {};
 
 
 /**
- * @namespace Specific functions calls from an inline end of document script block
- * Functions that need to be called before DOM ready etc. for various reasons
+ * Specific functions calls from an inline end of document script block
+ * @namespace mySite
+ * 
+ * Functions that need to be called before DOM ready
  * Insert inline call to mySite.functions.init() at end of document
  */
 mySite.functions = {

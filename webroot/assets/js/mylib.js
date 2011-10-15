@@ -19,8 +19,9 @@ var mySite = window.mySite || {};
 mySite.lib = {	
 
 	/**
-	 * Lazy loading JavaScript file in the header
-	 * @param {string} url, the location of the script 
+	 * Lazy loads JavaScript files
+	 * 
+	 * @param {String} url of an external script 
 	 * @return N/A
 	 * See also http://friendlybit.com/js/lazy-loading-asyncronous-javascript/
 	 */
@@ -38,8 +39,9 @@ mySite.lib = {
 
 
 	/**
-	 * Lazy loading stylesheets
-	 * @param {string} url, the location of the stylesheet 
+	 * Lazy loads stylesheets
+	 * 
+	 * @param {String} url of the stylesheet 
 	 * @return N/A
 	 */	
 	loadCSS: function (url) {
