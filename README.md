@@ -84,7 +84,11 @@ into Continuous Integration solutions, such as Jenkins: http://jenkins-ci.org.
 * /webroot/assets/css/base.css (global, mobile first styles, containing only common colour and typographic rules for basic experience to all users)
 * /webroot/assets/css/responsive.css (Add layout with Media Queries for responsive, enhanced design for smartphones, tablets and larger screens)
 * /webroot/assets/css/utilities.css (helper styles from HTML5 Boilerplate and HTML5 Mobile Boilerplate)
-* /webroot/assets/css/ie/ie6.1.1.css (Universal IE6 styles)
+* /webroot/assets/css/ie/ie6.1.1.css (Universal IE6 styles, not concatendated with other styles)
+
+Any other stylesheets you create should be placed in /modules. Remember to update references in /html/components/document_head.shtml. 
+After the base styles, the order in which the module stylesheets are included should't matter (you write your styles carefully, right?)
+The idea is that module styles inherit only from base rules, not from other modules. 
 
 ### JavaScript
 * Third-party plugins are included in /webroot/assets/js/lib. Custom scripts are in /webroot/assets/js.
