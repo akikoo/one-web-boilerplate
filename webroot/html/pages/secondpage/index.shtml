@@ -1,0 +1,20 @@
+<!--#include virtual="../../../config.shtml" -->
+
+<!--#if expr="${lang}" -->
+<!--#else-->
+	<!--#set var="lang" value="en-gb" -->
+<!--#endif -->
+
+<!--#if expr="${lang-dir}" -->
+<!--#else-->
+	<!--#set var="lang-dir" value="ltr" -->
+<!--#endif -->
+
+<!--#set var="title" value="One Web/Mobile First Responsive Boilerplate"-->
+<!--#set var="page-heading" value="One Web/Mobile First Responsive Boilerplate (what a mouthful!)" -->
+
+<!--#set var="documenthead" value="${COMPONENTS}/document_head.shtml"-->
+<!--#set var="documentfooter" value="${COMPONENTS}/document_footer.shtml"-->
+
+<!--#set var="view1" value="${PAGES}/boilerplate/view1.shtml"-->
+<!--#include virtual="${TEMPLATES}/default.shtml" -->
