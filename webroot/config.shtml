@@ -8,4 +8,4 @@
 <!--#set var="PAGES" value="${HTML}/pages" -->
 <!--#set var="TEMPLATES" value="${HTML}/templates" -->
 
-<!--#set var="PUBLISH" value="/build/publish" -->
+<!--#set var="PUBLISH" value="../../../assets" -->
