@@ -10,16 +10,56 @@
 	****************************************************************************
 	-->
 
-    <!-- Load in Ant-Contrib to give us access to some very useful tasks! -->
+	<!-- Load Default config properties for this build -->
+	<property file="build/config/default.properties"/>
+	
+	<!-- Load Project config properties for this build -->
+	<property file="build/config/project.properties"/>	
+	
+    <!-- Load in Ant-Contrib to give us access to some very useful tasks -->
     <!-- the .jar file is located in the tools directory -->
+	<!-- See http://ant-contrib.sourceforge.net/ -->
     <taskdef resource="net/sf/antcontrib/antcontrib.properties">
         <classpath>
             <pathelement location="${tool.antcontrib}"/>
         </classpath>
     </taskdef>
+
+	<!-- This is the jsdocs task --> 
+	<!-- Using an Ant task wrapper around the JsDoc Toolkit application -->
+	<!-- See http://code.google.com/p/jsdoc-toolkit-ant-task/ -->
+	<taskdef name="jsdoctoolkit" classname="uk.co.darrenhurley.ant.tasks.JsDocToolkit" classpath="${tool.jsdoc.ant.task};${tool.jsdoc.js.jar}"/>
 	
-	<!-- Load config properties for this build -->
-	<property file="build/config/default.properties"/>
+
+	<!--
+    ****************************************************************************
+	* BUILD TARGETS [public call to private targets]
+    ****************************************************************************
+    -->	
+	<target name="build.dev" description="(PUBLIC) sets and kicks off the Dev site build">
+		<echo message="Building Development Environment..."/>
+		<antcall target="-build.dev" />
+	</target>						
+	<target name="-build.dev" description="(PRIVATE) calls all Dev site targets"
+        depends="
+            -init,
+			-make_shtml_into_html, 
+			-html.minify, 
+			-css.minify, 
+            -css.concatenate, 
+			js.lint, 
+			-doc.jsdoc, 
+			-js.minify, 
+            -js.concatenate, 
+			-cleanup
+            ">
+	</target>
+	<!-- Add other build targets here if necessary (build.dev is the default) -->
+	
+					
+	<!-- 
+	-compress
+	-->
 
 
     <!-- 
@@ -36,16 +76,8 @@
 			<!-- Take all the JS files except for those listed in exclude -->
 			<fileset 
 				dir="${build.dir}/${publish.dir}/${temp.dir}/js"
-                includes="*.js"	
-				excludes="
-					*.min.js, 
-					*-min.js, 
-					*.minified.js, 
-					*.pack.js,
-					dd_belatedpng.js,
-					imgsizer.js,
-					selectivizr.js
-					"/>
+                includes="${file.include.js}"	
+				excludes="${file.exclude.default.js}, ${file.exclude.js}"/>
 			<arg value="-jar" />
 			<arg path="${tool.rhino}" />
 			<arg path="${tool.jslint}" />
@@ -62,16 +94,8 @@
 			<!-- Take all the JS files except for those listed in exclude -->
 			<fileset 
 				dir="${build.dir}/${publish.dir}/${temp.dir}/js"
-                includes="*.js"	
-				excludes="
-					*.min.js, 
-					*-min.js, 
-					*.minified.js, 
-					*.pack.js,
-					dd_belatedpng.js,
-					imgsizer.js,
-					selectivizr.js
-					"/>
+                includes="${file.include.js}"	
+				excludes="${file.exclude.default.js}, ${file.exclude.js}"/>
 			<arg value="-jar" />
 			<arg path="${tool.rhino}" />
 			<arg path="${tool.jshint}" />
@@ -80,22 +104,19 @@
 		</apply>        
 		<echo>JSHint Successful</echo>
 	</target>    
-       
+
 
     <!-- CHECK CSS CODE QUALITY [public] -->	
-	<!-- CSSLint - Keep this public so it can be run independantly - FINISH OPTIONS BIT IN CONFIGURATION -->	
+	<!-- CSSLint - Keep this public so it can be run independantly - FINISH OPTIONS CONFIGURATION ONCE API ISSUES HAVE BEEN SOLVED-->
+	<!-- This task is currently not executed -->
 	<target name="css.lint" depends="-css.copy" description="(PUBLIC) Runs CSSLint against all CSS files. Outputs to console">
 		<echo message="Running CSSLint..."/>
 		<apply executable="java" parallel="false" failonerror="true">
 			<!-- Take all the CSS files except for those listed in exclude -->
 			<fileset 
 				dir="${build.dir}/${publish.dir}/${temp.dir}/css"
-				includes="*.css"	
-				excludes="
-					*.min.css, 
-					*-min.css, 
-					*.minified.css, 
-					*.pack.css"/>	
+				includes="${file.include.css}"	
+				excludes="${file.exclude.default.css}"/>	
 			<arg value="-jar" />
 			<arg path="${tool.rhino}" />
 			<arg path="${tool.csslint}" />
@@ -107,23 +128,24 @@
 	
 
 	<!--
-    ****************************************************************************
-	* BUILD TARGETS [public call to private targets]
-    ****************************************************************************
-    -->	
-	<target name="build.dev" description="(PUBLIC) sets and kicks off the Dev site build"
-        depends="
-            -init,
-			-js.minify, 
-            -js.concatenate,
-			-css.minify,
-            -css.concatenate, 
-			-cleanup
-            ">
-	</target>
-	
-	
-	
+	****************************************************************************
+    * DOCUMENTATION TARGETS [private]
+	****************************************************************************
+    -->
+	<target name="-doc.jsdoc" description="(PRIVATE) Generates JSDocs output">	
+		<echo>Generating JSDocs documentation... </echo>
+		
+		<jsdoctoolkit jsdochome="${jsdoc.home}/" template="jsdoc" outputdir="${publish.dir}/${docs.dir}/${out.jsdocs.dir}/">
+			<!-- Exclude all third party plugins -->
+			<fileset 
+				dir="${src.js.dir}"
+				includes="${file.include.jsdoc.js}"
+				excludes="${file.exclude.jsdoc.js}"/> 
+		</jsdoctoolkit>
+		<echo>Writing JSDocs to ${build.dir}/${publish.dir}/${docs.dir}...</echo>
+	</target>	
+
+
     <!-- 
 	****************************************************************************
 	* FUNCTIONAL TARGETS [private]
@@ -143,15 +165,14 @@
 		<delete dir="${build.dir}/${publish.dir}"/>
 
 		<!--Recreate build structure-->
-		<echo message="Creating new build directory..."/>				
-		<mkdir dir="${build.dir}/${publish.dir}"/>
-		<mkdir dir="${build.dir}/${publish.dir}/js"/>
-		<mkdir dir="${build.dir}/${publish.dir}/css"/>
+		<echo message="Creating new build directories..."/>	
+		<mkdir dir="${build.dir}/${publish.dir}/assets/js"/>
+		<mkdir dir="${build.dir}/${publish.dir}/assets/css"/>
 		<mkdir dir="${build.dir}/${publish.dir}/${temp.dir}"/>
-		
+
 		<!--Write build time stamp into a file, for reference-->
-		<echo file="${build.dir}/${publish.dir}/js/tstamp.txt" append="false">Build Date: ${TODAY}</echo>
-		<echo file="${build.dir}/${publish.dir}/css/tstamp.txt" append="false">Build Date: ${TODAY}</echo>
+		<echo file="${build.dir}/${publish.dir}/assets/js/tstamp.txt" append="false">Build Date: ${TODAY}</echo>
+		<echo file="${build.dir}/${publish.dir}/assets/css/tstamp.txt" append="false">Build Date: ${TODAY}</echo>
 	</target>
 
 
@@ -163,9 +184,7 @@
 		<copy todir="${build.dir}/${publish.dir}/${temp.dir}/js" flatten="true">
 			<fileset 
                 dir="${src.js.dir}" 
-                includes="
-					*.js,
-					**/*.js"/>
+                includes="${file.copy.include.js}"/>
 		</copy>
 		<echo message="JavaScript files are now in ${build.dir}/${publish.dir}/${temp.dir}/js, ready to be manipulated"/>
 	</target>
@@ -175,61 +194,33 @@
 		<copy todir="${build.dir}/${publish.dir}/${temp.dir}/css">
 			<fileset 
                 dir="${src.css.dir}" 
-                includes="
-					*.css,
-					**/*.css"
-				excludes="ie/*.css"/>
+                includes="${file.copy.include.css}"
+				excludes="${file.copy.exclude.css}"/>
 		</copy>
 		<echo message="CSS files are now in ${build.dir}/${publish.dir}/${temp.dir}/css, ready to be manipulated"/>
 	</target>		
-	
 
-
-    <!-- OPTIMIZE JAVASCRIPT FILES [private]-->
-	<!--Minify JS files, excluding third party scripts that have already been minified-->
-	<target name="-js.minify" depends="js.lint" description="(PRIVATE) Minifies JavaScript files">
+		
+    <!-- OPTIMIZE HTML FILES [private]-->
+	<target name="-html.minify" description="(PRIVATE) Compresses HTML files but keeps line breaks for readability">
+		<echo message="Compressing HTML files (keeping line breaks)..."/>		
 		<apply executable="java" parallel="false">
 			<fileset 
-                dir="${build.dir}/${publish.dir}/${temp.dir}/js" 
-                includes="*.js"	
-				excludes="
-					*.min.js, 
-					*-min.js, 
-					*.minified.js, 
-					*.pack.js"/>
-			<arg line="-jar"/>
-			<arg path="${tool.yuicompressor}"/>
+				dir="${build.dir}/${publish.dir}/html/pages/" 
+				includes="${file.include.html}"
+				excludes="${file.exclude.html}" 
+				/>
+			<arg value="-jar"/>
+			<arg path="${tool.htmlcompressor}"/>
+			<arg line="--type html"/>
+            <arg line="--preserve-line-breaks"/>
 			<srcfile/>
-			<arg line="-o"/>
-			<mapper type="glob" from="*.js" to="${publish.dir}/${temp.dir}/js/*-min.js"/>
+			<arg value="-o"/>
+			<mapper type="glob" from="*" to="${publish.dir}/html-compressed/pages/*"/>
 			<targetfile/>
 		</apply>
-		<echo>Done!</echo>
 	</target>
-    <!--Concatenate JS files-->
-	<target name="-js.concatenate" depends="-js.minify" description="(PRIVATE) Concatenates JavaScript files">
-		<concat destfile="${build.dir}/${publish.dir}/js/custom-min.js">
-            <!--jquery should be first in the concatenated file-->
-			<filelist 
-                dir="${build.dir}/${publish.dir}/${temp.dir}/js" 
-                files="${jquery.js}"
-				/>
-			<!--All of the other files in the directory should appear after (except for Modernizr which is included separately in the page header)-->
-			<fileset 
-                dir="${build.dir}/${publish.dir}/${temp.dir}/js"
-                includes="
-					*.min.js, 
-					*-min.js, 
-					*.minified.js, 
-					*.pack.js" 
-                excludes="
-					${jquery.js}, 
-					${modernizr.js}
-					"/>
-		</concat>
-		<echo>Done!</echo>
-	</target>
-				
+	
 
     <!-- OPTIMIZE CSS FILES [private]-->	
     <!--Minify CSS files-->
@@ -237,13 +228,8 @@
 		<apply executable="java" parallel="false">				
 			<fileset 
                 dir="${build.dir}/${publish.dir}/${temp.dir}/css" 
-                includes="
-					*.css"
-				excludes="
-					*.min.css, 
-					*-min.css, 
-					*.minified.css, 
-					*.pack.css"/>
+                includes="${file.include.css}"
+				excludes="${file.exclude.default.css}"/>
 			<arg line="-jar"/>
 			<arg path="${tool.yuicompressor}"/>
 			<arg line="--line-break 0"/>
@@ -256,26 +242,126 @@
 	</target>
 	<!--Concatenate CSS files-->
 	<target name="-css.concatenate" depends="-css.minify" description="(PRIVATE) Concatenates CSS files">
-		<concat destfile="${build.dir}/${publish.dir}/css/custom-min.css">
-            <!--normalize.css and base.css should be first in the concatenated file-->
+		<concat destfile="${build.dir}/${publish.dir}/assets/css/custom-min.css">
+            <!-- ${file.concatenate.first.css} contains a comma separated list of files that should be first in the concatenated file-->
 			<filelist 
                 dir="${build.dir}/${publish.dir}/${temp.dir}/css" 
-                files="normalize-min.css, base-min.css"/>
+                files="${file.concatenate.first.css}"/>
 			<!--All of the other files in the directory should appear after-->			
 			<fileset 
                 dir="${build.dir}/${publish.dir}/${temp.dir}/css"
-                includes="
-					*.min.css, 
-					*-min.css, 
-					*.minified.css, 
-					*.pack.css"
-                excludes="normalize-min.css, base-min.css"/>
+                includes="${file.include.default.css}"
+                excludes="${file.concatenate.first.css}"/>
 		</concat>
 		<echo>Done!</echo>
 	</target>
-				
-					
-    <!--Delete temporary dir where the minified files were copied before being concatenated-->
+	
+	
+    <!-- OPTIMIZE JAVASCRIPT FILES [private]-->
+	<!--Minify JS files, excluding third party scripts that have already been minified-->
+	<target name="-js.minify" depends="-js.copy" description="(PRIVATE) Minifies JavaScript files">
+		<apply executable="java" parallel="false">
+			<fileset 
+                dir="${build.dir}/${publish.dir}/${temp.dir}/js" 
+                includes="${file.include.js}"	
+				excludes="${file.exclude.default.js}"/>
+			<arg line="-jar"/>
+			<arg path="${tool.yuicompressor}"/>
+			<srcfile/>
+			<arg line="-o"/>
+			<mapper type="glob" from="*.js" to="${publish.dir}/${temp.dir}/js/*-min.js"/>
+			<targetfile/>
+		</apply>
+		<echo>Done!</echo>
+	</target>
+    <!--Concatenate JS files-->
+	<target name="-js.concatenate" depends="-js.minify" description="(PRIVATE) Concatenates JavaScript files">
+		<concat destfile="${build.dir}/${publish.dir}/assets/js/custom-min.js">
+            <!-- ${file.concatenate.first.js} contains a comma separated list of files that should be first in the concatenated file-->
+			<filelist 
+                dir="${build.dir}/${publish.dir}/${temp.dir}/js" 
+                files="${file.concatenate.first.js}"
+				/>
+			<!--All of the other files in the directory should appear after (except for Modernizr which is included separately in the page header)-->
+			<fileset 
+                dir="${build.dir}/${publish.dir}/${temp.dir}/js"
+                includes="${file.include.default.js}" 
+                excludes="
+					${jquery.js}, 
+					${modernizr.js}
+					"/>
+		</concat>
+		<echo>Done!</echo>
+	</target>
+
+
+    <!-- MERGE THE SSI INTO FULL WEB PAGES [private]-->
+	<!-- Author: Robert Lie (http://www.mobilefish.com/download/ant/build_demo7.xml.txt) -->
+	<!-- Customizations by Dawn Budge (http://www.dawnbudge.co.uk) and Aki Karkkainen (http://www.akikoo.org) -->
+	<!-- Step 1. Search within the specified directories all *.shtml files -->
+	<target name="-make_shtml_into_html" description="(PRIVATE) Converts SHTML files (Server Side Includes) into HTML files">
+		<foreach param="msg" target="getfiles">
+			<path>       
+				<fileset 
+					dir="${web.home}"
+					includes="html/pages/**/index.shtml" 
+					excludes=""
+				/>
+			</path>
+		</foreach>
+	</target>
+	<target name="getfiles">
+		<!-- Step 2. For each shtml file, the path is converted to an URL (url_path) -->
+		<!-- Example: 
+		/one-web-boilerplate/webroot/html/pages/boilerplate/index.shtml
+		
+		is mapped to: 
+		
+		http://one-web-boilerplate/html/pages/boilerplate/index.shtml 
+		(Assuming Apache virtualhost is pointing to /one-web-boilerplate/webroot)
+		-->		
+		
+		<pathconvert targetos="unix" property="url_path">
+			<path location="${msg}"/>
+			<map from="${web.home}" to="${web.url}" />
+		</pathconvert> 
+
+		<!-- Step 3. For each shtml file, the location is created where to store the final web page (webpage_path) -->    
+		<!-- Example: 
+		/one-web-boilerplate/webroot/html/pages/boilerplate/index.shtml
+		
+		is mapped to: 
+
+		/one-web-boilerplate/build/publish/html/pages/boilerplate/index.shtml -->
+		
+		<pathconvert targetos="unix" property="webpage_path">
+			<path location="${msg}"/>
+			<map from="${web.home}" to="${build.dir}/${publish.dir}" />
+		</pathconvert> 
+
+		<!-- Step 4. For each shtm file, the Get task is applied using the url_path (step 2) and webpage_path (step 3) -->
+		<!-- By doing so the SSI are merged into a single web page. The created web page file however still has an shtml file extension. -->
+
+		<!-- Create dirs dynamically for each page-->
+		<dirname file="${webpage_path}" property="new.dir"/>
+		<mkdir dir="${new.dir}"/>	
+
+		<!-- gets a whole file from a url -->
+		<get src="${url_path}" dest="${webpage_path}" />
+
+		<!-- move the matched file to the deploy location and change the file extension -->
+		<move todir="${build.dir}/${publish.dir}">
+			<fileset dir="${build.dir}/${publish.dir}">
+				<include name="**/*.shtml"/>
+			</fileset>
+			<mapper type="glob" from="*.shtml" to="*.${web.ext}"/>
+		</move>  
+	</target>
+	
+
+	
+    <!-- FINISH BY CLEANING UP TEMP DIR -->
+	<!--Delete temporary dir where the minified files were copied before being concatenated-->
 	<target name="-cleanup" depends="-css.concatenate" description="(PRIVATE) Deletes the previous build files and creates a new build directory structure">
 		<echo message="Deleting the temp directory..."/>
 		<!--Delete previous build files-->
