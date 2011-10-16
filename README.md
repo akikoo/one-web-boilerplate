@@ -61,16 +61,10 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 	so you should split the rules into logical modules, and place the styles in 
 	/webroot/assets/css/modules. 
 
-* JavaScript should not be relied on for layout. That's why I'm using the following 
-	method, adopted from Nicholas Zakas and Tantek Çelik: 
+* JavaScript should not be relied on for layout. That's why I've adopted a 
+	bulletproof solution from Nicholas Zakas and Tantek Çelik: 
 	http://www.nczonline.net/blog/2011/03/22/using-html5-semantic-elements-today/, 
-	http://tantek.com/presentations/2010/11/html5-now/
-
-	Example:
-		<section><div class="section content"></div></section>
-
-	Styles: 
-		.content {}
+	http://tantek.com/presentations/2010/11/html5-now/.
 
 * Don’t use IDs in CSS selectors. Use classes, or ARIA landmark roles instead 
 	(referenced with CSS attribute selectors). See also http://oli.jp/2011/ids/.
@@ -117,9 +111,9 @@ in /webroot/assets/js.
 * http://html5boilerplate.com
 * http://html5boilerplate.com/mobile
 * http://forabeautifulweb.com/blog/about/320_and_up/
-* Archetype framework: Will Howat (@willhowat: http://twitter.com/willhowat) and 
-	Andrew Massey (@wearymadness: http://twitter.com/wearymadness). It's all 
-	because of them. Thanks guys! 
+* Big thanks to Will Howat (@willhowat: http://twitter.com/willhowat) and Andrew 
+	Massey (@wearymadness: http://twitter.com/wearymadness) for the inspiration, 
+	code, and fresh ideas. Great work on the Archetype framework!
 
 ### Solutions:
 * http://code.google.com/chrome/chromeframe/
@@ -207,9 +201,13 @@ following four directories:
 * minified and concatenated CSS and JS files (/build/publish/assets), and 
 * JSDoc documentation (/build/publish/docs/jsdocs). 
 
-You can now deploy the site using your favourite 
-Continuous Integration server. It could be Jenkins (http://jenkins-ci.org) or 
-Bamboo (http://www.atlassian.com/software/bamboo/). You decide.
+You can now deploy the site using your favourite Continuous Integration server. 
+It could be Jenkins (http://jenkins-ci.org) or Bamboo 
+(http://www.atlassian.com/software/bamboo/). You decide. 
+
+### To-Do: 
+* Add image optimisation tasks with optipng and jpegtran
+* Other small tweaks here and there...
 
 Thanks and good luck! 
 
