@@ -175,23 +175,34 @@ setup, to match your local development environment.
 3. HTML header and footer files are updated, to include minified and concatenated 
 	assets, created during the build
 4. SHTML snippets are called to generate full web pages
-5. shtml file extensions are changed to html and all pages are copied to 
+5. SHTML file extensions are changed to HTML and all pages are copied to 
 	build/publish/html. Compressed HTML versions are copied to 
-	build/publish/html-compressed. 
+	build/publish/html-compressed
 6. CSS and JS files are copied to a temporary folder for manipulation, flattening 
 	folders
-7. CSS files are minified and concatenated, and placed in build/publish/assets/css
-8. JSLint or JSHint tool (you decide which one) is run against JavaScript code
-9. JSDoc documentation is created and placed in build/publish/docs/jsdocs
-10. JavaScript files are minified and concatenated and placed in 
+7. Unoptimised images are copied to /build/publish/assets/img
+8. CSS files are minified and concatenated, and placed in build/publish/assets/css
+9. JSLint or JSHint tool (you decide which one) is run against JavaScript code
+10. JSDoc documentation is created and placed in build/publish/docs/jsdocs
+11. JavaScript files are minified and concatenated and placed in 
 	/build/publish/assets/js
-11. HTML header and footer files are reverted, to include separate assets again 
+12. HTML header and footer files are reverted, to include separate assets again 
 	(we'll continue developing!)
-12. Temporary directory that was used during the build is deleted
-13. That's it!
+13. Temporary directory that was used during the build is deleted
+14. That's it!
 
 If you add new CSS or JavaScript files you obviously need to adapt the 
 build configuration. 
+
+There are also separate tasks for optimising your PNG and JPG images. These are 
+not run by default (no need to optimise images on each build!). See img.optipng 
+and img.jpegtran in build.xml. On a Mac, you need to install additional software: 
+Homebrew: http://mxcl.github.com/homebrew/, then run this in your terminal: 
+
+brew install libjpeg optipng 
+
+Windows binaries are already included. Source: HTML5 Boilerplate, Dependencies 
+section: http://html5boilerplate.com/docs/Build-script/
 
 Congratulations! You now have a brand new /build/publish directory that has the 
 following four directories: 
@@ -206,8 +217,7 @@ It could be Jenkins (http://jenkins-ci.org) or Bamboo
 (http://www.atlassian.com/software/bamboo/). You decide. 
 
 ### To-Do: 
-* Add image optimisation tasks with optipng and jpegtran
-* Other small tweaks here and there...
+* Small tweaks here and there...
 
 Thanks and good luck! 
 
