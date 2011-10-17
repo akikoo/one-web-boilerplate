@@ -12,8 +12,6 @@ URL: http://akikoo.org
 Twitter: http://twitter.com/akikoo
 -->
 
-<!--#include virtual="config.shtml" -->
-
 <!--[if IEMobile 7]><html class="no-js iem7 oldie" lang="en" dir="ltr"><![endif]-->
 <!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en" dir="ltr"><![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js ie7 oldie" lang="en" dir="ltr"><![endif]-->
@@ -50,26 +48,21 @@ Twitter: http://twitter.com/akikoo
 	<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
 	<meta http-equiv="cleartype" content="on">
 
-	<!--#if expr="${OPTIMISEDASSETS}" -->
-	<!-- PROD: styles concatenated and minified via ant build script -->
-	<link rel="stylesheet" href="/build/publish/css/custom-min.css">	
-	<!--#else -->
-	<!-- DEV: scripts included separately -->			
 	<!-- 1. Reset styles -->				
-	<link rel="stylesheet" href="/webroot/assets/css/normalize.css">
+	<link rel="stylesheet" href="../assets/css/normalize.css">
 
 	<!-- 2. Mobile first styles for all browsers -->		
-	<link rel="stylesheet" href="/webroot/assets/css/base.css">
+	<link rel="stylesheet" href="../assets/css/base.css">
 
 	<!-- 3. Responsive larger screen styles, using Media Queries -->
-	<link rel="stylesheet" href="/webroot/assets/css/responsive.css">		
+	<link rel="stylesheet" href="../assets/css/responsive.css">		
 
 	<!-- 4. HTML5 boilerplate helper classes -->				
-	<link rel="stylesheet" href="/webroot/assets/css/utilities.css">
+	<link rel="stylesheet" href="../assets/css/utilities.css">
 
 	<!-- 5. Any module CSS files go here... -->						
 		
-	<!--#endif -->
+
 
 	<noscript>
 	<!-- For more info, see http://labjs.com/ -->
@@ -79,7 +72,7 @@ Twitter: http://twitter.com/akikoo
 	</noscript>
 
 	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="/webroot/assets/js/lib/modernizr-2.0.6.min.js"></script>
+	<script src="../assets/js/lib/modernizr-2.0.6.min.js"></script>
 </head>
 
 <body>
@@ -107,14 +100,16 @@ Twitter: http://twitter.com/akikoo
 			<section>
 				<div class="section hfeed">
 
-					<h1>One Web/Mobile First Responsive Boilerplate (what a mouthful!)</h1>
+					<h1>One Web/Mobile First Responsive Boilerplate</h1>
 
 					<!-- hAtom microformat -->
 					<article>
 						<div class="hentry">							
 							<h2 class="entry-title">Information and Credits</h2>
 							<div class="entry-summary">
-								<p>Here we will have an explanation in the near future.</p>
+								<p>This is a <strong>static</strong> main index file. Use this file as an entry point to other pages during the development. You can also add documentation here, or whatever you need to keep your project going.</p>
+								<p>For credits, please see inline comments and README.md.</p>
+								<p>Your first dynamic page is here: <a href="./pages/boilerplate/index.shtml">Boilerplate masterpage</a> (you need to have SSIs enabled on your Apache server, see <a href="http://httpd.apache.org/docs/2.2/howto/ssi.html">Introduction to Server Side Includes</a>).</p>
 							</div>
 							<div class="entry-content">
 							</div>
@@ -122,9 +117,9 @@ Twitter: http://twitter.com/akikoo
 								<!-- hCard microformat -->							
 								<p class="vcard author">
 									<span class="fn">Aki Karkkainen</span>, 
-									<time class="published" datetime="2011-10-13" pubdate>
-										13 October, 2011								
-										<span class="value-title" title="2011-10-13"> </span>
+									<time class="published" datetime="2011-10-17" pubdate>
+										17 October, 2011								
+										<span class="value-title" title="2011-10-17"> </span>
 									</time>	
 								</p>
 							</footer>
@@ -147,21 +142,15 @@ Twitter: http://twitter.com/akikoo
 
 	<!-- For improving flexible images quality on IE6/7 -->  
 	<!--[if (lt IE 9) & (!IEMobile)]>
-		<script src="/webroot/assets/js/lib/selectivizr.js"></script> 
-		<script src="/webroot/assets/js/lib/imgsizer.js"></script>   
+		<script src="../assets/js/lib/selectivizr.js"></script> 
+		<script src="../assets/js/lib/imgsizer.js"></script>   
 	<![endif]-->
-
-	<!--#if expr="${OPTIMISEDASSETS}" -->
-	<!-- PROD: scripts concatenated and minified via ant build script -->
-	<script src="/build/publish/js/custom-min.js"></script>
-	<!--#else -->
-	<!-- DEV: scripts included separately -->			
+	
 	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/lib/jquery-1.6.2.min.js"><\/script>')</script>
-	<script defer src="/webroot/assets/js/mylib.js"></script>
-	<script defer src="/webroot/assets/js/script.js"></script>
-	<!--#endif -->
+	<script>window.jQuery || document.write('<script src="../assets/js/lib/jquery-1.6.2.min.js"><\/script>')</script>
+	<script defer src="../assets/js/mylib.js"></script>
+	<script defer src="../assets/js/script.js"></script>
 
 	<!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
 	<script>
