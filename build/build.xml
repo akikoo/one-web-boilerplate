@@ -40,6 +40,7 @@
 		<echo message="Building Development Environment..."/>
 		<antcall target="-build.dev" />
 	</target>						
+	<!-- NOTE: add css.lint task after -css.minify once I've found a way to disable certain strict rules from CSSlint -->	
 	<target name="-build.dev" description="(PRIVATE) calls all Dev site targets"
         depends="
             -init,
@@ -166,6 +167,7 @@
 		<echo message="Creating new build directories..."/>	
 		<mkdir dir="${build.dir}/${publish.dir}/assets/js"/>
 		<mkdir dir="${build.dir}/${publish.dir}/assets/css"/>
+		<mkdir dir="${build.dir}/${publish.dir}/assets/img"/>		
 		<mkdir dir="${build.dir}/${publish.dir}/${temp.dir}"/>
 
 		<!--Write build time stamp into a file, for reference-->
@@ -391,9 +393,143 @@
 		<delete dir="${build.dir}/${publish.dir}/${temp.dir}"/>		
 		<echo message="We're done!"/>		
 	</target>
+
+	
+
+    <!-- OPTIMIZE PNG IMAGES [public]-->
+	<!-- This task is run separately as we don't want to optimise images every time we do a build. -->
+	<!-- Requires OptiPNG: http://optipng.sourceforge.net/ -->	
+	<!-- INSTALL OptiPNG v0.6.5 on MAC OSX (adapted from http://www.phpied.com/install-png-tools-on-mac)
+					
+		1) Download OptiPNG: http://sourceforge.net/projects/optipng/files/OptiPNG/optipng-0.6.5/optipng-0.6.5.tar.gz/download
+		2) Go to the dir where you downloaded it, and execute these commands in your terminal:
+			$ tar -xzvf optipng-0.6.5.tar.gz
+			$ cd optipng-0.6.5
+			$ sudo ./configure
+			$ sudo make install
+			
+			Done. OptiPNG is now installed to /usr/local/bin/optipng (by default)
+			
+		(Alternatively, you can just use Homebrew: http://mxcl.github.com/homebrew.)
+	-->
+	
+    <target name="img.optipng" description="(PUBLIC) Optimizes .png images using optipng. ">
+        <echo message="Optimizing PNG images..."/>        
+        <!-- osfamily=unix is actually true on OS X as well -->
+        <if>
+            <and>
+                <os family="unix" />
+            </and>
+            <then>
+                <!-- work around https://sourceforge.net/tracker/?func=detail&aid=2671422&group_id=151404&atid=780916 -->
+                <delete>
+                    <fileset 
+						dir="${build.dir}/${publish.dir}/assets/img/"
+						includes="${file.include.img.png}"
+						excludes="${file.exclude.img.png}"/>
+                </delete>
+                <apply executable="optipng" dest="${build.dir}/${publish.dir}/assets/img/" osfamily="unix">
+                    <fileset 
+						dir="${src.img.dir}" 
+						includes="${file.include.img.png}" 
+						excludes="${file.exclude.img.png}"/>
+                    <arg value="-quiet"/>
+                    <arg value="-o7"/>
+                    <arg value="-out"/>
+                    <targetfile/>
+                    <srcfile/>
+                    <mapper type="identity"/>
+                </apply>
+            </then>
+            <elseif>
+                <os family="unix" />
+                <then>
+                    <echo message="*** optipng NOT INSTALLED. SKIPPING OPTIMIZATION OF PNGs." />
+                    <echo message="*** Install optipng to enable png optimization." />
+                    <echo message="*** For instructions see 'Dependencies' at: http://html5boilerplate.com/docs/#Build-script#dependencies" />
+                </then>
+            </elseif>			
+        </if>
+
+        <!-- work around https://sourceforge.net/tracker/?func=detail&aid=2671422&group_id=151404&atid=780916 -->
+        <apply executable="${tool.optipng}" dest="${build.dir}/${publish.dir}/assets/img/" osfamily="windows">
+            <fileset 
+				dir="${src.img.dir}" 
+				includes="${file.include.img.png}" 
+				excludes="${file.exclude.img.png}"/>
+            <arg value="-quiet"/>
+            <arg value="-o7"/>
+            <arg value="-out"/>
+            <targetfile/>
+            <srcfile/>
+            <mapper type="identity"/>
+        </apply>
+    </target>
+
+
+
+
+
+    <!-- OPTIMIZE JPEG IMAGES [public]-->
+	<!-- This task is run separately-->		
+    <target name="img.jpegtran" description="(PUBLIC) Optimizes .jpg images using jpegtran">
+        <echo message="Now, we clean up those jpgs..."/>
+
+        <if>
+            <equals arg1="${images.strip.metadata}" arg2="true"/>
+            <then>
+                <var name="strip-meta-tags" value="none"/>
+            </then>
+            <else>
+                <var name="strip-meta-tags" value="all"/>
+            </else>
+        </if>
+
+        <!-- On *nix's and OS X, check for jpegtran and give a helpful message if it's not installed -->
+        <if>
+            <and>
+                <os family="unix" />
+            </and>
+            <then>
+                <apply executable="jpegtran" dest="./${dir.publish}/${dir.images}" osfamily="unix">
+                    <fileset dir="${dir.source}/${dir.images}" includes="**/*.jpg" excludes="${images.bypass}, ${images.default.bypass}"/>
+                    <arg value="-copy"/>
+                    <arg value="${strip-meta-tags}"/>
+                    <arg value="-optimize"/>
+                    <arg value="-outfile"/>
+                    <targetfile/>
+                    <srcfile/>
+                    <mapper type="identity"/>
+                    <!-- you may want to flag optimized images. If so, do it here. Otherwise change this to type="identity" -->
+                    <!--<mapper type="glob" from="*.jpg" to="*.jpg"/>-->
+                </apply>
+            </then>
+            <elseif>
+                <os family="unix" />
+                <then>
+                    <echo message="*** jpegtran NOT INSTALLED. SKIPPING OPTIMIZATION OF JPEGs." />
+                    <echo message="*** Install jpegtran to enable jpeg optimization." />
+                    <echo message="*** For instructions see 'Dependencies' at: http://html5boilerplate.com/docs/#Build-script#dependencies" />
+                </then>
+            </elseif>
+        </if>
+
+        <apply executable="${basedir}/${dir.build.tools}/jpegtran.exe" dest="./${dir.publish}/${dir.images}" osfamily="windows">
+            <fileset dir="${dir.source}/${dir.images}" includes="**/*.jpg"  excludes="${images.bypass}, ${images.default.bypass}"/>
+            <arg value="-copy"/>
+            <arg value="${strip-meta-tags}"/>
+            <arg value="-optimize"/>
+            <arg value="-outfile"/>
+            <targetfile/>
+            <srcfile/>
+            <mapper type="identity"/>
+            <!-- you may want to flag optimized images. If so, do it here. Otherwise change this to type="identity" -->
+            <!--<mapper type="glob" from="*.jpg" to="*.jpg"/>-->
+        </apply>
+    </target>
+	
+	
+	
+	
 	
 </project>
-
-
-
-
