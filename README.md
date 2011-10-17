@@ -51,6 +51,8 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 * CSSLint (http://csslint.net/)
 * HTML Compressor (http://code.google.com/p/htmlcompressor/)
 * JSDoc Toolkit (http://code.google.com/p/jsdoc-toolkit/)
+* OptiPNG http://optipng.sourceforge.net/
+* jpegtran http://www.ijg.org/
 
 
 ## Things you need to know
@@ -71,7 +73,8 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 
 * CSSLint is currently not used. I find it way too strict and it's still buggy 
 	(it complains about Media Queries, for example). I'll plug it in the build 
-	script once these issues have been resolved. 
+	script once these issues have been resolved. (Ideas about how to remove 
+	selected rules?)
 
 * I'm using Sticky footer solution: http://www.cssstickyfooter.com.
 
@@ -111,8 +114,8 @@ in /webroot/assets/js.
 * http://html5boilerplate.com
 * http://html5boilerplate.com/mobile
 * http://forabeautifulweb.com/blog/about/320_and_up/
-* Big thanks to Will Howat (@willhowat: http://twitter.com/willhowat) and Andrew 
-	Massey (@wearymadness: http://twitter.com/wearymadness) for the inspiration, 
+* Big thanks to *Will Howat* (@willhowat: http://twitter.com/willhowat) and *Andrew 
+	Massey* (@wearymadness: http://twitter.com/wearymadness) for the inspiration, 
 	code, and fresh ideas. Great work on the Archetype framework!
 
 ### Solutions:
