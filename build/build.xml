@@ -414,14 +414,13 @@
 	-->
 	
     <target name="img.optipng" description="(PUBLIC) Optimizes .png images using optipng. ">
-        <echo message="Optimizing PNG images..."/>        
+        <echo message="Optimizing PNG images..."/>
         <!-- osfamily=unix is actually true on OS X as well -->
         <if>
             <and>
                 <os family="unix" />
             </and>
             <then>
-                <!-- work around https://sourceforge.net/tracker/?func=detail&aid=2671422&group_id=151404&atid=780916 -->
                 <delete>
                     <fileset 
 						dir="${build.dir}/${publish.dir}/assets/img/"
@@ -441,17 +440,8 @@
                     <mapper type="identity"/>
                 </apply>
             </then>
-            <elseif>
-                <os family="unix" />
-                <then>
-                    <echo message="*** optipng NOT INSTALLED. SKIPPING OPTIMIZATION OF PNGs." />
-                    <echo message="*** Install optipng to enable png optimization." />
-                    <echo message="*** For instructions see 'Dependencies' at: http://html5boilerplate.com/docs/#Build-script#dependencies" />
-                </then>
-            </elseif>			
         </if>
 
-        <!-- work around https://sourceforge.net/tracker/?func=detail&aid=2671422&group_id=151404&atid=780916 -->
         <apply executable="${tool.optipng}" dest="${build.dir}/${publish.dir}/assets/img/" osfamily="windows">
             <fileset 
 				dir="${src.img.dir}" 
@@ -473,8 +463,7 @@
     <!-- OPTIMIZE JPEG IMAGES [public]-->
 	<!-- This task is run separately-->		
     <target name="img.jpegtran" description="(PUBLIC) Optimizes .jpg images using jpegtran">
-        <echo message="Now, we clean up those jpgs..."/>
-
+        <echo message="Optimizing JPG images..."/> 
         <if>
             <equals arg1="${images.strip.metadata}" arg2="true"/>
             <then>
@@ -485,14 +474,16 @@
             </else>
         </if>
 
-        <!-- On *nix's and OS X, check for jpegtran and give a helpful message if it's not installed -->
-        <if>
+		<if>
             <and>
                 <os family="unix" />
             </and>
             <then>
-                <apply executable="jpegtran" dest="./${dir.publish}/${dir.images}" osfamily="unix">
-                    <fileset dir="${dir.source}/${dir.images}" includes="**/*.jpg" excludes="${images.bypass}, ${images.default.bypass}"/>
+                <apply executable="jpegtran" dest="${build.dir}/${publish.dir}/assets/img/" osfamily="unix">
+                    <fileset 
+						dir="${src.img.dir}" 
+						includes="${file.include.img.jpg}" 
+						excludes="${file.exclude.img.jpg}"/>
                     <arg value="-copy"/>
                     <arg value="${strip-meta-tags}"/>
                     <arg value="-optimize"/>
@@ -504,18 +495,13 @@
                     <!--<mapper type="glob" from="*.jpg" to="*.jpg"/>-->
                 </apply>
             </then>
-            <elseif>
-                <os family="unix" />
-                <then>
-                    <echo message="*** jpegtran NOT INSTALLED. SKIPPING OPTIMIZATION OF JPEGs." />
-                    <echo message="*** Install jpegtran to enable jpeg optimization." />
-                    <echo message="*** For instructions see 'Dependencies' at: http://html5boilerplate.com/docs/#Build-script#dependencies" />
-                </then>
-            </elseif>
         </if>
 
-        <apply executable="${basedir}/${dir.build.tools}/jpegtran.exe" dest="./${dir.publish}/${dir.images}" osfamily="windows">
-            <fileset dir="${dir.source}/${dir.images}" includes="**/*.jpg"  excludes="${images.bypass}, ${images.default.bypass}"/>
+        <apply executable="${tool.jpegtran}" dest="${build.dir}/${publish.dir}/assets/img/" osfamily="windows">
+            <fileset 
+				dir="${src.img.dir}" 
+				includes="${file.include.img.jpg}" 
+				excludes="${file.exclude.img.jpg}"/>
             <arg value="-copy"/>
             <arg value="${strip-meta-tags}"/>
             <arg value="-optimize"/>
@@ -527,9 +513,5 @@
             <!--<mapper type="glob" from="*.jpg" to="*.jpg"/>-->
         </apply>
     </target>
-	
-	
-	
-	
-	
+
 </project>
