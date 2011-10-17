@@ -47,6 +47,7 @@
 			-useminified, 
 			-make_shtml_into_html, 
 			-html.minify, 
+			-img.copy, 
 			-css.minify, 
             -css.concatenate, 
 			js.lint, 
@@ -198,9 +199,20 @@
 				excludes="${file.copy.exclude.css}"/>
 		</copy>
 		<echo message="CSS files are now in ${build.dir}/${publish.dir}/${temp.dir}/css, ready to be manipulated"/>
-	</target>		
-
-		
+	</target>			
+	<!-- Copy the images to be published, without optimising them -->	
+    <target name="-img.copy" depends="-init">
+		<echo message="Copying unoptimised images..."/>		
+        <copy todir="${build.dir}/${publish.dir}/assets/img/">
+            <fileset 
+				dir="${src.img.dir}" 
+				includes="${file.copy.include.img}"/>
+        </copy> 
+		<echo message="Images are now in ${build.dir}/${publish.dir}/assets/img"/>		
+    </target>
+	
+	
+	
     <!-- OPTIMIZE HTML FILES [private]-->
 	<target name="-html.minify" description="(PRIVATE) Compresses HTML files but keeps line breaks for readability">
 		<echo message="Compressing HTML files (keeping line breaks)..."/>		
@@ -384,6 +396,7 @@
 		</replaceregexp>
 	</target>
 	
+
 	
     <!-- FINISH BY CLEANING UP TEMP DIR -->
 	<!--Delete temporary dir where the minified files were copied before being concatenated-->
@@ -458,10 +471,8 @@
 
 
 
-
-
     <!-- OPTIMIZE JPEG IMAGES [public]-->
-	<!-- This task is run separately-->		
+	<!-- This task is run separately as we don't want to optimise images every time we do a build. -->
     <target name="img.jpegtran" description="(PUBLIC) Optimizes .jpg images using jpegtran">
         <echo message="Optimizing JPG images..."/> 
         <if>
@@ -479,6 +490,12 @@
                 <os family="unix" />
             </and>
             <then>
+                <delete>
+                    <fileset 
+						dir="${build.dir}/${publish.dir}/assets/img/"
+						includes="${file.include.img.jpg}"
+						excludes="${file.exclude.img.jpg}"/>
+                </delete>				
                 <apply executable="jpegtran" dest="${build.dir}/${publish.dir}/assets/img/" osfamily="unix">
                     <fileset 
 						dir="${src.img.dir}" 
@@ -512,6 +529,5 @@
             <!-- you may want to flag optimized images. If so, do it here. Otherwise change this to type="identity" -->
             <!--<mapper type="glob" from="*.jpg" to="*.jpg"/>-->
         </apply>
-    </target>
-
+    </target>	
 </project>
