@@ -3,7 +3,7 @@
  * Main JavaScript file which calls various library functions
  * 
  * @author Aki Karkkainen
- * @url http://www.akikoo.org
+ * @url https://github.com/akikoo/one-web-boilerplate
  * Twitter: http://twitter.com/akikoo
  * 
  * @requires jQuery - http://www.jquery.com/
