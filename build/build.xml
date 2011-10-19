@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="myProject" default="build.dev" basedir="../"> <!-- one back since we're in /build -->
 
+<!-- build.xml for one web boilerplate https://github.com/akikoo/one-web-boilerplate -->
+
 	<description>JS/CSS Dev Build for myProject</description>
 
 
