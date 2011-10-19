@@ -1,5 +1,3 @@
-<!--#set var="OPTIMISEDASSETS" value="" -->
-
 <!--#set var="SHARD" value="/assets" -->
 <!--#set var="HTML" value="/html" -->
 
