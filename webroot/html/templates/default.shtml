@@ -1,6 +1,11 @@
+<!-- Set correct masthead tag depending if we're on home or on subpage -->
+<!--#if expr="${PAGE} == 'home'" -->
+	<!--#set var="HEADERTAG" value="h1" -->
+<!--#elif expr="${PAGE} != 'home'" -->
+	<!--#set var="HEADERTAG" value="div" -->
+<!--#endif -->
 
-<!--#include virtual="${documenthead}" -->
-
+<!--#include virtual="${DOCHEAD}" -->
 <body>
 
 	<div class="page">
@@ -12,9 +17,9 @@
 		<header role="banner">
 
 			<!-- No h1 here since this is not the homepage-->
-			<div class="masthead">
+			<<!--#echo var='HEADERTAG' --> class="masthead">
 				<a href="#">One Web/Mobile First Responsive Boilerplate</a>  
-			</div> 
+			</<!--#echo var='HEADERTAG' -->> 
 
 			<nav role="navigation">
 			</nav>
@@ -22,12 +27,12 @@
 		</header>
 
 		<div id="#main-content" role="main">
-			<!--#include virtual="${view1}" -->
+			<!--#include virtual="${VIEW1}" -->
 		</div>
 
-		<!--#if expr="${view2}" -->
+		<!--#if expr="${VIEW2}" -->
 			<aside role="complementary">
-				<!--#include virtual="${view2}" -->
+				<!--#include virtual="${VIEW2}" -->
 			</aside>
 		<!--#endif -->
 				
@@ -37,7 +42,7 @@
 		<p>Oh, site info goes here by the way (by default, anyway)</p>
 	</footer>
 				
-<!--#include virtual="${documentfooter}" -->
+<!--#include virtual="${DOCFOOTER}" -->
 
 </body>
 </html>

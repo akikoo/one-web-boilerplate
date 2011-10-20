@@ -1,20 +1,21 @@
 <!--#include virtual="../../../config.shtml" -->
 
-<!--#if expr="${lang}" -->
+<!--#if expr="${LANG}" -->
 <!--#else-->
-	<!--#set var="lang" value="en-gb" -->
+	<!--#set var="LANG" value="en-gb" -->
 <!--#endif -->
 
-<!--#if expr="${lang-dir}" -->
+<!--#if expr="${LANG-DIR}" -->
 <!--#else-->
-	<!--#set var="lang-dir" value="ltr" -->
+	<!--#set var="LANG-DIR" value="ltr" -->
 <!--#endif -->
 
-<!--#set var="title" value="One Web/Mobile First Responsive Boilerplate"-->
-<!--#set var="page-heading" value="One Web/Mobile First Responsive Boilerplate (what a mouthful!)" -->
+<!--#set var="PAGE" value="home"-->
+<!--#set var="TITLE" value="One Web/Mobile First Responsive Boilerplate"-->
+<!--#set var="PAGE-HEADING" value="One Web/Mobile First Responsive Boilerplate (what a mouthful!)" -->
 
-<!--#set var="documenthead" value="${COMPONENTS}/document_head.shtml"-->
-<!--#set var="documentfooter" value="${COMPONENTS}/document_footer.shtml"-->
+<!--#set var="DOCHEAD" value="${COMPONENTS}/document_head.shtml"-->
+<!--#set var="DOCFOOTER" value="${COMPONENTS}/document_footer.shtml"-->
 
-<!--#set var="view1" value="${PAGES}/boilerplate/view1.shtml"-->
+<!--#set var="VIEW1" value="${PAGES}/${PAGE}/view1.shtml"-->
 <!--#include virtual="${TEMPLATES}/default.shtml" -->

@@ -5,7 +5,7 @@
 <section>
 	<div class="section hfeed">
 
-		<h1><!--#echo var="title" --></h1>
+		<h1><!--#echo var="TITLE" --></h1>
 
 		<!-- hAtom microformat -->
 		<article>
