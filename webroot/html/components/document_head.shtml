@@ -81,5 +81,5 @@ Twitter: http://twitter.com/akikoo
 	</noscript>
 
 	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="<!--#echo var="SHARD" -->/js/lib/modernizr-2.0.6.min.js"></script>
+	<script src="<!--#echo var="SHARD" -->/js/lib/<!--#echo var="MODERNIZR" -->"></script>
 </head>
