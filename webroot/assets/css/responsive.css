@@ -200,3 +200,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
 @media only screen and (orientation:landscape) {
 	/* Landscape styles */
 }
+
+/* Inheritance prevention; use this if you only want to target specific range without styles cascading to larger screens */
+@media all and (min-width: 20em) and (max-width: 30em) {
+	/* styles constrained to 20-30em, or 320-480px */
+}
