@@ -86,6 +86,19 @@
 
 /* 2) Styles from the HTML5 Mobile boilerplate
 ------------------------------------------------------------------------------*/
+/*	Prevent mobile zooming while remain desktop zooming.
+	github.com/shichuan/mobile-html5-boilerplate/issues/closed#issue/14
+*/
+body {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: none;
+}
+  
+/* prevent callout */
+.nocallout {
+	-webkit-touch-callout: none;
+}
+
 /*Text overflow with ellipsis
 https://github.com/shichuan/mobile-html5-boilerplate/wiki/The-Style
 */
