@@ -10,13 +10,38 @@
  * 
  */
 
-var mySite = window.mySite || {};
+
+// Define global namespace
+var MYSITE = window.MYSITE || {};
+
+
+
+// Define sub-namespaces for browser and capability checks
+/**
+ * @namespace Some feature flags from Modernizr available on MYSITE.support
+ */
+MYSITE.support = {
+	localStorage	: Modernizr.localstorage,
+	appCache		: Modernizr.applicationcache,
+	// bind to touchstart, touchmove, etc. Else bind to normal click, mousemove, etc.
+	touch			: Modernizr.touch
+};/* /MYSITE.support */
+
 
 
 /**
- * @namespace Common re-used functionality.
+ * @namespace Internet Explorer checks (from conditional comments) available on MYSITE.browser
  */
-mySite.lib = {	
+MYSITE.browser = {
+	iem7	: document.documentElement.className.indexOf('iem7') >= 0
+};/* /MYSITE.browser */
+
+
+
+/**
+ * @namespace Common functions available on MYSITE.lib
+ */
+MYSITE.lib = {	
 
 	/**
 	 * Lazy loads JavaScript files
@@ -52,7 +77,13 @@ mySite.lib = {
 		s.rel = 'stylesheet';
 		s.href = url;
 		x.appendChild(s);
-	}
-	
+	},
 
-};/* /mySite.lib */
+
+	//quick element class existence function
+	hasClass: function( el, classname ){
+		return el.className.indexOf( classname ) >= 0;
+	}
+
+
+};/* /MYSITE.lib */

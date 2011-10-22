@@ -12,18 +12,18 @@
 
 
 /* Declare a namespace for the site */
-var mySite = window.mySite || {};
+var MYSITE = window.MYSITE || {};
 
 
 
 /**
  * Specific functions calls from an inline end of document script block
- * @namespace mySite
+ * @namespace MYSITE
  * 
  * Functions that need to be called before DOM ready
- * Insert inline call to mySite.functions.init() at end of document
+ * Insert inline call to MYSITE.functions.init() at end of document
  */
-mySite.functions = {
+MYSITE.functions = {
 
 	init: function () {
     
@@ -41,9 +41,26 @@ mySite.functions = {
 	$(function() {
 
 		// Functions calls go here
-		// eg. mySite.lib.loadJS();
-		
+		// eg. MYSITE.lib.loadJS();
+
+
+		// JavaScript experience divide 
+		// Detect support for Aplication Cache and localStorage
+		var enhanced = MYSITE.support.localStorage
+					|| MYSITE.support.appCache;
+
+		// Detect support for touch events   
+		var touchEnhanced = MYSITE.support.touch;
 		});
+		
+		
+		if (!enhanced) {
+			//last stop for old browsers!
+		} else {
+			//bring on the enhancements
+		}
+
+	});
 
 
 	//Methods that should be executed after ALL assets have been loaded (incl. images)
