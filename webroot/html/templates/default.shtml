@@ -1,4 +1,3 @@
-<!-- Set correct masthead tag depending if we're on home or on subpage -->
 <!--#if expr="${PAGE} == 'home'" -->
 	<!--#set var="HEADERTAG" value="h1" -->
 <!--#elif expr="${PAGE} != 'home'" -->
