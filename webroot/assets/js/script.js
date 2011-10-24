@@ -44,23 +44,22 @@ MYSITE.functions = {
 		// eg. MYSITE.lib.loadJS();
 
 
-		// JavaScript experience divide 
-		// Detect support for Aplication Cache and localStorage
+			// JavaScript experience divide 
+			// Detect support for Aplication Cache and localStorage
 		var enhanced = MYSITE.support.localStorage
-					|| MYSITE.support.appCache;
+					|| MYSITE.support.appCache,
 
-		// Detect support for touch events   
-		var touchEnhanced = MYSITE.support.touch;
-		});
-		
-		
-		if (!enhanced) {
-			//last stop for old browsers!
-		} else {
-			//bring on the enhancements
-		}
+			// Detect support for touch events   
+			touchEnhanced = MYSITE.support.touch;
 
 	});
+		
+		
+	//if (!enhanced) {
+		//last stop for old browsers!
+	//} else {
+		//bring on the enhancements
+	//}
 
 
 	//Methods that should be executed after ALL assets have been loaded (incl. images)
