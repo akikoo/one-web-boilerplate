@@ -33,6 +33,7 @@
 	<taskdef name="jsdoctoolkit" classname="uk.co.darrenhurley.ant.tasks.JsDocToolkit" classpath="${tool.jsdoc.ant.task};${tool.jsdoc.js.jar}"/>
 	
 
+
 	<!--
     ****************************************************************************
 	* BUILD TARGETS [public call to private targets]
@@ -108,26 +109,30 @@
 	</target>    
 
 
+
     <!-- CHECK CSS CODE QUALITY [public] -->	
-	<!-- CSSLint - Keep this public so it can be run independantly - FINISH OPTIONS CONFIGURATION ONCE API ISSUES HAVE BEEN SOLVED-->
-	<!-- This task is currently not executed -->
+	<!-- CSSLint - Keep this public so it can be run independantly -->
+	<!-- See https://github.com/stubbornella/csslint/wiki/Build-System-Integration -->
 	<target name="css.lint" depends="-css.copy" description="(PUBLIC) Runs CSSLint against all CSS files. Outputs to console">
-		<echo message="Running CSSLint..."/>
-		<apply executable="java" parallel="false" failonerror="true">
-			<!-- Take all the CSS files except for those listed in exclude -->
-			<fileset 
-				dir="${build.dir}/${publish.dir}/${temp.dir}/css"
-				includes="${file.include.css}"	
-				excludes="${file.exclude.default.css}"/>	
-			<arg value="-jar" />
+		<echo message="Running CSSLint..."/>		
+		<!-- Take all the CSS files except for those listed in exclude -->
+		<fileset 
+			dir="${build.dir}/${publish.dir}/${temp.dir}/css" 
+			includes="${file.include.css}" 
+			excludes="${file.exclude.default.css}" 
+			id="cssfiles.raw"/>
+		<pathconvert pathsep=" " property="cssfiles.clean" refid="cssfiles.raw" />
+		<exec executable="java" failonerror="true">
+			<arg line="-jar"/>
 			<arg path="${tool.rhino}" />
-			<arg path="${tool.csslint}" />
-			<srcfile/>
-			<arg value="${tool.csslint.opts}" />
-		</apply>
-		<echo>CSSLint Successful</echo>
+			<arg path="${tool.csslint}" />	
+			<!-- your customized arguments go here -->
+			<arg line="${cssfiles.clean} ${tool.csslint.warnings} ${tool.csslint.errors}"/>
+		</exec>        
+		<echo>CSSLint Successful</echo>	
 	</target>
 	
+
 
 	<!--
 	****************************************************************************
@@ -146,6 +151,7 @@
 		</jsdoctoolkit>
 		<echo>Writing JSDocs to ${build.dir}/${publish.dir}/${docs.dir}...</echo>
 	</target>	
+
 
 
     <!-- 
@@ -234,6 +240,7 @@
 			<targetfile/>
 		</apply>
 	</target>
+
 	
 
     <!-- OPTIMIZE CSS FILES [private]-->	
@@ -269,6 +276,7 @@
 		</concat>
 		<echo>Done!</echo>
 	</target>
+	
 	
 	
     <!-- OPTIMIZE JAVASCRIPT FILES [private]-->
@@ -307,6 +315,7 @@
 		</concat>
 		<echo>Done!</echo>
 	</target>
+
 
 
     <!-- MERGE THE SSI INTO FULL WEB PAGES [private]-->
