@@ -20,8 +20,7 @@
 				<a href="#">One Web/Mobile First Responsive Boilerplate</a>  
 			</<!--#echo var='HEADERTAG' -->> 
 
-			<nav role="navigation">
-			</nav>
+			<!--#include virtual="${NAV}" -->			
 
 		</header>
 
@@ -37,11 +36,8 @@
 				
 	</div>
 
-	<footer role="contentinfo">
-		<p>Oh, site info goes here by the way (by default, anyway)</p>
-	</footer>
-				
-<!--#include virtual="${DOCFOOTER}" -->
+	<!--#include virtual="${DOCFOOTER}" -->
 
+<!--#include virtual="${DOCSCRIPTS}" -->
 </body>
 </html>

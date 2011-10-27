@@ -16,6 +16,8 @@
 
 <!--#set var="DOCHEAD" value="${COMPONENTS}/document_head.shtml"-->
 <!--#set var="DOCFOOTER" value="${COMPONENTS}/document_footer.shtml"-->
+<!--#set var="DOCSCRIPTS" value="${COMPONENTS}/document_scripts.shtml"-->
 
 <!--#set var="VIEW1" value="${PAGES}/${PAGE}/view1.shtml"-->
+<!--#set var="NAV" value="${COMPONENTS}/document_nav.shtml"-->
 <!--#include virtual="${TEMPLATES}/default.shtml" -->

@@ -1,36 +1,5 @@
-<!-- This will be set by the build script and reverted back at the end of the build process-->
-<!--#set var='OPTIMISEDASSETS' value='' -->
-
-<!-- For improving flexible images quality on IE6/7 for responsive web sites -->  
-<!--[if (lt IE 9) & (!IEMobile)]>
-	<script src="<!--#echo var="SHARD" -->/js/lib/selectivizr.js"></script> 
-	<script src="<!--#echo var="SHARD" -->/js/lib/imgsizer.js"></script>   
-<![endif]-->
-
-<!-- This variable will be toggled automatically by the build script -->
-<!--#if expr="${OPTIMISEDASSETS}" -->
-	<!-- PROD: scripts concatenated and minified via ant build script -->
-	<script src="<!--#echo var="PUBLISH" -->/js/scripts-concat.min.js"></script>
-<!--#else -->
-	<!-- DEV: scripts included separately -->			
-	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="<!--#echo var="SHARD" -->/js/lib/<!--#echo var="JQUERY" -->"><\/script>')</script>
-	<script defer src="<!--#echo var="SHARD" -->/js/mylib.js"></script>
-	<script defer src="<!--#echo var="SHARD" -->/js/script.js"></script>
-<!--#endif -->
-
-<!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
-<script>
-	var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
-	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-		g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
-		s.parentNode.insertBefore(g,s)}(document,"script"));
-</script>
-
-<!-- Prompt IE 6 users to install Chrome Frame
-   chromium.org/developers/how-tos/chrome-frame-getting-started -->
-<!--[if lt IE 7 ]>
-<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-<![endif]-->
+<footer role="contentinfo">
+	<div class="footer-main">
+		<p>Oh, site info goes here by the way (by default, anyway)</p>
+	</div>
+</footer>
