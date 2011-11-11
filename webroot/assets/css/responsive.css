@@ -20,7 +20,6 @@
 */
 
 
-
 /*==============================================================================	
  1)	320px and up
 	
@@ -188,7 +187,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 
 /*==============================================================================
-9)	Extras:  Example generic desktop media queries for detecting orientation
+9)	Extras I: Example generic desktop media queries for detecting orientation
 ==============================================================================*/
 
 /* Portrait */
@@ -204,4 +203,34 @@ only screen and (min-device-pixel-ratio: 1.5) {
 /* Inheritance prevention; use this if you only want to target specific range without styles cascading to larger screens */
 @media all and (min-width: 20em) and (max-width: 30em) {
 	/* styles constrained to 20-30em, or 320-480px */
+}
+
+
+/*==============================================================================
+10)	Extras II: Stacked media queries, use if necessary to isolate rules to target 
+	a specific resolution range
+==============================================================================*/
+
+@media only screen and (min-width: 20em) and (max-width: 29.9375em) {
+
+	/* Style adjustments for viewports between 320px and 479px go here */
+	
+}
+
+@media only screen and (min-width: 30em) and (max-width: 47.9375em) {
+
+	/* Style adjustments for viewports between 480px and 767px go here */
+	
+}
+
+@media only screen and (min-width: 48em) and (max-width: 61.9375em) {
+
+	/* Style adjustments for viewports between 768px and 991px go here */
+	
+}
+
+@media only screen and (min-width: 62em) and (max-width: 86.3125em) {
+
+	/* Style adjustments for viewports between 992px and 1381px go here */
+	
 }
