@@ -139,6 +139,7 @@
     * DOCUMENTATION TARGETS [private]
 	****************************************************************************
     -->
+	<!-- GENERATE JSDOC DOCUMENTATION BASED ON THE SCRIPTS SPECIFIED BELOW [private] -->		
 	<target name="-doc.jsdoc" description="(PRIVATE) Generates JSDocs output">	
 		<echo>Generating JSDocs documentation... </echo>
 		
@@ -408,6 +409,20 @@
 	</target>
 	
 
+
+    <!-- GET ALL FOLDER NAMES IN A SPECIFIED FOLDER -->
+	<target name="list_folders">
+		<dirset id="list.contents" dir="${web.home}/html/pages/" includes="*"/>
+		<property name="prop.list.contents" refid="list.contents"/>
+		<echo file="${web.home}/html/pages.txt" append="false">${prop.list.contents}</echo>		
+	</target>
+    <!-- REPLACE A SPECIFIED CHARACTER SO WE'LL GET A COMMA-SEPARATED STRING -->	
+	<target name="replace_chars" depends="list_folders" >
+		<replace file="${web.home}/html/pages.txt" token=";" value=", "/>
+	</target>
+	
+
+			
 	
     <!-- FINISH BY CLEANING UP TEMP DIR -->
 	<!--Delete temporary dir where the minified files were copied before being concatenated-->
