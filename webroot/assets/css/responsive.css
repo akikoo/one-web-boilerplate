@@ -75,6 +75,7 @@
 
 
 
+
 /*==============================================================================
 2)	480px and up  
 	
@@ -119,6 +120,7 @@
 
 
 
+
 /*==============================================================================
 5)	1382px and up 
 
@@ -135,7 +137,6 @@
 
 
 
-
 /*==============================================================================
 6)	iPhone 4, Opera Mobile 11 and other high pixel ratio devices 
 ==============================================================================*/
@@ -147,6 +148,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 	/* Styles */
 
 }
+
 
 
 
@@ -168,8 +170,26 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 
 
+
 /*==============================================================================
-8)	iPad only (portrait and landscape) for enhanced experience
+8)	Smartphones only (landscape) for enhanced experience
+
+	Range: 321px > screen < 569px 
+
+	Em conversion: 
+	321 ÷ 16 = 20.0625em
+	569 ÷ 16 = 35.5625em
+==============================================================================*/
+@media only screen and (min-width: 20.0625em) and (max-device-width: 35.5625em) {
+
+	/* Style adjustments for viewports between 321px and 569px go here */
+	/* Desktop browsers don't get this */
+}
+
+
+
+/*==============================================================================
+9)	iPad only (portrait and landscape) for enhanced experience
 
 	Range: 768px > screen < 1024px 
 
@@ -187,7 +207,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 
 /*==============================================================================
-9)	Extras I: Example generic desktop media queries for detecting orientation
+10)	Extras I: Example generic desktop media queries for detecting orientation
 ==============================================================================*/
 
 /* Portrait */
@@ -207,7 +227,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 
 /*==============================================================================
-10)	Extras II: Stacked media queries, use if necessary to isolate rules to target 
+11)	Extras II: Stacked media queries, use if necessary to isolate rules to target 
 	a specific resolution range
 ==============================================================================*/
 
