@@ -71,10 +71,8 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 * Don’t use IDs in CSS selectors. Use classes, or ARIA landmark roles instead 
 	(referenced with CSS attribute selectors). See also http://oli.jp/2011/ids/.
 
-* CSSLint is currently not used. I find it way too strict and it's still buggy 
-	(it complains about Media Queries, for example). I'll plug it in the build 
-	script once these issues have been resolved. (Ideas about how to remove 
-	selected rules?)
+* CSSLint is currently not used. I'll plug it in the build script once I have 
+	resolved some issues (it complains about Media Queries, for example).
 
 * I'm using Sticky footer solution: http://www.cssstickyfooter.com.
 
