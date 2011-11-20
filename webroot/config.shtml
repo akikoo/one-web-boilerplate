@@ -5,6 +5,7 @@
 
 <!--#set var="COMPONENTS" value="${HTML}/components" -->
 <!--#set var="MODULES" value="${HTML}/modules" -->
+<!--#set var="PATTERNS" value="patterns" -->
 <!--#set var="PAGES" value="${HTML}/pages" -->
 <!--#set var="TEMPLATES" value="${HTML}/templates" -->
 

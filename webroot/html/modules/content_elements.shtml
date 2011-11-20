@@ -1,231 +1,64 @@
-<h1>Level 01 heading</h1>
+<!-- Headings 
+**************************************************************************** -->
+<!--#include virtual="${MODULES}/${PATTERNS}/heading-1.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/heading-2.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/heading-3.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/heading-4.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/heading-5.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/heading-6.html" -->
 
-<h2>Level 02 heading</h2>
 
-<h3>Level 03 heading</h3>
+<!-- Text 
+**************************************************************************** -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text.html" -->
 
-<h4>Level 04 heading</h4>
 
-<h5>Level 05 heading</h5>
+<!-- Blockquotes 
+**************************************************************************** -->
+<!--#include virtual="${MODULES}/${PATTERNS}/blockquote.html" -->
 
-<h6>Level 06 heading</h6>
 
-<hr />
+<!-- Form elements 
+**************************************************************************** -->
+<!--#include virtual="${MODULES}/${PATTERNS}/form-buttons.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/form-checkbox.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/form-email.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/form-number.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/form-select.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/form-text.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/form-textarea.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/form-url.html" -->
 
-<p>&lt;p&gt; paragraph element. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-	exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-	reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
-	occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-<blockquote>
-	<p>Blockquote: I am not one who was born in the possession of knowledge; I am one who is fond of antiquity, and earnest in seeking it there.</p>
-	<cite><a href="/">Confucius, The Confucian Analects</a>,  (551 BC - 479 BC)</cite>
-</blockquote>
+<!-- Lists 
+**************************************************************************** -->
+<!--#include virtual="${MODULES}/${PATTERNS}/list-ordered.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/list-unordered.html" -->
 
-<address>Address: Contact details related to the content</address>
 
-<pre>Preformatted
-	body { font:0.8125em/1.618 Arial, sans-serif; 
-	background-color:#fff;  
-	color:#111;
-	}</pre>
+<!-- Definition Lists 
+**************************************************************************** -->
+<!--#include virtual="${MODULES}/${PATTERNS}/list-definition.html" -->
 
-<hr />
 
-<p>
-	&lt;a&gt; <a href="http://www.lbi.co.uk">anchor element</a>.<br />
-	Link to other content
-</p>
-<p>
-	&lt;i&gt; <i>italic element</i>.<br />
-	A span of text in an alternate voice or mood, or otherwise offset from the normal prose, such as a taxonomic designation, a technical term, an idiomatic phrase from another language, a thought, a ship name, or some other prose whose typical typographic presentation is italicized.
-</p>
-<p>
-	&lt;em&gt; <em>emphasis element</em>.<br />
-	Represents stress emphasis of its contents. The level of emphasis that a particular piece of content has is given by its number of ancestor em elements. The placement of emphasis changes the meaning of the sentence. The element thus forms an integral part of the content. The precise way in which emphasis is used in this way depends on the language.
-</p>
-<p>
-	&lt;b&gt; <b>bold element</b>.<br />
-	A span of text stylistically offset from the normal prose without conveying any extra importance, such as key words in a document abstract, product names in a review, or other spans of text whose typical typographic presentation is boldened
-</p>
-<p>	
-	&lt;strong&gt; <strong>strong element</strong>.<br />
-	Represents strong importance for its contents. The relative level of importance of a piece of content is given by its number of ancestor strong elements; each strong element increases the importance of its contents.
-</p>
-<p>
-	&lt;code&gt; <code>code element</code><br />
-	Represents a fragment of computer code. This could be an XML element name, a filename, a computer program, or any other string that a computer would recognize.
-</p>
-<p>
-	&lt;abbr&gt; <abbr title="test">abbreviation element</abbr>.<br />
-	An abbreviation or acronym, optionally with its expansion
-</p>
-<p>
-	&lt;dfn&gt; <dfn>defining instance element</dfn><br />
-	The defining instance of a term. The paragraph, description list group, or section that is the nearest ancestor of the dfn element must also contain the definition(s) for the term given by the dfn element.
-</p>
-<p>
-	&lt;ins&gt; <ins>insert element</ins><br />
-	Represents an addition to the document.
-</p>
-<p>
-	&lt;del&gt; <del>delete element</del><br />
-	Represents a removal from the document.
-</p>
-<p>
-	&lt;kbd&gt; <kbd>user input element</kbd><br />
-	Represents user input (typically keyboard input, although it may also be used to represent other input, such as voice commands).
-</p>
-<p>
-	&lt;samp&gt; <samp>sample element</samp><br />
-	Represents (sample) output from a program or computing system.
-</p>
-<p>		
-	&lt;small&gt; <small>small element</small><br />
-	Represents side comments such as small print.
-</p>
-<p>
-	&lt;sub&gt; <sub>subscript element</sub><br />
-	Represents subscript content; must be used only to mark up typographical conventions with specific meanings, not for typographical presentation for presentation's sake
-</p>
-<p>
-	&lt;sup&gt; <sup>superscript element</sup><br />
-	Represents superscript content; must be used only to mark up typographical conventions with specific meanings, not for typographical presentation for presentation's sake
-</p>
-<p>
-	&lt;var&gt; <var>variable element</var><br />
-	Represents a variable. This could be an actual variable in a mathematical expression or programming context, or it could just be a term used as a placeholder in prose.
-</p>
+<!-- Pagination 
+**************************************************************************** -->
+<!--#include virtual="${MODULES}/${PATTERNS}/pagination.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/pagination-first.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/pagination-last.html" -->
 
-<p>
-	&lt;q&gt; <q>quotation element</q><br />
-	Some phrasing content quoted from another source. Quotation punctuation (such as quotation marks) will be inserted into the rendering by the user agent. Content inside a q element must be quoted from another source, may use the cite attribute. It is inappropriate to use the q element for marking up sarcastic statements.
-</p>
 
-<hr />
+<!-- Feedback 
+**************************************************************************** -->
+<!--#include virtual="${MODULES}/${PATTERNS}/feedback.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/feedback-error.html" -->
 
-<dl>
-	<dt>Definition list</dt>
-	<dd>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
-		aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-		commodo consequat.</dd>
-	<dd>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
-		aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-		commodo consequat.</dd>
-	<dt>Lorem ipsum dolor sit amet</dt>
-	<dd>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
-		aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-		commodo consequat.</dd>
-	<dd>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
-		aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-		commodo consequat.</dd>
-</dl>
 
-<ol>
-	<li>Ordered list</li>
-	<li>List item</li>
-	<li>List item
-		<ol>
-			<li>List item level 2</li>
-			<li>List item level 2
-				<ol>
-					<li>List item level 3</li>
-					<li>List item level 3</li>
-				</ol>
-			</li>
-		</ol>
-	</li>
-</ol>						
+<!-- Tables
+**************************************************************************** -->
+<!--#include virtual="${MODULES}/${PATTERNS}/table.html" -->
 
-<ul>
-	<li>Unordered list</li>
-	<li>List item 02</li>
-	<li>List item 03
-		<ul>
-			<li>List item level 2</li>
-			<li>List item level 2
-				<ul>
-					<li>List item level 3</li>
-					<li>List item level 3</li>
-				</ul>
-			</li>
-		</ul>
-	</li>
-</ul>
 
-<hr />
-
-<table>
-	<caption>Table Caption</caption>	
-	<thead>
-		<tr>
-			<th>Table head th</th>
-			<th>Table head th</th>
-			<td class="numeric">Table head td numeric</td>
-		</tr>
-	</thead>
-	<tfoot>
-		<tr>
-			<th>Table foot th</th>
-			<th>Table foot th</th>
-			<td class="numeric">Table foot td numeric</td>
-		</tr>
-	</tfoot>	
-	<tbody>
-		<tr class="alt">
-			<th>Table body th</th>
-			<td>Table body td</td>
-			<td class="numeric">Table body td numeric</td>
-		</tr>
-		<tr>
-			<th>Table body th</th>
-			<td>Table body td</td>
-			<td class="numeric">Table body td numeric</td>
-		</tr>
-		<tr class="alt">
-			<td>Table body td</td>
-			<td>Table body td</td>
-			<td class="numeric">Table body td numeric</td>
-		</tr>
-	</tbody>
-</table>
-
-<hr />
-
-<form action="#" method="post">
-	<fieldset>
-		<legend>Form legend</legend>
-		<div>
-			<label for="f1">Text input:</label>
-			<input class="dynaText" type="text" id="f1" value="" placeholder="input text" required />
-		</div>
-		<div>
-			<label for="pw">Password input:</label>
-			<input type="password" id="pw" value="" />
-		</div>
-		<div>
-			<input type="radio" id="f2" />
-			<label for="f2">Radio input:</label>
-		</div>
-		<div>
-			<input type="checkbox" id="f3" />
-			<label for="f3">Checkbox input:</label>
-		</div>
-		<div>
-			<label for="f4">Select field:</label>
-			<select id="f4">
-				<option value="01">Option 01</option>
-				<option value="02">Option 02</option>
-			</select>
-		</div>
-		<div>
-			<label for="f5">Textarea:</label>
-			<textarea id="f5" cols="30" rows="5" >Textarea text</textarea>
-		</div>
-		<div>
-			<label for="f6">Input Button:</label>
-			<input type="button" id="f6" value="button text" />
-		</div>
-	</fieldset>
-</form>
+<!-- Preformatted
+**************************************************************************** -->
+<!--#include virtual="${MODULES}/${PATTERNS}/preformatted.html" -->
