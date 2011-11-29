@@ -1,3 +1,7 @@
+<!--****************************************************************************
+1) SECTIONS
+*****************************************************************************-->
+
 <!-- Headings 
 **************************************************************************** -->
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-1.html" -->
@@ -8,18 +12,79 @@
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-6.html" -->
 
 
-<!-- Text 
-**************************************************************************** -->
+
+
+<!--****************************************************************************
+2) GROUPING CONTENT
+*****************************************************************************-->
+
 <!--#include virtual="${MODULES}/${PATTERNS}/text.html" -->
-
-
-<!-- Blockquotes 
-**************************************************************************** -->
+<!--#include virtual="${MODULES}/${PATTERNS}/hr.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/preformatted.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/blockquote.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/list-ordered.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/list-unordered.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/list-definition.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/figure.html" -->
 
 
-<!-- Form elements 
-**************************************************************************** -->
+
+
+<!--****************************************************************************
+3) TEXT-LEVEL SEMANTICS 
+*****************************************************************************-->
+
+<!--#include virtual="${MODULES}/${PATTERNS}/text-a.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-em.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-strong.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-small.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-s.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-cite.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-q.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-dfn.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-abbr.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-data.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-time.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-code.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-var.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-samp.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-kbd.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-sub.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-sup.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-i.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-b.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-u.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-mark.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-ruby.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-bdi.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/text-bdo.html" -->
+
+
+
+
+<!--****************************************************************************
+4) EDITS
+*****************************************************************************-->
+
+<!--#include virtual="${MODULES}/${PATTERNS}/edits-ins.html" -->
+<!--#include virtual="${MODULES}/${PATTERNS}/edits-del.html" -->
+
+
+
+
+<!--****************************************************************************
+5) TABULAR DATA
+*****************************************************************************-->
+
+<!--#include virtual="${MODULES}/${PATTERNS}/table.html" -->
+
+
+
+
+<!--****************************************************************************
+6) FORMS
+*****************************************************************************-->
+
 <!--#include virtual="${MODULES}/${PATTERNS}/form-buttons.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/form-checkbox.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/form-email.html" -->
@@ -30,16 +95,11 @@
 <!--#include virtual="${MODULES}/${PATTERNS}/form-url.html" -->
 
 
-<!-- Lists 
-**************************************************************************** -->
-<!--#include virtual="${MODULES}/${PATTERNS}/list-ordered.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/list-unordered.html" -->
 
 
-<!-- Definition Lists 
-**************************************************************************** -->
-<!--#include virtual="${MODULES}/${PATTERNS}/list-definition.html" -->
-
+<!--****************************************************************************
+7) Custom UI elements 
+*****************************************************************************-->
 
 <!-- Pagination 
 **************************************************************************** -->
@@ -47,18 +107,7 @@
 <!--#include virtual="${MODULES}/${PATTERNS}/pagination-first.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/pagination-last.html" -->
 
-
 <!-- Feedback 
 **************************************************************************** -->
 <!--#include virtual="${MODULES}/${PATTERNS}/feedback.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/feedback-error.html" -->
-
-
-<!-- Tables
-**************************************************************************** -->
-<!--#include virtual="${MODULES}/${PATTERNS}/table.html" -->
-
-
-<!-- Preformatted
-**************************************************************************** -->
-<!--#include virtual="${MODULES}/${PATTERNS}/preformatted.html" -->
