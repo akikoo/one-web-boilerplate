@@ -1,256 +1,61 @@
 /**
- * $Id$
+ * 
  * Media Queries for responsive design for smartphones, tablets and larger screens
  *
  * These enhance and sometimes override the primary (mobile first) styles
- * Layout styles (width, float etc.) and styles for extra elements requested with Media Queries and Ajax
+ * Layout styles (width, float etc.) and styles for extra elements requested with 
+ * Media Queries and Ajax
  * Several resolution breakpoints are being used, using ems
  * Ems are based on generic browser default setting of 16px font size
  * 
- * Credits: 
+ * Credits & inspiration: 
  * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
  * http://forabeautifulweb.com/blog/about/320_and_up/
  * http://html5boilerplate.com/mobile
  * http://adactio.com/journal/1700/
+ * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
  * 
- * @author Aki Karkkainen (I'm only pulling stuff together from the fantastic resources mentioned above)
+ * @author Aki Karkkainen (I'm only pulling stuff together from the fantastic 
+ * resources mentioned above)
  * @url https://github.com/akikoo/one-web-boilerplate
  * Twitter: http://twitter.com/akikoo
  *
 */
 
+/*==============================================================================
+	(A) Overlapping Media Queries
 
-/*==============================================================================	
- 1)	320px and up
+	Use these if you have a lot of common rules that you want to cascade to 
+	larger screens. You can then use these stylesheets to overwrite only the rules 
+	you need to, for each range.
+==============================================================================*/
+	@import "mq-overlap/320-up.css";
+	@import "mq-overlap/480-up.css";
+	@import "mq-overlap/768-up.css";
+	@import "mq-overlap/992-up.css";
+	@import "mq-overlap/1382-up.css";
+
+
 	
-	Em conversion: 
-	320 ÷ 16 = 20em
-==============================================================================*/
-@media only screen and (min-width: 20em) {
-
-	/** 
-	 * Generic style adjustments for viewports 320px and over go here 
-	 * Remember these styles cascade into all sizes above 320px 
-	 */
-
-	/**  
-	 * We sometimes want the footer to always stay at the bottom
-	 * If not, just remove this block 
-	 * 
-	 * Sticky Footer Solution by Steve Hatcher 
-	 * http://stever.ca
-	 * http://www.cssstickyfooter.com
-	 * 
-	 * NOTE: Use padding, not margins or borders to create spacing inside the elements
-	 * Place your content elements inside the main div
-	 * A header could be placed inside the #page but above the main
-	 * Structure:
-	   <div class="page">
-		 <div role="main"></div>
-		 </div>
-	   <div role="contentinfo">
-	   </div>
-	 */
-
-	html, body {
-		height: 100%;
-	}
-	.page {
-		min-height: 100%;
-	}
-	[role="main"] {
-		overflow: auto;
-		padding-bottom: 60px; /*must be same height as the footer*/
-	}  
-	[role="contentinfo"] {
-		position: relative;
-		margin-top: -60px;/*negative value of footer height*/
-		height: 60px;
-		clear: both;
-	} 
-	/*END Sticky footer
-	--------------------------------------------------------------------------*/
-
-}
-
-
-
-
 /*==============================================================================
-2)	480px and up  
-	
-	Em conversion: 
-	480 ÷ 16 = 30em
+	(B) Stacked Media Queries
+
+	Use these if you only want to target a specific resolution range, without 
+	styles cascading outside the range or to larger screens
 ==============================================================================*/
-@media only screen and (min-width: 30em) {
-
-	/* Style adjustments for viewports 480px and over go here */
-
-}
-
+	@import "mq-stack/320-479.css";
+	@import "mq-stack/480-767.css";
+	@import "mq-stack/768-991.css";
+	@import "mq-stack/992-1381.css";
 
 
-
+		
 /*==============================================================================
-3)	768px and up 
-	
-	Em conversion: 
-	768 ÷ 16 = 48em
+	(C) Device-specific Media Queries
+
+	Use these if you need to target smartphones, tablets or high pixel ratio 
+	devices
 ==============================================================================*/
-@media only screen and (min-width: 48em) {
-
-	/* Style adjustments for viewports 768px and over go here */
-
-}
-
-
-
-
-/*==============================================================================
-4)	992px and up 
-
-	Em conversion: 
-	992 ÷ 16 = 62em
-==============================================================================*/
-@media only screen and (min-width: 62em) {
-
-	/* Style adjustments for viewports 992px and over go here */
-
-}
-
-
-
-
-/*==============================================================================
-5)	1382px and up 
-
-	Em conversion: 
-	1382 ÷ 16 = 86.375em
-==============================================================================*/
-@media only screen and (min-width: 86.375em) {
-
-	/* Style adjustments for viewports 1382px and over go here */
-	/* Consider using max-width here, for better readability... */
-
-}
-
-
-
-
-/*==============================================================================
-6)	iPhone 4, Opera Mobile 11 and other high pixel ratio devices 
-==============================================================================*/
-@media
-only screen and (-webkit-min-device-pixel-ratio: 1.5),
-only screen and (-o-min-device-pixel-ratio: 3/2),
-only screen and (min-device-pixel-ratio: 1.5) {
-
-	/* Styles */
-
-}
-
-
-
-
-/*==============================================================================
-7)	Smartphones only (portrait and landscape) for enhanced experience
-
-	Range: 320px > screen < 569px 
-
-	Em conversion: 
-	320 ÷ 16 = 20em
-	569 ÷ 16 = 35.5625em
-==============================================================================*/
-@media only screen and (min-device-width: 20em) and (max-device-width: 35.5625em) {
-
-	/* Style adjustments for viewports between 320px and 569px go here */
-	/* Desktop browsers don't get this */
-
-}
-
-
-
-
-/*==============================================================================
-8)	Smartphones only (landscape) for enhanced experience
-
-	Range: 321px > screen < 569px 
-
-	Em conversion: 
-	321 ÷ 16 = 20.0625em
-	569 ÷ 16 = 35.5625em
-==============================================================================*/
-@media only screen and (min-width: 20.0625em) and (max-device-width: 35.5625em) {
-
-	/* Style adjustments for viewports between 321px and 569px go here */
-	/* Desktop browsers don't get this */
-}
-
-
-
-/*==============================================================================
-9)	iPad only (portrait and landscape) for enhanced experience
-
-	Range: 768px > screen < 1024px 
-
-	Em conversion: 
-	768 ÷ 16 = 48em
-	1024 ÷ 16 = 64em
-==============================================================================*/
-@media only screen and (min-device-width: 48em) and (max-device-width: 64em) {
-
-	/* Style adjustments for viewports between 768px and 1024px go here */
-	/* Desktop browsers don't get this */
-
-}
-
-
-
-/*==============================================================================
-10)	Extras I: Example generic desktop media queries for detecting orientation
-==============================================================================*/
-
-/* Portrait */
-@media only screen and (orientation:portrait) {
-	/* Portrait styles */
-}
-
-/* Landscape */
-@media only screen and (orientation:landscape) {
-	/* Landscape styles */
-}
-
-/* Inheritance prevention; use this if you only want to target specific range without styles cascading to larger screens */
-@media all and (min-width: 20em) and (max-width: 30em) {
-	/* styles constrained to 20-30em, or 320-480px */
-}
-
-
-/*==============================================================================
-11)	Extras II: Stacked media queries, use if necessary to isolate rules to target 
-	a specific resolution range
-==============================================================================*/
-
-@media only screen and (min-width: 20em) and (max-width: 29.9375em) {
-
-	/* Style adjustments for viewports between 320px and 479px go here */
-	
-}
-
-@media only screen and (min-width: 30em) and (max-width: 47.9375em) {
-
-	/* Style adjustments for viewports between 480px and 767px go here */
-	
-}
-
-@media only screen and (min-width: 48em) and (max-width: 61.9375em) {
-
-	/* Style adjustments for viewports between 768px and 991px go here */
-	
-}
-
-@media only screen and (min-width: 62em) and (max-width: 86.3125em) {
-
-	/* Style adjustments for viewports between 992px and 1381px go here */
-	
-}
+	@import "mq-device/pixel-ratio.css";
+	@import "mq-device/smartphones.css";
+	@import "mq-device/tablets.css";
