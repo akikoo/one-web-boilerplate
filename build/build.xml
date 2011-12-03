@@ -46,7 +46,7 @@
 	<!-- NOTE: add css.lint task after -css.minify once I've found a way to disable certain strict rules from CSSlint -->	
 	<target name="-build.dev" description="(PRIVATE) calls all Dev site targets"
         depends="
-            -init,
+            -init, 
 			-useminified, 
 			-make_shtml_into_html, 
 			-html.minify, 
@@ -57,7 +57,7 @@
 			-doc.jsdoc, 
 			-js.minify, 
             -js.concatenate, 
-			-useseparate, 			
+			-useseparate, 
 			-cleanup
             ">
 	</target>
@@ -201,7 +201,7 @@
 	<!-- Make a temporary dir and copy the CSS files (except for IE specific styles) into that folder -->
 	<target name="-css.copy" depends="-init" description="(PRIVATE) Copies CSS files into a temp dir (removes any sub dirs)">
 		<echo message="Copying CSS files..."/>		
-		<copy todir="${build.dir}/${publish.dir}/${temp.dir}/css">
+		<copy todir="${build.dir}/${publish.dir}/${temp.dir}/css" flatten="true">
 			<fileset 
                 dir="${src.css.dir}" 
                 includes="${file.copy.include.css}"
