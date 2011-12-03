@@ -89,7 +89,7 @@ embed {
 /*	TEMP: Used only for quick and dirty demonstration, be sure to remove these
 -------------------------------------------------------------------------------*/
 .masthead {
-	display: none;
+	margin-left: 40px;
 }
 
 .hfeed,
