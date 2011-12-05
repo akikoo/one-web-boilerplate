@@ -1,4 +1,5 @@
 /**
+ * ==|== 768-991 ====
  * 
  * 768px - 991px 
  * 
@@ -27,10 +28,12 @@
 /*==============================================================================
 	768px - 991px 
 
-	Stacked Media Query 
+	Em conversion: 
+	768 / 16 = 48em
+	991 / 16 = 61.9375em
 ==============================================================================*/  
-@media only screen and (min-width: 48em) and (max-width: 61.9375em) {
-
-	/* Style adjustments for viewports between 768px and 991px go here */
+/*replace*/@media only screen and (min-width: 48em) and (max-width: 61.9375em) {/*replace*/
 	
-}
+	/* Style adjustments for viewports between 768px and 991px go here */
+
+}/*replace*/

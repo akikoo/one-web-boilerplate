@@ -1,4 +1,5 @@
 /**
+ * ==|== 320-479 ====
  * 
  * 320px - 479px
  * 
@@ -27,10 +28,12 @@
 /*==============================================================================
 	320px - 479px
 
-	Stacked Media Query 
+	Em conversion: 
+	320 / 16 = 20em
+	479 / 16 = 29.9375em
 ==============================================================================*/
-@media only screen and (min-width: 20em) and (max-width: 29.9375em) {
-
+/*replace*/@media only screen and (min-width: 20em) and (max-width: 29.9375em) {/*replace*/
+	
 	/* Style adjustments for viewports between 320px and 479px go here */
 
-}
+}/*replace*/

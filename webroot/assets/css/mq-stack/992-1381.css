@@ -1,4 +1,5 @@
 /**
+ * ==|== 992-1381 ====
  * 
  * 992px - 1381px
  * 
@@ -27,10 +28,12 @@
 /*==============================================================================
 	992px - 1381px
 
-	Stacked Media Query 
+	Em conversion: 
+	992 / 16 = 62em
+	1381 / 16 = 86.3125em
 ==============================================================================*/ 
-@media only screen and (min-width: 62em) and (max-width: 86.3125em) {
+/*replace*/@media only screen and (min-width: 62em) and (max-width: 86.3125em) {/*replace*/
 
 	/* Style adjustments for viewports between 992px and 1381px go here */
-	
-}
+
+}/*replace*/

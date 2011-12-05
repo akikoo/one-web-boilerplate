@@ -23,17 +23,26 @@
 */
 
 /*==============================================================================
+	Base styles
+==============================================================================*/
+@import url("normalize.css");
+@import url("base.css");
+@import url("utilities.css");
+
+
+
+/*==============================================================================
 	(A) Overlapping Media Queries
 
 	Use these if you have a lot of common rules that you want to cascade to 
 	larger screens. You can then use these stylesheets to overwrite only the rules 
 	you need to, for each range.
 ==============================================================================*/
-	@import "mq-overlap/320-up.css";
-	@import "mq-overlap/480-up.css";
-	@import "mq-overlap/768-up.css";
-	@import "mq-overlap/992-up.css";
-	@import "mq-overlap/1382-up.css";
+@import url("mq-overlap/320-up.css");
+@import url("mq-overlap/480-up.css");
+@import url("mq-overlap/768-up.css");
+@import url("mq-overlap/992-up.css");
+@import url("mq-overlap/1382-up.css");
 
 
 	
@@ -43,10 +52,10 @@
 	Use these if you only want to target a specific resolution range, without 
 	styles cascading outside the range or to larger screens
 ==============================================================================*/
-	@import "mq-stack/320-479.css";
-	@import "mq-stack/480-767.css";
-	@import "mq-stack/768-991.css";
-	@import "mq-stack/992-1381.css";
+@import url("mq-stack/320-479.css");
+@import url("mq-stack/480-767.css");
+@import url("mq-stack/768-991.css");
+@import url("mq-stack/992-1381.css");
 
 
 		
@@ -56,6 +65,6 @@
 	Use these if you need to target smartphones, tablets or high pixel ratio 
 	devices
 ==============================================================================*/
-	@import "mq-device/pixel-ratio.css";
-	@import "mq-device/smartphones.css";
-	@import "mq-device/tablets.css";
+@import url("mq-device/pixel-ratio.css");
+@import url("mq-device/smartphones.css");
+@import url("mq-device/tablets.css");

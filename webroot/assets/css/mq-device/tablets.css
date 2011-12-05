@@ -1,4 +1,5 @@
 /**
+ * ==|== tablets ====
  * 
  * 768px - 1024px 
  * 
@@ -28,8 +29,8 @@
 	Range: 768px > screen < 1024px 
 
 	Em conversion: 
-	768 ÷ 16 = 48em
-	1024 ÷ 16 = 64em
+	768 / 16 = 48em
+	1024 / 16 = 64em
 ==============================================================================*/
 @media only screen and (min-device-width: 48em) and (max-device-width: 64em) {
 

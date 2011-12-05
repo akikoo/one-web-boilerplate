@@ -1,4 +1,5 @@
 /**
+ * ==|== smartphones ====
  * 
  * 320px - 569px
  * 
@@ -28,8 +29,8 @@
 	Range: 320px > screen < 569px 
 
 	Em conversion: 
-	320 ÷ 16 = 20em
-	569 ÷ 16 = 35.5625em
+	320 / 16 = 20em
+	569 / 16 = 35.5625em
 ==============================================================================*/
 @media only screen and (min-device-width: 20em) and (max-device-width: 35.5625em) {
 
@@ -40,15 +41,14 @@
 
 
 
-
 /*==============================================================================
 Smartphones only (landscape) for enhanced experience
 
 	Range: 321px > screen < 569px 
 
 	Em conversion: 
-	321 ÷ 16 = 20.0625em
-	569 ÷ 16 = 35.5625em
+	321 / 16 = 20.0625em
+	569 / 16 = 35.5625em
 ==============================================================================*/
 @media only screen and (min-width: 20.0625em) and (max-device-width: 35.5625em) {
 

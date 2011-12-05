@@ -1,4 +1,5 @@
 /**
+ * ==|== 992-up ====
  * 
  * 992px and up 
  * 
@@ -26,10 +27,10 @@
 	992px and up 
 
 	Em conversion: 
-	992 ÷ 16 = 62em
+	992 / 16 = 62em
 ==============================================================================*/
-@media only screen and (min-width: 62em) {
+/*replace*/@media only screen and (min-width: 62em) {/*replace*/
 
 	/* Style adjustments for viewports 992px and over go here */
 
-}
+}/*replace*/

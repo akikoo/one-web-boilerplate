@@ -1,4 +1,5 @@
 /**
+ * ==|== 320-up ====
  * 
  * 320px and up
  * 
@@ -26,10 +27,10 @@
 	320px and up
 	
 	Em conversion: 
-	320 ÷ 16 = 20em
+	320 / 16 = 20em
 ==============================================================================*/
-@media only screen and (min-width: 20em) {
-
+/*replace*/@media only screen and (min-width: 20em) {/*replace*/
+	
 	/** 
 	 * Generic style adjustments for viewports 320px and over go here 
 	 * Remember these styles cascade into all sizes above 320px 
@@ -70,7 +71,6 @@
 		height: 60px;
 		clear: both;
 	} 
-	/*END Sticky footer
-	--------------------------------------------------------------------------*/
+	/*END Sticky footer*/
 
-}
+}/*replace*/

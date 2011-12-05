@@ -1,4 +1,5 @@
 /**
+ * ==|== 480-767 ====
  * 
  * 480px - 767px
  * 
@@ -27,10 +28,12 @@
 /*==============================================================================
 	480px - 767px
 
-	Stacked Media Query 
+	Em conversion: 
+	480 / 16 = 30em
+	767 / 16 = 47.9375em
 ==============================================================================*/ 
-@media only screen and (min-width: 30em) and (max-width: 47.9375em) {
-
+/*replace*/@media only screen and (min-width: 30em) and (max-width: 47.9375em) {/*replace*/
+	
 	/* Style adjustments for viewports between 480px and 767px go here */
 
-}
+}/*replace*/
