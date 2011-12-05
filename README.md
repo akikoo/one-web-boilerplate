@@ -179,18 +179,21 @@ setup, to match your local development environment.
 5. SHTML file extensions are changed to HTML and all pages are copied to 
 	build/publish/html. Compressed HTML versions are copied to 
 	build/publish/html-compressed
-6. CSS and JS files are copied to a temporary folder for manipulation, flattening 
-	folders
-7. Unoptimised images are copied to /build/publish/assets/img
-8. CSS files are minified and concatenated, and placed in build/publish/assets/css
-9. JSLint or JSHint tool (you decide which one) is run against JavaScript code
-10. JSDoc documentation is created and placed in build/publish/docs/jsdocs
-11. JavaScript files are minified and concatenated and placed in 
+6. Unoptimised images are copied to /build/publish/assets/img
+7. CSSLint tool is run against all CSS files
+8. CSS files are concatenated by inlining all @imported styles, producing two 
+	files: styles-mq.css and styles-nomq.css (so one with and one without Media 
+	Queries). This way, we can keep the CSS rules separate from the actual Media 
+	Queries. Both files are then minified and placed in build/publish/assets/css
+9. JS files are copied to a temporary folder for manipulation, flattening folders
+10. JSLint or JSHint tool (you decide which one) is run against JavaScript code
+11. JSDoc documentation is created and placed in build/publish/docs/jsdocs
+12. JavaScript files are minified and concatenated and placed in 
 	/build/publish/assets/js
-12. HTML header and footer files are reverted, to include separate assets again 
+13. HTML header and footer files are reverted, to include separate assets again 
 	(we'll continue developing!)
-13. Temporary directory that was used during the build is deleted
-14. That's it!
+14. Temporary directory that was used during the build is deleted
+15. That's it!
 
 If you add new CSS or JavaScript files you obviously need to adapt the 
 build configuration. 
