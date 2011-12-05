@@ -42,6 +42,7 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 
 ## Build tools
 
+* Java Development Kit (JDK) (http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Ant (http://ant.apache.org/)
 * Ant-Contrib Tasks (http://ant-contrib.sourceforge.net/)
 * YUI Compressor (http://developer.yahoo.com/yui/compressor/)
@@ -55,13 +56,34 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 * jpegtran http://www.ijg.org/
 
 
+
+## Environment setup
+
+* Whether you’re on Windows or Mac, you’ll need the Java Development Kit (JDK) 
+	(at least version 1.4). You can download it here: 
+	http://www.oracle.com/technetwork/java/javase/downloads/index.html. 
+	If you’re not sure which version of the JDK you have, run the command 
+	java -version in the terminal.
+
+* Download Apache Ant here (on Mac OSX it's usually already installed): 
+	http://ant.apache.org/bindownload.cgi
+	On Windows, it's probably best to extract the contents of the zip to C:\ant
+
+* See this article for how to finish the installation on your platform:
+	http://net.tutsplus.com/tutorials/other/automate-your-projects-with-apache-ant/ 
+	(see section Windows- and Mac-Specific Install Bits.)
+
+All the other tools needed in the local build are in the tools folder.
+
+
+
 ## Things you need to know
 
 * Media Queries are based on 16px default font size and defined in ems. 
-	If you don't go for responsive design (you should!), just remove 
-	/webroot/assets/css/responsive.css. The framework is designed to be modular 
-	so you should split the rules into logical modules, and place the styles in 
-	/webroot/assets/css/modules. 
+	If you don't go for responsive design (you should!), just replace the default 
+	@import rules in /webroot/assets/css/unresponsive.css with your own modular 
+	ones. The framework is designed to be modular so you should split the rules 
+	into logical modules, and place the styles in /webroot/assets/css/modules. 
 
 * JavaScript should not be relied on for layout. That's why I've adopted a 
 	bulletproof solution from Nicholas Zakas and Tantek Çelik: 
@@ -70,9 +92,6 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 
 * Don’t use IDs in CSS selectors. Use classes, or ARIA landmark roles instead 
 	(referenced with CSS attribute selectors). See also http://oli.jp/2011/ids/.
-
-* CSSLint is currently not used. I'll plug it in the build script once I have 
-	resolved some issues (it complains about Media Queries, for example).
 
 * I'm using Sticky footer solution: http://www.cssstickyfooter.com.
 
@@ -85,21 +104,44 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 	and template file that we need to include, to render that particular page.
 
 ### CSS - five stylesheets by default, included in the following order: 
-* /webroot/assets/css/normalize.css (reset styles)
-* /webroot/assets/css/base.css (global, mobile first styles, containing only 
+* /webroot/assets/css/common/normalize.css (reset styles)
+* /webroot/assets/css/common/base.css (global, mobile first styles, containing only 
 	common colour and typographic rules for basic experience to all users)
+* /webroot/assets/css/common/utilities.css (helper styles from HTML5 Boilerplate and 
+	HTML5 Mobile Boilerplate)
 * /webroot/assets/css/responsive.css (layout with Media Queries for responsive, 
 	enhanced design for smartphones, tablets and larger screens)
-* /webroot/assets/css/utilities.css (helper styles from HTML5 Boilerplate and 
-	HTML5 Mobile Boilerplate)
-* /webroot/assets/css/ie/ie6.1.1.css (Universal IE6 styles, not concatenated 
-	with other styles)
+* /webroot/assets/css/unresponsive.css (layout without Media Queries for legacy 
+	IE 6/7/8 browsers; alternatively, you can use this as non-responsive main 
+	stylesheet that simply includes modular stylesheets). 
 
-Any other stylesheets you create should be placed in /webroot/assets/css/modules. 
-Remember to update references in /html/components/document_head.shtml. After the 
-base styles, the order in which the module stylesheets are included should't 
-matter (you write your styles carefully, right?) The idea is that module styles 
-inherit only from base rules, not from other modules. 
+responsive.css and unresponsive.css are the main stylesheets that @import the 
+rest. Note that styles are @import-ed only for development. For production, the 
+build script inlines and minifies styles in the same order that you @import-ed 
+them. Nice, eh? But keep in mind that you have to @import the core styles (see above) 
+before anything else.
+
+So you basically have two possible main routes here: go responsive, or go modular 
+(or preferably both). If you want the build script to process your new 
+stylesheets, you have to add ==|== filename ==== in the header. 
+See /webroot/assets/css/mq-overlap/320-up.css for an example. 
+
+Similarly, if you add new Media Queries, you need to add /*replace*/ comment hooks 
+for the build script to comment out the Medua Queries, like so: 
+
+/*replace*/@media only screen and (min-width: 20em) and (max-width: 29.9375em) {/*replace*/
+	
+	/* Style adjustments for viewports between 320px and 479px go here */
+
+}/*replace*/
+
+Again, see /webroot/assets/css/mq-overlap/320-up.css for an example. 
+
+Any other stylesheets you create should probably be placed in /webroot/assets/css/modules. 
+Remember to add @import rules for any new styles in responsive.css and unresponsive.css. 
+After the base styles, the order in which the module stylesheets are included 
+should't matter (you write your styles carefully, right?) The idea is that module 
+styles inherit only from base rules, not from other modules. 
 
 ### JavaScript
 * Third-party plugins are included in /webroot/assets/js/lib. Custom scripts are 
@@ -129,6 +171,7 @@ in /webroot/assets/js.
 * http://www.slideshare.net/bryanrieger/rethinking-the-mobile-web-by-yiibu
 * http://www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/
 * http://www.broken-links.com/2011/02/21/using-media-queries-in-the-real-world/
+* http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
 
 ### Inspiration:
 * http://www.abookapart.com/products/responsive-web-design
