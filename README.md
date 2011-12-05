@@ -66,8 +66,8 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 	java -version in the terminal.
 
 * Download Apache Ant here (on Mac OSX it's usually already installed): 
-	http://ant.apache.org/bindownload.cgi
-	On Windows, it's probably best to extract the contents of the zip to C:\ant
+	http://ant.apache.org/bindownload.cgi. On Windows, it's probably best to extract 
+	the contents of the zip to C:\ant.
 
 * See this article for how to finish the installation on your platform:
 	http://net.tutsplus.com/tutorials/other/automate-your-projects-with-apache-ant/ 
@@ -126,14 +126,14 @@ So you basically have two possible main routes here: go responsive, or go modula
 stylesheets, you have to add ==|== filename ==== in the header. 
 See /webroot/assets/css/mq-overlap/320-up.css for an example. 
 
-Similarly, if you add new Media Queries, you need to add /*replace*/ comment hooks 
+Similarly, if you add new Media Queries, you need to add /\*replace\*\ comment hooks 
 for the build script to comment out the Medua Queries, like so: 
 
-/*replace*/@media only screen and (min-width: 20em) and (max-width: 29.9375em) {/*replace*/
+/\*replace\*\@media only screen and (min-width: 20em) and (max-width: 29.9375em) {/\*replace\*\
 	
 	/* Style adjustments for viewports between 320px and 479px go here */
 
-}/*replace*/
+}/\*replace\*\
 
 Again, see /webroot/assets/css/mq-overlap/320-up.css for an example. 
 
