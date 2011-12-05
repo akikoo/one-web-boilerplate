@@ -361,6 +361,7 @@ input[type="reset"],
 input[type="submit"] {
     cursor: pointer; /* 1 */
     -webkit-appearance: button; /* 2 */
+	-moz-appearance: button; /* 2 */	
     *overflow: visible;  /* 3 */
 }
 
@@ -382,6 +383,7 @@ input[type="radio"] {
 
 input[type="search"] {
     -webkit-appearance: textfield; /* 1 */
+	-moz-appearance: textfield; /* 1 */
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box; /* 2 */
     box-sizing: content-box;
@@ -393,6 +395,7 @@ input[type="search"] {
 
 input[type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
+	-moz-appearance: none;
 }
 
 /*

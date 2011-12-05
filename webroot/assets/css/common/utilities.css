@@ -1,5 +1,5 @@
 /**
- * $Id$
+ * 
  * Utility styles from the HTML5 boilerplate (both mobile and desktop versions)
  * 
  * Credits: big thanks to the H5BP dev community and team
@@ -111,4 +111,5 @@ https://github.com/shichuan/mobile-html5-boilerplate/wiki/The-Style
 /* A hack for HTML5 contenteditable attribute on mobile */
 textarea.contenteditable {
 	-webkit-appearance: none;
+	-moz-appearance: none;
 }
