@@ -126,14 +126,13 @@ So you basically have two possible main routes here: go responsive, or go modula
 stylesheets, you have to add ==|== filename ==== in the header. 
 See /webroot/assets/css/mq-overlap/320-up.css for an example. 
 
-Similarly, if you add new Media Queries, you need to add /\*replace\*\ comment hooks 
+Similarly, if you add new Media Queries, you need to add /\*replace\*/ comment hooks 
 for the build script to comment out the Medua Queries, like so: 
 
-/\*replace\*\@media only screen and (min-width: 20em) and (max-width: 29.9375em) {/\*replace\*\
-	
-	/* Style adjustments for viewports between 320px and 479px go here */
+/\*replace\*/@media only screen and (min-width: 20em) and (max-width: 29.9375em) {/\*replace\*/
 
-}/\*replace\*\
+
+}/\*replace\*/
 
 Again, see /webroot/assets/css/mq-overlap/320-up.css for an example. 
 
