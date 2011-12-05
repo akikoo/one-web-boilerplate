@@ -23,7 +23,7 @@
 */
 
 /*==============================================================================
-	Base styles
+  Base styles
 ==============================================================================*/
 @import url("normalize.css");
 @import url("base.css");
@@ -32,11 +32,11 @@
 
 
 /*==============================================================================
-	(A) Overlapping Media Queries
+  (A) Overlapping Media Queries
 
-	Use these if you have a lot of common rules that you want to cascade to 
-	larger screens. You can then use these stylesheets to overwrite only the rules 
-	you need to, for each range.
+  Use these if you have a lot of common rules that you want to cascade to 
+  larger screens. You can then use these stylesheets to overwrite only the rules 
+  you need to, for each range.
 ==============================================================================*/
 @import url("mq-overlap/320-up.css");
 @import url("mq-overlap/480-up.css");
@@ -47,10 +47,10 @@
 
 	
 /*==============================================================================
-	(B) Stacked Media Queries
+  (B) Stacked Media Queries
 
-	Use these if you only want to target a specific resolution range, without 
-	styles cascading outside the range or to larger screens
+  Use these if you only want to target a specific resolution range, without 
+  styles cascading outside the range or to larger screens
 ==============================================================================*/
 @import url("mq-stack/320-479.css");
 @import url("mq-stack/480-767.css");
@@ -60,10 +60,10 @@
 
 		
 /*==============================================================================
-	(C) Device-specific Media Queries
+  (C) Device-specific Media Queries
 
-	Use these if you need to target smartphones, tablets or high pixel ratio 
-	devices
+  Use these if you need to target smartphones, tablets or high pixel ratio 
+  devices
 ==============================================================================*/
 @import url("mq-device/pixel-ratio.css");
 @import url("mq-device/smartphones.css");
