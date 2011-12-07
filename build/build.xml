@@ -52,10 +52,12 @@
 			-useminified, 
 			-make_shtml_into_html, 
 			-html.minify, 
+			-css.copy, 
 			-img.copy, 
 			css.lint, 
 			-css.responsive.minify, 
 			-css.unresponsive.minify, 
+			-css.minify, 
 			js.lint, 
 			-doc.jsdoc, 
 			-js.minify, 
@@ -192,6 +194,18 @@
 
 	
     <!-- COPY FILES FOR MANIPULATION [private]-->
+	<!-- Make a temporary dir and copy the page specific CSS files into that folder -->
+	<target name="-css.copy" description="(PRIVATE) Copies CSS files into a temp dir (removes any sub dirs)">
+	<echo message="Copying CSS files..."/>
+	<copy todir="${build.dir}/${publish.dir}/${temp.dir}/css" flatten="true">
+		<fileset
+			dir="${src.css.dir}/pages"
+			includes="${file.copy.include.css}"
+			excludes="${file.copy.exclude.css}"
+		/>
+	</copy>
+	<echo message="CSS files are now in ${build.dir}/${publish.dir}/${temp.dir}/css, ready to be manipulated"/>
+	</target>
 	<!-- Make a temporary dir, and flatten out the JS files into that folder -->
 	<target name="-js.copy" description="(PRIVATE) Copies JS files into a temp dir (removes any sub dirs)">
 		<echo message="Copying JavaScript files..."/>		
@@ -257,7 +271,7 @@
 		<apply executable="java" parallel="false">				
 			<fileset 
                 dir="${build.dir}/${publish.dir}/${temp.dir}/css" 
-                includes="${file.target.css}"
+                includes="${file.include.css}"
 			/>
 			<arg line="-jar"/>
 			<arg path="${tool.yuicompressor}"/>
@@ -331,9 +345,7 @@
 	
 	<!-- Leave Media Queries in copied stylesheets -->		
 	<target name="-mq.support" depends="-css.import" description="(PRIVATE) Calls the CSS minifier">
-		<echo message="Leaving Media Queries untouched for modern browsers..."/>		
-		<!-- Now call the the actual minification target -->
-		<antcall target="-css.minify"/>
+		<echo message="Leaving Media Queries untouched for modern browsers..."/>
 	</target>
 	
 	<!-- Comment out Media Queries in copied stylesheets -->	
@@ -363,10 +375,6 @@
 		dir="${build.dir}/${publish.dir}/${temp.dir}/css" 
 		includes="${file.target.css}"/>
 		</replaceregexp>
-
-		<!-- Now call the the actual minification target -->
-		<antcall target="-css.minify"/>
-		
 	</target>		
 	
 	
