@@ -18,7 +18,14 @@
 <!--#set var="DOCFOOTER" value="${COMPONENTS}/document_footer.shtml"-->
 <!--#set var="DOCSCRIPTS" value="${COMPONENTS}/document_scripts.shtml"-->
 
-<!--#set var="PAGESTYLES" value="${SHARD}/css/pages/${PAGE}.css"-->
+<!-- 
+	 If needed, set page specific styles and scripts to 'true' below, and place them here:
+	 /assets/css/pages/${PAGE}.css
+	 /assets/js/pages/${PAGE}.js
+	 (The template will then lazy load them automatically)
+-->
+<!--#set var="PAGECRIPTS" value="true"-->
+<!--#set var="PAGESTYLES" value="true"-->
 
 <!--#set var="VIEW1" value="${PAGES}/${PAGE}/view1.shtml"-->
 <!--#set var="NAV" value="${COMPONENTS}/document_nav.shtml"-->

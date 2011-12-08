@@ -1,5 +1,5 @@
 /**
- * $Id$
+ * 
  * Main JavaScript file which calls various library functions
  * 
  * @author Aki Karkkainen

@@ -1,5 +1,5 @@
 /**
- * $Id$
+ * 
  * Reusable library functions
  * 
  * @author Aki Karkkainen
