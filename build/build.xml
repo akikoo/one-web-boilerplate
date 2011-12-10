@@ -60,8 +60,9 @@
 			-css.minify, 
 			js.lint, 
 			-doc.jsdoc, 
-			-js.minify, 
-            -js.concatenate, 
+			-js.copy, 
+			-js.common.minify, 
+			-js.specific.minify, 
 			-useseparate, 
 			-cleanup
             ">
@@ -212,8 +213,16 @@
 		<copy todir="${build.dir}/${publish.dir}/${temp.dir}/js" flatten="true">
 			<fileset 
                 dir="${src.js.dir}" 
-                includes="${file.copy.include.js}"/>
+                includes="${file.copy.include.js}" 
+				excludes="${file.copy.exclude.js}"
+			/>
 		</copy>
+		<copy todir="${build.dir}/${publish.dir}/assets/js">
+			<fileset 
+                dir="${src.js.dir}/lib" 
+                includes="${modernizr.js}" 
+			/>
+		</copy>		
 		<echo message="JavaScript files are now in ${build.dir}/${publish.dir}/${temp.dir}/js, ready to be manipulated"/>
 	</target>
 	<!-- Copy the images to be published, without optimising them -->	
@@ -227,8 +236,9 @@
 		<echo message="Images are now in ${build.dir}/${publish.dir}/assets/img"/>		
 	</target>
 	
-	
-	
+
+
+
     <!-- OPTIMIZE HTML FILES [private]-->
 	<target name="-html.minify" description="(PRIVATE) Compresses HTML files but keeps line breaks for readability">
 		<echo message="Compressing HTML files (keeping line breaks)..."/>		
@@ -271,7 +281,8 @@
 		<apply executable="java" parallel="false">				
 			<fileset 
                 dir="${build.dir}/${publish.dir}/${temp.dir}/css" 
-                includes="${file.include.css}"
+                includes="${file.include.css}" 
+				excludes="${file.root.mq.css}, ${file.root.css}"
 			/>
 			<arg line="-jar"/>
 			<arg path="${tool.yuicompressor}"/>
@@ -378,20 +389,42 @@
 	</target>		
 	
 	
+
+	
+	<!-- TO-DO start -->
+	<target name="-js.common.minify" description="">
+		<echo message=""/>
+		<antcall target="-js.concatenate">			
+			<param name="dir.source.js" value="${build.dir}/${publish.dir}/${temp.dir}/js"/>			
+			<param name="dir.target.js" value="${publish.dir}/${temp.dir}/js/*-min.js"/>
+			<param name="file.include.js" value="${file.include.js}"/>
+			<param name="file.exclude.js" value="${file.exclude.default.js}"/>
+		</antcall>
+	</target>
+	<target name="-js.specific.minify" description="">
+		<echo message=""/>
+		<antcall target="-js.minify">
+			<param name="dir.source.js" value="./${src.js.dir}/pages"/>
+			<param name="dir.target.js" value="./${publish.dir}/assets/js/*-min.js"/>			
+			<param name="file.include.js" value="${file.include.js}"/>			
+			<param name="file.exclude.js" value=""/>
+		</antcall>
+	</target>
+	<!-- TO-DO end -->	
 	
     <!-- OPTIMIZE JAVASCRIPT FILES [private]-->
 	<!--Minify JS files, excluding third party scripts that have already been minified-->
-	<target name="-js.minify" depends="-js.copy" description="(PRIVATE) Minifies JavaScript files">
+	<target name="-js.minify" description="(PRIVATE) Minifies JavaScript files">
 		<apply executable="java" parallel="false">
 			<fileset 
-                dir="${build.dir}/${publish.dir}/${temp.dir}/js" 
+                dir="${dir.source.js}" 
                 includes="${file.include.js}"	
-				excludes="${file.exclude.default.js}"/>
+				excludes="${file.exclude.js}"/>
 			<arg line="-jar"/>
 			<arg path="${tool.yuicompressor}"/>
 			<srcfile/>
 			<arg line="-o"/>
-			<mapper type="glob" from="*.js" to="${publish.dir}/${temp.dir}/js/*-min.js"/>
+			<mapper type="glob" from="*.js" to="${dir.target.js}"/>
 			<targetfile/>
 		</apply>
 		<echo>Done!</echo>

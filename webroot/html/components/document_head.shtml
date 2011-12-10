@@ -68,7 +68,7 @@ Twitter: http://twitter.com/akikoo
 		<!--#endif -->
 
 		<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-		<script src="<!--#echo var="PUBLISH" -->/js/lib/<!--#echo var="MODERNIZR" -->"></script>
+		<script src="<!--#echo var="PUBLISH" -->/js/<!--#echo var="MODERNIZR" -->"></script>
 		
 	<!--#else -->
 		<!-- DEV: scripts included separately with @import rules: reset, mobile first, utilities and then Media Queries -->
