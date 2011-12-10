@@ -11,16 +11,16 @@
 <!--#if expr="${OPTIMISEDASSETS}" -->
 	<!-- PROD: scripts concatenated and minified via ant build script -->
 	<script src="<!--#echo var="PUBLISH" -->/js/scripts-concat.min.js"></script>
-
+	
 	<!--#if expr="${PAGECRIPTS}" -->
 	<script>
 	(function () {
-		var url = '<!--#echo var="PUBLISH" -->/js/pages/<!--#echo var="PAGE" -->.js';
+		var url = '<!--#echo var="PUBLISH" -->/js/<!--#echo var="PAGE" -->-min.js';
 		MYSITE.lib.loadJS(url);
 	}());
 	</script>
 	<!--#endif -->
-	
+		
 <!--#else -->
 	<!-- DEV: scripts included separately -->			
 	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
