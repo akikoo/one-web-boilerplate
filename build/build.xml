@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="myProject" default="build.dev" basedir="../"> <!-- one back since we're in /build -->
+<project name="One-Web-Boilerplate" default="build.dev" basedir="../"> <!-- one back since we're in /build -->
 
 <!-- build.xml for one web boilerplate https://github.com/akikoo/one-web-boilerplate -->
 
-	<description>JS/CSS Dev Build for myProject</description>
+	<description>JS/CSS Dev Build for One-Web-Boilerplate</description>
 
 
     <!-- 
@@ -27,13 +27,15 @@
 		</classpath>
 	</taskdef>
 
-
 	<!-- This is the jsdocs task --> 
 	<!-- Using an Ant task wrapper around the JsDoc Toolkit application -->
 	<!-- See http://code.google.com/p/jsdoc-toolkit-ant-task/ -->
-	<taskdef name="jsdoctoolkit" classname="uk.co.darrenhurley.ant.tasks.JsDocToolkit" classpath="${tool.jsdoc.ant.task};${tool.jsdoc.js.jar}"/>
+	<taskdef 
+		name="jsdoctoolkit" 
+		classname="uk.co.darrenhurley.ant.tasks.JsDocToolkit" 
+		classpath="${tool.jsdoc.ant.task};${tool.jsdoc.js.jar}"
+	/>
 	
-
 
 
 	<!--
@@ -45,26 +47,31 @@
 		<echo message="Building Development Environment..."/>
 		<antcall target="-build.dev" />
 	</target>						
-	<!-- NOTE: add css.lint task after -css.minify once I've found a way to disable certain strict rules from CSSlint -->	
+	<!-- Process order: init, HTML, CSS, JS, cleanup -->	
 	<target name="-build.dev" description="(PRIVATE) calls all Dev site targets"
         depends="
             -init, 
+
 			-useminified, 
 			-make_shtml_into_html, 
 			-html.minify, 
-			-css.copy, 
-			-img.copy, 
+			-useseparate, 
+			
 			css.lint, 
+			-css.copy, 
 			-css.responsive.minify, 
 			-css.unresponsive.minify, 
 			-css.common.minify, 
 			-css.specific.minify, 
+
 			js.hint, 
-			-doc.jsdoc, 
 			-js.copy, 
+			-doc.jsdoc, 
 			-js.common.minify, 
 			-js.specific.minify, 
-			-useseparate, 
+			
+			-img.copy, 			
+			
 			-cleanup
             ">
 	</target>
@@ -78,15 +85,37 @@
 	****************************************************************************
 	-->
     <!-- CHECK JAVASCRIPT CODE QUALITY [public]-->	
-	<!-- JSLint (option 1) - Keep this public so it can be run independantly -->
+	<!-- JSHint (option 1) - This is the default. Keep this public so it can be run independantly -->
+	<!-- Adapted from the article: Improving Rhino CLI utility performance -->	
+	<!-- http://www.nczonline.net/blog/2011/10/25/improving-rhino-cli-utility-performance/ -->
+	<target name="js.hint" description="(PUBLIC) Runs JSHint against all non-lib JS. Outputs to console.">
+		<echo message="Running JSHint..."/>	
+		<!-- execute jshint on the javascript, with options -->				
+		<!-- Take all the JS files except for those listed in exclude -->
+		<fileset 
+			dir="${src.js.dir}" 
+			includes="${file.include.js}"
+			excludes="${file.exclude.default.js}, ${file.exclude.js}" 
+			id="jsfiles.raw"
+		/>
+		<pathconvert pathsep=" " property="jsfiles.clean" refid="jsfiles.raw" />
+		<exec executable="java" failonerror="true">
+			<arg line="-jar"/>
+			<arg path="${tool.rhino}"/>
+			<arg path="${tool.jshint}"/>
+			<arg line="${jsfiles.clean} ${tool.jshint.opts}" />
+		</exec>
+		<echo>JSHint Successful</echo>		
+	</target>	
+	<!-- JSLint (option 2) - Currently not run during the build. Keep this public so it can be run independantly -->
 	<!-- Adapted from the article: Improving Rhino CLI utility performance -->	
 	<!-- http://www.nczonline.net/blog/2011/10/25/improving-rhino-cli-utility-performance/ -->	
-	<target name="js.lint" depends="-js.copy" description="(PUBLIC) Runs JSLint against all non-lib JS. Outputs to console.">
+	<target name="js.lint" description="(PUBLIC) Runs JSLint against all non-lib JS. Outputs to console.">
 		<echo message="Running JSLint..."/>	
 		<!-- execute jshint on the javascript, with options -->				
 		<!-- Take all the JS files except for those listed in exclude -->
 		<fileset 
-			dir="${build.dir}/${publish.dir}/${temp.dir}/js" 
+			dir="${src.js.dir}" 
 			includes="${file.include.js}"
 			excludes="${file.exclude.default.js}, ${file.exclude.js}" 
 			id="jsfiles.raw"
@@ -100,29 +129,6 @@
 		</exec>
 		<echo>JSLint Successful</echo>		
 	</target>
-	<!-- JSHint (option 2) - Keep this public so it can be run independantly -->
-	<!-- Adapted from the article: Improving Rhino CLI utility performance -->	
-	<!-- http://www.nczonline.net/blog/2011/10/25/improving-rhino-cli-utility-performance/ -->
-	<target name="js.hint" depends="-js.copy" description="(PUBLIC) Runs JSHint against all non-lib JS. Outputs to console.">
-		<echo message="Running JSHint..."/>	
-		<!-- execute jshint on the javascript, with options -->				
-		<!-- Take all the JS files except for those listed in exclude -->
-		<fileset 
-			dir="${build.dir}/${publish.dir}/${temp.dir}/js" 
-			includes="${file.include.js}"
-			excludes="${file.exclude.default.js}, ${file.exclude.js}" 
-			id="jsfiles.raw"
-		/>
-		<pathconvert pathsep=" " property="jsfiles.clean" refid="jsfiles.raw" />
-		<exec executable="java" failonerror="true">
-			<arg line="-jar"/>
-			<arg path="${tool.rhino}"/>
-			<arg path="${tool.jshint}"/>
-			<arg line="${jsfiles.clean} ${tool.jshint.opts}" />
-		</exec>
-		<echo>JSHint Successful</echo>		
-	</target>
-
 
 
 
@@ -149,7 +155,6 @@
 	</target>
 
 
-	
 	
 	<!--
 	****************************************************************************
