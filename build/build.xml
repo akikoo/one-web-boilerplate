@@ -59,8 +59,6 @@
 			
 			css.lint, 
 			-css.copy, 
-			-css.responsive.minify, 
-			-css.unresponsive.minify, 
 			-css.common.minify, 
 			-css.specific.minify, 
 
@@ -275,11 +273,10 @@
 	</target>
 
 
-
 	
     <!-- OPTIMIZE CSS FILES [private]-->
-	<target name="-css.common.minify" description="(PRIVATE) Concatenates and minifies @import-ed stylesheets with Media Queries">
-		<echo message="Inlining @import-ed stylesheets with Media Queries ..."/>
+	<target name="-css.common.minify" depends="-css.responsive.minify,-css.unresponsive.minify" description="(PRIVATE) Minifies common stylesheets">
+		<echo message="Minifying common stylesheets ..."/>
 		<antcall target="-css.minify">
 			<param name="dir.temp.css" value="${build.dir}/${publish.dir}/${temp.dir}/css"/>
 			<param name="dir.publish.css" value="${publish.dir}/assets/css/*-min.css"/>
@@ -287,8 +284,8 @@
 			<param name="file.exclude.css" value="${file.root.mq.css}, ${file.root.css}, pages/*"/>
 		</antcall>
 	</target>
-	<target name="-css.specific.minify" description="(PRIVATE) Concatenates and minifies @import-ed stylesheets with Media Queries">
-		<echo message="Inlining @import-ed stylesheets with Media Queries ..."/>
+	<target name="-css.specific.minify" description="(PRIVATE) Minifies page specific stylesheets">
+		<echo message="Minifying page specific stylesheets ..."/>
 		<mkdir dir="${build.dir}/${publish.dir}/assets/css/pages"/>	
 		<antcall target="-css.minify">
 			<param name="dir.temp.css" value="${build.dir}/${publish.dir}/${temp.dir}/css/pages"/>
@@ -297,15 +294,15 @@
 			<param name="file.exclude.css" value=""/>
 		</antcall>
 	</target>
-    <!-- OPTIMIZE CSS FILES [private]-->
-	<target name="-css.responsive.minify" description="(PRIVATE) Concatenates and minifies @import-ed stylesheets with Media Queries">
+    <!-- PREPARE CSS FILES FOR MINIFYING [private]-->
+	<target name="-css.responsive.minify" description="(PRIVATE) Concatenates @import-ed stylesheets with Media Queries">
 		<echo message="Inlining @import-ed stylesheets with Media Queries ..."/>
 		<antcall target="-mq.support">
 			<param name="file.root.css" value="${file.root.mq.css}"/>
 			<param name="file.target.css" value="${file.target.mq.css}"/>
 		</antcall>
 	</target>
-	<target name="-css.unresponsive.minify" description="(PRIVATE) Concatenates and minifies @import-ed stylesheets without Media Queries">
+	<target name="-css.unresponsive.minify" description="(PRIVATE) Concatenates @import-ed stylesheets without Media Queries">
 		<echo message="Inlining @import-ed stylesheets without Media Queries ..."/>
 		<antcall target="-mq.nosupport">
 			<param name="file.root.css" value="${file.root.css}"/>
@@ -425,10 +422,9 @@
 	</target>		
 	
 	
-
 	
-	<!-- TO-DO start -->
-	<target name="-js.common.minify" description="">
+    <!-- OPTIMIZE JAVASCRIPT FILES [private]-->
+	<target name="-js.common.minify" description="(PRIVATE) Minifies common JavaScript files">
 		<echo message=""/>
 		<antcall target="-js.concatenate">			
 			<param name="dir.source.js" value="${build.dir}/${publish.dir}/${temp.dir}/js"/>			
@@ -437,7 +433,7 @@
 			<param name="file.exclude.js" value="${file.exclude.default.js}"/>
 		</antcall>
 	</target>
-	<target name="-js.specific.minify" description="">
+	<target name="-js.specific.minify" description="(PRIVATE) Minifies page specific JavaScript files">
 		<echo message=""/>
 		<mkdir dir="${build.dir}/${publish.dir}/assets/js/pages"/>				
 		<antcall target="-js.minify">
@@ -446,10 +442,7 @@
 			<param name="file.include.js" value="${file.include.js}"/>			
 			<param name="file.exclude.js" value=""/>
 		</antcall>
-	</target>
-	<!-- TO-DO end -->	
-	
-    <!-- OPTIMIZE JAVASCRIPT FILES [private]-->
+	</target>	
 	<!--Minify JS files, excluding third party scripts that have already been minified-->
 	<target name="-js.minify" description="(PRIVATE) Minifies JavaScript files">
 		<apply executable="java" parallel="false">
