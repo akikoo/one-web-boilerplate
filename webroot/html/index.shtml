@@ -151,6 +151,5 @@ Twitter: http://twitter.com/akikoo
 	<script>window.jQuery || document.write('<script src="../assets/js/lib/jquery-1.6.2.min.js"><\/script>')</script>
 	<script defer src="../assets/js/mylib.js"></script>
 	<script defer src="../assets/js/script.js"></script>
-
 </body>
 </html>
