@@ -67,6 +67,9 @@ Twitter: http://twitter.com/akikoo
 			<link rel="stylesheet" href="<!--#echo var="PUBLISH" -->/css/<!--#echo var="PAGE" -->-min.css">
 		<!--#endif -->
 
+		<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+		<script src="<!--#echo var="PUBLISH" -->/js/lib/<!--#echo var="MODERNIZR" -->"></script>
+		
 	<!--#else -->
 		<!-- DEV: scripts included separately with @import rules: reset, mobile first, utilities and then Media Queries -->
 
@@ -82,20 +85,8 @@ Twitter: http://twitter.com/akikoo
 			<link rel="stylesheet" href="<!--#echo var="SHARD" -->/css/pages/<!--#echo var="PAGE" -->.css">
 		<!--#endif -->
 
+		<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+		<script src="<!--#echo var="SHARD" -->/js/lib/<!--#echo var="MODERNIZR" -->"></script>
+	
 	<!--#endif -->
-
-	<noscript>
-	<!-- For more info, see http://labjs.com/ -->
-	<!-- For example, unhide any content hidden by your main CSS
-		 Essentially, undo the CSS hiding of content, since there won't otherwise be any JavaScript to do so
-	-->
-	</noscript>
-
-	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="<!--#echo var="SHARD" -->/js/lib/<!--#echo var="MODERNIZR" -->"></script>
 </head>
-
-
-
-
-
