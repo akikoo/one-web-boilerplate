@@ -66,9 +66,9 @@
 
 			js.hint, 
 			-js.copy, 
-			-doc.jsdoc, 
 			-js.common.minify, 
 			-js.specific.minify, 
+			-doc.jsdoc, 
 			
 			-img.copy, 			
 			
@@ -289,7 +289,7 @@
 	</target>
 	<target name="-css.specific.minify" description="(PRIVATE) Concatenates and minifies @import-ed stylesheets with Media Queries">
 		<echo message="Inlining @import-ed stylesheets with Media Queries ..."/>
-		<mkdir dir="${build.dir}/${publish.dir}/assets/css/pages"/>		
+		<mkdir dir="${build.dir}/${publish.dir}/assets/css/pages"/>	
 		<antcall target="-css.minify">
 			<param name="dir.temp.css" value="${build.dir}/${publish.dir}/${temp.dir}/css/pages"/>
 			<param name="dir.publish.css" value="${publish.dir}/assets/css/pages/*-min.css"/>
@@ -439,9 +439,10 @@
 	</target>
 	<target name="-js.specific.minify" description="">
 		<echo message=""/>
+		<mkdir dir="${build.dir}/${publish.dir}/assets/js/pages"/>				
 		<antcall target="-js.minify">
 			<param name="dir.source.js" value="./${src.js.dir}/pages"/>
-			<param name="dir.target.js" value="./${publish.dir}/assets/js/*-min.js"/>			
+			<param name="dir.target.js" value="./${publish.dir}/assets/js/pages/*-min.js"/>			
 			<param name="file.include.js" value="${file.include.js}"/>			
 			<param name="file.exclude.js" value=""/>
 		</antcall>

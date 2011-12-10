@@ -15,7 +15,7 @@
 	<!--#if expr="${PAGECRIPTS}" -->
 	<script>
 	(function () {
-		var url = '<!--#echo var="PUBLISH" -->/js/<!--#echo var="PAGE" -->-min.js';
+		var url = '<!--#echo var="PUBLISH" -->/js/pages/<!--#echo var="PAGE" -->-min.js';
 		MYSITE.lib.loadJS(url);
 	}());
 	</script>
