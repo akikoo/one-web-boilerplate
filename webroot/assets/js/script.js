@@ -46,9 +46,7 @@ MYSITE.functions = {
 
 			// JavaScript experience divide 
 			// Detect support for Aplication Cache and localStorage
-		var enhanced = MYSITE.support.localStorage
-					|| MYSITE.support.appCache,
-
+		var enhanced = MYSITE.support.localStorage || MYSITE.support.appCache,
 			// Detect support for touch events   
 			touchEnhanced = MYSITE.support.touch;
 
