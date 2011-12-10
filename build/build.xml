@@ -57,8 +57,9 @@
 			css.lint, 
 			-css.responsive.minify, 
 			-css.unresponsive.minify, 
-			-css.minify, 
-			js.lint, 
+			-css.common.minify, 
+			-css.specific.minify, 
+			js.hint, 
 			-doc.jsdoc, 
 			-js.copy, 
 			-js.common.minify, 
@@ -78,41 +79,50 @@
 	-->
     <!-- CHECK JAVASCRIPT CODE QUALITY [public]-->	
 	<!-- JSLint (option 1) - Keep this public so it can be run independantly -->
-	<target name="js.lint" depends="-js.copy" description="(PUBLIC) Runs JSLint against all non-lib JS. Outputs to console.">		
-		<echo message="Running JSLint..."/>
-		<!-- execute jslint on the javascript, with options -->
-		<apply executable="java" parallel="false" failonerror="true">
-			<!-- Take all the JS files except for those listed in exclude -->
-			<fileset 
-				dir="${build.dir}/${publish.dir}/${temp.dir}/js"
-                includes="${file.include.js}"	
-				excludes="${file.exclude.default.js}, ${file.exclude.js}"/>
-			<arg value="-jar" />
-			<arg path="${tool.rhino}" />
-			<arg path="${tool.jslint}" />
-			<srcfile/>
-			<arg value="${tool.jslint.opts}" />
-		</apply>        
-		<echo>JSLint Successful</echo>
-	</target>     			
+	<!-- Adapted from the article: Improving Rhino CLI utility performance -->	
+	<!-- http://www.nczonline.net/blog/2011/10/25/improving-rhino-cli-utility-performance/ -->	
+	<target name="js.lint" depends="-js.copy" description="(PUBLIC) Runs JSLint against all non-lib JS. Outputs to console.">
+		<echo message="Running JSLint..."/>	
+		<!-- execute jshint on the javascript, with options -->				
+		<!-- Take all the JS files except for those listed in exclude -->
+		<fileset 
+			dir="${build.dir}/${publish.dir}/${temp.dir}/js" 
+			includes="${file.include.js}"
+			excludes="${file.exclude.default.js}, ${file.exclude.js}" 
+			id="jsfiles.raw"
+		/>
+		<pathconvert pathsep=" " property="jsfiles.clean" refid="jsfiles.raw" />
+		<exec executable="java" failonerror="true">
+			<arg line="-jar"/>
+			<arg path="${tool.rhino}"/>
+			<arg path="${tool.jslint}"/>
+			<arg line="${jsfiles.clean} ${tool.jslint.opts}" />
+		</exec>
+		<echo>JSLint Successful</echo>		
+	</target>
 	<!-- JSHint (option 2) - Keep this public so it can be run independantly -->
+	<!-- Adapted from the article: Improving Rhino CLI utility performance -->	
+	<!-- http://www.nczonline.net/blog/2011/10/25/improving-rhino-cli-utility-performance/ -->
 	<target name="js.hint" depends="-js.copy" description="(PUBLIC) Runs JSHint against all non-lib JS. Outputs to console.">
-		<echo message="Running JSHint..."/>		
-		<!-- execute jshint on the javascript, with options -->
-		<apply executable="java" parallel="false" failonerror="true">
-			<!-- Take all the JS files except for those listed in exclude -->
-			<fileset 
-				dir="${build.dir}/${publish.dir}/${temp.dir}/js"
-                includes="${file.include.js}"	
-				excludes="${file.exclude.default.js}, ${file.exclude.js}"/>
-			<arg value="-jar" />
-			<arg path="${tool.rhino}" />
-			<arg path="${tool.jshint}" />
-			<srcfile/>
-			<arg value="${tool.jshint.opts}" />
-		</apply>        
-		<echo>JSHint Successful</echo>
-	</target>    
+		<echo message="Running JSHint..."/>	
+		<!-- execute jshint on the javascript, with options -->				
+		<!-- Take all the JS files except for those listed in exclude -->
+		<fileset 
+			dir="${build.dir}/${publish.dir}/${temp.dir}/js" 
+			includes="${file.include.js}"
+			excludes="${file.exclude.default.js}, ${file.exclude.js}" 
+			id="jsfiles.raw"
+		/>
+		<pathconvert pathsep=" " property="jsfiles.clean" refid="jsfiles.raw" />
+		<exec executable="java" failonerror="true">
+			<arg line="-jar"/>
+			<arg path="${tool.rhino}"/>
+			<arg path="${tool.jshint}"/>
+			<arg line="${jsfiles.clean} ${tool.jshint.opts}" />
+		</exec>
+		<echo>JSHint Successful</echo>		
+	</target>
+
 
 
 
@@ -137,8 +147,8 @@
 		</exec>        
 		<echo>CSSLint Successful</echo>	
 	</target>
-		
-	
+
+
 	
 	
 	<!--
@@ -198,7 +208,7 @@
 	<!-- Make a temporary dir and copy the page specific CSS files into that folder -->
 	<target name="-css.copy" description="(PRIVATE) Copies CSS files into a temp dir (removes any sub dirs)">
 	<echo message="Copying CSS files..."/>
-	<copy todir="${build.dir}/${publish.dir}/${temp.dir}/css" flatten="true">
+	<copy todir="${build.dir}/${publish.dir}/${temp.dir}/css/pages" flatten="true">
 		<fileset
 			dir="${src.css.dir}/pages"
 			includes="${file.copy.include.css}"
@@ -261,6 +271,27 @@
 
 
 
+	
+    <!-- OPTIMIZE CSS FILES [private]-->
+	<target name="-css.common.minify" description="(PRIVATE) Concatenates and minifies @import-ed stylesheets with Media Queries">
+		<echo message="Inlining @import-ed stylesheets with Media Queries ..."/>
+		<antcall target="-css.minify">
+			<param name="dir.temp.css" value="${build.dir}/${publish.dir}/${temp.dir}/css"/>
+			<param name="dir.publish.css" value="${publish.dir}/assets/css/*-min.css"/>
+			<param name="file.include.css" value="${file.include.css}"/>
+			<param name="file.exclude.css" value="${file.root.mq.css}, ${file.root.css}, pages/*"/>
+		</antcall>
+	</target>
+	<target name="-css.specific.minify" description="(PRIVATE) Concatenates and minifies @import-ed stylesheets with Media Queries">
+		<echo message="Inlining @import-ed stylesheets with Media Queries ..."/>
+		<mkdir dir="${build.dir}/${publish.dir}/assets/css/pages"/>		
+		<antcall target="-css.minify">
+			<param name="dir.temp.css" value="${build.dir}/${publish.dir}/${temp.dir}/css/pages"/>
+			<param name="dir.publish.css" value="${publish.dir}/assets/css/pages/*-min.css"/>
+			<param name="file.include.css" value="${file.include.css}"/>
+			<param name="file.exclude.css" value=""/>
+		</antcall>
+	</target>
     <!-- OPTIMIZE CSS FILES [private]-->
 	<target name="-css.responsive.minify" description="(PRIVATE) Concatenates and minifies @import-ed stylesheets with Media Queries">
 		<echo message="Inlining @import-ed stylesheets with Media Queries ..."/>
@@ -280,16 +311,16 @@
 	<target name="-css.minify" description="(PRIVATE) Minifies CSS files">		
 		<apply executable="java" parallel="false">				
 			<fileset 
-                dir="${build.dir}/${publish.dir}/${temp.dir}/css" 
+                dir="${dir.temp.css}" 
                 includes="${file.include.css}" 
-				excludes="${file.root.mq.css}, ${file.root.css}"
+				excludes="${file.exclude.css}"
 			/>
 			<arg line="-jar"/>
 			<arg path="${tool.yuicompressor}"/>
 			<arg line="--line-break 0"/>
 			<srcfile/>
 			<arg line="-o"/>
-			<mapper type="glob" from="*.css" to="${publish.dir}/assets/css/*-min.css"/>
+			<mapper type="glob" from="*.css" to="${dir.publish.css}"/>
 			<targetfile/>
 		</apply>
 		<echo>Done!</echo>

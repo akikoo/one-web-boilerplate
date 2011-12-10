@@ -64,7 +64,7 @@ Twitter: http://twitter.com/akikoo
 		<![endif]-->
 
 		<!--#if expr="${PAGESTYLES}" -->
-			<link rel="stylesheet" href="<!--#echo var="PUBLISH" -->/css/<!--#echo var="PAGE" -->-min.css">
+			<link rel="stylesheet" href="<!--#echo var="PUBLISH" -->/css/pages/<!--#echo var="PAGE" -->-min.css">
 		<!--#endif -->
 
 		<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
