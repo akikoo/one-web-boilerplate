@@ -1,10 +1,10 @@
+<!--#include virtual="${DOCHEAD}" -->
+
 <!--#if expr="${PAGE} == 'home'" -->
 	<!--#set var="HEADERTAG" value="h1" -->
 <!--#elif expr="${PAGE} != 'home'" -->
 	<!--#set var="HEADERTAG" value="div" -->
 <!--#endif -->
-
-<!--#include virtual="${DOCHEAD}" -->
 <body>
 
 	<div class="page">

@@ -1,17 +1,5 @@
 <!doctype html>
 
-<!-- 
-Mobile First Responsive One Web Boilerplate
-Credits: See inline, but in general this stuff is pulled from the following sources:
-http://html5boilerplate.com
-http://html5boilerplate.com/mobile
-http://forabeautifulweb.com/blog/about/320_and_up/
-
-Author: Aki Karkkainen
-URL: https://github.com/akikoo/one-web-boilerplate
-Twitter: http://twitter.com/akikoo
--->
-
 <!-- This will be set by the build script and reverted back at the end of the build process-->
 <!--#set var='OPTIMISEDASSETS' value='' -->
 
@@ -23,6 +11,18 @@ Twitter: http://twitter.com/akikoo
 <!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html class="no-js" lang="<!--#echo var="LANG" -->" dir="<!--#echo var="LANG-DIR"-->"><!--<![endif]-->
 <head>
 	<meta charset="utf-8">
+
+	<!-- 
+	Mobile First Responsive One Web Boilerplate
+	Credits: See inline, but in general this stuff is pulled from the following sources:
+	http://html5boilerplate.com
+	http://html5boilerplate.com/mobile
+	http://forabeautifulweb.com/blog/about/320_and_up/
+
+	Author: Aki Karkkainen
+	URL: https://github.com/akikoo/one-web-boilerplate
+	Twitter: http://twitter.com/akikoo
+	-->
 
 	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
 	Remove this if you use the .htaccess -->
