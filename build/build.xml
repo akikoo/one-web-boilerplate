@@ -241,12 +241,19 @@
 	<!-- Copy the images to be published, without optimising them -->	
 	<target name="-img.copy">
 		<echo message="Copying unoptimised images..."/>		
+		<!-- Take all UI assets -->
 		<copy todir="${build.dir}/${publish.dir}/assets/img/">
 			<fileset 
 				dir="${src.img.dir}" 
 				includes="${file.copy.include.img}"/>
-		</copy> 
-		<echo message="Images are now in ${build.dir}/${publish.dir}/assets/img"/>		
+		</copy>
+		<!-- Now copy over the touch icons -->
+		<copy todir="${build.dir}/${publish.dir}">
+			<fileset 
+				dir="./" 
+				includes="*.png"/>
+		</copy> 		
+		<echo message="Images are now in ${build.dir}/${publish.dir}/assets/img. Touch icons are in ${build.dir}/${publish.dir} (on live server these should be in the root)."/>
 	</target>
 	
 
