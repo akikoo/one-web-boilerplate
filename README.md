@@ -160,7 +160,13 @@ in /webroot/assets/js.
 If you need to add a page specific script, you can do so by creating a new file 
 in /webroot/assets/js/pages. Page specific script must have the same name than 
 the page that uses it. This way the page specific script is automatically lazy 
-loaded. For deployment, a minified version of the script is loaded. 
+loaded, using lazyload.js (https://github.com/rgrove/lazyload). For deployment, 
+a minified version of the script is loaded. 
+
+If you need dependency management or other extra functionality, you might want to 
+try other module loader scripts that support AMD (Asynchronous Module Definition) 
+API, such as RequireJS: http://requirejs.org/. 
+
 
 
 ## Credits
@@ -277,6 +283,7 @@ following four directories:
 You can now deploy the site using your favourite Continuous Integration server. 
 It could be Jenkins (http://jenkins-ci.org) or Bamboo 
 (http://www.atlassian.com/software/bamboo/). You decide. 
+
 
 ### To-Do: 
 * Small tweaks here and there...
