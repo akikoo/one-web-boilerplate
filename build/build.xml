@@ -255,10 +255,20 @@
 		</copy> 		
 		<echo message="Images are now in ${build.dir}/${publish.dir}/assets/img. Touch icons are in ${build.dir}/${publish.dir} (on live server these should be in the root)."/>
 	</target>
+	<!-- Create a new page by copying the master page to a new page -->
+	<!-- Keep this public so it can be run independantly -->	
+	<target name="page.create" description="(PUBLIC) Creates a new page, based on the master page and saves it as webroot/html/pages/newpage.">
+		<echo message="Copying master page to a new page..."/>		
+		<copy todir="${src.html.dir}/newpage">
+			<fileset 
+				dir="${src.html.dir}/boilerplate" 
+				includes="*"/>
+		</copy>
+		<echo message="Created new page as ${src.html.dir}/newpage."/>
+	</target>
 	
-
-
-
+	
+	
     <!-- OPTIMIZE HTML FILES [private]-->
 	<target name="-html.minify" description="(PRIVATE) Compresses HTML files but keeps line breaks for readability">
 		<echo message="Compressing HTML files (keeping line breaks)..."/>		
