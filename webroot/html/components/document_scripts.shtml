@@ -21,7 +21,6 @@
 		// Load multiple JS files and execute a callback when they've all finished
 		LazyLoad.js([commonscripts, specificscripts], function () {
 			// your callback
-			alert('specific');			
 		});
 	}());
 	</script>
@@ -34,7 +33,6 @@
 		// Load multiple JS files and execute a callback when they've all finished
 		LazyLoad.js([commonscripts], function () {
 			// your callback
-			alert('common');
 		});
 	}());
 	</script>
@@ -56,7 +54,6 @@
 		// Load multiple JS files and execute a callback when they've all finished
 		LazyLoad.js([jquery, mylib, docscript, pagescript], function () {
 			// your callback
-			alert('specific');
 		});
 	}());
 	</script>
@@ -71,7 +68,6 @@
 		// Load multiple JS files and execute a callback when they've all finished
 		LazyLoad.js([jquery, mylib, docscript], function () {
 			// your callback
-			alert('common');
 		});
 	}());
 	</script>		
