@@ -40,9 +40,8 @@
 		
 <!--#else -->
 	<!-- DEV: scripts loaded separately with lazyload.js, and executed in the specified order -->
-	<script src="<!--#echo var="SHARD" -->/js/lib/<!--#echo var='LAZYLOAD' -->"></script>	
-	
-		
+	<script src="<!--#echo var='SHARD' -->/js/lib/<!--#echo var='LAZYLOAD' -->"></script>	
+			
 	<!--#if expr="${PAGECRIPTS}" -->	
 	<script>
 	(function () {
