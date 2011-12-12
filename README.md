@@ -164,8 +164,8 @@ loaded, using lazyload.js (https://github.com/rgrove/lazyload). For deployment,
 a minified version of the script is loaded. 
 
 If you need dependency management or other extra functionality, you might want to 
-try other module loader scripts that support AMD (Asynchronous Module Definition) 
-API, such as RequireJS: http://requirejs.org/. 
+try other loader scripts that support AMD (Asynchronous Module Definition) API, 
+such as RequireJS: http://requirejs.org/. 
 
 
 
