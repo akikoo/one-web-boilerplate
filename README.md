@@ -127,8 +127,8 @@ the build script inlines and minifies styles in the same order that you @import-
 them. Nice, eh? But keep in mind that you have to @import the core styles (see above) 
 before anything else. 
 
-If you need to overwrite common rules, or add page specific styles, you can do so 
-by creating a new stylesheet in /webroot/assets/css/pages. Page specific stylesheet 
+If you need to overwrite common rules, or add new ones on a page level, you can do 
+so by creating a new stylesheet in /webroot/assets/css/pages. Page specific stylesheet 
 must have the same name than the page that uses it. This way the page specific 
 stylesheet is automatically included in the template, as well as minified for 
 deployment. 
