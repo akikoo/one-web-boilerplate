@@ -233,7 +233,7 @@
 		<copy todir="${build.dir}/${publish.dir}/assets/js">
 			<fileset 
                 dir="${src.js.dir}/lib" 
-                includes="${modernizr.js}" 
+                includes="${modernizr.js}, ${lazyload.js}" 
 			/>
 		</copy>		
 		<echo message="JavaScript files are now in ${build.dir}/${publish.dir}/${temp.dir}/js, ready to be manipulated"/>
