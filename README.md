@@ -121,11 +121,17 @@ All the other tools needed in the local build are in the tools folder.
 	IE 6/7/8 browsers; alternatively, you can use this as non-responsive main 
 	stylesheet that simply includes modular stylesheets). 
 
-responsive.css and unresponsive.css are the main stylesheets that @import the 
-rest. Note that styles are @import-ed only for development. For production, the 
-build script inlines and minifies styles in the same order that you @import-ed 
+responsive.css and unresponsive.css are the main stylesheets that @import all the 
+common styles. Note that styles are @import-ed only for development. For production, 
+the build script inlines and minifies styles in the same order that you @import-ed 
 them. Nice, eh? But keep in mind that you have to @import the core styles (see above) 
-before anything else.
+before anything else. 
+
+If you need to overwrite common rules, or add page specific styles, you can do so 
+by creating a new stylesheet in /webroot/assets/css/pages. Page specific stylesheet 
+must have the same name than the page that uses it. This way the page specific 
+stylesheet is automatically included in the template, as well as minified for 
+deployment. 
 
 So you basically have two possible main routes here: go responsive, or go modular 
 (or preferably both). If you want the build script to process your new 
@@ -136,7 +142,6 @@ Similarly, if you add new Media Queries, you need to add /\*replace\*/ comment h
 for the build script to comment out the Media Queries, like so: 
 
 /\*replace\*/@media only screen and (min-width: 20em) and (max-width: 29.9375em) {/\*replace\*/
-
 
 }/\*replace\*/
 
@@ -150,7 +155,12 @@ styles inherit only from base rules, not from other modules.
 
 ### JavaScript
 * Third-party plugins are included in /webroot/assets/js/lib. Custom scripts are 
-in /webroot/assets/js.
+in /webroot/assets/js. 
+
+If you need to add a page specific script, you can do so by creating a new file 
+in /webroot/assets/js/pages. Page specific script must have the same name than 
+the page that uses it. This way the page specific script is automatically lazy 
+loaded. For deployment, a minified version of the script is loaded. 
 
 
 ## Credits
