@@ -59,6 +59,8 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 
 ## Environment setup
 
+### Apache Ant
+
 * Whether you’re on Windows or Mac, you’ll need the Java Development Kit (JDK) 
 	(at least version 1.4). You can download it here: 
 	http://www.oracle.com/technetwork/java/javase/downloads/index.html. 
@@ -73,6 +75,7 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 	http://net.tutsplus.com/tutorials/other/automate-your-projects-with-apache-ant/ 
 	(see section Windows- and Mac-Specific Install Bits.)
 
+### Apache SSI
 To permit SSI on your server, see this article: 
 http://httpd.apache.org/docs/2.2/howto/ssi.html
 
