@@ -73,6 +73,9 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 	http://net.tutsplus.com/tutorials/other/automate-your-projects-with-apache-ant/ 
 	(see section Windows- and Mac-Specific Install Bits.)
 
+To permit SSI on your server, see this article: 
+http://httpd.apache.org/docs/2.2/howto/ssi.html
+
 All the other tools needed in the local build are in the tools folder.
 
 
