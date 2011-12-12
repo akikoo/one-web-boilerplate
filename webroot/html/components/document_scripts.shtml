@@ -3,39 +3,78 @@
 
 <!-- For improving flexible images quality on IE6/7 for responsive web sites -->  
 <!--[if (lt IE 9) & (!IEMobile)]>
-	<script src="<!--#echo var="SHARD" -->/js/lib/selectivizr.js"></script> 
-	<script src="<!--#echo var="SHARD" -->/js/lib/imgsizer.js"></script>   
+	<script src="<!--#echo var='SHARD' -->/js/lib/selectivizr.js"></script> 
+	<script src="<!--#echo var='SHARD' -->/js/lib/imgsizer.js"></script>   
 <![endif]-->
 
 <!-- This variable will be toggled automatically by the build script -->
 <!--#if expr="${OPTIMISEDASSETS}" -->
 	<!-- PROD: scripts concatenated and minified via ant build script -->
-	<script src="<!--#echo var="PUBLISH" -->/js/scripts-concat.min.js"></script>
-	
-	<!--#if expr="${PAGECRIPTS}" -->
+	<script src="<!--#echo var='PUBLISH' -->/js/<!--#echo var='LAZYLOAD' -->"></script>	
+
+	<!--#if expr="${PAGECRIPTS}" -->	
 	<script>
 	(function () {
-		var url = '<!--#echo var="PUBLISH" -->/js/pages/<!--#echo var="PAGE" -->-min.js';
-		MYSITE.lib.loadJS(url);
+		var commonscripts	= "<!--#echo var='PUBLISH' -->/js/scripts-concat.min.js", 
+			specificscripts	= "<!--#echo var='PUBLISH' -->/js/pages/<!--#echo var='PAGE' -->-min.js";
+		
+		// Load multiple JS files and execute a callback when they've all finished
+		LazyLoad.js([commonscripts, specificscripts], function () {
+			// your callback
+			alert('specific');			
+		});
+	}());
+	</script>
+
+	<!--#else -->
+	<script>
+	(function () {
+		var commonscripts	= "<!--#echo var='PUBLISH' -->/js/scripts-concat.min.js";
+		
+		// Load multiple JS files and execute a callback when they've all finished
+		LazyLoad.js([commonscripts], function () {
+			// your callback
+			alert('common');
+		});
 	}());
 	</script>
 	<!--#endif -->
 		
 <!--#else -->
-	<!-- DEV: scripts included separately -->			
-	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="<!--#echo var="SHARD" -->/js/lib/<!--#echo var="JQUERY" -->"><\/script>')</script>
-	<script src="<!--#echo var="SHARD" -->/js/mylib.js"></script>
-	<script src="<!--#echo var="SHARD" -->/js/script.js"></script>
-
-	<!--#if expr="${PAGECRIPTS}" -->
+	<!-- DEV: scripts loaded separately with lazyload.js, and executed in the specified order -->
+	<script src="<!--#echo var="SHARD" -->/js/lib/<!--#echo var='LAZYLOAD' -->"></script>	
+	
+		
+	<!--#if expr="${PAGECRIPTS}" -->	
 	<script>
 	(function () {
-		var url = '<!--#echo var="SHARD" -->/js/pages/<!--#echo var="PAGE" -->.js';
-		MYSITE.lib.loadJS(url);		
+		var jquery		= "<!--#echo var='SHARD' -->/js/lib/<!--#echo var='JQUERY' -->", 
+			mylib		= "<!--#echo var='SHARD' -->/js/mylib.js", 
+			docscript	= "<!--#echo var='SHARD' -->/js/script.js", 
+			pagescript	= "<!--#echo var='SHARD' -->/js/pages/<!--#echo var='PAGE' -->.js";
+		
+		// Load multiple JS files and execute a callback when they've all finished
+		LazyLoad.js([jquery, mylib, docscript, pagescript], function () {
+			// your callback
+			alert('specific');
+		});
 	}());
 	</script>
+
+	<!--#else -->
+	<script>
+	(function () {
+		var jquery = "<!--#echo var='SHARD' -->/js/lib/<!--#echo var='JQUERY' -->", 
+			mylib = "<!--#echo var='SHARD' -->/js/mylib.js", 
+			docscript = "<!--#echo var='SHARD' -->/js/script.js";
+		
+		// Load multiple JS files and execute a callback when they've all finished
+		LazyLoad.js([jquery, mylib, docscript], function () {
+			// your callback
+			alert('common');
+		});
+	}());
+	</script>		
 	<!--#endif -->
 
 <!--#endif -->
