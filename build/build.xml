@@ -56,7 +56,10 @@
 			-make_shtml_into_html, 
 			-html.minify, 
 			-useseparate, 
-			
+			-components.list, 
+			-modules.list, 
+			-pages.list, 
+
 			css.lint, 
 			-css.copy, 
 			-css.common.minify, 
@@ -255,7 +258,11 @@
 		</copy> 		
 		<echo message="Images are now in ${build.dir}/${publish.dir}/assets/img. Touch icons are in ${build.dir}/${publish.dir} (on live server these should be in the root)."/>
 	</target>
-	<!-- Create a new page by copying the master page to a new page -->
+	
+
+	
+    <!-- CREATE A NEW PAGE [public]-->	
+	<!-- Copy the master page to a new page -->
 	<!-- Keep this public so it can be run independantly -->	
 	<target name="page.create" description="(PUBLIC) Creates a new page, based on the master page and saves it as webroot/html/pages/newpage. The name is prompted.">
 		<echo message="Copying master page to a new page..."/>		
@@ -264,17 +271,71 @@
 			addproperty="page.name"
 			defaultvalue="newpage"
 		/>
-		<copy todir="${src.html.dir}/${page.name}">
+		<copy todir="${src.html.dir}/${src.html.pages.dir}/${page.name}">
 			<fileset 
-				dir="${src.html.dir}/boilerplate" 
+				dir="${src.html.dir}/${src.html.pages.dir}/boilerplate" 
 				includes="*"/>
 		</copy>
-		<echo message="Created new page as ${src.html.dir}/${page.name}."/>
+		<echo message="Created new page as ${src.html.dir}/${src.html.pages.dir}/${page.name}."/>
+	</target>	
+	
+	
+
+	<!-- CREATE INC FILES FOR MAIN INDEX FILE, WITH LINKS TO COMPONENTS, MODULES AND PAGES [private]-->	
+	<target name="-list.create" description="(PRIVATE) Reads file names in specified folder and calls another target to write them in a file.">
+		<!-- Delete previous version, to start clean -->
+		<delete file="${file.write}"/>
+		<!-- Get the files (attributes are coming from a target that calls this one each time) -->
+		<foreach param="elm" target="-elements.write">
+			<fileset 
+				dir="${dir.list}"
+				includes="${file.include}"
+			/>
+		</foreach>
+	</target>	
+	<target name="-elements.write">
+		<!-- Make sure we get relative path for each file -->
+		<property name="elm.path" value="${elm}" relative="yes" />
+		<!-- Now write the elements in a file, one by one -->
+		<echo file="${file.write}" append="true">&lt;li&gt;&lt;a href="${elm.path}"&gt;${elm.path}&lt;/a&gt;&lt;/li&gt;${line.separator}</echo>
+	</target>	
+	<target name="-components.list">
+		<antcall target="-list.create">
+			<param name="dir.list" value="${src.html.dir}/${src.html.components.dir}"/>
+			<param name="file.write" value="${src.html.dir}/${inc.components}"/>
+			<param name="file.include" value="*"/>
+		</antcall>
+		<antcall target="-list.replace">
+			<param name="file.write" value="${src.html.dir}/${inc.components}"/>
+		</antcall>				
+	</target>	
+	<target name="-modules.list">
+		<antcall target="-list.create">
+			<param name="dir.list" value="${src.html.dir}/${src.html.modules.dir}"/>
+			<param name="file.write" value="${src.html.dir}/${inc.modules}"/>
+			<param name="file.include" value="*"/>
+		</antcall>
+		<antcall target="-list.replace">
+			<param name="file.write" value="${src.html.dir}/${inc.modules}"/>
+		</antcall>
+	</target>
+	<target name="-pages.list">
+		<antcall target="-list.create">
+			<param name="dir.list" value="${src.html.dir}/${src.html.pages.dir}"/>
+			<param name="file.write" value="${src.html.dir}/${inc.pages}"/>
+			<param name="file.include" value="**/index.shtml"/>
+		</antcall>
+		<antcall target="-list.replace">
+			<param name="file.write" value="${src.html.dir}/${inc.pages}"/>
+		</antcall>				
+	</target>	
+	<target name="-list.replace">
+		<replace file="${file.write}" token='webroot/html/' value='/html/'/>			
 	</target>	
 	
 	
 	
-    <!-- OPTIMIZE HTML FILES [private]-->
+	<!-- OPTIMIZE HTML FILES [private]-->
 	<target name="-html.minify" description="(PRIVATE) Compresses HTML files but keeps line breaks for readability">
 		<echo message="Compressing HTML files (keeping line breaks)..."/>		
 		<apply executable="java" parallel="false">
