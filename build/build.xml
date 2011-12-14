@@ -257,15 +257,20 @@
 	</target>
 	<!-- Create a new page by copying the master page to a new page -->
 	<!-- Keep this public so it can be run independantly -->	
-	<target name="page.create" description="(PUBLIC) Creates a new page, based on the master page and saves it as webroot/html/pages/newpage.">
+	<target name="page.create" description="(PUBLIC) Creates a new page, based on the master page and saves it as webroot/html/pages/newpage. The name is prompted.">
 		<echo message="Copying master page to a new page..."/>		
-		<copy todir="${src.html.dir}/newpage">
+		<input 
+			message="Enter page name..."
+			addproperty="page.name"
+			defaultvalue="newpage"
+		/>
+		<copy todir="${src.html.dir}/${page.name}">
 			<fileset 
 				dir="${src.html.dir}/boilerplate" 
 				includes="*"/>
 		</copy>
-		<echo message="Created new page as ${src.html.dir}/newpage."/>
-	</target>
+		<echo message="Created new page as ${src.html.dir}/${page.name}."/>
+	</target>	
 	
 	
 	
