@@ -107,19 +107,34 @@ Twitter: http://twitter.com/akikoo
 						<div class="hentry">							
 							<h2 class="entry-title">Information and Credits</h2>
 							<div class="entry-summary">
-								<p>This is a <strong>static</strong> main index file. Use this file as an entry point to other pages during the development. You can also add documentation here, or whatever you need to keep your project going.</p>
+								<p>This is the <strong>main index</strong> file. Use this file as an entry point to other pages during the development. You can also add documentation here, or whatever you need to keep your project going.</p>
 								<p>For credits, please see inline comments and README.md.</p>
-								<p>Your first dynamic page is here: <a href="./pages/boilerplate/index.shtml">Boilerplate masterpage</a> (you need to have SSIs enabled on your Apache server, see <a href="http://httpd.apache.org/docs/2.2/howto/ssi.html">Introduction to Server Side Includes</a>).</p>
 							</div>
 							<div class="entry-content">
+								<p>What follows is a dynamically generated list of elements that are currently available in the file system to generate pages.</p>
+								<p>If you don't see anything, make sure you have SSIs enabled on your Apache server, see <a href="http://httpd.apache.org/docs/2.2/howto/ssi.html">Introduction to Server Side Includes</a>).</p>
+								<p>Your first dynamic page is here: <a href="./pages/boilerplate/index.shtml">Boilerplate masterpage</a>.</p>
+								
+								<h3>Components</h3>
+								<ul>
+									<!--#include virtual="inc_components.shtml" -->
+								</ul>
+								<h3>Modules</h3>								
+								<ul>
+									<!--#include virtual="inc_modules.shtml" -->
+								</ul>
+								<h3>Pages</h3>								
+								<ul>
+									<!--#include virtual="inc_pages.shtml" -->
+								</ul>
 							</div>
 							<footer>
 								<!-- hCard microformat -->							
 								<p class="vcard author">
 									<span class="fn">Aki Karkkainen</span>, 
-									<time class="published" datetime="2011-10-17" pubdate>
-										17 October, 2011								
-										<span class="value-title" title="2011-10-17"> </span>
+									<time class="published" datetime="2011-12-14" pubdate>
+										14 December, 2011								
+										<span class="value-title" title="2011-12-14"> </span>
 									</time>	
 								</p>
 							</footer>
