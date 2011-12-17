@@ -53,12 +53,15 @@
             -init, 
 
 			-useminified, 
-			-make_shtml_into_html, 
-			-html.minify, 
-			-useseparate, 
+			-make_shtml_into_html_modules, 
+			-make_shtml_into_html_pages, 
 			-components.list, 
 			-modules.list, 
+			-modules.list.include, 
 			-pages.list, 
+			-templates.list, 			
+			-html.minify, 
+			-useseparate, 
 
 			css.lint, 
 			-css.copy, 
@@ -286,7 +289,7 @@
 		<!-- Delete previous version, to start clean -->
 		<delete file="${file.write}"/>
 		<!-- Get the files (attributes are coming from a target that calls this one each time) -->
-		<foreach param="elm" target="-elements.write">
+		<foreach param="elm" target="${target.call}">
 			<fileset 
 				dir="${dir.list}"
 				includes="${file.include}"
@@ -299,11 +302,20 @@
 		<!-- Now write the elements in a file, one by one -->
 		<echo file="${file.write}" append="true">&lt;li&gt;&lt;a href="${elm.path}"&gt;${elm.path}&lt;/a&gt;&lt;/li&gt;${line.separator}</echo>
 	</target>	
+	
+	<target name="-elements.includes.write">
+		<!-- Make sure we get relative path for each file -->
+		<property name="elm.path" value="${elm}" relative="yes" />
+		<!-- Now write the elements in a file, one by one -->
+		<echo file="${file.write}" append="true">&lt;!--#include virtual="${elm.path}" --&gt;${line.separator}</echo>
+	</target>
+				
 	<target name="-components.list">
 		<antcall target="-list.create">
 			<param name="dir.list" value="${src.html.dir}/${src.html.components.dir}"/>
 			<param name="file.write" value="${src.html.dir}/${inc.components}"/>
 			<param name="file.include" value="*"/>
+			<param name="target.call" value="-elements.write"/>
 		</antcall>
 		<antcall target="-list.replace">
 			<param name="file.write" value="${src.html.dir}/${inc.components}"/>
@@ -314,9 +326,21 @@
 			<param name="dir.list" value="${src.html.dir}/${src.html.modules.dir}"/>
 			<param name="file.write" value="${src.html.dir}/${inc.modules}"/>
 			<param name="file.include" value="*"/>
+			<param name="target.call" value="-elements.write"/>
 		</antcall>
 		<antcall target="-list.replace">
 			<param name="file.write" value="${src.html.dir}/${inc.modules}"/>
+		</antcall>
+	</target>
+	<target name="-modules.list.include">
+		<antcall target="-list.create">
+			<param name="dir.list" value="${src.html.dir}/${src.html.modules.dir}"/>
+			<param name="file.write" value="${src.html.dir}/${src.html.modules.dir}/${inc.modules}"/>
+			<param name="file.include" value="*"/>
+			<param name="target.call" value="-elements.includes.write"/>
+		</antcall>
+		<antcall target="-list.replace">
+			<param name="file.write" value="${src.html.dir}/${src.html.modules.dir}/${inc.modules}"/>
 		</antcall>
 	</target>
 	<target name="-pages.list">
@@ -324,9 +348,21 @@
 			<param name="dir.list" value="${src.html.dir}/${src.html.pages.dir}"/>
 			<param name="file.write" value="${src.html.dir}/${inc.pages}"/>
 			<param name="file.include" value="**/index.shtml"/>
+			<param name="target.call" value="-elements.write"/>
 		</antcall>
 		<antcall target="-list.replace">
 			<param name="file.write" value="${src.html.dir}/${inc.pages}"/>
+		</antcall>				
+	</target>
+	<target name="-templates.list">
+		<antcall target="-list.create">
+			<param name="dir.list" value="${src.html.dir}/${src.html.templates.dir}"/>
+			<param name="file.write" value="${src.html.dir}/${inc.templates}"/>
+			<param name="file.include" value="*.shtml"/>
+			<param name="target.call" value="-elements.write"/>
+		</antcall>
+		<antcall target="-list.replace">
+			<param name="file.write" value="${src.html.dir}/${inc.templates}"/>
 		</antcall>				
 	</target>	
 	<target name="-list.replace">
@@ -563,7 +599,19 @@
 	</target>
 
 
-
+    <!-- CALL MERGE TARGET BELOW TO GENERATE HTML FILES FOR MODULES AND PAGES [private]-->
+	<target name="-make_shtml_into_html_modules" description="(PRIVATE) Concatenates @import-ed stylesheets with Media Queries">
+		<echo message="..."/>
+		<antcall target="-make_shtml_into_html">
+			<param name="file.shtml" value="html/modules/*.shtml"/>
+		</antcall>
+	</target>
+	<target name="-make_shtml_into_html_pages" description="(PRIVATE) Concatenates @import-ed stylesheets with Media Queries">
+		<echo message="..."/>
+		<antcall target="-make_shtml_into_html">
+			<param name="file.shtml" value="html/pages/**/index.shtml"/>
+		</antcall>
+	</target>	
     <!-- MERGE THE SSI INTO FULL WEB PAGES [private]-->
 	<!-- Author: Robert Lie (http://www.mobilefish.com/download/ant/build_demo7.xml.txt) -->
 	<!-- Customizations by Dawn Budge (http://www.dawnbudge.co.uk) and Aki Karkkainen (http://www.akikoo.org) -->
@@ -573,7 +621,7 @@
 			<path>       
 				<fileset 
 					dir="${web.home}"
-					includes="html/pages/**/index.shtml" 
+					includes="${file.shtml}" 
 					excludes=""
 				/>
 			</path>
