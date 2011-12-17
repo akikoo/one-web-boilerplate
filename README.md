@@ -107,7 +107,10 @@ All the other tools needed in the local build are in the tools folder.
 ### HTML
 * Each page has a controller in /webroot/html/pages/pagename/index.shtml. 
 	In that file, we include the config file and set variables, define the view, 
-	and template file that we need to include, to render that particular page.
+	and template file that we need to include, to render that particular page. 
+	For more information, see project main index file: 
+	https://github.com/akikoo/one-web-boilerplate/blob/master/webroot/html/index.shtml
+
 
 ### CSS - five stylesheets by default, included in the following order: 
 * /webroot/assets/css/common/normalize.css (reset styles)
