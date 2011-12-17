@@ -10,7 +10,7 @@
 	<!--#set var="LANG-DIR" value="ltr" -->
 <!--#endif -->
 
-<!--#set var="PAGE" value="elements"-->
+<!--#set var="PAGE" value="01_elements"-->
 <!--#set var="TITLE" value="Common HTML elements"-->
 <!--#set var="PAGE-HEADING" value="Common HTML elements" -->
 
