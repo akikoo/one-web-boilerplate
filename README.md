@@ -282,6 +282,13 @@ brew install libjpeg optipng
 Windows binaries are already included. Source: HTML5 Boilerplate, Dependencies 
 section: http://html5boilerplate.com/docs/Build-script/
 
+Also, you can create new pages by running this in your terminal: 
+
+ant -buildfile build.xml page.create
+
+You will be prompted for a pagename. A new pagename folder will be created in the 
+filesystem by copying the masterpage files (located in /build/config/masterpage).
+
 Congratulations! You now have a brand new /build/publish directory that has the 
 following four directories: 
 
