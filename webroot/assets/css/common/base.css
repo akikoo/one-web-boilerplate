@@ -77,11 +77,15 @@ a:hover, a:active {
 /*Flexible images and embedded videos
 ------------------------------------------------------------------------------*/
 img,
+audio, 
 video,
 object,
-embed {
+embed, 
+svg {
 	max-width: 100%;
 }
+
+
 
 /*Put your styles here...*/
 
@@ -89,7 +93,11 @@ embed {
 /*	TEMP: Used only for quick and dirty demonstration, be sure to remove these
 -------------------------------------------------------------------------------*/
 .masthead {
-	margin-left: 40px;
+	display: none;
+}
+
+.nav-main {
+	padding: 0;
 }
 
 .hfeed,
