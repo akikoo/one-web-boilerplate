@@ -8,11 +8,12 @@
 	<!-- hAtom microformat -->
 	<article>
 		<div class="hentry">							
-			<h2 class="entry-title">Information and Credits</h2>
+			<h2 class="entry-title">This is your second-level heading</h2>
 			<div class="entry-summary">
-				<p>Here we will have an explanation in the near future.</p>
+
 			</div>
 			<div class="entry-content">
+				<p>Main content. Over to you :)</p>				
 			</div>
 			<footer>
 				<!-- hCard microformat -->							
