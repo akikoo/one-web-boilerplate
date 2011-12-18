@@ -46,7 +46,7 @@ h3 {
 	font-family: Palatino, Cambria, Georgia, serif;
 	font-weight: normal;
 	font-size: 1.5625em;
-	padding: 0; 
+	padding: 0.5em 0 0; 
 	margin: 0;
 	color: #666;
 	border-bottom: 0.1em solid #333;
@@ -87,6 +87,11 @@ p, ul, ol, hr, table, form, fieldset {
 	margin: 1.25em 0;
 }
 
+ul, 
+ol {
+	line-height: 1.5;
+}
+	
 blockquote {
 	margin: 1em;
 	border-top: 0.1em solid;
