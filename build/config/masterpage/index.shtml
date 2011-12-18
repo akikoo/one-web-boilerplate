@@ -10,24 +10,28 @@
 	<!--#set var="LANG-DIR" value="ltr" -->
 <!--#endif -->
 
-<!--#set var="PAGE" value="boilerplate"-->
-<!--#set var="TITLE" value="One Web/Mobile First Responsive Boilerplate"-->
-<!--#set var="PAGE-HEADING" value="One Web/Mobile First Responsive Boilerplate (what a mouthful!)" -->
+<!--#set var="PAGE" value=""-->
+<!--#set var="TITLE" value="Page title goes here (define it in index.shtml)"-->
+<!--#set var="PAGE-HEADING" value="Page heading goes here (define it in index.shtml)" -->
 
 <!--#set var="DOCHEAD" value="${COMPONENTS}/document_head.shtml"-->
 <!--#set var="DOCFOOTER" value="${COMPONENTS}/document_footer.shtml"-->
 <!--#set var="DOCSCRIPTS" value="${COMPONENTS}/document_scripts.shtml"-->
 
-<!--#set var="PAGECRIPTS" value="true"-->
-<!--#set var="PAGESTYLES" value="true"-->
+<!--#set var="PAGECRIPTS" value=""-->
+<!--#set var="PAGESTYLES" value=""-->
 
 <!--#set var="VIEW1" value="${PAGES}/${PAGE}/view1.shtml"-->
 <!--#set var="NAV" value="${COMPONENTS}/document_nav.shtml"-->
 <!--#include virtual="${TEMPLATES}/default.shtml" -->
 
 <!-- 
-	 If needed, set page specific styles and scripts to 'true' above, and place them here:
-	 /assets/css/pages/${PAGE}.css
-	 /assets/js/pages/${PAGE}.js
-	 (The template will then lazy load them automatically)
+	If you need page specific styles and scripts, set PAGECRIPTS and PAGESTYLES 
+	to 'true' above..
+
+	Then, place them here:
+	/assets/css/pages/${PAGE}.css
+	/assets/js/pages/${PAGE}.js
+
+	The template will then load them only on pages where they're needed. 
 -->
