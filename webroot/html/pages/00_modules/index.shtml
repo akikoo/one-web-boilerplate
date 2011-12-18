@@ -10,7 +10,7 @@
 	<!--#set var="LANG-DIR" value="ltr" -->
 <!--#endif -->
 
-<!--#set var="PAGE" value="02_modules"-->
+<!--#set var="PAGE" value="00_modules"-->
 <!--#set var="TITLE" value="Module Catalogue - One Web/Mobile First Responsive Boilerplate"-->
 <!--#set var="PAGE-HEADING" value="Module Catalogue" -->
 
