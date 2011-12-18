@@ -27,7 +27,8 @@ such as Jenkins: http://jenkins-ci.org.
 * /build contains Ant build script and all the tools you need to make your 
 	frontend build. Default and common build properties are defined in 
 	/build/config/default.properties. Project-specific properties are defined in 
-	/build/config/project.properties.
+	/build/config/project.properties. There's also a folder called masterpage, 
+	which is used as a blueprint for creating new pages. 
 
 * /webroot contains two subdirectories: /assets and /html. 
 
@@ -112,12 +113,13 @@ All the other tools needed in the local build are in the tools folder.
 	https://github.com/akikoo/one-web-boilerplate/blob/master/webroot/html/index.shtml
 
 
-### CSS - five stylesheets by default, included in the following order: 
+### CSS - six stylesheets by default, included in the following order: 
 * /webroot/assets/css/common/normalize.css (reset styles)
 * /webroot/assets/css/common/base.css (global, mobile first styles, containing only 
 	common colour and typographic rules for basic experience to all users)
 * /webroot/assets/css/common/utilities.css (helper styles from HTML5 Boilerplate and 
 	HTML5 Mobile Boilerplate)
+* /webroot/assets/css/common/theme.css (temp theme styles, you should create your own)
 * /webroot/assets/css/responsive.css (layout with Media Queries for responsive, 
 	enhanced design for smartphones, tablets and larger screens)
 * /webroot/assets/css/unresponsive.css (layout without Media Queries for legacy 
