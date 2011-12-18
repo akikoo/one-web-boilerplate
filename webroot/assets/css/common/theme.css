@@ -1,0 +1,373 @@
+/**
+ * 
+ * Theme for One Web Boilerplate elements and modules
+ * This is just a quick demo, remove this when you start your project
+ *
+ * @author Aki Karkkainen
+ * @url https://github.com/akikoo/one-web-boilerplate
+ * Twitter: http://twitter.com/akikoo
+ * 
+ * Loosely based on Adactio's Pattern Primer CSS: https://github.com/adactio/Pattern-Primer 
+ * 
+ */
+
+
+
+/* @group Typography */
+
+body {
+	background-color: #eee;
+	margin: 0 5%;
+	font-family: Cambria, Georgia, serif;
+	color: #333;
+}
+
+h1 {
+	font-family: Palatino, Cambria, Georgia, serif;
+	font-weight: normal;
+	font-size: 2.5em;
+	padding: 1em 0 0; 
+	margin: 0 0 1em;
+	color: #444;
+	border-bottom: 0.2em solid #333;
+}
+
+h2 {
+	font-family: Palatino, Cambria, Georgia, serif;
+	font-weight: normal;
+	font-size: 1.875em;
+	padding: 0; 
+	margin: 0;
+	color: #555;
+	border-bottom: 0.13333em solid #333;
+}
+
+h3 {
+	font-family: Palatino, Cambria, Georgia, serif;
+	font-weight: normal;
+	font-size: 1.5625em;
+	padding: 0; 
+	margin: 0;
+	color: #666;
+	border-bottom: 0.1em solid #333;
+}
+
+h4 {
+	font-family: Palatino, Cambria, Georgia, serif;
+	font-weight: normal;
+	font-size: 1.25em;
+	padding: 1em 0; 
+	margin: 0;
+	color: #777;
+}
+
+h5 {
+	font-family: Palatino, Cambria, Georgia, serif;
+	font-weight: normal;
+	font-size: 1.125em;
+	padding: 0; 
+	margin: 0;
+	color: #888;
+}
+
+h6 {
+	font-size: 1em;
+	padding: 1em 0 0; 
+	margin: 0;
+	color: #999;
+}
+
+hr {
+	border: none;
+	height: 0.1em;
+	background: #ccc;
+}
+
+p, ul, ol, hr, table, form, fieldset {
+	margin: 1.25em 0;
+}
+
+blockquote {
+	margin: 1em;
+	border-top: 0.1em solid;
+	border-bottom: 0.1em solid;
+	padding: 0 1em;
+	font-family: Palatino, Georgia, serif;
+	font-style: italic;
+	font-size: 1.25em;
+	line-height: 1.5;
+	letter-spacing: 0.05em;
+	color: #888;
+	border-color: #ccc;
+}
+
+blockquote em {
+	font-style: normal;
+}
+
+figcaption {
+	font-family: Palatino, Cambria, Georgia, serif;
+	font-style: italic;
+	font-size: 0.857em;
+	line-height: 1.4286;
+	color: #666;
+}
+
+p {
+	line-height: 1.5;
+	word-spacing: 0.1em;
+	margin: 1.1111em 0;
+}
+
+time {
+	color: #888;
+}
+
+
+/* @end Typography */
+
+/* @group Links */
+
+a {
+	text-decoration: none;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	white-space: pre-wrap;
+}
+
+a:link,
+a:visited {
+	color: #369;
+	border-bottom-color: #369;
+}
+
+a[href]:hover,
+a[href]:focus {
+	color: #c03;
+	border-bottom-color: #c03;
+}
+
+a:active {
+	color: #900;
+	border-bottom-color: #900;
+}
+
+.logo a, 
+h1 a, 
+h2 a, 
+h3 a {
+	border: none;
+}
+
+/* @end Links */
+
+/* @group Forms */
+
+label {
+	cursor: pointer;
+}
+
+input[type],
+textarea,
+select {
+	background-color: #fff;
+	width: 100%;
+	font-family: inherit;
+	font-size: inherit;
+	padding: 0.125em;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	-o-border-radius: 0.25em;
+	border-radius: 0.25em;
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="image"] {
+	width: auto;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	outline: none;
+	border-color: #666;
+}
+
+input[required],
+textarea[required] {
+	border-color: #999;
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+	width: auto;
+	text-align: center;
+	font-family: Calibri, 'Helvetica Neue', Arial, sans-serif;
+	font-size: inherit;
+	font-weight: normal;
+	font-style: normal;
+	border: 1px solid #666;
+	cursor: pointer;
+	padding: 0.5em 1em;
+	line-height: 1;
+	background-color: #369;
+	color: #fff;
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	-o-border-radius: 1em;
+	border-radius: 1em;
+}
+
+button:hover,
+button:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+	outline: none;
+	background-color: #c03;
+	color: #fff;
+}
+
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+	background-color: #900;
+	color: #fff;
+}
+
+/* @group search */
+
+[role="search"] {
+	position: relative;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 0 0.75em;
+	-webkit-border-radius: 1em;
+	-moz-border-radius:1em;
+	-o-border-radius: 1em;
+	border-radius: 1em;
+}
+
+[role="search"] input {
+	border: none;
+	-webkit-appearance: none;
+	-moz-appearance: none; 
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-o-border-radius: 0;
+	border-radius: 0;
+}
+
+[role="search"] input[type="image"] {
+	background-color: #fff;
+	position: absolute;
+	width: 0.9375em;
+	top: 0.2em;
+	right: 0.6em;
+	padding: 0.2em 0.2em;
+}
+
+/* @end search */
+
+/* @end Forms */
+
+/* @group Classes */
+
+/* @group pagination */
+
+.pagination {
+	font-family: Calibri, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.pagination li {
+	display: inline;
+	margin-left: 0;
+	text-indent: 0;
+}
+
+.pagination a {
+	display: inline-block;
+	padding: 0.5em 1em;
+	line-height: 1;
+	margin: 0.1em;
+	border: 1px solid #666;
+	-webkit-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	-o-border-radius: 0.25em;
+	border-radius: 0.25em;
+	background-clip: padding-box;
+}
+
+.pagination a:link,
+.pagination a:visited {
+	color: #fff;
+	background-color: #369;
+}
+
+.pagination a[href]:hover,
+.pagination a[href]:focus {
+	color: #fff;
+	background-color: #c03;
+}
+
+.pagination a:active {
+	color: #fff;
+	background-color: #900;
+}
+
+/* @end pagination*/
+
+/* @group feedback */
+
+.feedback {
+	background-color: #ffc;
+	padding: 0.125em 1em;
+	margin: 1em 0;
+	border-top: 0.125em solid #cc9;
+	-webkit-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	-o-border-radius: 0.25em;
+	border-radius: 0.25em;
+	background-clip: padding-box;
+}
+
+.error {
+	background-color: #fcc;
+	border-color: #c99;
+}
+
+/* @end feedback */
+
+/* @end Classes */
+
+
+.module {
+	margin-bottom: 3em;
+}
+
+.display {
+	margin-bottom: 1em;
+}
+
+table {
+	width: 100%;
+}
+
+th, 
+td {
+	padding: 1em;
+	border: 1px solid #ccc;
+	text-align: left;
+}
+
+caption {
+	padding: 1em;	
+}
+
+code {
+	font-family: monospace, serif;
+}
