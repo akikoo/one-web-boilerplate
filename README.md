@@ -182,6 +182,11 @@ such as RequireJS: http://requirejs.org/.
 	Massey* (@wearymadness: http://twitter.com/wearymadness) for the inspiration, 
 	code, and fresh ideas. Great work on the Archetype framework!
 
+### Generic build/deploy process optimization:
+* Thanks to *Dennis Green-Lieber* (@dennislieber: http://twitter.com/dennislieber) 
+	for promoting the use of the framework and for great suggestions and ideas for 
+	making it better. 
+
 ### Solutions:
 * http://code.google.com/chrome/chromeframe/
 * http://www.cssstickyfooter.com/
