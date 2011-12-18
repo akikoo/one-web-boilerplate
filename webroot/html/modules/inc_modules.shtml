@@ -1,1 +1,324 @@
-<!--#include virtual="/html/modules/content_elements.shtml" -->
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/blockquote.html">/html/modules/patterns/blockquote.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/blockquote.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/blockquote.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/edits-del.html">/html/modules/patterns/edits-del.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/edits-del.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/edits-del.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/edits-ins.html">/html/modules/patterns/edits-ins.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/edits-ins.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/edits-ins.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/feedback-error.html">/html/modules/patterns/feedback-error.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/feedback-error.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/feedback-error.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/feedback.html">/html/modules/patterns/feedback.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/feedback.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/feedback.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/figure.html">/html/modules/patterns/figure.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/figure.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/figure.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-buttons.html">/html/modules/patterns/form-buttons.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/form-buttons.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-buttons.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-checkbox.html">/html/modules/patterns/form-checkbox.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/form-checkbox.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-checkbox.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-datalist.html">/html/modules/patterns/form-datalist.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/form-datalist.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-datalist.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-email.html">/html/modules/patterns/form-email.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/form-email.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-email.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-number.html">/html/modules/patterns/form-number.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/form-number.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-number.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-select.html">/html/modules/patterns/form-select.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/form-select.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-select.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-text.html">/html/modules/patterns/form-text.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/form-text.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-text.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-textarea.html">/html/modules/patterns/form-textarea.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/form-textarea.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-textarea.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-url.html">/html/modules/patterns/form-url.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/form-url.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-url.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/heading-1.html">/html/modules/patterns/heading-1.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/heading-1.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/heading-1.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/heading-2.html">/html/modules/patterns/heading-2.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/heading-2.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/heading-2.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/heading-3.html">/html/modules/patterns/heading-3.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/heading-3.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/heading-3.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/heading-4.html">/html/modules/patterns/heading-4.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/heading-4.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/heading-4.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/heading-5.html">/html/modules/patterns/heading-5.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/heading-5.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/heading-5.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/heading-6.html">/html/modules/patterns/heading-6.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/heading-6.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/heading-6.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/hr.html">/html/modules/patterns/hr.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/hr.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/hr.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/list-definition.html">/html/modules/patterns/list-definition.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/list-definition.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/list-definition.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/list-ordered.html">/html/modules/patterns/list-ordered.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/list-ordered.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/list-ordered.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/list-unordered.html">/html/modules/patterns/list-unordered.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/list-unordered.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/list-unordered.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/pagination-first.html">/html/modules/patterns/pagination-first.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/pagination-first.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/pagination-first.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/pagination-last.html">/html/modules/patterns/pagination-last.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/pagination-last.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/pagination-last.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/pagination.html">/html/modules/patterns/pagination.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/pagination.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/pagination.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/preformatted.html">/html/modules/patterns/preformatted.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/preformatted.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/preformatted.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/table.html">/html/modules/patterns/table.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/table.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/table.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-a.html">/html/modules/patterns/text-a.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-a.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-a.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-abbr.html">/html/modules/patterns/text-abbr.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-abbr.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-abbr.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-b.html">/html/modules/patterns/text-b.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-b.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-b.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-bdi.html">/html/modules/patterns/text-bdi.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-bdi.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-bdi.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-bdo.html">/html/modules/patterns/text-bdo.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-bdo.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-bdo.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-cite.html">/html/modules/patterns/text-cite.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-cite.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-cite.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-code.html">/html/modules/patterns/text-code.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-code.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-code.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-dfn.html">/html/modules/patterns/text-dfn.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-dfn.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-dfn.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-em.html">/html/modules/patterns/text-em.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-em.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-em.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-i.html">/html/modules/patterns/text-i.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-i.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-i.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-kbd.html">/html/modules/patterns/text-kbd.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-kbd.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-kbd.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-mark.html">/html/modules/patterns/text-mark.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-mark.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-mark.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-q.html">/html/modules/patterns/text-q.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-q.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-q.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-ruby.html">/html/modules/patterns/text-ruby.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-ruby.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-ruby.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-s.html">/html/modules/patterns/text-s.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-s.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-s.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-samp.html">/html/modules/patterns/text-samp.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-samp.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-samp.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-small.html">/html/modules/patterns/text-small.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-small.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-small.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-strong.html">/html/modules/patterns/text-strong.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-strong.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-strong.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-sub.html">/html/modules/patterns/text-sub.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-sub.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-sub.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-sup.html">/html/modules/patterns/text-sup.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-sup.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-sup.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-time.html">/html/modules/patterns/text-time.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-time.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-time.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-u.html">/html/modules/patterns/text-u.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-u.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-u.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text-var.html">/html/modules/patterns/text-var.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text-var.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text-var.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/text.html">/html/modules/patterns/text.html</a></h3>
+    <h4>Display</h4><div class='display'><!--#include virtual="/html/modules/patterns/text.html" --></div>
+    <h4>Source</h4><div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/text.html" --></textarea></div>
+</div>
+
