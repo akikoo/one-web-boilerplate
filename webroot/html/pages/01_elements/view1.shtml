@@ -1,2 +1,0 @@
-<h1><!--#echo var="PAGE-HEADING" --></h1>
-<!--#include virtual="${MODULES}/content_elements.shtml" -->
