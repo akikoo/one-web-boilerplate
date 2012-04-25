@@ -53,9 +53,11 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 * CSSLint (http://csslint.net/)
 * HTML Compressor (http://code.google.com/p/htmlcompressor/)
 * JSDoc Toolkit (http://code.google.com/p/jsdoc-toolkit/)
+* JsDoc Toolkit Ant Task (http://code.google.com/p/jsdoc-toolkit-ant-task/)
+* Closure Compiler (https://developers.google.com/closure/compiler/)
+* r.js optimizer (http://requirejs.org/docs/download.html#rjs)
 * OptiPNG http://optipng.sourceforge.net/
 * jpegtran http://www.ijg.org/
-
 
 
 ## Environment setup
