@@ -49,20 +49,16 @@ Twitter: http://twitter.com/akikoo
 	<meta http-equiv="cleartype" content="on">
 
 	<!-- 1. Reset styles -->				
-	<link rel="stylesheet" href="../assets/css/normalize.css">
+	<link rel="stylesheet" href="../assets/css/common/normalize.css">
 
 	<!-- 2. Mobile first styles for all browsers -->		
-	<link rel="stylesheet" href="../assets/css/base.css">
+	<link rel="stylesheet" href="../assets/css/common/base.css">
 
-	<!-- 3. Responsive larger screen styles, using Media Queries -->
-	<link rel="stylesheet" href="../assets/css/responsive.css">		
-
-	<!-- 4. HTML5 boilerplate helper classes -->				
-	<link rel="stylesheet" href="../assets/css/utilities.css">
-
-	<!-- 5. Any module CSS files go here... -->						
-		
-
+	<!-- 3. HTML5 boilerplate helper classes -->				
+	<link rel="stylesheet" href="../assets/css/common/utilities.css">
+	
+	<!-- 4. Temp skin styles -->
+	<link rel="stylesheet" href="../assets/css/common/theme.css">
 
 	<noscript>
 	<!-- For more info, see http://labjs.com/ -->
