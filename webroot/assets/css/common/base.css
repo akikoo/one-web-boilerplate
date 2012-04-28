@@ -15,30 +15,16 @@
 	before these styles
 ==============================================================================*/
 
+/*Enable this if you want to reset ALL paddings and margins; CSSLint will throw a warning though
 * {
 	margin: 0;
 	padding: 0;
 }
+*/
 
 body {
 	font-size: 100%; /* 16px (assuming browser default is 16px) */
 	line-height: 1; /* 16px */
-}
-
-
-/*Focus styles
-------------------------------------------------------------------------------*/
-
-a {
-	outline: none;
-}
-
-a:focus {
-	outline: thin dotted;
-}
-
-a:hover, a:active {
-	outline: none;
 }
 
 /* Visually hiding content that will be read by a screen reader

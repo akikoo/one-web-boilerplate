@@ -22,10 +22,18 @@ body {
 	color: #333;
 }
 
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	font-family: Palatino, Cambria, Georgia, serif;	
+	font-weight: normal;	
+	margin: 0;	
+}
+
 h1 {
-	font-family: Palatino, Cambria, Georgia, serif;
-	font-weight: normal;
-	font-size: 2.5em;
 	padding: 1em 0 0; 
 	margin: 0 0 1em;
 	color: #444;
@@ -33,47 +41,29 @@ h1 {
 }
 
 h2 {
-	font-family: Palatino, Cambria, Georgia, serif;
-	font-weight: normal;
-	font-size: 1.875em;
 	padding: 0; 
-	margin: 0;
 	color: #555;
 	border-bottom: 0.13333em solid #333;
 }
 
 h3 {
-	font-family: Palatino, Cambria, Georgia, serif;
-	font-weight: normal;
-	font-size: 1.5625em;
 	padding: 0.5em 0 0; 
-	margin: 0;
 	color: #666;
 	border-bottom: 0.1em solid #333;
 }
 
 h4 {
-	font-family: Palatino, Cambria, Georgia, serif;
-	font-weight: normal;
-	font-size: 1.25em;
 	padding: 1em 0; 
-	margin: 0;
 	color: #777;
 }
 
 h5 {
-	font-family: Palatino, Cambria, Georgia, serif;
-	font-weight: normal;
-	font-size: 1.125em;
 	padding: 0; 
-	margin: 0;
 	color: #888;
 }
 
 h6 {
-	font-size: 1em;
 	padding: 1em 0 0; 
-	margin: 0;
 	color: #999;
 }
 
@@ -176,7 +166,6 @@ input[type],
 textarea,
 select {
 	background-color: #fff;
-	width: 100%;
 	font-family: inherit;
 	font-size: inherit;
 	padding: 0.125em;
@@ -208,7 +197,6 @@ textarea[required] {
 button,
 input[type="button"],
 input[type="submit"] {
-	width: auto;
 	text-align: center;
 	font-family: Calibri, 'Helvetica Neue', Arial, sans-serif;
 	font-size: inherit;
@@ -270,7 +258,6 @@ input[type="submit"]:active {
 [role="search"] input[type="image"] {
 	background-color: #fff;
 	position: absolute;
-	width: 0.9375em;
 	top: 0.2em;
 	right: 0.6em;
 	padding: 0.2em 0.2em;
