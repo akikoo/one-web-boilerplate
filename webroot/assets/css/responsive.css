@@ -25,17 +25,17 @@
  
  
 /*==============================================================================
-  Base styles
+  Base styles (Global, mobile first)
 ==============================================================================*/
-@import url("common/normalize.css");
-@import url("common/base.css");
-@import url("common/utilities.css");
-@import url("common/theme.css");
+@import url("common/normalize.css");	/* 1. Reset styles */
+@import url("common/base.css");			/* 2. Mobile first styles for all browsers */
+@import url("common/utilities.css");	/* 3. HTML5 boilerplate helper classes */
+@import url("common/theme.css");		/* 4. Temp skin styles, should be removed */
 
 
 
 /*==============================================================================
-  (A) Overlapping Media Queries
+  (OPTION A) Overlapping Media Queries (Responsive larger screen styles)
 
   Use these if you have a lot of common rules that you want to cascade to 
   larger screens. You can then use these stylesheets to overwrite only the rules 
@@ -48,9 +48,9 @@
 @import url("mq-overlap/1382-up.css");
 
 
-	
+
 /*==============================================================================
-  (B) Stacked Media Queries
+  (OPTION B) Stacked Media Queries (Responsive larger screen styles)
 
   Use these if you only want to target a specific resolution range, without 
   styles cascading outside the range or to larger screens
@@ -63,7 +63,7 @@
 
 		
 /*==============================================================================
-  (C) Device-specific Media Queries
+  (OPTION C) Device-specific Media Queries
 
   Use these if you need to target smartphones, tablets or high pixel ratio 
   devices
