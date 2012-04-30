@@ -20,8 +20,8 @@
 
 
 ({
-	baseUrl		: "../../webroot/assets",
-	dir			: "../publish/assets", 
+	baseUrl		: "../../webroot/assets/js",
+	dir			: "../publish/assets/js", 
 	fileExclusionRegExp : /^\.|\.((txt)|(json)|(css)|(html)|(png)|(jpg)|(gif))$/, 
 	optimize    : "closure", 
 	closure		: {
@@ -30,29 +30,14 @@
 		loggingLevel    : 'WARNING'
 	},
 	
-	//relative to the baseUrl above
-	paths: {
-
-		// jQuery v1.7.1
-		jquery					: 'js/lib/jquery-1.7.1.min',
-
-		// Require plugin
-		order					: 'js/lib/require/plugins/order',
-
-		//Third party libs
-
-		// Custom modules
-		mymodule				: 'js/mylib'
-	},
-	
     catchError: {
         define: true
-    }, 
+    },
 	
 	modules: [
 		{
-		name: "js/main"
+		name: "main"
 		}
-	]	
+	]
 
 })

@@ -18,8 +18,8 @@
 
 
 ({
-	baseUrl		: "../../webroot/assets",
-	dir			: "../publish/assets", 
+	baseUrl		: "../../webroot/assets/css",
+	dir			: "../publish/assets/css", 
 	optimizeCss : "standard",
 	fileExclusionRegExp : /^\.|\.((txt)|(js)|(json)|(html)|(png)|(jpg)|(gif))$/ 
 })

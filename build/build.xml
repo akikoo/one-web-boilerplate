@@ -74,7 +74,7 @@
 			-js.specific.minify, 
 			-doc.jsdoc, 
 			
-			-img.copy, 			
+			-img.copy, 
 			
 			-cleanup
             ">
@@ -145,7 +145,7 @@
 		<fileset 
 			dir="${src.css.dir}" 
 			includes="${file.include.css}" 
-			excludes="${file.exclude.default.css}" 
+			excludes="${file.exclude.default.css}, ${file.exclude.extras.css}" 
 			id="cssfiles.raw"/>
 		<pathconvert pathsep=" " property="cssfiles.clean" refid="cssfiles.raw" />
 		<exec executable="java" failonerror="true">
@@ -305,11 +305,13 @@
 		<delete file="${file.write}"/>
 		<!-- Get the files (attributes are coming from a target that calls this one each time) -->
 		<foreach param="elm" target="${target.call}">
-			<fileset 
-				dir="${dir.list}"
-				includes="${file.include}" 
-				excludes="${file.exclude}"
-			/>
+			<path>
+				<fileset 
+					dir="${dir.list}"
+					includes="${file.include}" 
+					excludes="${file.exclude}"
+				/>
+			</path>
 		</foreach>
 	</target>	
 	<target name="-elements.write">
@@ -416,7 +418,7 @@
 	</target>
 
 
-	
+
     <!-- OPTIMIZE CSS FILES [private]-->
 	<target name="-css.common.minify" depends="-css.responsive.minify,-css.unresponsive.minify" description="(PRIVATE) Minifies common stylesheets">
 		<echo message="Minifying common stylesheets ..."/>
@@ -563,9 +565,9 @@
 		includes="${file.target.css}"/>
 		</replaceregexp>
 	</target>		
-	
-	
-	
+
+
+
     <!-- OPTIMIZE JAVASCRIPT FILES [private]-->
 	<target name="-js.common.minify" description="(PRIVATE) Minifies common JavaScript files">
 		<echo message=""/>
@@ -623,7 +625,62 @@
 	</target>
 
 
-    <!-- CALL MERGE TARGET BELOW TO GENERATE HTML FILES FOR MODULES AND PAGES [private]-->
+
+	<!-- OPTIMIZE CSS AND JAVASCRIPT FILES, ALTERNATIVE [private] (not used by default)-->
+	<!-- RequireJS optimizer Ant task -->
+	<!-- Adapted from https://gist.github.com/825117 -->
+	<target name="-require.js" description="Combine and minify JavaScript files and stylesheets.">
+		<java classname="org.mozilla.javascript.tools.shell.Main">
+			<classpath>
+				<pathelement location="${tool.rhino}" />
+				<pathelement location="${tool.closurecompiler}" />
+			</classpath>
+			<arg value="../${tool.requireoptimizer}"/>
+			<arg value="-o"/>
+			<arg value="${requirejs.optimizer.settings}"/>
+		</java>
+		<echo message="Optimized ${requirejs.optimizer.settings}" />
+	</target>
+
+	<!-- Optimize stylesheets with RequireJS optimizer [private]-->
+	<target name="optimize.css.require" description="(PRIVATE) Optimizes stylesheets">
+		<echo message="Combining and compressing CSS files..." />
+		<antcall target="-require.js">
+			<param name="requirejs.optimizer.settings" value="../${css.build.require}" />
+		</antcall>
+		<echo message="Optimized stylesheets are now in ${publish.dir}/assets/css."/>
+	</target>		
+
+	<!-- Optimize JavaScript files with RequireJS optimizer [private]-->
+	<target name="optimize.js.require" description="(PRIVATE) Optimizes JavaScript files">
+		<echo message="Combining and minifying JS files..." />
+		<antcall target="-require.js">
+			<param name="requirejs.optimizer.settings" value="../${js.build.require}" />
+		</antcall>
+		<echo message="Optimized JavaScript files are now in ${publish.dir}/assets/js."/>
+	</target>
+
+	<target name="css.copy">
+		<!-- Copy the optimised stylesheet file to the publish bin -->
+		<copy todir="${build.dir}/${publish.dir}/assets/css/">
+			<fileset dir="${build.dir}/${publish.dir}/${temp.dir}/css/" includes="responsive.css, pages/*.css"/>
+		</copy>
+		<echo message="Copied main.js to ${dir.publish}/${dir.source.shard}/theme_default/script"/>
+	</target>
+	<target name="js.copy">
+		<!-- Copy the optimised JavaScript files to the publish bin -->
+		<copy todir="${build.dir}/${publish.dir}/assets/css/">
+			<fileset dir="${build.dir}/${publish.dir}/${temp.dir}/css/" includes="responsive.css, pages/*.css"/>
+		</copy>
+		<echo message="Copied main.js to ${dir.publish}/${dir.source.shard}/theme_default/script"/>
+	</target>			
+	
+	
+	
+	
+
+
+	<!-- CALL MERGE TARGET BELOW TO GENERATE HTML FILES FOR MODULES AND PAGES [private]-->
 	<target name="-make_shtml_into_html_modules" description="(PRIVATE) Concatenates @import-ed stylesheets with Media Queries">
 		<echo message="..."/>
 		<antcall target="-make_shtml_into_html">
