@@ -37,7 +37,11 @@
 	}());
 	</script>
 	<!--#endif -->
-		
+
+	<!-- This is for RequireJS if you choose to use it
+	<script data-main="<!--#echo var='PUBLISH' -->/js/main" src="<!--#echo var='PUBLISH' -->/js/lib/require/require.js"></script>
+	-->
+	
 <!--#else -->
 	<!-- DEV: scripts loaded separately with lazyload.js, and executed in the specified order -->
 	<script src="<!--#echo var='SHARD' -->/js/lib/<!--#echo var='LAZYLOAD' -->"></script>	
@@ -71,5 +75,9 @@
 	}());
 	</script>		
 	<!--#endif -->
+
+	<!-- This is for RequireJS if you choose to use it
+	<script data-main="<!--#echo var='SHARD' -->/js/main" src="<!--#echo var='SHARD' -->/js/lib/require/require.js"></script>
+	-->
 
 <!--#endif -->
