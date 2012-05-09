@@ -675,10 +675,45 @@
 		<echo message="Copied main.js to ${dir.publish}/${dir.source.shard}/theme_default/script"/>
 	</target>			
 	
-	
-	
-	
 
+
+	<!-- COMPILE LESS TO CSS [public] (not used by default)-->
+	<!-- Adapted from https://github.com/h5bp/ant-build-script/blob/master/build.xml -->
+	<!-- Using less-rhino: https://github.com/cloudhead/less.js/tree/master/dist -->
+	<target name="compile_less_into_css" description="(PRIVATE) Converts LESS files into CSS files and copies generated files to another location">
+		<foreach param="file.less" target="process.less">
+			<path>       
+				<fileset 
+					dir="${src.less.dir}"
+					includes="*.less" 
+					excludes=""
+				/>
+			</path>
+		</foreach>
+	</target>
+	<target name="process.less">
+		<lessjs input="${file.less}" output="${file.less}.css" />		
+		<!-- move each *.less.css file to the deploy location and change the file extension to *.css -->
+		<move todir="${src.css.dir}">
+			<fileset dir="${src.less.dir}">
+				<include name="*.css"/>
+			</fileset>
+			<mapper type="glob" from="*.less.css" to="*.css"/>
+		</move>  
+	</target>		
+	<macrodef name="lessjs">
+		<attribute name="input" />
+		<attribute name="output" />
+		<sequential>
+			<java jar="${tool.rhino}" fork="true" output="@{output}">
+				<arg path="${tool.lesscss}" />
+				<arg path="@{input}" />
+			</java>
+			<echo>Lessjs: generated @{output}</echo>
+		</sequential>
+	</macrodef>
+
+	
 
 	<!-- CALL MERGE TARGET BELOW TO GENERATE HTML FILES FOR MODULES AND PAGES [private]-->
 	<target name="-make_shtml_into_html_modules" description="(PRIVATE) Concatenates @import-ed stylesheets with Media Queries">
