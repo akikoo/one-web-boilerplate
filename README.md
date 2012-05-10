@@ -308,8 +308,12 @@ It could be Jenkins (http://jenkins-ci.org) or Bamboo
 (http://www.atlassian.com/software/bamboo/). You decide. 
 
 
-### To-Do: 
-* Small tweaks here and there...
+## To-Do: 
+* Small tweaks here and there... Maybe separate root targets for different builds, 
+one with YUI compressor (current default), and one with LESS and Require.js? 
+Ant targets for all of these options are already in place. 
+* I'm planning to merge default.properties and project.properties files, to simplify 
+configuration. 
 
 Thanks and good luck! 
 
