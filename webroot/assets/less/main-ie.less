@@ -1,0 +1,71 @@
+/**
+ * 
+ * Modular styles for browsers that don't support Media Queries 
+ * This means legacy IE 6/7/8
+ * 
+ * Alternatively, this file could be used to build an old-school non-responsive 
+ * website, where the @import-ed stylesheets could be various standalone modules 
+ * on the page. You decide, it obviously depends on the project.
+ *
+ * These enhance and sometimes override the primary (mobile first) styles.
+ * Layout styles (width, float etc.) and styles for extra elements.
+ * 
+ * We are @import-ing the same stylesheets than for more capable browsers, but 
+ * this time without Media Queries. Media Queries are stripped out during the 
+ * build process. This way, we can serve less capable browsers a mid-screen sized 
+ * desktop version. The minified version of this file is served with conditional 
+ * comments for IE (or for all browsers if it's a one-size-fits-all kind of project). 
+ * 
+ * Credits & inspiration: 
+ * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+ * http://forabeautifulweb.com/blog/about/320_and_up/
+ * http://html5boilerplate.com/mobile
+ * http://adactio.com/journal/1700/
+ * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+ * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+ * 
+ * @author Aki Karkkainen
+ * @url https://github.com/akikoo/one-web-boilerplate
+ * Twitter: http://twitter.com/akikoo
+ *
+ */
+
+
+
+/*==============================================================================
+  Base styles
+==============================================================================*/
+@import "common/normalize.css";		/* 1. Reset styles */
+@import "common/base.css";			/* 2. Mobile first styles for all browsers */
+@import "common/utilities.css";		/* 3. HTML5 boilerplate helper classes */
+@import "common/theme.css";			/* 4. Temp skin styles, should be removed */
+
+
+
+/*==============================================================================
+  (A) Modular styles for each range (these are simply inlined without Media Queries, 
+  so watch out cascading!)
+==============================================================================*/
+@import "mq-overlap/320-up";
+.320-up();
+
+@import "mq-overlap/480-up";
+.480-up();
+
+@import "mq-overlap/768-up";
+.768-up();
+
+@import "mq-overlap/992-up";
+.992-up();
+
+
+
+/*==============================================================================
+  (B) Standalone modules instead, if you prefer that way. 
+
+  This file is served to browsers that don't support Media Queries, so you may 
+  decide to reuse the above stylesheets under css/mq-overlap/*, or include your 
+  own modular ones here
+==============================================================================*/
+
+/* Any module CSS files @import-ed here... */
