@@ -56,6 +56,7 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 * JsDoc Toolkit Ant Task (http://code.google.com/p/jsdoc-toolkit-ant-task/)
 * Closure Compiler (https://developers.google.com/closure/compiler/)
 * r.js optimizer (http://requirejs.org/docs/download.html#rjs)
+* less-rhino (https://github.com/cloudhead/less.js/blob/master/dist/less-rhino-1.1.5.js)
 * OptiPNG http://optipng.sourceforge.net/
 * jpegtran http://www.ijg.org/
 
@@ -289,6 +290,10 @@ ant -buildfile build.xml page.create
 
 You will be prompted for a pagename. A new pagename folder will be created in the 
 filesystem by copying the masterpage files (located in /build/config/masterpage).
+
+I've also added optional Ant tasks for Require.js optimizer (r.js): optimize.css.require 
+and optimize.js.require. And there's a task for compiling LESS files to CSS files, 
+if you like. 
 
 Congratulations! You now have a brand new /build/publish directory that has the 
 following four directories: 
