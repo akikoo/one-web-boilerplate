@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="One-Web-Boilerplate" default="build.dev" basedir="../"> <!-- one back since we're in /build -->
+<project name="One-Web-Boilerplate" default="build.YUI.dev" basedir="../"> <!-- one back since we're in /build -->
 
 <!-- build.xml for one web boilerplate https://github.com/akikoo/one-web-boilerplate -->
 
@@ -11,9 +11,6 @@
 	* CONFIG 
 	****************************************************************************
 	-->
-
-	<!-- Load Default config properties for this build -->
-	<property file="build/config/default.properties"/>
 	
 	<!-- Load Project config properties for this build -->
 	<property file="build/config/project.properties"/>
@@ -43,12 +40,12 @@
 	* BUILD TARGETS [public call to private targets]
     ****************************************************************************
     -->	
-	<target name="build.dev" description="(PUBLIC) sets and kicks off the Dev site build">
+	<target name="build.YUI.dev" description="(PUBLIC) sets and kicks off the Dev site build, using the Yahoo YUI compressor">
 		<echo message="Building Development Environment..."/>
-		<antcall target="-build.dev" />
+		<antcall target="-build.YUI.dev" />
 	</target>						
 	<!-- Process order: init, HTML, CSS, JS, cleanup -->	
-	<target name="-build.dev" description="(PRIVATE) calls all Dev site targets"
+	<target name="-build.YUI.dev" description="(PRIVATE) calls all Dev site targets"
         depends="
             -init, 
 
@@ -79,6 +76,42 @@
 			-cleanup
             ">
 	</target>
+	
+
+	<target name="build.less.require.dev" description="(PUBLIC) sets and kicks off the Dev site build, using LESS-to-CSS compiler and RequireJS optimizer">
+		<echo message="Building Development Environment..."/>
+		<antcall target="-build.less.require.dev" />
+	</target>						
+	<!-- Process order: init, HTML, CSS, JS, cleanup -->	
+	<target name="-build.less.require.dev" description="(PRIVATE) calls all Dev site targets"
+        depends="
+            -init, 
+
+			-useminified, 
+			-make_shtml_into_html_modules, 
+			-make_shtml_into_html_pages, 
+			-components.list, 
+			-modules.list, 
+			-modules.list.include, 
+			-pages.list, 
+			-templates.list, 			
+			-html.minify, 
+			-useseparate, 
+
+			compile_less_into_css, 
+
+			css.lint, 
+			optimize.css.require, 
+
+			js.hint, 
+			optimize.js.require, 
+			-doc.jsdoc, 
+			
+			-img.copy, 
+			
+			-cleanup
+            ">
+	</target>	
 	<!-- Add other build targets here if necessary (build.dev is the default) -->
 
 	
@@ -648,7 +681,8 @@
 		<antcall target="-require.js">
 			<param name="requirejs.optimizer.settings" value="../${css.build.require}" />
 		</antcall>
-		<echo message="Optimized stylesheets are now in ${publish.dir}/assets/css."/>
+		<antcall target="css.copy"></antcall>		
+		<echo message="Optimized stylesheets are now in ${build.dir}/${publish.dir}/assets/css/"/>
 	</target>		
 
 	<!-- Optimize JavaScript files with RequireJS optimizer [private]-->
@@ -657,35 +691,45 @@
 		<antcall target="-require.js">
 			<param name="requirejs.optimizer.settings" value="../${js.build.require}" />
 		</antcall>
-		<echo message="Optimized JavaScript files are now in ${publish.dir}/assets/js."/>
+		<antcall target="js.copy"></antcall>
+		<echo message="Optimized JavaScript files are now in ${build.dir}/${publish.dir}/assets/js/"/>
 	</target>
 
 	<target name="css.copy">
 		<!-- Copy the optimised stylesheet file to the publish bin -->
 		<copy todir="${build.dir}/${publish.dir}/assets/css/">
-			<fileset dir="${build.dir}/${publish.dir}/${temp.dir}/css/" includes="responsive.css, pages/*.css"/>
+			<fileset dir="${build.dir}/${publish.dir}/${temp.dir}/css/" 
+				includes="styles-mq.css, styles-nomq.css, pages/*.css"
+			/>
+			<!-- Add '-min' to the filename-->
+			<mapper type="glob" from="*.css" to="*-min.css"/>
 		</copy>
-		<echo message="Copied main.js to ${dir.publish}/${dir.source.shard}/theme_default/script"/>
+		<echo message="Copied optimized CSS files to ${build.dir}/${publish.dir}/assets/css"/>
 	</target>
 	<target name="js.copy">
 		<!-- Copy the optimised JavaScript files to the publish bin -->
-		<copy todir="${build.dir}/${publish.dir}/assets/css/">
-			<fileset dir="${build.dir}/${publish.dir}/${temp.dir}/css/" includes="responsive.css, pages/*.css"/>
+		<copy todir="${build.dir}/${publish.dir}/assets/js/">
+			<fileset dir="${build.dir}/${publish.dir}/${temp.dir}/js/" 
+				includes="main.js"
+			/>
+			<!-- Add '-min' to the filename-->			
+			<mapper type="glob" from="*.js" to="*-min.js"/>			
 		</copy>
-		<echo message="Copied main.js to ${dir.publish}/${dir.source.shard}/theme_default/script"/>
+		<echo message="Copied JavaScript files to ${build.dir}/${publish.dir}/assets/js"/>
 	</target>			
 	
+
 
 
 	<!-- COMPILE LESS TO CSS [public] (not used by default)-->
 	<!-- Adapted from https://github.com/h5bp/ant-build-script/blob/master/build.xml -->
 	<!-- Using less-rhino: https://github.com/cloudhead/less.js/tree/master/dist -->
-	<target name="compile_less_into_css" description="(PRIVATE) Converts LESS files into CSS files and copies generated files to another location">
+	<target name="compile_less_into_css" description="(PUBLIC) Converts LESS files into CSS files and copies generated files under /css, to be used both for development and RequireJS optimizer">
 		<foreach param="file.less" target="process.less">
 			<path>       
 				<fileset 
 					dir="${src.less.dir}"
-					includes="*.less" 
+					includes="*.less, pages/*.less" 
 					excludes=""
 				/>
 			</path>
@@ -696,7 +740,7 @@
 		<!-- move each *.less.css file to the deploy location and change the file extension to *.css -->
 		<move todir="${src.css.dir}">
 			<fileset dir="${src.less.dir}">
-				<include name="*.css"/>
+				<include name="**/*.css"/>
 			</fileset>
 			<mapper type="glob" from="*.less.css" to="*.css"/>
 		</move>  
@@ -828,7 +872,7 @@
 		<echo message="We're done!"/>		
 	</target>
 
-	
+
 
     <!-- OPTIMIZE PNG IMAGES [public]-->
 	<!-- This task is run separately as we don't want to optimise images every time we do a build. -->
