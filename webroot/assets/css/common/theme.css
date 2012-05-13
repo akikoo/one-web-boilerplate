@@ -13,6 +13,28 @@
 
 
 
+/*	TEMP: Used only for quick and dirty demonstration, be sure to remove these
+-------------------------------------------------------------------------------*/
+.masthead {
+	display: none;
+}
+
+.nav-main {
+	padding: 0;
+	width: 50%;
+	margin: 0 auto;
+}
+
+.hfeed {
+	width: 50%;
+	margin: 40px auto 0;
+}
+
+[role="contentinfo"] p {
+	margin: 0 auto;
+	width: 50%;		
+}
+
 /* @group Typography */
 
 body {
@@ -44,12 +66,14 @@ h2 {
 	padding: 0; 
 	color: #555;
 	border-bottom: 0.13333em solid #333;
+	margin: 0 0 1em;
 }
 
 h3 {
 	padding: 0.5em 0 0; 
 	color: #666;
 	border-bottom: 0.1em solid #333;
+	margin: 0 0 1em;	
 }
 
 h4 {
@@ -74,7 +98,7 @@ hr {
 }
 
 p, ul, ol, hr, table, form, fieldset {
-	margin: 1.25em 0;
+	margin: 0 0 1.25em;
 }
 
 ul, 
