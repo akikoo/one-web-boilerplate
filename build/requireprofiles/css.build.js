@@ -19,7 +19,7 @@
 
 ({
 	baseUrl		: "../../webroot/assets/css",
-	dir			: "../publish/assets/css", 
+	dir			: "../publish/temp/css", 
 	optimizeCss : "standard",
 	fileExclusionRegExp : /^\.|\.((txt)|(js)|(json)|(html)|(png)|(jpg)|(gif))$/ 
 })

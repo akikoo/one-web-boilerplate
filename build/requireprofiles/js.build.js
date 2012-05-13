@@ -21,7 +21,7 @@
 
 ({
 	baseUrl		: "../../webroot/assets/js",
-	dir			: "../publish/assets/js", 
+	dir			: "../publish/temp/js", 
 	fileExclusionRegExp : /^\.|\.((txt)|(json)|(css)|(html)|(png)|(jpg)|(gif))$/, 
 	optimize    : "closure", 
 	closure		: {
