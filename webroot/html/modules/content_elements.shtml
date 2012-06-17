@@ -6,9 +6,7 @@
 1) SECTIONS
 *****************************************************************************-->
 
-<!-- Headings 
-**************************************************************************** -->
-<!--#include virtual="${MODULES}/${PATTERNS}/heading-1.html" -->
+<h2>1. Sections</h2>
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-2.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-3.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-4.html" -->
@@ -17,20 +15,35 @@
 
 
 
-
 <!--****************************************************************************
 2) GROUPING CONTENT
 *****************************************************************************-->
 
-<!--#include virtual="${MODULES}/${PATTERNS}/text.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/hr.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/preformatted.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/blockquote.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/list-ordered.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/list-unordered.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/list-definition.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/figure.html" -->
+<h2>2. Grouping content</h2>
 
+<h3>Paragraph</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text.html" -->
+
+<h3>Horizontal rule</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/hr.html" -->
+
+<h3>Pre-formatted text</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/preformatted.html" -->
+
+<h3>Blockquote</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/blockquote.html" -->
+
+<h3>Ordered list</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/list-ordered.html" -->
+
+<h3>Unordered list</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/list-unordered.html" -->
+
+<h3>Definition list</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/list-definition.html" -->
+
+<h3>Figure</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/figure.html" -->
 
 
 
@@ -38,31 +51,76 @@
 3) TEXT-LEVEL SEMANTICS 
 *****************************************************************************-->
 
-<!--#include virtual="${MODULES}/${PATTERNS}/text-a.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-em.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-strong.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-small.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-s.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-cite.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-q.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-dfn.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-abbr.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-data.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-time.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-code.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-var.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-samp.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-kbd.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-sub.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-sup.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-i.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-b.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-u.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-mark.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-ruby.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-bdi.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/text-bdo.html" -->
+<h2>3. Text-level semantics</h2>
 
+<h3>Link and anchor</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-a.html" -->
+
+<h3>Stressed emphasis</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-em.html" -->
+
+<h3>Importance</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-strong.html" -->
+
+<h3>Side comments (small print)</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-small.html" -->
+
+<h3>Inaccurate text</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-s.html" -->
+
+<h3>Titles of works (citations)</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-cite.html" -->
+
+<h3>Inline quotes</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-q.html" -->
+
+<h3>Definition</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-dfn.html" -->
+
+<h3>Abbreviation</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-abbr.html" -->
+
+<h3>Machine-readable equivalent of date- or time-related data</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-time.html" -->
+
+<h3>Computer code</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-code.html" -->
+
+<h3>Variable</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-var.html" -->
+
+<h3>Computer output</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-samp.html" -->
+
+<h3>User input</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-kbd.html" -->
+
+<h3>Subscript text</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-sub.html" -->
+
+<h3>Superscript text</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-sup.html" -->
+
+<h3>Alternative voice (italicized)</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-i.html" -->
+
+<h3>Emboldened keywords</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-b.html" -->
+
+<h3>Annotations</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-u.html" -->
+
+<h3>Marked or highlighted text</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-mark.html" -->
+
+<h3>Ruby annotations</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-ruby.html" -->
+
+<h3>Text directionality isolation</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-bdi.html" -->
+
+<h3>Text directionality formatting</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/text-bdo.html" -->
 
 
 
@@ -70,9 +128,13 @@
 4) EDITS
 *****************************************************************************-->
 
-<!--#include virtual="${MODULES}/${PATTERNS}/edits-ins.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/edits-del.html" -->
+<h2>Edits</h2>
 
+<h3>Addition</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/edits-ins.html" -->
+
+<h3>Removal</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/edits-del.html" -->
 
 
 
@@ -80,8 +142,8 @@
 5) TABULAR DATA
 *****************************************************************************-->
 
+<h2>Tabular data</h2>
 <!--#include virtual="${MODULES}/${PATTERNS}/table.html" -->
-
 
 
 
@@ -89,29 +151,38 @@
 6) FORMS
 *****************************************************************************-->
 
-<!--#include virtual="${MODULES}/${PATTERNS}/form-buttons.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/form-checkbox.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/form-email.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/form-number.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/form-select.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/form-text.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/form-textarea.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/form-url.html" -->
+<h2>Forms</h2>
+<form action="#">
+    <fieldset>
+        <legend>Group title</legend>
+        <!--#include virtual="${MODULES}/${PATTERNS}/form-text.html" -->
+        <!--#include virtual="${MODULES}/${PATTERNS}/form-password.html" -->
+        <!--#include virtual="${MODULES}/${PATTERNS}/form-email.html" -->
+        <!--#include virtual="${MODULES}/${PATTERNS}/form-number.html" -->
+        <!--#include virtual="${MODULES}/${PATTERNS}/form-url.html" -->
+        <!--#include virtual="${MODULES}/${PATTERNS}/form-textarea.html" -->
+        <!--#include virtual="${MODULES}/${PATTERNS}/form-file.html" -->
+        <!--#include virtual="${MODULES}/${PATTERNS}/form-select.html" -->
+        <!--#include virtual="${MODULES}/${PATTERNS}/form-checkbox.html" -->
+        <!--#include virtual="${MODULES}/${PATTERNS}/form-radio.html" -->
 
-
+        <!--#include virtual="${MODULES}/${PATTERNS}/form-buttons.html" -->
+    </fieldset>
+</form>
 
 
 <!--****************************************************************************
 7) Custom UI elements 
 *****************************************************************************-->
 
+<!-- <h2>Custom UI elements</h2> -->
 <!-- Pagination 
 **************************************************************************** -->
-<!--#include virtual="${MODULES}/${PATTERNS}/pagination.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/pagination-first.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/pagination-last.html" -->
+<!--include virtual="${MODULES}/${PATTERNS}/pagination.html" -->
+<!--include virtual="${MODULES}/${PATTERNS}/pagination-first.html" -->
+<!--include virtual="${MODULES}/${PATTERNS}/pagination-last.html" -->
 
 <!-- Feedback 
 **************************************************************************** -->
-<!--#include virtual="${MODULES}/${PATTERNS}/feedback.html" -->
-<!--#include virtual="${MODULES}/${PATTERNS}/feedback-error.html" -->
+<!--include virtual="${MODULES}/${PATTERNS}/feedback.html" -->
+<!--include virtual="${MODULES}/${PATTERNS}/feedback-error.html" -->
