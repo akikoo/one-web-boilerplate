@@ -10,9 +10,9 @@
 	<!--#set var="LANG-DIR" value="ltr" -->
 <!--#endif -->
 
-<!--#set var="PAGE" value="00_modules"-->
-<!--#set var="TITLE" value="Module Catalogue - One Web/Mobile First Responsive Boilerplate"-->
-<!--#set var="PAGE-HEADING" value="Module Catalogue" -->
+<!--#set var="PAGE" value="styleguide"-->
+<!--#set var="TITLE" value="Style Guide - One Web/Mobile First Responsive Boilerplate"-->
+<!--#set var="PAGE-HEADING" value="Style Guide" -->
 
 <!--#set var="DOCHEAD" value="${COMPONENTS}/document_head.shtml"-->
 <!--#set var="DOCFOOTER" value="${COMPONENTS}/document_footer.shtml"-->
