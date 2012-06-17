@@ -128,7 +128,7 @@
 4) EDITS
 *****************************************************************************-->
 
-<h2>Edits</h2>
+<h2>4. Edits</h2>
 
 <h3>Addition</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/edits-ins.html" -->
@@ -142,7 +142,7 @@
 5) TABULAR DATA
 *****************************************************************************-->
 
-<h2>Tabular data</h2>
+<h2>5. Tabular data</h2>
 <!--#include virtual="${MODULES}/${PATTERNS}/table.html" -->
 
 
@@ -151,7 +151,7 @@
 6) FORMS
 *****************************************************************************-->
 
-<h2>Forms</h2>
+<h2>6. Forms</h2>
 <form action="#">
     <fieldset>
         <legend>Group title</legend>
@@ -175,7 +175,8 @@
 7) Custom UI elements 
 *****************************************************************************-->
 
-<!-- <h2>Custom UI elements</h2> -->
+<h2>7. Custom UI elements</h2>
+<p>Later...</p>
 <!-- Pagination 
 **************************************************************************** -->
 <!--include virtual="${MODULES}/${PATTERNS}/pagination.html" -->
