@@ -41,6 +41,12 @@
 </div>
 
 <div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-checkbox-multiple.html">/html/modules/patterns/form-checkbox-multiple.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/form-checkbox-multiple.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-checkbox-multiple.html" --></textarea></div>
+</div>
+
+<div class="module">
     <h3>Module: <a href="/html/modules/patterns/form-checkbox.html">/html/modules/patterns/form-checkbox.html</a></h3>
     <div class='display'><!--#include virtual="/html/modules/patterns/form-checkbox.html" --></div>
     <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-checkbox.html" --></textarea></div>
@@ -80,6 +86,12 @@
     <h3>Module: <a href="/html/modules/patterns/form-radio.html">/html/modules/patterns/form-radio.html</a></h3>
     <div class='display'><!--#include virtual="/html/modules/patterns/form-radio.html" --></div>
     <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-radio.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-select-multiple.html">/html/modules/patterns/form-select-multiple.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/form-select-multiple.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-select-multiple.html" --></textarea></div>
 </div>
 
 <div class="module">
@@ -164,6 +176,12 @@
     <h3>Module: <a href="/html/modules/patterns/list-unordered.html">/html/modules/patterns/list-unordered.html</a></h3>
     <div class='display'><!--#include virtual="/html/modules/patterns/list-unordered.html" --></div>
     <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/list-unordered.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/mediaobject.html">/html/modules/patterns/mediaobject.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/mediaobject.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/mediaobject.html" --></textarea></div>
 </div>
 
 <div class="module">
