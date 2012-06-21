@@ -6,7 +6,8 @@
 1) SECTIONS
 *****************************************************************************-->
 
-<h2>1. Sections</h2>
+<h2>Sections</h2>
+<!--#include virtual="${MODULES}/${PATTERNS}/heading-1.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-2.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-3.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-4.html" -->
@@ -19,7 +20,7 @@
 2) GROUPING CONTENT
 *****************************************************************************-->
 
-<h2>2. Grouping content</h2>
+<h2>Grouping content</h2>
 
 <h3>Paragraph</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/text.html" -->
@@ -51,7 +52,7 @@
 3) TEXT-LEVEL SEMANTICS 
 *****************************************************************************-->
 
-<h2>3. Text-level semantics</h2>
+<h2>Text-level semantics</h2>
 
 <h3>Link and anchor</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/text-a.html" -->
@@ -128,7 +129,7 @@
 4) EDITS
 *****************************************************************************-->
 
-<h2>4. Edits</h2>
+<h2>Edits</h2>
 
 <h3>Addition</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/edits-ins.html" -->
@@ -142,7 +143,7 @@
 5) TABULAR DATA
 *****************************************************************************-->
 
-<h2>5. Tabular data</h2>
+<h2>Tabular data</h2>
 <!--#include virtual="${MODULES}/${PATTERNS}/table.html" -->
 
 
@@ -151,7 +152,7 @@
 6) FORMS
 *****************************************************************************-->
 
-<h2>6. Forms</h2>
+<h2>Forms</h2>
 <form action="#">
     <fieldset>
         <legend>Group title</legend>
@@ -163,7 +164,9 @@
         <!--#include virtual="${MODULES}/${PATTERNS}/form-textarea.html" -->
         <!--#include virtual="${MODULES}/${PATTERNS}/form-file.html" -->
         <!--#include virtual="${MODULES}/${PATTERNS}/form-select.html" -->
+        <!--#include virtual="${MODULES}/${PATTERNS}/form-select-multiple.html" -->
         <!--#include virtual="${MODULES}/${PATTERNS}/form-checkbox.html" -->
+        <!--#include virtual="${MODULES}/${PATTERNS}/form-checkbox-multiple.html" -->
         <!--#include virtual="${MODULES}/${PATTERNS}/form-radio.html" -->
 
         <!--#include virtual="${MODULES}/${PATTERNS}/form-buttons.html" -->
@@ -175,8 +178,12 @@
 7) Custom UI elements 
 *****************************************************************************-->
 
-<h2>7. Custom UI elements</h2>
-<p>Later...</p>
+<h2>Custom UI elements</h2>
+
+<h3>Media object</h3>
+<!--#include virtual="${MODULES}/${PATTERNS}/mediaobject.html" -->
+
+
 <!-- Pagination 
 **************************************************************************** -->
 <!--include virtual="${MODULES}/${PATTERNS}/pagination.html" -->

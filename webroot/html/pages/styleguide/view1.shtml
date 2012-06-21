@@ -1,4 +1,4 @@
-<h1><!--#echo var="PAGE-HEADING" --> <code>&lt;h1&gt;</code> (<i>italic</i>, <b>bold</b>, <a href="#">linked</a>)</h1>
+<h1><!--#echo var="PAGE-HEADING" --></h1>
 
 <p>A guide to the base markup styles used throughout the site.</p>
 
