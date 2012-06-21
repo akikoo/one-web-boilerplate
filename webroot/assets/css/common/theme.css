@@ -1,152 +1,203 @@
 /**
  * 
  * Theme for One Web Boilerplate elements and modules
- * This is just a quick demo, remove this when you start your project
+ * This is just a quick demo, remove/edit this when you start your project
  *
  * @author Aki Karkkainen
  * @url https://github.com/akikoo/one-web-boilerplate
  * Twitter: http://twitter.com/akikoo
  * 
- * Loosely based on Adactio's Pattern Primer CSS: https://github.com/adactio/Pattern-Primer 
- * 
  */
 
 
+/* Font sizes & line heights are calculated as follows:
+--------------------------------------------------------------------------------
 
-/*	TEMP: Used only for quick and dirty demonstration, be sure to remove these
+   Base font-size: 16px
+   Base line-height: 24px (1.5 x 16)
+
+   Element font-size in ems: desired font-size in pixels / parent font-size in pixels
+   Line-height & margin-bottom: base line-height in pixels / desired font-size in pixels
+   This results in consistent baseline even if element font size decreases or increases.
 -------------------------------------------------------------------------------*/
-.masthead {
-	display: none;
+
+header[role="banner"] {
+    display: none;
 }
 
 .nav-main {
 	padding: 0;
-	width: 50%;
-	margin: 0 auto;
 }
 
-.hfeed {
-	width: 50%;
-	margin: 40px auto 0;
+.footer-main p {
+    margin: 0;
 }
-
-[role="contentinfo"] p {
-	margin: 0 auto;
-	width: 50%;		
-}
-
-/* @group Typography */
 
 body {
-	background-color: #eee;
-	margin: 0 5%;
 	font-family: Cambria, Georgia, serif;
 	color: #333;
+    width: 80%;
+    max-width: 48em;
+    margin: 0 auto;
 }
 
+/*=hx
+------------------------------------------------------------------------------*/
 h1, 
 h2, 
 h3, 
 h4, 
 h5, 
 h6 {
-	font-family: Palatino, Cambria, Georgia, serif;	
+	font-family: 'Helvetica Neue', Arial, sans-serif;	
 	font-weight: normal;	
-	margin: 0;	
+	padding: 0;
 }
 
 h1 {
-	padding: 1em 0 0; 
-	margin: 0 0 1em;
-	color: #444;
-	border-bottom: 0.2em solid #333;
+	font-size: 2.25em; /*36px*/
+	line-height: 1; /*36px */
+    margin: 0.66666666666667em 0;
 }
 
 h2 {
-	padding: 0; 
-	color: #555;
-	border-bottom: 0.13333em solid #333;
-	margin: 0 0 1em;
+    font-size: 1.5em; /*24px*/
+    line-height: 1; /*24px*/
+    margin: 2em 0 0; /*48px*/
+    color: #839F03;
 }
 
 h3 {
-	padding: 0.5em 0 0; 
-	color: #666;
-	border-bottom: 0.1em solid #333;
-	margin: 0 0 1em;	
+    font-size: 1.3125em; /*21px*/
+    line-height: 1.14285714285714; /*24px*/
+    margin: 1.14285714285714em 0 0;    
+    color: #333;
 }
 
 h4 {
-	padding: 1em 0; 
-	color: #777;
+    font-size: 1.125em; /*18px*/
+    line-height: 1.33333333333333; /*24px*/
+    margin: 1.33333333333333em 0 0;
+    color: #444;
 }
 
 h5 {
-	padding: 0; 
-	color: #888;
+    font-size: 1em; /*16px*/
+    line-height: 1.5; /*24px*/
+    margin: 1.5em 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.0625em; /*1px*/
+    color: #555;
 }
 
 h6 {
-	padding: 1em 0 0; 
-	color: #999;
+    font-size: 0.875em; /*14px*/
+    line-height: 1.71428571428571; /*24px*/
+    margin: 1.71428571428571em 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.07142857142857em; /*1px*/
+    color: #666;
 }
 
+
+/*=hr
+------------------------------------------------------------------------------*/
 hr {
 	border: none;
-	height: 0.1em;
+	height: 1px;
 	background: #ccc;
 }
 
-p, ul, ol, hr, table, form, fieldset {
-	margin: 0 0 1.25em;
+
+/* Grouped declarations
+------------------------------------------------------------------------------*/
+ul, 
+ol, 
+hr, 
+table, 
+form, 
+fieldset {
+    font-size: 1em; /*16px*/
+    line-height: 1.5; /*24px*/
+    margin: 0.75em 0; /*12px*/
 }
 
+
+/*=lists
+------------------------------------------------------------------------------*/
 ul, 
-ol {
-	line-height: 1.5;
+ol, 
+dl {
+    font-size: 1em; /*16px*/
+    line-height: 1.5; /*24px*/
+    margin: 0.75em 0; /*12px*/
 }
-	
+
+ul ul, 
+ul ol, 
+ol ol, 
+ol ul {
+    margin: 0;
+}
+
+dt {
+    font-weight: bold;
+}
+
+
+/*=blockquotes
+------------------------------------------------------------------------------*/
 blockquote {
-	margin: 1em;
-	border-top: 0.1em solid;
-	border-bottom: 0.1em solid;
+	border-top: 1px solid;
+	border-bottom: 1px solid;
 	padding: 0 1em;
 	font-family: Palatino, Georgia, serif;
 	font-style: italic;
-	font-size: 1.25em;
-	line-height: 1.5;
-	letter-spacing: 0.05em;
+    font-size: 1em; /*16px*/
+    line-height: 1.5; /*24px*/
+    margin: 0.75em 0; /*12px*/
+	letter-spacing: 0.0625em; /*1px*/
 	color: #888;
-	border-color: #ccc;
+	border-color: #ddd;
 }
 
-blockquote em {
-	font-style: normal;
+
+/*=img
+------------------------------------------------------------------------------*/
+img {
+    background: #fff;
+    border: 1px solid #ccc;
+    display: block;
+    margin: 0;
+    max-width: 97%;
+    padding: 5px;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
 }
 
+
+/*=figures
+------------------------------------------------------------------------------*/
 figcaption {
 	font-family: Palatino, Cambria, Georgia, serif;
 	font-style: italic;
-	font-size: 0.857em;
-	line-height: 1.4286;
+    font-size: 1em; /*16px*/
+    line-height: 1.5; /*24px*/
+    margin: 0.75em 0; /*12px*/
 	color: #666;
 }
 
+
+/*=p
+------------------------------------------------------------------------------*/
 p {
-	line-height: 1.5;
-	word-spacing: 0.1em;
-	margin: 1.1111em 0;
-}
-
-time {
-	color: #888;
+    font-size: 1em; /*16px*/
+    line-height: 1.5; /*24px*/
+    margin: 0.75em 0; /*12px*/
 }
 
 
-/* @end Typography */
-
-/* @group Links */
-
+/*=anchors
+------------------------------------------------------------------------------*/
 a {
 	text-decoration: none;
 	border-bottom-style: dotted;
@@ -171,16 +222,82 @@ a:active {
 	border-bottom-color: #900;
 }
 
-.logo a, 
-h1 a, 
-h2 a, 
-h3 a {
-	border: none;
+
+/*=form elements
+------------------------------------------------------------------------------*/
+.control-group {
+    margin: 0 0 1em 0;
 }
 
-/* @end Links */
+fieldset fieldset .control-group {
+    margin: 0 0 0.4em;
+}
 
-/* @group Forms */
+/* http://nicolasgallagher.com/micro-clearfix-hack/ */
+.control-group:before,
+.control-group:after {
+    content: "";
+    display: table;
+}
+
+.control-group:after {
+    clear: both;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+.ie7 .control-group {
+    zoom:1;
+}
+    
+label {
+    float: left;
+    width: 30%;
+}
+
+input[type="radio"], 
+input[type="checkbox"] {
+    float: left;
+    width: auto;
+    margin: 0 10px 0 30%;
+}
+
+.ie7 input[type="radio"] {
+    clear: both;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="url"], 
+input[type="password"], 
+input[type="search"], 
+select, 
+textarea {
+    width: 50%;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="url"], 
+input[type="password"], 
+input[type="search"], 
+input[type="button"], 
+input[type="submit"], 
+select, 
+textarea, 
+button {
+    box-shadow: 0 1px 0 #DDDDDD inset;
+    font: 300 1em/1.5 'Akagi Book','Helvetica Neue',Arial,sans-serif;
+    padding: 0.25em 2%;
+    vertical-align: middle;
+}
+
+.control-group-options {
+    
+}
+
+.control-help {
+    margin: 0 0 0 30%;
+}
 
 label {
 	cursor: pointer;
@@ -189,9 +306,6 @@ label {
 input[type],
 textarea,
 select {
-	background-color: #fff;
-	font-family: inherit;
-	font-size: inherit;
 	padding: 0.125em;
 	border: 1px solid #ccc;
 	-webkit-border-radius: 0.25em;
@@ -200,29 +314,31 @@ select {
 	border-radius: 0.25em;
 }
 
+textarea {
+    width: 99%;
+}
+
 input[type="checkbox"],
 input[type="radio"],
 input[type="image"] {
-	width: auto;
+
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-	outline: none;
-	border-color: #666;
+
 }
 
 input[required],
 textarea[required] {
-	border-color: #999;
+
 }
 
 button,
 input[type="button"],
 input[type="submit"] {
 	text-align: center;
-	font-family: Calibri, 'Helvetica Neue', Arial, sans-serif;
 	font-size: inherit;
 	font-weight: normal;
 	font-style: normal;
@@ -244,123 +360,18 @@ input[type="button"]:hover,
 input[type="button"]:focus,
 input[type="submit"]:hover,
 input[type="submit"]:focus {
-	outline: none;
-	background-color: #c03;
-	color: #fff;
+
 }
 
 button:active,
 input[type="button"]:active,
 input[type="submit"]:active {
-	background-color: #900;
-	color: #fff;
+
 }
 
-/* @group search */
 
-[role="search"] {
-	position: relative;
-	background-color: #fff;
-	border: 1px solid #ccc;
-	padding: 0 0.75em;
-	-webkit-border-radius: 1em;
-	-moz-border-radius:1em;
-	-o-border-radius: 1em;
-	border-radius: 1em;
-}
-
-[role="search"] input {
-	border: none;
-	-webkit-appearance: none;
-	-moz-appearance: none; 
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-	-o-border-radius: 0;
-	border-radius: 0;
-}
-
-[role="search"] input[type="image"] {
-	background-color: #fff;
-	position: absolute;
-	top: 0.2em;
-	right: 0.6em;
-	padding: 0.2em 0.2em;
-}
-
-/* @end search */
-
-/* @end Forms */
-
-/* @group Classes */
-
-/* @group pagination */
-
-.pagination {
-	font-family: Calibri, 'Helvetica Neue', Arial, sans-serif;
-}
-
-.pagination li {
-	display: inline;
-	margin-left: 0;
-	text-indent: 0;
-}
-
-.pagination a {
-	display: inline-block;
-	padding: 0.5em 1em;
-	line-height: 1;
-	margin: 0.1em;
-	border: 1px solid #666;
-	-webkit-border-radius: 0.25em;
-	-moz-border-radius: 0.25em;
-	-o-border-radius: 0.25em;
-	border-radius: 0.25em;
-	background-clip: padding-box;
-}
-
-.pagination a:link,
-.pagination a:visited {
-	color: #fff;
-	background-color: #369;
-}
-
-.pagination a[href]:hover,
-.pagination a[href]:focus {
-	color: #fff;
-	background-color: #c03;
-}
-
-.pagination a:active {
-	color: #fff;
-	background-color: #900;
-}
-
-/* @end pagination*/
-
-/* @group feedback */
-
-.feedback {
-	background-color: #ffc;
-	padding: 0.125em 1em;
-	margin: 1em 0;
-	border-top: 0.125em solid #cc9;
-	-webkit-border-radius: 0.25em;
-	-moz-border-radius: 0.25em;
-	-o-border-radius: 0.25em;
-	border-radius: 0.25em;
-	background-clip: padding-box;
-}
-
-.error {
-	background-color: #fcc;
-	border-color: #c99;
-}
-
-/* @end feedback */
-
-/* @end Classes */
-
-
+/* Module display and source
+------------------------------------------------------------------------------*/
 .module {
 	margin-bottom: 3em;
 }
@@ -369,6 +380,9 @@ input[type="submit"]:active {
 	margin-bottom: 1em;
 }
 
+
+/*=tables
+------------------------------------------------------------------------------*/
 table {
 	width: 100%;
 }
@@ -384,6 +398,72 @@ caption {
 	padding: 1em;	
 }
 
-code {
-	font-family: monospace, serif;
+
+
+
+/* Media object, http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/ */
+/* Reusable media object, http://jsfiddle.net/necolas/rZvEF/ */
+.media {
+    margin: 10px;
+}
+
+.media .img {
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.media .img img {
+    display: block;
+}
+
+.media .img-ext {
+    float: right; 
+    margin-left: 10px;
+}
+
+/*
+ * 1. Create new block formatting context in modern browsers
+ * 2. Avoid shrink-wrap behaviour of table-cell
+ * 3. Override for IE6/7
+ * 4. Create new block formatting context in IE6/7
+ * Alternatively, use `overflow:hidden` if clipping is OK
+ * www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+ * facebook.com
+*/
+
+.media .content {
+    display:table-cell; /* 1 */
+    width:10000px; /* 2 */
+    *width:auto; /* 3 */
+    *zoom:1; /* 4 */
+}
+
+/* ----- REUSABLE ICONS ----- */
+.icon {
+    display:inline-block;
+    width:16px;
+    height:16px;
+    margin:0 5px 0 0;
+    background:url(http://placekitten.com/16/16);
+}
+
+.icon-a {
+    background-position:0 0;
+}
+
+
+/* Micro clearfix (http://nicolasgallagher.com/micro-clearfix-hack/)
+------------------------------------------------------------------------------*/
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+
+.cf:after {
+    clear:both;
+}
+
+.ie7 .cf {
+    zoom:1;
 }
