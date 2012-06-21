@@ -337,16 +337,24 @@ textarea[required] {
 
 button,
 input[type="button"],
-input[type="submit"] {    
-    background: -moz-linear-gradient(center top , #F8F8F8 0%, #DDDDDD 100%) repeat scroll 0 0 transparent;
-    border: 1px solid #d2d2d2;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 0 1px 0 #FFFFFF inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset;
+input[type="submit"] {
     padding: 0.5em;
 	text-align: center;
 	cursor: pointer;
 	line-height: 1;
 	color: #383838;
+    background: rgb(248,248,248); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(221,221,221,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,248,248,1)), color-stop(100%,rgba(221,221,221,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(221,221,221,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(221,221,221,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(221,221,221,1) 100%); /* IE10+ */
+    background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(221,221,221,1) 100%); /* W3C */
+    border: 1px solid #d2d2d2;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-box-shadow: 0 1px 0 #fff inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset;
+    -moz-box-shadow: 0 1px 0 #fff inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset;
+    box-shadow: 0 1px 0 #fff inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset;
 }
 
 button:hover,
@@ -427,10 +435,13 @@ caption {
 */
 
 .media .content {
-    display:table-cell; /* 1 */
-    width:10000px; /* 2 */
-    *width:auto; /* 3 */
-    *zoom:1; /* 4 */
+    display: table-cell; /* 1 */
+    width: 10000px; /* 2 */
+}
+
+.ie7 .media .content {
+    width: auto; /* 3 */
+    zoom: 1; /* 4 */
 }
 
 /* ----- REUSABLE ICONS ----- */
