@@ -1,0 +1,490 @@
+/**
+ * 
+ * Theme for One Web Boilerplate elements and modules
+ * This is just a quick demo, remove/edit this when you start your project
+ *
+ * @author Aki Karkkainen
+ * @url https://github.com/akikoo/one-web-boilerplate
+ * Twitter: http://twitter.com/akikoo
+ * 
+*/
+
+
+/* Font sizes & line heights are calculated as follows:
+--------------------------------------------------------------------------------
+
+   Base font-size: 16px
+   Base line-height: 24px (1.5 x 16)
+
+   Element font-size in ems: desired font-size in pixels / parent font-size in pixels
+   Line-height & margin-bottom: base line-height in pixels / desired font-size in pixels
+   This results in consistent baseline even if element font size decreases or increases.
+-------------------------------------------------------------------------------*/
+
+header[role="banner"] {
+    display: none;
+}
+
+.nav-main {
+    padding: 0;
+}
+
+.footer-main p {
+    margin: 0;
+}
+
+body {
+    font-family: Cambria, Georgia, serif;
+    color: #333;
+    width: 80%;
+    max-width: 48em;
+    margin: 0 auto;
+}
+
+/*=hx
+------------------------------------------------------------------------------*/
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;	
+    font-weight: normal;	
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.25em; /*36px*/
+    line-height: 1; /*36px */
+    margin: 0.66666666666667em 0;
+}
+
+h2 {
+    font-size: 1.5em; /*24px*/
+    line-height: 1; /*24px*/
+    margin: 2em 0 0; /*48px*/
+    color: #839F03;
+}
+
+h3 {
+    font-size: 1.3125em; /*21px*/
+    line-height: 1.14285714285714; /*24px*/
+    margin: 1.14285714285714em 0 0;    
+    color: #333;
+}
+
+h4 {
+    font-size: 1.125em; /*18px*/
+    line-height: 1.33333333333333; /*24px*/
+    margin: 1.33333333333333em 0 0;
+    color: #444;
+}
+
+h5 {
+    font-size: 1em; /*16px*/
+    line-height: 1.5; /*24px*/
+    margin: 1.5em 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.0625em; /*1px*/
+    color: #555;
+}
+
+h6 {
+    font-size: 0.875em; /*14px*/
+    line-height: 1.71428571428571; /*24px*/
+    margin: 1.71428571428571em 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.07142857142857em; /*1px*/
+    color: #666;
+}
+
+
+/*=hr
+------------------------------------------------------------------------------*/
+hr {
+    border: none;
+    height: 1px;
+    background: #ccc;
+}
+
+
+/* Grouped declarations
+------------------------------------------------------------------------------*/
+ul, 
+ol, 
+hr, 
+table, 
+form, 
+fieldset {
+    font-size: 1em; /*16px*/
+    line-height: 1.5; /*24px*/
+    margin: 0.75em 0; /*12px*/
+}
+
+
+/*=lists
+------------------------------------------------------------------------------*/
+ul, 
+ol, 
+dl {
+    font-size: 1em; /*16px*/
+    line-height: 1.5; /*24px*/
+    margin: 0.75em 0; /*12px*/
+}
+
+ul ul, 
+ul ol, 
+ol ol, 
+ol ul {
+    margin: 0;
+}
+
+dt {
+    font-weight: bold;
+}
+
+
+/*=blockquotes
+------------------------------------------------------------------------------*/
+blockquote {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 0 1em;
+    font-family: Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 1em; /*16px*/
+    line-height: 1.5; /*24px*/
+    margin: 0.75em 0; /*12px*/
+    letter-spacing: 0.0625em; /*1px*/
+    color: #888;
+    border-color: #ddd;
+}
+
+
+/*=img
+------------------------------------------------------------------------------*/
+img {
+    background: #fff;
+    border: 1px solid #ccc;
+    display: block;
+    margin: 0;
+    max-width: 97%;
+    padding: 5px;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
+}
+
+
+/*=figures
+------------------------------------------------------------------------------*/
+figcaption {
+    font-family: Palatino, Cambria, Georgia, serif;
+    font-style: italic;
+    font-size: 1em; /*16px*/
+    line-height: 1.5; /*24px*/
+    margin: 0.75em 0; /*12px*/
+    color: #666;
+}
+
+
+/*=p
+------------------------------------------------------------------------------*/
+p {
+    font-size: 1em; /*16px*/
+    line-height: 1.5; /*24px*/
+    margin: 0.75em 0; /*12px*/
+}
+
+
+/*=anchors
+------------------------------------------------------------------------------*/
+a {
+    text-decoration: none;
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    white-space: pre-wrap;
+}
+
+a:link,
+a:visited {
+    color: #369;
+    border-bottom-color: #369;
+}
+
+a:hover,
+a:focus {
+    color: #c03;
+    border-bottom-color: #c03;
+}
+
+a:active {
+    color: #900;
+    border-bottom-color: #900;
+}
+
+
+/*=form elements
+------------------------------------------------------------------------------*/
+.control-group {
+    margin: 0 0 1em 0;
+}
+
+fieldset fieldset .control-group {
+    margin: 0;
+}
+
+/* http://nicolasgallagher.com/micro-clearfix-hack/ */
+.control-group:before,
+.control-group:after {
+    content: "";
+    display: table;
+}
+
+.control-group:after {
+    clear: both;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+.ie7 .control-group {
+    zoom:1;
+}
+
+label {
+    float: left;
+    width: 30%;
+    cursor: pointer;
+}
+
+input[type="radio"], 
+input[type="checkbox"] {
+    float: left;
+    width: auto;
+    margin: 0 10px 0 30%;
+}
+
+.ie7 input[type="radio"] {
+    clear: both;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="url"], 
+input[type="password"], 
+input[type="search"], 
+select, 
+textarea {
+    width: 50%;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="url"], 
+input[type="password"], 
+input[type="search"], 
+input[type="button"], 
+input[type="submit"], 
+select, 
+textarea, 
+button {
+    box-shadow: 0 1px 0 #DDDDDD inset;
+    font: 300 1em/1.5 'Akagi Book','Helvetica Neue',Arial,sans-serif;
+    padding: 0.25em 2%;
+    vertical-align: middle;
+}
+
+.control-group-options {
+
+}
+
+.control-help {
+    margin: 0 0 0 30%;
+}
+
+input[type],
+textarea,
+select {
+    padding: 0.125em;
+    border: 1px solid #eee;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+}
+
+textarea {
+    width: 99%;
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="image"] {
+
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+
+}
+
+input[required],
+textarea[required] {
+
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+    padding: 0.5em;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1;
+    color: #383838;
+    background: rgb(248,248,248); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(221,221,221,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,248,248,1)), color-stop(100%,rgba(221,221,221,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(221,221,221,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(221,221,221,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(221,221,221,1) 100%); /* IE10+ */
+    background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(221,221,221,1) 100%); /* W3C */
+    border: 1px solid #d2d2d2;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-box-shadow: 0 1px 0 #fff inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset;
+    -moz-box-shadow: 0 1px 0 #fff inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset;
+    box-shadow: 0 1px 0 #fff inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset;
+}
+
+button:hover,
+button:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+
+}
+
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+
+}
+
+
+/* Module display and source
+------------------------------------------------------------------------------*/
+.module {
+    margin-bottom: 3em;
+}
+
+.module h3 span {
+    display: inline-block;
+    font-size: 0.85714285714286em; /*18px (18/21)*/
+    line-height: 1; /*18px*/
+    padding: 0 3px 3px;
+    vertical-align: middle;
+}
+
+.display {
+    margin-bottom: 1em;
+}
+
+.source {
+
+}
+
+.source textarea {
+    border: 1px solid #CCCCCC;
+    overflow: auto;
+    padding: 6px 10px;    
+    vertical-align: middle;
+    font-size: 0.75em; /*12px*/
+    line-height: 1.5; /*18px, off the system*/
+    font-family: Consolas,Menlo,"Liberation Mono",Courier,monospace;
+    background: #f8f8f8;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow:  none;
+}
+
+
+/*=tables
+------------------------------------------------------------------------------*/
+table {
+    width: 100%;
+}
+
+th, 
+td {
+    padding: 1em;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+caption {
+    padding: 1em;	
+}
+
+
+
+/*=media object http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/ 
+                http://jsfiddle.net/necolas/rZvEF/
+------------------------------------------------------------------------------*/
+.media {
+    margin: 10px;
+}
+
+.media .img {
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.media .img img {
+    display: block;
+}
+
+.media .img-ext {
+    float: right; 
+    margin-left: 10px;
+}
+
+/*
+ * 1. Create new block formatting context in modern browsers
+ * 2. Avoid shrink-wrap behaviour of table-cell
+ * 3. Override for IE6/7
+ * 4. Create new block formatting context in IE6/7
+ * Alternatively, use `overflow:hidden` if clipping is OK
+ * www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+ * facebook.com
+*/
+
+.media .content {
+    display: table-cell; /* 1 */
+    width: 10000px; /* 2 */
+}
+
+.ie7 .media .content {
+    width: auto; /* 3 */
+    zoom: 1; /* 4 */
+}
+
+/* ----- REUSABLE ICONS ----- */
+.icon {
+    display:inline-block;
+    width:16px;
+    height:16px;
+    margin:0 5px 0 0;
+    background:url(http://placekitten.com/16/16);
+}
+
+.icon-a {
+    background-position:0 0;
+}
+
+
+/* Markup example wrapper
+------------------------------------------------------------------------------*/
+.example {
+    margin: 1em -1em; /*16px*/
+    outline: 1px solid #eee;
+    padding: 0.375em 1em; /*6px 16px*/
+    background: #f0f0f0;   
+}

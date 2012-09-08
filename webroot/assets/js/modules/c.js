@@ -1,0 +1,1 @@
+console.log('Value of b is ' + b);

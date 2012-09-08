@@ -1,83 +1,19 @@
 <!-- This will be set by the build script and reverted back at the end of the build process-->
 <!--#set var='OPTIMISEDASSETS' value='' -->
 
-<!-- For improving flexible images quality on IE6/7 for responsive web sites -->  
-<!--[if (lt IE 9) & (!IEMobile)]>
-	<script src="<!--#echo var='SHARD' -->/js/lib/selectivizr.js"></script> 
-	<script src="<!--#echo var='SHARD' -->/js/lib/imgsizer.js"></script>   
-<![endif]-->
 
 <!-- This variable will be toggled automatically by the build script -->
 <!--#if expr="${OPTIMISEDASSETS}" -->
-	<!-- PROD: scripts concatenated and minified via ant build script -->
-	<script src="<!--#echo var='PUBLISH' -->/js/<!--#echo var='LAZYLOAD' -->"></script>	
 
-	<!--#if expr="${PAGECRIPTS}" -->	
-	<script>
-	(function () {
-		var commonscripts	= "<!--#echo var='PUBLISH' -->/js/scripts-concat.min.js", 
-			specificscripts	= "<!--#echo var='PUBLISH' -->/js/pages/<!--#echo var='PAGE' -->-min.js";
-		
-		// Load multiple JS files and execute a callback when they've all finished
-		LazyLoad.js([commonscripts, specificscripts], function () {
-			// your callback
-		});
-	}());
-	</script>
-
-	<!--#else -->
-	<script>
-	(function () {
-		var commonscripts	= "<!--#echo var='PUBLISH' -->/js/scripts-concat.min.js";
-		
-		// Load multiple JS files and execute a callback when they've all finished
-		LazyLoad.js([commonscripts], function () {
-			// your callback
-		});
-	}());
-	</script>
-	<!--#endif -->
-
-	<!-- This is for RequireJS if you choose to use it
-	<script data-main="<!--#echo var='PUBLISH' -->/js/main" src="<!--#echo var='PUBLISH' -->/js/lib/require/require.js"></script>
-	-->
+    <!-- P R O D: scripts concatenated and minified via optimizer task -->
+    <!--#set var='ASSETS' value='${PUBLISH}' -->
 	
 <!--#else -->
-	<!-- DEV: scripts loaded separately with lazyload.js, and executed in the specified order -->
-	<script src="<!--#echo var='SHARD' -->/js/lib/<!--#echo var='LAZYLOAD' -->"></script>	
-			
-	<!--#if expr="${PAGECRIPTS}" -->	
-	<script>
-	(function () {
-		var jquery		= "<!--#echo var='SHARD' -->/js/lib/<!--#echo var='JQUERY' -->", 
-			mylib		= "<!--#echo var='SHARD' -->/js/mylib.js", 
-			docscript	= "<!--#echo var='SHARD' -->/js/script.js", 
-			pagescript	= "<!--#echo var='SHARD' -->/js/pages/<!--#echo var='PAGE' -->.js";
-		
-		// Load multiple JS files and execute a callback when they've all finished
-		LazyLoad.js([jquery, mylib, docscript, pagescript], function () {
-			// your callback
-		});
-	}());
-	</script>
 
-	<!--#else -->
-	<script>
-	(function () {
-		var jquery = "<!--#echo var='SHARD' -->/js/lib/<!--#echo var='JQUERY' -->", 
-			mylib = "<!--#echo var='SHARD' -->/js/mylib.js", 
-			docscript = "<!--#echo var='SHARD' -->/js/script.js";
-		
-		// Load multiple JS files and execute a callback when they've all finished
-		LazyLoad.js([jquery, mylib, docscript], function () {
-			// your callback
-		});
-	}());
-	</script>		
-	<!--#endif -->
-
-	<!-- This is for RequireJS if you choose to use it
-	<script data-main="<!--#echo var='SHARD' -->/js/main" src="<!--#echo var='SHARD' -->/js/lib/require/require.js"></script>
-	-->
+    <!-- D E V: scripts loaded separately with RequireJS, and executed in the specified order -->
+    <!--#set var='ASSETS' value='${SHARD}' -->
 
 <!--#endif -->
+
+
+<script data-main="<!--#echo var='ASSETS' -->/js/main" src="<!--#echo var='ASSETS' -->/js/lib/require/require.js"></script>

@@ -11,100 +11,124 @@
  * Twitter: http://twitter.com/akikoo
  *
 */
+
+
+
 /* 1) Non-semantic helper classes from the HTML5 boilerplate
 ------------------------------------------------------------------------------*/
 /* For image replacement */
-.ir {
-  display: block;
-  border: 0;
-  text-indent: -999em;
-  overflow: hidden;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  text-align: left;
-  direction: ltr;
+.ir { 
+    display: block; 
+    border: 0; 
+    text-indent: -999em; 
+    overflow: hidden; 
+    background-color: transparent; 
+    background-repeat: no-repeat; 
+    text-align: left; 
+    direction: ltr; 
 }
-.ir br {
-  display: none;
+
+.ir br { 
+    display: none; 
 }
+
 /* Hide from both screenreaders and browsers: h5bp.com/u */
-.hidden {
-  display: none !important;
-  visibility: hidden;
+.hidden { 
+    display: none !important; 
+    visibility: hidden; 
 }
+
 /* Hide only visually, but have it available for screenreaders: h5bp.com/v */
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+.visuallyhidden { 
+    border: 0; 
+    clip: rect(0 0 0 0); 
+    height: 1px; 
+    margin: -1px; 
+    overflow: hidden; 
+    padding: 0; 
+    position: absolute; 
+    width: 1px; 
 }
+
 /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
+.visuallyhidden.focusable:active, 
+.visuallyhidden.focusable:focus { 
+    clip: auto; 
+    height: auto; 
+    margin: 0; 
+    overflow: visible; 
+    position: static; 
+    width: auto; 
 }
+
 /* Hide visually and from screenreaders, but maintain layout */
-.invisible {
-  visibility: hidden;
+.invisible { 
+    visibility: hidden; 
 }
+
 /* Micro clearfix (http://nicolasgallagher.com/micro-clearfix-hack/) */
-.cf:before, .cf:after {
-  content: "";
-  display: table;
-}
+.cf:before,
 .cf:after {
-  clear: both;
+    content: "";
+    display: table;
 }
+
+.cf:after {
+    clear: both;
+}
+
 .ie7 .cf {
-  zoom: 1;
+    zoom: 1;
 }
+
+
+
 /* 2) Styles from the HTML5 Mobile boilerplate
 ------------------------------------------------------------------------------*/
 /*	Prevent mobile zooming while remain desktop zooming.
     github.com/shichuan/mobile-html5-boilerplate/issues/closed#issue/14
 */
 body {
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: none;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: none;
 }
+
 /* prevent callout */
 .nocallout {
-  -webkit-touch-callout: none;
+    -webkit-touch-callout: none;
 }
+
 /*Text overflow with ellipsis
 https://github.com/shichuan/mobile-html5-boilerplate/wiki/The-Style
 */
 .ellipsis {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-/* A hack for HTML5 contenteditable attribute on mobile */
-textarea.contenteditable {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-/* 3) Other utility classes
-------------------------------------------------------------------------------*/
-.left-align {
-  float: left;
-}
-.right-align {
-  float: right;
-}
-.width-50 {
-  width: 50%;
-}
-.width-33 {
-  width: 33.33333333%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
+/* A hack for HTML5 contenteditable attribute on mobile */
+textarea.contenteditable {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+/* 3) Other utility classes
+------------------------------------------------------------------------------*/
+
+.left-align {
+    float: left;
+}
+
+.right-align {
+    float: right;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.width-33 {
+    width: 33.33333333%;
+}

@@ -24,7 +24,7 @@
 
 		</header>
 
-		<div id="#main-content" role="main">
+		<div id="#main-content" role="main" class="cf">
 			<!--#include virtual="${VIEW1}" -->
 		</div>
 
