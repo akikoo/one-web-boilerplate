@@ -49,10 +49,10 @@
     },
 
     //List of the modules that will be optimized
-	modules: [
-		{
-            name: 'main'                                // relative to the 'baseUrl'
-		}
-	]
+    modules: [
+    {
+        name: 'main'                                // relative to the 'baseUrl'
+    }
+    ]
 
 })

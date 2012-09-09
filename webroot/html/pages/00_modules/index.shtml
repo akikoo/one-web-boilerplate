@@ -2,12 +2,12 @@
 
 <!--#if expr="${LANG}" -->
 <!--#else-->
-	<!--#set var="LANG" value="en-gb" -->
+    <!--#set var="LANG" value="en-gb" -->
 <!--#endif -->
 
 <!--#if expr="${LANG-DIR}" -->
 <!--#else-->
-	<!--#set var="LANG-DIR" value="ltr" -->
+    <!--#set var="LANG-DIR" value="ltr" -->
 <!--#endif -->
 
 <!--#set var="PAGE" value="00_modules"-->

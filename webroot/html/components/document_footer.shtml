@@ -1,5 +1,5 @@
 <footer role="contentinfo">
-	<div class="footer-main">
-		<p>Oh, site info goes here by the way (by default, anyway)</p>
-	</div>
+    <div class="footer-main">
+        <p>Oh, site info goes here by the way (by default, anyway)</p>
+    </div>
 </footer>

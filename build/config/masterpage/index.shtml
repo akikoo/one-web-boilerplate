@@ -2,12 +2,12 @@
 
 <!--#if expr="${LANG}" -->
 <!--#else-->
-	<!--#set var="LANG" value="en-gb" -->
+    <!--#set var="LANG" value="en-gb" -->
 <!--#endif -->
 
 <!--#if expr="${LANG-DIR}" -->
 <!--#else-->
-	<!--#set var="LANG-DIR" value="ltr" -->
+    <!--#set var="LANG-DIR" value="ltr" -->
 <!--#endif -->
 
 <!--#set var="PAGE" value=""-->
@@ -26,12 +26,12 @@
 <!--#include virtual="${TEMPLATES}/default.shtml" -->
 
 <!-- 
-	If you need page specific styles and scripts, set PAGECRIPTS and PAGESTYLES 
-	to 'true' above..
+    If you need page specific styles and scripts, set PAGECRIPTS and PAGESTYLES 
+    to 'true' above..
 
-	Then, place them here:
-	/assets/css/pages/${PAGE}.css
-	/assets/js/pages/${PAGE}.js
+    Then, place them here:
+    /assets/css/pages/${PAGE}.css
+    /assets/js/pages/${PAGE}.js
 
-	The template will then load them only on pages where they're needed. 
+    The template will then load them only on pages where they're needed. 
 -->

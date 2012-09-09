@@ -1,43 +1,43 @@
 <!--#include virtual="${DOCHEAD}" -->
 
 <!--#if expr="${PAGE} == 'home'" -->
-	<!--#set var="HEADERTAG" value="h1" -->
+<!--#set var="HEADERTAG" value="h1" -->
 <!--#elif expr="${PAGE} != 'home'" -->
-	<!--#set var="HEADERTAG" value="div" -->
+<!--#set var="HEADERTAG" value="div" -->
 <!--#endif -->
 <body>
 
-	<div class="page">
+    <div class="page">
 
-		<div class="accessibility">
-			<a href="#main-content">Skip to Main Content</a>
-		</div>
+        <div class="accessibility">
+            <a href="#main-content">Skip to Main Content</a>
+        </div>
 
-		<header role="banner">
+        <header role="banner">
 
-			<!-- No h1 here since this is not the homepage-->
-			<<!--#echo var='HEADERTAG' --> class="masthead">
-				<a href="#">One Web/Mobile First Responsive Boilerplate</a>  
-			</<!--#echo var='HEADERTAG' -->> 
+            <!-- No h1 here since this is not the homepage-->
+            <<!--#echo var='HEADERTAG' --> class="masthead">
+            <a href="#">One Web/Mobile First Responsive Boilerplate</a>  
+            </<!--#echo var='HEADERTAG' -->> 
 
-			<!--#include virtual="${NAV}" -->			
+            <!--#include virtual="${NAV}" -->			
 
-		</header>
+        </header>
 
-		<div id="#main-content" role="main" class="cf">
-			<!--#include virtual="${VIEW1}" -->
-		</div>
+        <div id="#main-content" role="main" class="cf">
+            <!--#include virtual="${VIEW1}" -->
+        </div>
 
-		<!--#if expr="${VIEW2}" -->
-			<aside role="complementary">
-				<!--#include virtual="${VIEW2}" -->
-			</aside>
-		<!--#endif -->
-				
-	</div>
+        <!--#if expr="${VIEW2}" -->
+        <aside role="complementary">
+            <!--#include virtual="${VIEW2}" -->
+        </aside>
+        <!--#endif -->
 
-	<!--#include virtual="${DOCFOOTER}" -->
+    </div>
 
-<!--#include virtual="${DOCSCRIPTS}" -->
+    <!--#include virtual="${DOCFOOTER}" -->
+
+    <!--#include virtual="${DOCSCRIPTS}" -->
 </body>
 </html>

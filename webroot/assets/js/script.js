@@ -25,9 +25,9 @@ var MYSITE = window.MYSITE || {};
  */
 MYSITE.functions = {
 
-	init: function () {
+    init: function () {
     
-	}
+    }
 };
 
 
@@ -37,39 +37,39 @@ MYSITE.functions = {
 (function($) {
 
 
-	//Same as $(document).ready();
-	$(function() {
+    //Same as $(document).ready();
+    $(function() {
 
-		// Functions calls go here
-		// eg. MYSITE.lib.loadJS();
+        // Functions calls go here
+        // eg. MYSITE.lib.loadJS();
 
 
-			// JavaScript experience divide 
-			// Detect support for Aplication Cache and localStorage
-		var enhanced = MYSITE.support.localStorage || MYSITE.support.appCache,
-			// Detect support for touch events   
-			touchEnhanced = MYSITE.support.touch;
+        // JavaScript experience divide 
+        // Detect support for Aplication Cache and localStorage
+        var enhanced = MYSITE.support.localStorage || MYSITE.support.appCache,
+        // Detect support for touch events   
+        touchEnhanced = MYSITE.support.touch;
 
-	});
+    });
 		
 		
-	//if (!enhanced) {
-		//last stop for old browsers!
-	//} else {
-		//bring on the enhancements
-	//}
+    //if (!enhanced) {
+    //last stop for old browsers!
+    //} else {
+    //bring on the enhancements
+    //}
 
 
-	//Methods that should be executed after ALL assets have been loaded (incl. images)
-	$(window).bind("load", function() {
+    //Methods that should be executed after ALL assets have been loaded (incl. images)
+    $(window).bind("load", function() {
 
-		// Do your stuff awhile AFTER the onload
-		var t = window.setTimeout(function () {
+        // Do your stuff awhile AFTER the onload
+        var t = window.setTimeout(function () {
 
-			// Functions calls go here
+            // Functions calls go here
 		
-			}, 100);
+            }, 100);
 		
-	});
+    });
 
 }(this.jQuery));

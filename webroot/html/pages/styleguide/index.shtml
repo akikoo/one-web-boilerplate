@@ -2,7 +2,7 @@
 
 <!--#if expr="${LANG}" -->
 <!--#else-->
-	<!--#set var="LANG" value="en-gb" -->
+    <!--#set var="LANG" value="en-gb" -->
 <!--#endif -->
 
 <!--#if expr="${LANG-DIR}" -->

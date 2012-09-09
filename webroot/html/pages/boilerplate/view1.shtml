@@ -3,28 +3,28 @@
 <!--#set var="robot" value="%Y-%m-%d" -->
 
 <div class="section hfeed">
-	<h1><!--#echo var="TITLE" --></h1>
+    <h1><!--#echo var="TITLE" --></h1>
 
-	<!-- hAtom microformat -->
-	<article>
-		<div class="hentry">							
-			<h2 class="entry-title">This is your second-level heading</h2>
-			<div class="entry-summary">
+    <!-- hAtom microformat -->
+    <article>
+        <div class="hentry">							
+            <h2 class="entry-title">This is your second-level heading</h2>
+            <div class="entry-summary">
 
-			</div>
-			<div class="entry-content">
-				<p>Main content. Over to you :)</p>				
-			</div>
-			<footer>
-				<!-- hCard microformat -->							
-				<p class="vcard author">
-					<span class="fn">Aki Karkkainen</span>,
-					<!--#config timefmt="${robot}" --><time class="published" datetime="<!--#flastmod file="view1.shtml" -->">
-					<!--#config timefmt="${human}" --><!--#flastmod file="view1.shtml" -->
-					<!--#config timefmt="${robot}" --><span class="value-title" title="<!--#flastmod file="view1.shtml" -->"> </span>
-					</time>	
-				</p>
-			</footer>
-		</div>
-	</article>
+            </div>
+            <div class="entry-content">
+                <p>Main content. Over to you :)</p>				
+            </div>
+            <footer>
+                <!-- hCard microformat -->							
+                <p class="vcard author">
+                    <span class="fn">Aki Karkkainen</span>,
+                    <!--#config timefmt="${robot}" --><time class="published" datetime="<!--#flastmod file="view1.shtml" -->">
+                                                            <!--#config timefmt="${human}" --><!--#flastmod file="view1.shtml" -->
+                                                            <!--#config timefmt="${robot}" --><span class="value-title" title="<!--#flastmod file="view1.shtml" -->"> </span>
+                    </time>	
+                </p>
+            </footer>
+        </div>
+    </article>
 </div>

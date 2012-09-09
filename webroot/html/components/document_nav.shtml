@@ -1,5 +1,5 @@
 <nav role="navigation">
-	<ul class="nav-main">
-		<li><a href="/html/">Home</a></li>
-	</ul>
+    <ul class="nav-main">
+        <li><a href="/html/">Home</a></li>
+    </ul>
 </nav>
