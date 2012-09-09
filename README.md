@@ -86,6 +86,7 @@ All the other tools needed in the local build are in the tools folder.
 
 ### Build configuration
 After Apache Ant and SSI setup, you need to do two more things to configure the build:
+
 1. In /build/config/project.properties, look for 'web.home' in line number 121. 
     Change the path to your local directory.
 2. In that same file, look for 'web.url' in line number 123. Create an Apache 
@@ -164,8 +165,8 @@ styles inherit only from base rules, not from other modules.
 
 ### JavaScript
 * Third-party plugins are included in /webroot/assets/js/lib. Custom scripts are 
-in /webroot/assets/js/modules. Dependancies are managed by RequireJS (http://requirejs.org/) 
-a loader script that supports AMD (Asynchronous Module Definition) API. main.js is 
+in /webroot/assets/js/modules. Dependancies are managed by RequireJS (http://requirejs.org/), 
+a script loader that supports AMD (Asynchronous Module Definition) API. main.js is 
 the entry point. 
 
 
@@ -174,7 +175,7 @@ the entry point.
 ### Boilerplates:
 * http://html5boilerplate.com
 * http://html5boilerplate.com/mobile
-* http://forabeautifulweb.com/blog/about/320_and_up/
+* http://stuffandnonsense.co.uk/projects/320andup/
 * Big thanks to *Will Howat* (@willhowat: http://twitter.com/willhowat) and *Andrew 
     Massey* (@wearymadness: http://twitter.com/wearymadness) for the inspiration, 
     code, and fresh ideas. Great work on the Archetype framework!
@@ -231,8 +232,9 @@ the entry point.
 
 ## Ant build process
 
-### To build your project, do the following (assuming you've set up the build, as 
-explained under Build configuration):
+### To build your project, do the following
+
+This assumes you've set up the build, as explained in Build configuration.
 
 1. Open terminal and go to /path_to_your_project/build 
 2. Run ant -buildfile build.xml
@@ -263,7 +265,6 @@ explained under Build configuration):
     Page specific stylesheets are minified individually.
 14. JavaScript files are minified and concatenated and placed in 
     /build/publish/assets/js. 
-
 15. Unoptimised images are copied to /build/publish/assets/img
 16. Temporary directory that was used during the build is deleted
 17. That's it!
@@ -282,11 +283,7 @@ It could be Jenkins (http://jenkins-ci.org) or Bamboo
 
 
 ## To-Do: 
-* Small tweaks here and there... Maybe separate root targets for different builds, 
-one with YUI compressor (current default), and one with LESS and Require.js? 
-Ant targets for all of these options are already in place. 
-* I'm planning to merge default.properties and project.properties files, to simplify 
-configuration. 
+* Small tweaks here and there...
 
 Thanks and good luck! 
 
