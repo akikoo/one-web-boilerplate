@@ -1,0 +1,23 @@
+<project name="Html.List.Pages">
+
+    <macrodef name="html.list.pages">
+
+        <sequential>
+
+            <antcall target="html.create.list">
+                <param name="dir.list" value="${src.html.dir}/${src.html.pages.dir}"/>
+                <param name="file.write" value="${src.html.dir}/${inc.pages}"/>
+                <param name="file.include" value="**/index.shtml"/>
+                <param name="file.exclude" value=""/>
+                <param name="target.call" value="html.write.elements"/>
+            </antcall>
+
+            <antcall target="html.replace.list">
+                <param name="file.write" value="${src.html.dir}/${inc.pages}"/>
+            </antcall>
+
+        </sequential>
+
+    </macrodef>
+
+</project>

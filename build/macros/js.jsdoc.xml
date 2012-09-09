@@ -1,0 +1,22 @@
+<!-- GENERATE JSDOC DOCUMENTATION BASED ON THE SCRIPTS SPECIFIED BELOW [private] -->
+<project name="JS.Doc">
+
+    <macrodef name="js.jsdoc" description="(PRIVATE) Generates JSDocs output">	
+
+        <sequential>
+            <echo>Generating JSDocs documentation... </echo>
+
+            <jsdoctoolkit jsdochome="${jsdoc.home}/" template="jsdoc" outputdir="${publish.dir}/${docs.dir}/${out.jsdocs.dir}/">
+                <!-- Exclude all third party plugins -->
+                <fileset 
+                    dir="${src.js.dir}"
+                    includes="${file.include.jsdoc.js}"
+                    excludes="${file.exclude.jsdoc.js}"/> 
+            </jsdoctoolkit>
+            <echo>Writing JSDocs to ${build.dir}/${publish.dir}/${docs.dir}...</echo>
+
+        </sequential>
+
+    </macrodef>
+
+</project>

@@ -1,0 +1,33 @@
+<!-- CHECK JAVASCRIPT CODE QUALITY [public]-->	
+<!-- JSHint (option 1) - This is the default. Keep this public so it can be run independantly -->
+<!-- Adapted from the article: Improving Rhino CLI utility performance -->	
+<!-- http://www.nczonline.net/blog/2011/10/25/improving-rhino-cli-utility-performance/ -->
+<project name="JS.Hint">
+
+    <macrodef name="js.hint" description="(PUBLIC) Runs JSHint against all non-lib JS. Outputs to console.">
+
+        <sequential>
+
+            <echo message="Running JSHint..."/>
+            <!-- execute jshint on the javascript, with options -->
+            <!-- Take all the JS files except for those listed in exclude -->
+            <fileset 
+                dir="${src.js.dir}"
+                includes="${file.include.js}"
+                excludes="${file.exclude.js}"
+                id="jsfiles.raw"
+        />
+            <pathconvert pathsep=" " property="jsfiles.clean" refid="jsfiles.raw" />
+            <exec executable="java" failonerror="true">
+                <arg line="-jar"/>
+                <arg path="${tool.rhino}"/>
+                <arg path="${tool.jshint}"/>
+                <arg line="${jsfiles.clean} ${tool.jshint.opts}" />
+            </exec>
+            <echo>JSHint Successful</echo>
+
+        </sequential>
+
+    </macrodef>
+
+</project>

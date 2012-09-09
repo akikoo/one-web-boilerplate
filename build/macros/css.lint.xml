@@ -1,0 +1,29 @@
+<!-- CHECK CSS CODE QUALITY [public] -->	
+<!-- CSSLint - Keep this public so it can be run independantly -->
+<!-- See https://github.com/stubbornella/csslint/wiki/Build-System-Integration -->
+<project name="Css.Lint">
+
+    <macrodef name="css.lint" description="(PUBLIC) Runs CSSLint against all CSS files. Outputs to console">
+
+        <sequential>
+            <echo message="Running CSSLint..."/>		
+            <!-- Take all the CSS files except for those listed in exclude -->
+            <fileset 
+                dir="${src.css.dir}"
+                includes="${file.include.css}" 
+                excludes="${file.exclude.css}" 
+                id="cssfiles.raw"/>
+            <pathconvert pathsep=" " property="cssfiles.clean" refid="cssfiles.raw" />
+            <exec executable="java" failonerror="true">
+                <arg line="-jar"/>
+                <arg path="${tool.rhino}" />
+                <arg path="${tool.csslint}" />
+                <!-- your customized arguments go here -->
+                <arg line="${cssfiles.clean} --warnings=${tool.csslint.warnings} --errors=${tool.csslint.errors}"/>
+            </exec>
+            <echo>CSSLint Successful</echo>	
+
+        </sequential>
+
+    </macrodef>
+</project>

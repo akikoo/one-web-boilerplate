@@ -1,0 +1,13 @@
+<project name="Html.Write.Elements">
+
+    <target name="html.write.elements">
+
+        <!-- Make sure we get relative path for each file -->
+        <property name="elm.path" value="${elm}" relative="yes" />
+
+        <!-- Now write the elements in a file, one by one -->
+        <echo file="${file.write}" append="true">&lt;li&gt;&lt;a href="${elm.path}"&gt;${elm.path}&lt;/a&gt;&lt;/li&gt;${line.separator}</echo>
+
+    </target>
+
+</project>

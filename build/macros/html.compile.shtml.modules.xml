@@ -1,0 +1,18 @@
+<!-- CALL COMPILE TARGET TO GENERATE HTML FILES FOR MODULES -->
+<project name="Html.Compile.Shtml.Modules">
+
+    <macrodef name="html.compile.shtml.modules" description="Generates .html versions of .shtml modules">
+
+        <sequential>
+
+            <echo message="Compiling *.shtml modules to html"/>
+
+            <antcall target="html.compile.shtml">
+                <param name="file.shtml" value="html/modules/*.shtml"/>
+            </antcall>
+
+        </sequential>
+
+    </macrodef>
+    
+</project>

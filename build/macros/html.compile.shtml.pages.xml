@@ -1,0 +1,18 @@
+<!-- CALL COMPILE TARGET TO GENERATE HTML FILES FOR PAGES -->
+<project name="Html.Compile.Shtml.Pages">
+
+    <macrodef name="html.compile.shtml.pages" description="Generates .html versions of .shtml pages">
+
+        <sequential>
+
+            <echo message="Compiling *.shtml pages to html"/>
+
+            <antcall target="html.compile.shtml">
+                <param name="file.shtml" value="html/pages/**/index.shtml"/>
+            </antcall>
+
+        </sequential>
+
+    </macrodef>
+
+</project>

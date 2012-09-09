@@ -1,0 +1,23 @@
+<project name="Html.List.Templates">
+
+    <macrodef name="html.list.templates">
+
+        <sequential>
+
+            <antcall target="html.create.list">
+                <param name="dir.list" value="${src.html.dir}/${src.html.templates.dir}"/>
+                <param name="file.write" value="${src.html.dir}/${inc.templates}"/>
+                <param name="file.include" value="*.shtml"/>
+                <param name="file.exclude" value=""/>
+                <param name="target.call" value="html.write.elements"/>
+            </antcall>
+
+            <antcall target="html.replace.list">
+                <param name="file.write" value="${src.html.dir}/${inc.templates}"/>
+            </antcall>
+
+        </sequential>
+
+    </macrodef>
+
+</project>

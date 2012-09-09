@@ -1,0 +1,34 @@
+<!-- OPTIMIZE CSS AND JAVASCRIPT FILES [private] -->
+<!-- RequireJS optimizer Ant task -->
+<!-- Adapted from https://gist.github.com/825117 -->
+<project name="Utils.Optimize">
+
+    <macrodef name="utils.optimize" description="Combine and minify JavaScript files and stylesheets.">
+
+        <attribute name="options" default="${requirejs.optimizer.settings}" />
+
+        <sequential>
+
+            <echo message="Combining and compressing CSS and JS files..." />
+                        
+            <!-- Optimize stylesheets and JavaScript files with RequireJS optimizer [private]-->
+            <java classname="org.mozilla.javascript.tools.shell.Main">
+                <classpath>
+                    <pathelement location="${tool.rhino}" />
+                    <pathelement location="${tool.closurecompiler}" />
+                </classpath>
+                <arg value="../${tool.requireoptimizer}"/>
+                <arg value="-o"/>
+                <arg value="../${build.require}"/>
+            </java>
+            <echo message="Optimized using ../${build.require}" />
+
+            <echo message="Now copying optimized files" />
+            <css.copy />
+            <js.copy />
+
+        </sequential>
+
+    </macrodef>
+
+</project>

@@ -1,0 +1,67 @@
+<!-- MERGE THE SSI INTO FULL WEB PAGES [private]-->
+<!-- Author: Robert Lie (http://www.mobilefish.com/download/ant/build_demo7.xml.txt) -->
+<!-- Customizations by Dawn Budge (http://www.dawnbudge.co.uk) and Aki Karkkainen (http://www.akikoo.org) -->
+<project name="Html.Compile.Shtml">
+
+    <!-- Step 1. Search within the specified directories all *.shtml files -->
+    <target name="html.compile.shtml" description="(PRIVATE) Converts SHTML files (Server Side Includes) into HTML files">
+        <foreach param="msg" target="getfiles">
+            <path>
+                <fileset 
+                    dir="${web.home}"
+                    includes="${file.shtml}" 
+                    excludes=""
+                />
+            </path>
+        </foreach>
+    </target>
+
+    <target name="getfiles">
+        <!-- Step 2. For each shtml file, the path is converted to an URL (url_path) -->
+        <!-- Example: 
+        /one-web-boilerplate/webroot/html/pages/boilerplate/index.shtml
+
+        is mapped to: 
+
+        http://one-web-boilerplate/html/pages/boilerplate/index.shtml 
+        (Assuming Apache virtualhost is pointing to /one-web-boilerplate/webroot)
+        -->
+
+        <pathconvert targetos="unix" property="url_path">
+            <path location="${msg}"/>
+            <map from="${web.home}" to="${web.url}" />
+        </pathconvert>
+
+        <!-- Step 3. For each shtml file, the location is created where to store the final web page (webpage_path) -->
+        <!-- Example:
+        /one-web-boilerplate/webroot/html/pages/boilerplate/index.shtml
+
+        is mapped to:
+
+        /one-web-boilerplate/build/publish/html/pages/boilerplate/index.shtml -->
+
+        <pathconvert targetos="unix" property="webpage_path">
+            <path location="${msg}"/>
+            <map from="${web.home}" to="${build.dir}/${publish.dir}" />
+        </pathconvert> 
+
+        <!-- Step 4. For each shtm file, the Get task is applied using the url_path (step 2) and webpage_path (step 3) -->
+        <!-- By doing so the SSI are merged into a single web page. The created web page file however still has an shtml file extension. -->
+
+        <!-- Create dirs dynamically for each page-->
+        <dirname file="${webpage_path}" property="new.dir"/>
+        <mkdir dir="${new.dir}"/>	
+
+        <!-- gets a whole file from a url -->
+        <get src="${url_path}" dest="${webpage_path}" />
+
+        <!-- move the matched file to the deploy location and change the file extension -->
+        <move todir="${build.dir}/${publish.dir}">
+            <fileset dir="${build.dir}/${publish.dir}">
+                <include name="**/*.shtml"/>
+            </fileset>
+            <mapper type="glob" from="*.shtml" to="*.${web.ext}"/>
+        </move>  
+    </target>
+
+</project>

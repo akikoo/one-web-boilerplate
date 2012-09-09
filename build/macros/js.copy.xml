@@ -1,0 +1,22 @@
+<project name="JS.Copy">
+
+    <macrodef name="js.copy">
+
+        <sequential>
+
+            <!-- Copy the optimised JavaScript files to the publish bin -->
+            <copy todir="${build.dir}/${publish.dir}/assets/js/">
+                <fileset 
+                    dir="${build.dir}/${publish.dir}/${temp.dir}/assets/js/" 
+                    includes="main.js, lib/${modernizr.js}, lib/require/require.js"
+                />
+                <!-- Add '-min' to the filename-->			
+                <!-- <mapper type="glob" from="*.js" to="*-min.js"/> -->
+            </copy>
+            <echo message="Copied JavaScript files to ${build.dir}/${publish.dir}/assets/js"/>
+
+        </sequential>
+
+    </macrodef>
+
+</project>

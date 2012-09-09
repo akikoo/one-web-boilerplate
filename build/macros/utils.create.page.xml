@@ -1,0 +1,32 @@
+<!-- CREATE A NEW PAGE [public] -->	
+<!-- Copy the master page to a new page -->
+<!-- Keep this public so it can be run independantly -->
+<project name="Utils.Create.Page">
+
+    <macrodef name="utils.create.page" description="(PUBLIC) Creates a new page, based on the master page and saves it as webroot/html/pages/newpage. The name is prompted for.">
+
+        <sequential>
+
+            <echo message="Copying master page to a new page..."/>
+            <input 
+                message="Enter page name..."
+                addproperty="page.name"
+                defaultvalue="newpage"
+            />            
+            <copy todir="${src.html.dir}/${src.html.pages.dir}/${page.name}">
+                <fileset 
+                    dir="${build.dir}/${config.dir}/${page.master}" 
+                    includes="*"/>
+            </copy>
+            
+            <echo message="Created new page as ${src.html.dir}/${src.html.pages.dir}/${page.name}."/>
+
+            <antcall target="html.write.page.controller">
+                <param name="page.name" value="${page.name}"/>
+            </antcall>
+
+        </sequential>
+
+    </macrodef>	
+
+</project>

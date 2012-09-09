@@ -1,0 +1,32 @@
+<project name="Utils.Init">
+
+    <!--Create build dirs-->
+    <macrodef name="utils.init" description="(PRIVATE) Deletes the previous build files and creates the new build directory structure">
+
+        <sequential>
+
+            <!--Create a time stamp-->
+            <tstamp>
+                <format property="TODAY" pattern="EEE, d MMM yyyy HH:mm:ss Z"/>
+            </tstamp>
+
+            <!--Delete previous build dir and files-->
+            <echo message="Cleaning up previous build directory..."/>
+            <delete dir="${build.dir}/${publish.dir}"/>
+
+            <!--Recreate build structure-->
+            <echo message="Creating new build directories..."/>	
+            <mkdir dir="${build.dir}/${publish.dir}/assets/js"/>
+            <mkdir dir="${build.dir}/${publish.dir}/assets/css"/>
+            <mkdir dir="${build.dir}/${publish.dir}/assets/img"/>
+            <mkdir dir="${build.dir}/${publish.dir}/${temp.dir}"/>
+
+            <!--Write build time stamp into a file, for reference-->
+            <echo file="${build.dir}/${publish.dir}/assets/js/tstamp.txt" append="false">Build Date: ${TODAY}</echo>
+            <echo file="${build.dir}/${publish.dir}/assets/css/tstamp.txt" append="false">Build Date: ${TODAY}</echo>
+
+        </sequential>
+
+    </macrodef>
+
+</project>

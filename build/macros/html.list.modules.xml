@@ -1,0 +1,23 @@
+<project name="Html.List.Modules">
+
+    <macrodef name="html.list.modules">
+
+        <sequential>
+                    
+            <antcall target="html.create.list">
+                <param name="dir.list" value="${src.html.dir}/${src.html.modules.dir}"/>
+                <param name="file.write" value="${src.html.dir}/${inc.modules}"/>
+                <param name="file.include" value="*"/>
+                <param name="file.exclude" value=""/>
+                <param name="target.call" value="html.write.elements"/>
+            </antcall>
+
+            <antcall target="html.replace.list">
+                <param name="file.write" value="${src.html.dir}/${inc.modules}"/>
+            </antcall>
+
+        </sequential>
+
+    </macrodef>
+
+</project>

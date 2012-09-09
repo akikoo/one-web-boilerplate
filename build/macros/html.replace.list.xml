@@ -1,0 +1,7 @@
+<project name="Html.Replace.List">
+
+    <target name="html.replace.list">
+        <replace file="${file.write}" token='webroot/html/' value='/html/'/>
+    </target>
+
+</project>

@@ -1,0 +1,53 @@
+<!-- COMPILE LESS TO CSS [public] (not used by default)-->
+<!-- Adapted from https://github.com/h5bp/ant-build-script/blob/master/build.xml -->
+<!-- Using less-rhino: https://github.com/cloudhead/less.js/tree/master/dist -->
+<project name="Css.Compile.Less">
+
+    <macrodef name="css.compile.less" description="(PUBLIC) Converts LESS files into CSS files and copies generated files under /css, to be used both for development and RequireJS optimizer">
+
+        <sequential>
+
+            <foreach param="file.less" target="css.process.less">
+                <path>
+                    <fileset 
+                        dir="${src.less.dir}"
+                        includes="common/*.less, pages/*.less, *.less" 
+                        excludes=""
+                />
+                </path>
+            </foreach>
+
+        </sequential>
+
+    </macrodef>
+
+
+    <target name="css.process.less">
+        <lessjs input="${file.less}" output="${file.less}.css" />
+        <!-- move each *.less.css file to the deploy location and change the file extension to *.css -->
+        <move todir="${src.css.dir}">
+            <fileset dir="${src.less.dir}">
+                <include name="**/*.css"/>
+            </fileset>
+            <mapper type="glob" from="*.less.css" to="*.css"/>
+        </move>
+    </target>
+
+
+    <macrodef name="lessjs">
+        <attribute name="input" />
+        <attribute name="output" />
+
+        <sequential>
+
+            <java jar="${tool.rhino}" fork="true" output="@{output}">
+                <arg path="${tool.lesscss}" />
+                <arg path="@{input}" />
+            </java>
+            <echo>Lessjs: generated @{output}</echo>
+
+        </sequential>
+
+    </macrodef>
+
+</project>

@@ -1,0 +1,21 @@
+<!-- Revert HTML header and footer files back to using individual assets after the build -->	
+<project name="Html.Useseparate">
+
+    <macrodef name="html.useseparate" description="(PRIVATE) Resets the value of OPTIMISEDASSETS after we're done with the build">
+
+        <sequential>
+
+            <echo message="Reverting, now including individual assets in HTML header and footer..."/>
+            <replaceregexp byline="true">
+                <regexp pattern="\'OPTIMISEDASSETS\' value=\'true\'"/>
+                <substitution expression="\'OPTIMISEDASSETS\' value=\'\'"/>
+                <fileset 
+                    dir="${src.html.usemin.dir}" 
+                    includes="${file.usemin.html}"/>
+            </replaceregexp>
+
+        </sequential>
+
+    </macrodef>
+
+</project>

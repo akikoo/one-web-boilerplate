@@ -1,0 +1,22 @@
+<!-- CREATE INC FILES FOR MAIN INDEX FILE, WITH LINKS TO COMPONENTS, MODULES AND PAGES [private]-->	
+<project name="Html.Create.List">
+
+    <target name="html.create.list" description="(PRIVATE) Reads file names in specified folder and calls another target to write them in a file.">
+
+        <!-- Delete previous version, to start clean -->
+        <delete file="${file.write}"/>
+
+        <!-- Get the files (attributes are coming from a target that calls this one each time) -->
+        <foreach param="elm" target="${target.call}">
+            <path>
+                <fileset 
+                    dir="${dir.list}"
+                    includes="${file.include}" 
+                    excludes="${file.exclude}"
+                />
+            </path>
+        </foreach>
+
+    </target>
+
+</project>

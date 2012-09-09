@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="One-Web-Boilerplate" default="build.less.require.dev" basedir="../"> <!-- one back since we're in /build -->
 
-<!-- build.xml for one web boilerplate https://github.com/akikoo/one-web-boilerplate -->
+    <!-- build.xml for one web boilerplate https://github.com/akikoo/one-web-boilerplate -->
 
     <description>JS/CSS Dev Build for One-Web-Boilerplate</description>
 
@@ -14,7 +14,7 @@
 
     <!-- Load Project config properties for this build -->
     <property file="build/config/project.properties"/>
-
+    
     <!-- Load in Ant-Contrib to give us access to some very useful tasks -->
     <!-- the .jar file is located in the tools directory -->
     <!-- See http://ant-contrib.sourceforge.net/ -->
@@ -34,555 +34,56 @@
     />
 
 
+    <!-- Import all macros -->
+    <import>
+        <fileset dir="${build.dir}/${macros.dir}" includes="*.xml" />
+    </import>
 
-    <!--
-    ****************************************************************************
-    * BUILD TARGETS [public call to private targets]
-    ****************************************************************************
-    -->
-    <target name="build.less.require.dev" description="(PUBLIC) sets and kicks off the Dev site build, using LESS-to-CSS compiler and RequireJS optimizer">
-        <echo message="Building Development Environment..."/>
-        <antcall target="-build.less.require.dev" />
-    </target>						
-    <!-- Process order: init, HTML, LESS, CSSLint, JSHint, JSDoc, optimize, img, cleanup -->
-    <target name="-build.less.require.dev" description="(PRIVATE) calls all Dev site targets"
-        depends="
-            -init, 
 
-            -useminified, 
-            -make_shtml_into_html_modules, 
-            -make_shtml_into_html_pages, 
-            -components.list, 
-            -modules.list, 
-            -modules.list.include, 
-            -pages.list, 
-            -templates.list, 			
-            -html.minify, 
-            -useseparate, 
+    <!-- Process order: init, HTML, LESS, CSSLint, JSHint, JSDoc, optimize, copy images, cleanup -->
+    <target name="build.less.require.dev" description="(PRIVATE) calls all Dev site macrodefs">
 
-            compile_less_into_css, 
-            css.lint, 
-            js.hint,
-            -doc.jsdoc, 
-            -optimize.require, 
+            <!-- 1. Initialize the build -->
+            <utils.init />
+            <html.useminified />
 
-            -img.copy,
+            <!-- 2. Process HTML -->
+                <!-- 2.a Generate HTML -->
+                <html.compile.shtml.modules />
+                <html.compile.shtml.pages />
 
-            -cleanup
-            ">
+                <!-- 2.b Generate component, module, page and template lists -->
+                <html.list.components />
+                <html.list.modules />
+                <html.list.pages />
+                <html.list.templates />
+
+                <!-- 2.c Generate module list for the styleguide page -->
+                <html.list.modules.inc />
+
+                <!-- 2.d Minify HTML -->
+                <html.minify /> 
+
+                <!-- 2.e Revert to dev HTML -->
+                <html.useseparate />
+
+            <!-- 3. Process CSS -->
+            <css.compile.less />
+            <css.lint />
+
+            <!-- 4. Process JS -->
+            <js.hint />
+            <js.jsdoc />
+
+            <!-- 5. Optimize CSS and JS -->
+            <utils.optimize />
+
+            <!-- 6. Copy images -->
+            <img.copy />
+
+            <!-- 7. Cleanup now that we've finished the build -->
+            <utils.cleanup />
+
     </target>
-
-
-
-    <!-- 
-    ****************************************************************************
-    * TEST TARGETS [public]
-    ****************************************************************************
-    -->
-    <!-- CHECK JAVASCRIPT CODE QUALITY [public]-->	
-    <!-- JSHint (option 1) - This is the default. Keep this public so it can be run independantly -->
-    <!-- Adapted from the article: Improving Rhino CLI utility performance -->	
-    <!-- http://www.nczonline.net/blog/2011/10/25/improving-rhino-cli-utility-performance/ -->
-    <target name="js.hint" description="(PUBLIC) Runs JSHint against all non-lib JS. Outputs to console.">
-        <echo message="Running JSHint..."/>
-        <!-- execute jshint on the javascript, with options -->
-        <!-- Take all the JS files except for those listed in exclude -->
-        <fileset 
-            dir="${src.js.dir}"
-            includes="${file.include.js}"
-            excludes="${file.exclude.js}"
-            id="jsfiles.raw"
-        />
-        <pathconvert pathsep=" " property="jsfiles.clean" refid="jsfiles.raw" />
-        <exec executable="java" failonerror="true">
-            <arg line="-jar"/>
-            <arg path="${tool.rhino}"/>
-            <arg path="${tool.jshint}"/>
-            <arg line="${jsfiles.clean} ${tool.jshint.opts}" />
-        </exec>
-        <echo>JSHint Successful</echo>
-    </target>	
-    <!-- JSLint (option 2) - Currently not run during the build. Keep this public so it can be run independantly -->
-    <!-- Adapted from the article: Improving Rhino CLI utility performance -->
-    <!-- http://www.nczonline.net/blog/2011/10/25/improving-rhino-cli-utility-performance/ -->
-    <target name="js.lint" description="(PUBLIC) Runs JSLint against all non-lib JS. Outputs to console.">
-        <echo message="Running JSLint..."/>
-        <!-- execute jshint on the javascript, with options -->
-        <!-- Take all the JS files except for those listed in exclude -->
-        <fileset 
-            dir="${src.js.dir}" 
-            includes="${file.include.js}"
-            excludes="${file.exclude.js}" 
-            id="jsfiles.raw"
-        />
-        <pathconvert pathsep=" " property="jsfiles.clean" refid="jsfiles.raw" />
-        <exec executable="java" failonerror="true">
-            <arg line="-jar"/>
-            <arg path="${tool.rhino}"/>
-            <arg path="${tool.jslint}"/>
-            <arg line="${jsfiles.clean} ${tool.jslint.opts}" />
-        </exec>
-        <echo>JSLint Successful</echo>
-    </target>
-
-
-
-    <!-- CHECK CSS CODE QUALITY [public] -->	
-    <!-- CSSLint - Keep this public so it can be run independantly -->
-    <!-- See https://github.com/stubbornella/csslint/wiki/Build-System-Integration -->
-    <target name="css.lint" description="(PUBLIC) Runs CSSLint against all CSS files. Outputs to console">
-    <echo message="Running CSSLint..."/>		
-    <!-- Take all the CSS files except for those listed in exclude -->
-    <fileset 
-        dir="${src.css.dir}"
-        includes="${file.include.css}" 
-        excludes="${file.exclude.css}" 
-        id="cssfiles.raw"/>
-        <pathconvert pathsep=" " property="cssfiles.clean" refid="cssfiles.raw" />
-        <exec executable="java" failonerror="true">
-            <arg line="-jar"/>
-            <arg path="${tool.rhino}" />
-            <arg path="${tool.csslint}" />
-            <!-- your customized arguments go here -->
-            <arg line="${cssfiles.clean} --warnings=${tool.csslint.warnings} --errors=${tool.csslint.errors}"/>
-        </exec>
-        <echo>CSSLint Successful</echo>	
-	</target>
-
-
-
-    <!--
-    ****************************************************************************
-    * DOCUMENTATION TARGETS [private]
-    ****************************************************************************
-    -->
-    <!-- GENERATE JSDOC DOCUMENTATION BASED ON THE SCRIPTS SPECIFIED BELOW [private] -->
-    <target name="-doc.jsdoc" description="(PRIVATE) Generates JSDocs output">	
-        <echo>Generating JSDocs documentation... </echo>
-
-        <jsdoctoolkit jsdochome="${jsdoc.home}/" template="jsdoc" outputdir="${publish.dir}/${docs.dir}/${out.jsdocs.dir}/">
-            <!-- Exclude all third party plugins -->
-            <fileset 
-                dir="${src.js.dir}"
-                includes="${file.include.jsdoc.js}"
-                excludes="${file.exclude.jsdoc.js}"/> 
-        </jsdoctoolkit>
-        <echo>Writing JSDocs to ${build.dir}/${publish.dir}/${docs.dir}...</echo>
-    </target>
-
-
-
-    <!-- 
-    ****************************************************************************
-    * FUNCTIONAL TARGETS [private]
-    ****************************************************************************
-    -->
-
-    <!--Create build dirs-->
-    <target name="-init" description="(PRIVATE) Deletes the previous build files and creates the new build directory structure">
-        
-        <!--Create a time stamp-->
-        <tstamp>
-            <format property="TODAY" pattern="EEE, d MMM yyyy HH:mm:ss Z"/>
-        </tstamp>
-
-        <!--Delete previous build dir and files-->
-        <echo message="Cleaning up previous build directory..."/>
-        <delete dir="${build.dir}/${publish.dir}"/>
-
-        <!--Recreate build structure-->
-        <echo message="Creating new build directories..."/>	
-        <mkdir dir="${build.dir}/${publish.dir}/assets/js"/>
-        <mkdir dir="${build.dir}/${publish.dir}/assets/css"/>
-        <mkdir dir="${build.dir}/${publish.dir}/assets/img"/>
-        <mkdir dir="${build.dir}/${publish.dir}/${temp.dir}"/>
-
-        <!--Write build time stamp into a file, for reference-->
-        <echo file="${build.dir}/${publish.dir}/assets/js/tstamp.txt" append="false">Build Date: ${TODAY}</echo>
-        <echo file="${build.dir}/${publish.dir}/assets/css/tstamp.txt" append="false">Build Date: ${TODAY}</echo>
-    </target>
-
-
-
-    <!-- COPY FILES FOR MANIPULATION [private]-->
-    <!-- Copy the images to be published, without optimising them -->
-    <target name="-img.copy">
-        <echo message="Copying unoptimised images..."/>
-        <!-- Take all UI assets -->
-        <copy todir="${build.dir}/${publish.dir}/assets/img/">
-            <fileset 
-                dir="${src.img.dir}" 
-                includes="${file.copy.include.img}"/>
-        </copy>
-        <!-- Now copy over the touch icons -->
-        <copy todir="${build.dir}/${publish.dir}">
-            <fileset 
-                dir="./" 
-                includes="*.png"/>
-        </copy> 		
-        <echo message="Images are now in ${build.dir}/${publish.dir}/assets/img. Touch icons are in ${build.dir}/${publish.dir} (on live server these should be in the root)."/>
-    </target>
-
-
-
-    <!-- CREATE A NEW PAGE [public]-->	
-    <!-- Copy the master page to a new page -->
-    <!-- Keep this public so it can be run independantly -->
-    <target name="page.create" description="(PUBLIC) Creates a new page, based on the master page and saves it as webroot/html/pages/newpage. The name is prompted for.">
-        <echo message="Copying master page to a new page..."/>
-        <input 
-            message="Enter page name..."
-            addproperty="page.name"
-            defaultvalue="newpage"
-        />
-        <copy todir="${src.html.dir}/${src.html.pages.dir}/${page.name}">
-            <fileset 
-                dir="${build.dir}/${config.dir}/${page.master}" 
-                includes="*"/>
-        </copy>
-        <echo message="Created new page as ${src.html.dir}/${src.html.pages.dir}/${page.name}."/>
-        <antcall target="-page.controller.write">
-            <param name="page.name" value="${page.name}"/>
-        </antcall>
-
-    </target>	
-    <!-- ASSIGN NEW PAGENAME TO A VARIABLE IN THE PAGE CONTROLLER FILE [private]-->	
-    <target name="-page.controller.write" description="(PRIVATE) Assigns the new page name to a variable">
-        <echo message="Writing new pagename to index.shtml so we can start using it immediately..."/>
-        <replaceregexp byline="true">
-            <regexp pattern='var="PAGE" value=""'/>
-            <substitution expression='var="PAGE" value="${page.name}"'/>
-            <fileset 
-                dir="${src.html.dir}/${src.html.pages.dir}/${page.name}" 
-                includes="index.shtml"/>
-        </replaceregexp>
-    </target>
-
-
-
-    <!-- CREATE INC FILES FOR MAIN INDEX FILE, WITH LINKS TO COMPONENTS, MODULES AND PAGES [private]-->	
-    <target name="-list.create" description="(PRIVATE) Reads file names in specified folder and calls another target to write them in a file.">
-        <!-- Delete previous version, to start clean -->
-        <delete file="${file.write}"/>
-        <!-- Get the files (attributes are coming from a target that calls this one each time) -->
-        <foreach param="elm" target="${target.call}">
-            <path>
-                <fileset 
-                    dir="${dir.list}"
-                    includes="${file.include}" 
-                    excludes="${file.exclude}"
-                />
-            </path>
-        </foreach>
-    </target>
-    <target name="-elements.write">
-        <!-- Make sure we get relative path for each file -->
-        <property name="elm.path" value="${elm}" relative="yes" />
-        <!-- Now write the elements in a file, one by one -->
-        <echo file="${file.write}" append="true">&lt;li&gt;&lt;a href="${elm.path}"&gt;${elm.path}&lt;/a&gt;&lt;/li&gt;${line.separator}</echo>
-    </target>
-
-    <target name="-elements.includes.write">
-        <!-- Make sure we get relative path for each file -->
-        <property name="elm.path" value="${elm}" relative="yes" />
-        <property name="css.class.module" value="module" />
-        <property name="css.class.source" value="source" />
-        <property name="css.class.display" value="display" />
-        <!-- Now write the elements in a file, one by one -->
-        <echo file="${file.write}" append="true">&lt;div class="${css.class.module}"&gt;${line.separator}    &lt;h3&gt;Module: &lt;a href="${elm.path}"&gt;${elm.path}&lt;/a&gt;&lt;/h3&gt;${line.separator}    &lt;div class='${css.class.display}'&gt;&lt;!--#include virtual="${elm.path}" --&gt;&lt;/div&gt;${line.separator}    &lt;div class="${css.class.source}"&gt;&lt;textarea rows='6'&gt;&lt;!--#include virtual="${elm.path}" --&gt;&lt;/textarea&gt;&lt;/div&gt;${line.separator}&lt;/div&gt;${line.separator}${line.separator}</echo>
-    </target>
-
-    <target name="-components.list">
-        <antcall target="-list.create">
-            <param name="dir.list" value="${src.html.dir}/${src.html.components.dir}"/>
-            <param name="file.write" value="${src.html.dir}/${inc.components}"/>
-            <param name="file.include" value="*"/>
-            <param name="file.exclude" value=""/>
-            <param name="target.call" value="-elements.write"/>
-        </antcall>
-        <antcall target="-list.replace">
-            <param name="file.write" value="${src.html.dir}/${inc.components}"/>
-        </antcall>
-    </target>	
-    <target name="-modules.list">
-        <antcall target="-list.create">
-            <param name="dir.list" value="${src.html.dir}/${src.html.modules.dir}"/>
-            <param name="file.write" value="${src.html.dir}/${inc.modules}"/>
-            <param name="file.include" value="*"/>
-            <param name="file.exclude" value=""/>
-            <param name="target.call" value="-elements.write"/>
-        </antcall>
-        <antcall target="-list.replace">
-            <param name="file.write" value="${src.html.dir}/${inc.modules}"/>
-        </antcall>
-    </target>
-    <target name="-modules.list.include">
-        <antcall target="-list.create">
-            <param name="dir.list" value="${src.html.dir}/${src.html.modules.dir}"/>
-            <param name="file.write" value="${src.html.dir}/${src.html.modules.dir}/${inc.modules}"/>
-            <param name="file.include" value="**/*"/>
-            <param name="file.exclude" value="content_elements.shtml"/>
-            <param name="target.call" value="-elements.includes.write"/>
-        </antcall>
-        <antcall target="-list.replace">
-            <param name="file.write" value="${src.html.dir}/${src.html.modules.dir}/${inc.modules}"/>
-        </antcall>
-    </target>
-    <target name="-pages.list">
-        <antcall target="-list.create">
-            <param name="dir.list" value="${src.html.dir}/${src.html.pages.dir}"/>
-            <param name="file.write" value="${src.html.dir}/${inc.pages}"/>
-            <param name="file.include" value="**/index.shtml"/>
-            <param name="file.exclude" value=""/>
-            <param name="target.call" value="-elements.write"/>
-        </antcall>
-        <antcall target="-list.replace">
-            <param name="file.write" value="${src.html.dir}/${inc.pages}"/>
-        </antcall>
-    </target>
-    <target name="-templates.list">
-        <antcall target="-list.create">
-            <param name="dir.list" value="${src.html.dir}/${src.html.templates.dir}"/>
-            <param name="file.write" value="${src.html.dir}/${inc.templates}"/>
-            <param name="file.include" value="*.shtml"/>
-            <param name="file.exclude" value=""/>
-            <param name="target.call" value="-elements.write"/>
-        </antcall>
-        <antcall target="-list.replace">
-            <param name="file.write" value="${src.html.dir}/${inc.templates}"/>
-        </antcall>
-    </target>
-    <target name="-list.replace">
-        <replace file="${file.write}" token='webroot/html/' value='/html/'/>
-    </target>
-
-
-
-    <!-- OPTIMIZE HTML FILES [private]-->
-    <target name="-html.minify" description="(PRIVATE) Compresses HTML files but keeps line breaks for readability">
-        <echo message="Compressing HTML files (keeping line breaks)..."/>
-        <apply executable="java" parallel="false">
-            <fileset 
-                dir="${build.dir}/${publish.dir}/html/pages/" 
-                includes="${file.include.html}"
-                excludes="${file.exclude.html}" 
-                />
-            <arg value="-jar"/>
-            <arg path="${tool.htmlcompressor}"/>
-            <arg line="--type html"/>
-            <arg line="--preserve-line-breaks"/>
-            <srcfile/>
-            <arg value="-o"/>
-            <mapper type="glob" from="*" to="${publish.dir}/html-compressed/pages/*"/>
-            <targetfile/>
-        </apply>
-    </target>
-
-
-
-    <!-- OPTIMIZE CSS AND JAVASCRIPT FILES [private] -->
-    <!-- RequireJS optimizer Ant task -->
-    <!-- Adapted from https://gist.github.com/825117 -->
-    <target name="-require.js" description="Combine and minify JavaScript files and stylesheets.">
-        <java classname="org.mozilla.javascript.tools.shell.Main">
-            <classpath>
-                <pathelement location="${tool.rhino}" />
-                <pathelement location="${tool.closurecompiler}" />
-            </classpath>
-            <arg value="../${tool.requireoptimizer}"/>
-            <arg value="-o"/>
-            <arg value="${requirejs.optimizer.settings}"/>
-        </java>
-        <echo message="Optimized using ${requirejs.optimizer.settings}" />
-    </target>
-
-    <!-- Optimize stylesheets with RequireJS optimizer [private]-->
-    <target name="-optimize.require" description="(PRIVATE) Optimizes stylesheets">
-        <echo message="Combining and compressing CSS files..." />
-        <antcall target="-require.js">
-            <param name="requirejs.optimizer.settings" value="../${build.require}" />
-        </antcall>
-        <antcall target="-css.copy"></antcall>
-        <antcall target="-js.copy"></antcall>
-    </target>
-
-    <target name="-css.copy">
-        <!-- Copy the optimised stylesheet file to the publish bin -->
-        <copy todir="${build.dir}/${publish.dir}/assets/css/">
-            <fileset dir="${build.dir}/${publish.dir}/${temp.dir}/assets/css/" 
-                includes="styles-mq.css, styles-nomq.css, pages/*.css"
-            />
-            <!-- Add '-min' to the filename-->
-            <mapper type="glob" from="*.css" to="*-min.css"/>
-        </copy>
-        <echo message="Copied optimized CSS files to ${build.dir}/${publish.dir}/assets/css"/>
-    </target>
-    <target name="-js.copy">
-        <!-- Copy the optimised JavaScript files to the publish bin -->
-        <copy todir="${build.dir}/${publish.dir}/assets/js/">
-            <fileset dir="${build.dir}/${publish.dir}/${temp.dir}/assets/js/" 
-                includes="main.js, lib/${modernizr.js}, lib/require/require.js"
-            />
-            <!-- Add '-min' to the filename-->			
-            <!-- <mapper type="glob" from="*.js" to="*-min.js"/> -->
-        </copy>
-        <echo message="Copied JavaScript files to ${build.dir}/${publish.dir}/assets/js"/>
-    </target>
-
-
-
-
-    <!-- COMPILE LESS TO CSS [public] (not used by default)-->
-    <!-- Adapted from https://github.com/h5bp/ant-build-script/blob/master/build.xml -->
-    <!-- Using less-rhino: https://github.com/cloudhead/less.js/tree/master/dist -->
-    <target name="compile_less_into_css" description="(PUBLIC) Converts LESS files into CSS files and copies generated files under /css, to be used both for development and RequireJS optimizer">
-        <foreach param="file.less" target="process.less">
-            <path>
-                <fileset 
-                    dir="${src.less.dir}"
-                    includes="common/*.less, pages/*.less, *.less" 
-                    excludes=""
-                />
-            </path>
-        </foreach>
-    </target>
-    <target name="process.less">
-        <lessjs input="${file.less}" output="${file.less}.css" />		
-        <!-- move each *.less.css file to the deploy location and change the file extension to *.css -->
-        <move todir="${src.css.dir}">
-            <fileset dir="${src.less.dir}">
-                <include name="**/*.css"/>
-            </fileset>
-            <mapper type="glob" from="*.less.css" to="*.css"/>
-        </move>
-    </target>		
-    <macrodef name="lessjs">
-        <attribute name="input" />
-        <attribute name="output" />
-        <sequential>
-            <java jar="${tool.rhino}" fork="true" output="@{output}">
-                <arg path="${tool.lesscss}" />
-                <arg path="@{input}" />
-            </java>
-            <echo>Lessjs: generated @{output}</echo>
-        </sequential>
-    </macrodef>
-
-
-
-    <!-- CALL MERGE TARGET BELOW TO GENERATE HTML FILES FOR MODULES AND PAGES [private]-->
-    <target name="-make_shtml_into_html_modules" description="(PRIVATE) Concatenates @import-ed stylesheets with Media Queries">
-        <echo message="..."/>
-        <antcall target="-make_shtml_into_html">
-            <param name="file.shtml" value="html/modules/*.shtml"/>
-        </antcall>
-    </target>
-    <target name="-make_shtml_into_html_pages" description="(PRIVATE) Concatenates @import-ed stylesheets with Media Queries">
-        <echo message="..."/>
-        <antcall target="-make_shtml_into_html">
-            <param name="file.shtml" value="html/pages/**/index.shtml"/>
-        </antcall>
-    </target>	
-    <!-- MERGE THE SSI INTO FULL WEB PAGES [private]-->
-    <!-- Author: Robert Lie (http://www.mobilefish.com/download/ant/build_demo7.xml.txt) -->
-    <!-- Customizations by Dawn Budge (http://www.dawnbudge.co.uk) and Aki Karkkainen (http://www.akikoo.org) -->
-    <!-- Step 1. Search within the specified directories all *.shtml files -->
-    <target name="-make_shtml_into_html" description="(PRIVATE) Converts SHTML files (Server Side Includes) into HTML files">
-        <foreach param="msg" target="getfiles">
-            <path>
-                <fileset 
-                    dir="${web.home}"
-                    includes="${file.shtml}" 
-                    excludes=""
-                />
-            </path>
-        </foreach>
-    </target>
-    <target name="getfiles">
-        <!-- Step 2. For each shtml file, the path is converted to an URL (url_path) -->
-        <!-- Example: 
-        /one-web-boilerplate/webroot/html/pages/boilerplate/index.shtml
-
-        is mapped to: 
-
-        http://one-web-boilerplate/html/pages/boilerplate/index.shtml 
-        (Assuming Apache virtualhost is pointing to /one-web-boilerplate/webroot)
-        -->
-
-        <pathconvert targetos="unix" property="url_path">
-            <path location="${msg}"/>
-            <map from="${web.home}" to="${web.url}" />
-        </pathconvert>
-
-        <!-- Step 3. For each shtml file, the location is created where to store the final web page (webpage_path) -->
-        <!-- Example:
-        /one-web-boilerplate/webroot/html/pages/boilerplate/index.shtml
-
-        is mapped to:
-
-            /one-web-boilerplate/build/publish/html/pages/boilerplate/index.shtml -->
-
-        <pathconvert targetos="unix" property="webpage_path">
-            <path location="${msg}"/>
-            <map from="${web.home}" to="${build.dir}/${publish.dir}" />
-        </pathconvert> 
-
-        <!-- Step 4. For each shtm file, the Get task is applied using the url_path (step 2) and webpage_path (step 3) -->
-        <!-- By doing so the SSI are merged into a single web page. The created web page file however still has an shtml file extension. -->
-
-        <!-- Create dirs dynamically for each page-->
-        <dirname file="${webpage_path}" property="new.dir"/>
-        <mkdir dir="${new.dir}"/>	
-
-        <!-- gets a whole file from a url -->
-        <get src="${url_path}" dest="${webpage_path}" />
-
-        <!-- move the matched file to the deploy location and change the file extension -->
-        <move todir="${build.dir}/${publish.dir}">
-            <fileset dir="${build.dir}/${publish.dir}">
-                <include name="**/*.shtml"/>
-            </fileset>
-            <mapper type="glob" from="*.shtml" to="*.${web.ext}"/>
-        </move>  
-    </target>
-
-
-
-    <!-- Update HTML header and footer files to use the minified assets -->
-    <!-- For syntax, see http://www.jajakarta.org/ant/ant-1.6.1/docs/en/manual/OptionalTasks/replaceregexp.html -->	
-    <target name="-useminified" description="(PRIVATE) Sets the value of OPTIMISEDASSETS to true so we can use minified assets">
-        <echo message="Including minified assets in HTML header and footer..."/>
-        <replaceregexp byline="true">
-            <regexp pattern="\'OPTIMISEDASSETS\' value=\'\'"/>
-            <substitution expression="\'OPTIMISEDASSETS\' value=\'true\'"/>
-            <fileset 
-                dir="${src.html.usemin.dir}" 
-                includes="${file.usemin.html}"/>
-        </replaceregexp>
-    </target>
-    <!-- Revert HTML header and footer files back to using individual assets after the build -->	
-    <target name="-useseparate" description="(PRIVATE) Resets the value of OPTIMISEDASSETS after we're done with the build">
-        <echo message="Reverting, now including individual assets in HTML header and footer..."/>
-        <replaceregexp byline="true">
-            <regexp pattern="\'OPTIMISEDASSETS\' value=\'true\'"/>
-            <substitution expression="\'OPTIMISEDASSETS\' value=\'\'"/>
-            <fileset 
-                dir="${src.html.usemin.dir}" 
-                includes="${file.usemin.html}"/>
-        </replaceregexp>
-    </target>
-
-
-
-    <!-- FINISH BY CLEANING UP TEMP DIR -->
-    <!--Delete temporary dir where the minified files were copied before being concatenated-->
-    <target name="-cleanup" description="(PRIVATE) Deletes the previous build files and creates a new build directory structure">
-        <echo message="Deleting the temp directory..."/>
-        <!--Delete previous build files-->
-        <delete dir="${build.dir}/${publish.dir}/${temp.dir}"/>
-        <echo message="We're done!"/>
-    </target>
-
-
 
 </project>

@@ -1,0 +1,29 @@
+<!-- OPTIMIZE HTML FILES [private]-->
+<project name="Html.Minify">
+
+    <macrodef name="html.minify" description="(PRIVATE) Compresses HTML files but keeps line breaks for readability">
+
+        <sequential>
+
+            <echo message="Compressing HTML files (keeping line breaks)..."/>
+            <apply executable="java" parallel="false">
+                <fileset 
+                    dir="${build.dir}/${publish.dir}/html/pages/" 
+                    includes="${file.include.html}"
+                    excludes="${file.exclude.html}" 
+                />
+                <arg value="-jar"/>
+                <arg path="${tool.htmlcompressor}"/>
+                <arg line="--type html"/>
+                <arg line="--preserve-line-breaks"/>
+                <srcfile/>
+                <arg value="-o"/>
+                <mapper type="glob" from="*" to="${publish.dir}/html-compressed/pages/*"/>
+                <targetfile/>
+            </apply>
+
+        </sequential>
+
+    </macrodef>
+
+</project>

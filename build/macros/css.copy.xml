@@ -1,0 +1,21 @@
+<project name="Css.Copy">
+
+    <macrodef name="css.copy">
+
+        <sequential>
+
+            <!-- Copy the optimised stylesheet file to the publish bin -->
+            <copy todir="${build.dir}/${publish.dir}/assets/css/">
+                <fileset dir="${build.dir}/${publish.dir}/${temp.dir}/assets/css/" 
+                         includes="styles-mq.css, styles-nomq.css, pages/*.css"
+            />
+                <!-- Add '-min' to the filename-->
+                <mapper type="glob" from="*.css" to="*-min.css"/>
+            </copy>
+            <echo message="Copied optimized CSS files to ${build.dir}/${publish.dir}/assets/css"/>
+
+        </sequential>
+
+    </macrodef>
+
+</project>

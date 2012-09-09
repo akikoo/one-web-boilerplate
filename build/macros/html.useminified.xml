@@ -1,0 +1,23 @@
+<!-- Update HTML header and footer files to use the minified assets -->
+<!-- For syntax, see http://www.jajakarta.org/ant/ant-1.6.1/docs/en/manual/OptionalTasks/replaceregexp.html -->	
+<project name="Html.Useminified">
+
+    <macrodef name="html.useminified" description="(PRIVATE) Sets the value of OPTIMISEDASSETS to true so we can use minified assets">
+
+        <sequential>
+
+            <echo message="Including minified assets in HTML header and footer..."/>
+
+            <replaceregexp byline="true">
+                <regexp pattern="\'OPTIMISEDASSETS\' value=\'\'"/>
+                <substitution expression="\'OPTIMISEDASSETS\' value=\'true\'"/>
+                <fileset 
+                    dir="${src.html.usemin.dir}" 
+                    includes="${file.usemin.html}"/>
+            </replaceregexp>
+
+        </sequential>
+
+    </macrodef>
+
+</project>

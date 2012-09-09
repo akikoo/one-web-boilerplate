@@ -1,0 +1,17 @@
+<!-- ASSIGN NEW PAGENAME TO A VARIABLE IN THE PAGE CONTROLLER FILE -->	
+<project name="Html.Write.Page.Controller">
+
+    <target name="html.write.page.controller" description="Assigns the new page name to a variable">
+
+        <echo message="Writing new pagename to index.shtml so we can start using it immediately..."/>
+        <replaceregexp byline="true">
+            <regexp pattern='var="PAGE" value=""'/>
+            <substitution expression='var="PAGE" value="${page.name}"'/>
+            <fileset 
+                dir="${src.html.dir}/${src.html.pages.dir}/${page.name}" 
+                includes="index.shtml"/>
+        </replaceregexp>
+
+    </target>
+
+</project>

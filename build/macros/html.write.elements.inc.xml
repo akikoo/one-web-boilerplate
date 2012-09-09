@@ -1,0 +1,13 @@
+<project name="Html.Write.Elements.Inc">
+
+    <target name="html.write.elements.inc">
+        <!-- Make sure we get relative path for each file -->
+        <property name="elm.path" value="${elm}" relative="yes" />
+        <property name="css.class.module" value="module" />
+        <property name="css.class.source" value="source" />
+        <property name="css.class.display" value="display" />
+        <!-- Now write the elements in a file, one by one -->
+        <echo file="${file.write}" append="true">&lt;div class="${css.class.module}"&gt;${line.separator}    &lt;h3&gt;Module: &lt;a href="${elm.path}"&gt;${elm.path}&lt;/a&gt;&lt;/h3&gt;${line.separator}    &lt;div class='${css.class.display}'&gt;&lt;!--#include virtual="${elm.path}" --&gt;&lt;/div&gt;${line.separator}    &lt;div class="${css.class.source}"&gt;&lt;textarea rows='6'&gt;&lt;!--#include virtual="${elm.path}" --&gt;&lt;/textarea&gt;&lt;/div&gt;${line.separator}&lt;/div&gt;${line.separator}${line.separator}</echo>
+    </target>
+
+</project>

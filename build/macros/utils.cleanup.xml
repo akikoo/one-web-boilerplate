@@ -1,0 +1,18 @@
+<!-- FINISH BY CLEANING UP TEMP DIR -->
+<project name="Utils.Cleanup">
+
+    <!--Delete temporary dir where the minified files were copied before being concatenated-->
+    <macrodef name="utils.cleanup" description="(PRIVATE) Deletes the previous build files and creates a new build directory structure">
+
+        <sequential>
+
+            <echo message="Deleting the temp directory..."/>
+            <!--Delete previous build files-->
+            <delete dir="${build.dir}/${publish.dir}/${temp.dir}"/>
+            <echo message="We're done!"/>
+
+        </sequential>
+
+    </macrodef>
+
+</project>
