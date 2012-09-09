@@ -24,54 +24,53 @@
  */
 
  
-/*==============================================================================	
-	320px and up
-	
-	Em conversion: 
-	320 / 16 = 20em
+/*==============================================================================
+    320px and up
+
+Em conversion: 
+320 / 16 = 20em
 ==============================================================================*/
 .320-up(){
 
-	/** 
-	 * Generic style adjustments for viewports 320px and over go here 
-	 * Remember these styles cascade into all sizes above 320px 
-	 */
+    /** 
+     * Generic style adjustments for viewports 320px and over go here 
+     * Remember these styles cascade into all sizes above 320px 
+     */
 
-	/**  
-	 * We sometimes want the footer to always stay at the bottom
-	 * If not, just remove this block 
-	 * 
-	 * Sticky Footer Solution by Steve Hatcher 
-	 * http://stever.ca
-	 * http://www.cssstickyfooter.com
-	 * 
-	 * NOTE: Use padding, not margins or borders to create spacing inside the elements
-	 * Place your content elements inside the main div
-	 * A header could be placed inside the #page but above the main
-	 * Structure:
-	   <div class="page">
-		 <div role="main"></div>
-		 </div>
-	   <div role="contentinfo">
-	   </div>
-	 */
+    /**  
+     * We sometimes want the footer to always stay at the bottom
+     * If not, just remove this block 
+     * 
+     * Sticky Footer Solution by Steve Hatcher 
+     * http://stever.ca
+     * http://www.cssstickyfooter.com
+     * 
+     * NOTE: Use padding, not margins or borders to create spacing inside the elements
+     * Place your content elements inside the main div
+     * A header could be placed inside the #page but above the main
+     * Structure:
+        <div class="page">
+            <div role="main"></div>
+        </div>
+        <div role="contentinfo"></div>
+     */
 
-	html, body {
-		height: 100%;
-	}
-	.page {
-		min-height: 100%;
-	}
-	[role="main"] {
-		overflow: auto;
-		padding-bottom: 60px; /*must be same height as the footer*/
-	}  
-	[role="contentinfo"] {
-		position: relative;
-		margin-top: -60px;/*negative value of footer height*/
-		height: 60px;
-		clear: both;
-	} 
-	/*END Sticky footer*/
+    html, body {
+        height: 100%;
+    }
+    .page {
+        min-height: 100%;
+    }
+    [role="main"] {
+        overflow: auto;
+        padding-bottom: 60px; /*must be same height as the footer*/
+    }  
+    [role="contentinfo"] {
+        position: relative;
+        margin-top: -60px;/*negative value of footer height*/
+        height: 60px;
+        clear: both;
+    } 
+    /*END Sticky footer*/
 
 }

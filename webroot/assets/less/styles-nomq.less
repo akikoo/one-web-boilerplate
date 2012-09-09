@@ -33,18 +33,18 @@
 
 
 /*==============================================================================
-  Base styles
+    Base styles
 ==============================================================================*/
-@import "common/normalize.css";		/* 1. Reset styles						  */
-@import "common/base.css";			/* 2. Mobile first styles for all browsers*/
-@import "common/utilities.css";		/* 3. HTML5 boilerplate helper classes    */
-@import "common/theme.css";			/* 4. Temp skin styles, should be removed */
+@import "common/normalize.css";     /* 1. Reset styles                        */
+@import "common/base.css";          /* 2. Mobile first styles for all browsers*/
+@import "common/utilities.css";     /* 3. HTML5 boilerplate helper classes    */
+@import "common/theme.css";         /* 4. Temp skin styles, should be removed */
 
 
 
 /*==============================================================================
-  (A) Modular styles for each range (these are simply inlined without Media Queries, 
-  so watch out cascading!)
+    (A) Modular styles for each range (these are simply inlined without Media Queries, 
+    so watch out cascading!)
 ==============================================================================*/
 @import "mq-overlap/320-up";
 .320-up();
@@ -61,11 +61,11 @@
 
 
 /*==============================================================================
-  (B) Standalone modules instead, if you prefer that way. 
+    (B) Standalone modules instead, if you prefer that way. 
 
-  This file is served to browsers that don't support Media Queries, so you may 
-  decide to reuse the above stylesheets under css/mq-overlap/*, or include your 
-  own modular ones here
+    This file is served to browsers that don't support Media Queries, so you may 
+    decide to reuse the above stylesheets under css/mq-overlap/*, or include your 
+    own modular ones here
 ==============================================================================*/
 
 /* Any module CSS files @import-ed here... */
