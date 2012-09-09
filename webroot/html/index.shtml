@@ -68,7 +68,7 @@ Twitter: http://twitter.com/akikoo
 	</noscript>
 
 	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="../assets/js/lib/modernizr-2.0.6.min.js"></script>
+	<script src="../assets/js/lib/modernizr-2.0.6-custom.min.js"></script>
 </head>
 
 <body>
