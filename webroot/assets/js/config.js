@@ -20,9 +20,7 @@ require.config({
     // Set file paths, relative to this file
     paths: {
         'jquery'    : 'lib/jquery-1.8.1.min',
-        'a'         : 'modules/a',
-        'b'         : 'modules/b',
-        'c'         : 'modules/c'
+        'a'         : 'modules/a'
     },
 
     // Set the configuration for scripts that are not AMD compatible
@@ -31,13 +29,7 @@ require.config({
             exports: '$'
         },
         'a': { 
-            deps: ['jquery'] // These script dependencies should be loaded before loading b.js
-        },
-        'b': { 
-            deps: ['jquery', 'a'] // These script dependencies should be loaded before loading a.js
-        },
-        'c': { 
-            deps: ['jquery', 'b'] // These script dependencies should be loaded before loading a.js
+            deps: ['jquery'] // These script dependencies should be loaded before loading a.js
         }
     } // end Shim Configuration
 

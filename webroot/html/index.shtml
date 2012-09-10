@@ -159,17 +159,9 @@ Remove this if you use the .htaccess -->
     <p>Oh, site info goes here by the way (by default, anyway)</p>
 </footer>
 
-<!-- For improving flexible images quality on IE6/7 -->  
-<!--[if (lt IE 9) & (!IEMobile)]>
-    <script src="../assets/js/lib/selectivizr.js"></script> 
-    <script src="../assets/js/lib/imgsizer.js"></script>   
-<![endif]-->
-
 <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../assets/js/lib/jquery-1.6.2.min.js"><\/script>')</script>
-<script defer src="../assets/js/mylib.js"></script>
-<script defer src="../assets/js/script.js"></script>
 
 </body>
 </html>
