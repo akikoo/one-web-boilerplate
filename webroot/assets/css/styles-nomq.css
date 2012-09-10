@@ -37,15 +37,15 @@
  *
  */
 /*==============================================================================
-  Base styles
+    Base styles
 ==============================================================================*/
-/* 1. Reset styles						  */
+/* 1. Reset styles                        */
 /* 2. Mobile first styles for all browsers*/
 /* 3. HTML5 boilerplate helper classes    */
 /* 4. Temp skin styles, should be removed */
 /*==============================================================================
-  (A) Modular styles for each range (these are simply inlined without Media Queries, 
-  so watch out cascading!)
+    (A) Modular styles for each range (these are simply inlined without Media Queries, 
+    so watch out cascading!)
 ==============================================================================*/
 /**
  * ==|== 320-up ====
@@ -71,34 +71,33 @@
  * Twitter: http://twitter.com/akikoo
  *
  */
-/*==============================================================================	
-	320px and up
-	
-	Em conversion: 
-	320 / 16 = 20em
+/*==============================================================================
+    320px and up
+
+Em conversion: 
+320 / 16 = 20em
 ==============================================================================*/
 /** 
-	 * Generic style adjustments for viewports 320px and over go here 
-	 * Remember these styles cascade into all sizes above 320px 
-	 */
+     * Generic style adjustments for viewports 320px and over go here 
+     * Remember these styles cascade into all sizes above 320px 
+     */
 /**  
-	 * We sometimes want the footer to always stay at the bottom
-	 * If not, just remove this block 
-	 * 
-	 * Sticky Footer Solution by Steve Hatcher 
-	 * http://stever.ca
-	 * http://www.cssstickyfooter.com
-	 * 
-	 * NOTE: Use padding, not margins or borders to create spacing inside the elements
-	 * Place your content elements inside the main div
-	 * A header could be placed inside the #page but above the main
-	 * Structure:
-	   <div class="page">
-		 <div role="main"></div>
-		 </div>
-	   <div role="contentinfo">
-	   </div>
-	 */
+     * We sometimes want the footer to always stay at the bottom
+     * If not, just remove this block 
+     * 
+     * Sticky Footer Solution by Steve Hatcher 
+     * http://stever.ca
+     * http://www.cssstickyfooter.com
+     * 
+     * NOTE: Use padding, not margins or borders to create spacing inside the elements
+     * Place your content elements inside the main div
+     * A header could be placed inside the #page but above the main
+     * Structure:
+        <div class="page">
+            <div role="main"></div>
+        </div>
+        <div role="contentinfo"></div>
+     */
 html, body {
   height: 100%;
 }
@@ -145,10 +144,10 @@ html, body {
  *
  */
 /*==============================================================================
-	480px and up  
-	
-	Em conversion: 
-	480 / 16 = 30em
+    480px and up  
+
+    Em conversion: 
+    480 / 16 = 30em
 ==============================================================================*/
 /* Style adjustments for viewports 480px and over go here */
 /**
@@ -176,10 +175,10 @@ html, body {
  *
  */
 /*==============================================================================
-	768px and up 
-	
-	Em conversion: 
-	768 / 16 = 48em
+    768px and up 
+
+    Em conversion: 
+    768 / 16 = 48em
 ==============================================================================*/
 /* Style adjustments for viewports 768px and over go here */
 /**
@@ -207,17 +206,17 @@ html, body {
  *
  */
 /*==============================================================================
-	992px and up 
+    992px and up 
 
-	Em conversion: 
-	992 / 16 = 62em
+    Em conversion: 
+    992 / 16 = 62em
 ==============================================================================*/
 /* Style adjustments for viewports 992px and over go here */
 /*==============================================================================
-  (B) Standalone modules instead, if you prefer that way. 
+    (B) Standalone modules instead, if you prefer that way. 
 
-  This file is served to browsers that don't support Media Queries, so you may 
-  decide to reuse the above stylesheets under css/mq-overlap/*, or include your 
-  own modular ones here
+    This file is served to browsers that don't support Media Queries, so you may 
+    decide to reuse the above stylesheets under css/mq-overlap/*, or include your 
+    own modular ones here
 ==============================================================================*/
 /* Any module CSS files @import-ed here... */

@@ -16,4 +16,4 @@
 <!--#endif -->
 
 
-<script data-main="<!--#echo var='ASSETS' -->/js/main" src="<!--#echo var='ASSETS' -->/js/lib/require/require.js"></script>
+<script data-main="<!--#echo var='ASSETS' -->/js/config" src="<!--#echo var='ASSETS' -->/js/lib/require.js"></script>

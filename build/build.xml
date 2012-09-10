@@ -78,10 +78,13 @@
             <!-- 5. Optimize CSS and JS -->
             <utils.optimize />
 
-            <!-- 6. Copy images -->
+            <!-- 6. Merge almond.js with config.js, to have everything in one file -->
+            <js.concat />
+
+            <!-- 7. Copy images -->
             <img.copy />
 
-            <!-- 7. Cleanup now that we've finished the build -->
+            <!-- 8. Cleanup now that we've finished the build -->
             <utils.cleanup />
 
     </target>

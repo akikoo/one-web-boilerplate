@@ -14,6 +14,9 @@
 // Pass a config object to require
 require.config({
 
+    // Initialize the application with the main application file.
+    deps: ['main'],
+
     // Set file paths, relative to this file
     paths: {
         'jquery'    : 'lib/jquery-1.8.1.min',

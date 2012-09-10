@@ -31,11 +31,14 @@
     appDir      : '../../../webroot/assets',            // The top level assets directory, relative to this file
     dir         : '../../../build/publish/temp/assets', // The CSS and JS output dir, relative to this file
 
-    // Configuration (paths, shim)
+    // Include the main configuration file (paths, shim)
     mainConfigFile: 'config.js',                        // Relative to the 'baseUrl'
 
-    // Finds require() dependencies inside a require() or define call
-    findNestedDependencies: true,
+    // Root application module
+    name: 'config',
+
+    // Wrap everything in an IIFE
+    wrap: true,
 
     // CSS specific 
     optimizeCss : 'standard',
@@ -46,13 +49,5 @@
         CompilerOptions : {},
         CompilationLevel: 'SIMPLE_OPTIMIZATIONS',
         loggingLevel    : 'WARNING'
-    },
-
-    //List of the modules that will be optimized
-    modules: [
-    {
-        name: 'main'                                // relative to the 'baseUrl'
     }
-    ]
-
 })

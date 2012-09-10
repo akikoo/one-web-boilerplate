@@ -8,12 +8,12 @@
             <copy todir="${build.dir}/${publish.dir}/assets/js/">
                 <fileset 
                     dir="${build.dir}/${publish.dir}/${temp.dir}/assets/js/" 
-                    includes="main.js, lib/${modernizr.js}, lib/require/require.js"
+                    includes="lib/${modernizr.js}"
                 />
                 <!-- Add '-min' to the filename-->			
                 <!-- <mapper type="glob" from="*.js" to="*-min.js"/> -->
             </copy>
-            <echo message="Copied JavaScript files to ${build.dir}/${publish.dir}/assets/js"/>
+            <echo message="Copied ${modernizr.js} to ${build.dir}/${publish.dir}/assets/js/lib"/>
 
         </sequential>
 

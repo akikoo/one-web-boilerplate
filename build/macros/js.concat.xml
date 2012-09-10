@@ -1,0 +1,21 @@
+<!-- The concatenate task is used here to merge the almond require/define shim into the application code. --> 
+<!-- It's renamed to /build/publish/assets/js/lib/require.js, because we want to only load one script file. -->
+<project name="Js.Concat">
+
+    <macrodef name="js.concat" description="(PRIVATE) Concatenates JavaScript files">
+
+        <sequential>
+
+            <concat destfile="${build.dir}/${publish.dir}/assets/js/lib/require.js">
+                <filelist
+                    dir="${build.dir}/${publish.dir}/${temp.dir}/assets/js" 
+                    files="lib/almond.js, config.js"
+                />
+            </concat>
+            <echo>JS files concatenated (almond.js + config.js)!</echo>
+
+        </sequential>
+
+    </macrodef>
+
+</project>
