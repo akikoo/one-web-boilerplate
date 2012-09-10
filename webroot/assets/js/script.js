@@ -34,11 +34,11 @@ MYSITE.functions = {
 
 // remap jQuery to $
 // wrap all your temporary variables in local scope to not leak any variables in the global scope
-(function($) {
+(function ($) {
 
 
     //Same as $(document).ready();
-    $(function() {
+    $(function () {
 
         // Functions calls go here
         // eg. MYSITE.lib.loadJS();
@@ -51,8 +51,8 @@ MYSITE.functions = {
         touchEnhanced = MYSITE.support.touch;
 
     });
-		
-		
+
+
     //if (!enhanced) {
     //last stop for old browsers!
     //} else {
@@ -67,9 +67,9 @@ MYSITE.functions = {
         var t = window.setTimeout(function () {
 
             // Functions calls go here
-		
+
             }, 100);
-		
+
     });
 
 }(this.jQuery));
