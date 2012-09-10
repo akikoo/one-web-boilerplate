@@ -19,6 +19,10 @@ and responsive frontend build environment, following industry best practices.
 The framework can easily be plugged into Continuous Integration solutions, 
 such as Jenkins: http://jenkins-ci.org. 
 
+This framework doesn't include any grid. You decide how you build your site. 
+If you need a grid though, have a look at the Fluid Grid: http://akikoo.github.com/Fluid-Grid/. 
+If you need a good set of LESS utilities, see 320 and Up: https://github.com/malarkey/320andup/.
+
 
 ## File structure
 
