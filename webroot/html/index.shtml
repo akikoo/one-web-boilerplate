@@ -136,9 +136,9 @@ Remove this if you use the .htaccess -->
                             <!-- hCard microformat -->							
                             <p class="vcard author">
                                 <span class="fn">Aki Karkkainen</span>, 
-                                <time class="published" datetime="2012-09-09" pubdate>
-                                    9 September, 2012								
-                                    <span class="value-title" title="2012-09-09"> </span>
+                                <time class="published" datetime="2012-09-11" pubdate>
+                                    11 September, 2012								
+                                    <span class="value-title" title="2012-09-11"> </span>
                                 </time>	
                             </p>
                         </footer>
@@ -156,7 +156,7 @@ Remove this if you use the .htaccess -->
 </div>
 
 <footer role="contentinfo">
-    <p>Oh, site info goes here by the way (by default, anyway)</p>
+    <p>Site info goes here by the way (by default, anyway)</p>
 </footer>
 
 <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->

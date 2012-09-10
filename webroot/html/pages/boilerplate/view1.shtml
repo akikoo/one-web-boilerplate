@@ -3,7 +3,7 @@
 <!--#set var="robot" value="%Y-%m-%d" -->
 
 <div class="section hfeed">
-    <h1><!--#echo var="TITLE" --></h1>
+    <h1><!--#echo var="TITLE" --></h1> 
 
     <!-- hAtom microformat -->
     <article>
