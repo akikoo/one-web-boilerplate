@@ -70,10 +70,10 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 
 ### Apache Ant
 
-* Whether you’re on Windows or Mac, you’ll need the Java Development Kit (JDK) 
+* Whether you're on Windows or Mac, you'll need the Java Development Kit (JDK) 
     (at least version 1.4). You can download it here: 
     http://www.oracle.com/technetwork/java/javase/downloads/index.html. 
-    If you’re not sure which version of the JDK you have, run the command 
+    If you're not sure which version of the JDK you have, run the command 
     java -version in the terminal.
 
 * Download Apache Ant here (on Mac OSX it's usually already installed): 
@@ -118,7 +118,7 @@ You should now be up and running with both the environment and the local build.
     http://www.nczonline.net/blog/2011/03/22/using-html5-semantic-elements-today/, 
     http://tantek.com/presentations/2010/11/html5-now/.
 
-* Don’t use IDs in CSS selectors. Use classes, or ARIA landmark roles instead 
+* Don't use IDs in CSS selectors. Use classes, or ARIA landmark roles instead 
     (referenced with CSS attribute selectors). See also http://oli.jp/2011/ids/.
 
 * I'm using Sticky footer solution: http://www.cssstickyfooter.com.
@@ -173,7 +173,8 @@ styles inherit only from base rules, not from other modules.
 * Third-party plugins are included in /webroot/assets/js/lib. Custom scripts are 
 in /webroot/assets/js/modules. Dependancies are managed by RequireJS (http://requirejs.org/), 
 a script loader that supports AMD (Asynchronous Module Definition) API. Script paths 
-and their dependencies are defined in config.js. Scripts are imported in main.js. 
+and their dependencies are defined in /webroot/assets/js/config.js. Scripts are 
+imported in /webroot/assets/js/main.js. 
 
 
 ## Credits
