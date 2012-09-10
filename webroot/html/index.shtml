@@ -19,157 +19,157 @@ Twitter: http://twitter.com/akikoo
 <!--[if gt IE 8]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
 <!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
 <head>
-	<meta charset="utf-8">
+<meta charset="utf-8">
 
-	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-	Remove this if you use the .htaccess -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+Remove this if you use the .htaccess -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>One Web/Mobile First Responsive Boilerplate</title>
+<title>One Web/Mobile First Responsive Boilerplate</title>
 
-	<meta name="description" content="">
-	<meta name="author" content="">
+<meta name="description" content="">
+<meta name="author" content="">
 
-	<!-- Mobile viewport optimization http://goo.gl/b9SaQ -->
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Mobile viewport optimization http://goo.gl/b9SaQ -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- For iPhone 4 with high-resolution Retina display: -->
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
-	<!-- For first-generation iPad: -->
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
-	<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
-	<!-- For everything else -->
-	<link rel="shortcut icon" href="/favicon.ico">
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+<!-- For iPhone 4 with high-resolution Retina display: -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
+<!-- For first-generation iPad: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
+<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+<!-- For everything else -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
-	<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
-	<meta http-equiv="cleartype" content="on">
+<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+<meta http-equiv="cleartype" content="on">
 
-	<!-- 1. Reset styles -->				
-	<link rel="stylesheet" href="../assets/css/common/normalize.css">
+<!-- 1. Reset styles -->				
+<link rel="stylesheet" href="../assets/css/common/normalize.css">
 
-	<!-- 2. Mobile first styles for all browsers -->		
-	<link rel="stylesheet" href="../assets/css/common/base.css">
+<!-- 2. Mobile first styles for all browsers -->		
+<link rel="stylesheet" href="../assets/css/common/base.css">
 
-	<!-- 3. HTML5 boilerplate helper classes -->				
-	<link rel="stylesheet" href="../assets/css/common/utilities.css">
-	
-	<!-- 4. Temp skin styles -->
-	<link rel="stylesheet" href="../assets/css/common/theme.css">
+<!-- 3. HTML5 boilerplate helper classes -->				
+<link rel="stylesheet" href="../assets/css/common/utilities.css">
 
-	<noscript>
-	<!-- For more info, see http://labjs.com/ -->
-	<!-- For example, unhide any content hidden by your main CSS
-		 Essentially, undo the CSS hiding of content, since there won't otherwise be any JavaScript to do so
-	-->
-	</noscript>
+<!-- 4. Temp skin styles -->
+<link rel="stylesheet" href="../assets/css/common/theme.css">
 
-	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="../assets/js/lib/modernizr-2.0.6-custom.min.js"></script>
+<noscript>
+<!-- For more info, see http://labjs.com/ -->
+<!-- For example, unhide any content hidden by your main CSS
+     Essentially, undo the CSS hiding of content, since there won't otherwise be any JavaScript to do so
+-->
+</noscript>
+
+<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+<script src="../assets/js/lib/modernizr-2.0.6-custom.min.js"></script>
+
 </head>
-
 <body>
 
-	<div class="page">
+<div class="page">
 
-		<div class="accessibility">
-			<a href="#main-content">Skip to Main Content</a>
-		</div>
+    <div class="accessibility">
+        <a href="#main-content">Skip to Main Content</a>
+    </div>
 
-		<header role="banner">
+    <header role="banner">
 
-			<!-- No h1 here since this is a subpage-->
-			<div class="masthead">
-				<a href="#">One Web/Mobile First Responsive Boilerplate</a>  
-			</div> 
+        <!-- No h1 here since this is a subpage-->
+        <div class="masthead">
+            <a href="#">One Web/Mobile First Responsive Boilerplate</a>  
+        </div> 
 
-			<nav role="navigation">
-			</nav>
+        <nav role="navigation">
+        </nav>
 
-		</header>
+    </header>
 
-		<div id="#main-content" role="main">
+    <div id="#main-content" role="main">
 
-			<section>
-				<div class="section hfeed">
+        <section>
+            <div class="section hfeed">
 
-					<h1>One Web/Mobile First Responsive Boilerplate</h1>
+                <h1>One Web/Mobile First Responsive Boilerplate</h1>
 
-					<!-- hAtom microformat -->
-					<article>
-						<div class="hentry">							
-							<h2 class="entry-title">Information and Credits</h2>
-							<div class="entry-summary">
-								<p>This is the <strong>main index</strong> file. Use this file as an entry point to other pages during the development. You can also add documentation here, or whatever you need to keep your project going.</p>
-								<p>For credits, please see inline comments and <a href="https://github.com/akikoo/one-web-boilerplate/blob/master/README.md">README.md</a>.</p>
-							</div>
-							<div class="entry-content">
-								<p>What follows is a dynamically generated list of elements that are currently available in the file system to generate pages. This list is recreated on each build.</p>
-								<p>If you only see the headings below, make sure you have SSIs enabled on your Apache server (see <a href="http://httpd.apache.org/docs/2.2/howto/ssi.html">Introduction to Server Side Includes</a>).</p>
-								<p>Your first dynamic page is here: <a href="./pages/boilerplate/index.shtml">Boilerplate masterpage</a>.</p>
-								
-								<h3>Components</h3>	
-								<p>These are mainly page layout snippets that may not make much sense when viewed on their own. Components are assembled into pages by templates.</p>
-								<ul>
-									<!--#include virtual="inc_components.shtml" -->
-								</ul>
-								<h3>Modules</h3>
-								<p>These are standalone content modules that are included in page view files and rendered by a template.</p>
-								<ul>
-									<!--#include virtual="inc_modules.shtml" -->
-								</ul>
-								<h3>Pages</h3>								
-								<p>Pages are generated by calling a template that includes components, and by page view files that include modules.</p>
-								<ul>
-									<!--#include virtual="inc_pages.shtml" -->
-								</ul>
-								<h3>Templates</h3>
-								<p>Each page controller defines the template to use, and the view (list of modules) to include in the template. Much like components, templates don't make sense when viewed on their own. They are just empty shells where the components and modules are included dynamically, to create full pages that contain different module configurations. Templates are included here only for completeness. You should view templates in your editor instead.</p>
-								<ul>
-									<!--#include virtual="inc_templates.shtml" -->
-								</ul>								
-							</div>
-							<footer>
-								<!-- hCard microformat -->							
-								<p class="vcard author">
-									<span class="fn">Aki Karkkainen</span>, 
-									<time class="published" datetime="2012-09-09" pubdate>
-										9 September, 2012								
-										<span class="value-title" title="2012-09-09"> </span>
-									</time>	
-								</p>
-							</footer>
-						</div>
-					</article>
+                <!-- hAtom microformat -->
+                <article>
+                    <div class="hentry">							
+                        <h2 class="entry-title">Information and Credits</h2>
+                        <div class="entry-summary">
+                            <p>This is the <strong>main index</strong> file. Use this file as an entry point to other pages during the development. You can also add documentation here, or whatever you need to keep your project going.</p>
+                            <p>For credits, please see inline comments and <a href="https://github.com/akikoo/one-web-boilerplate/blob/master/README.md">README.md</a>.</p>
+                        </div>
+                        <div class="entry-content">
+                            <p>What follows is a dynamically generated list of elements that are currently available in the file system to generate pages. This list is recreated on each build.</p>
+                            <p>If you only see the headings below, make sure you have SSIs enabled on your Apache server (see <a href="http://httpd.apache.org/docs/2.2/howto/ssi.html">Introduction to Server Side Includes</a>).</p>
+                            <p>Your first dynamic page is here: <a href="./pages/boilerplate/index.shtml">Boilerplate masterpage</a>.</p>
 
-				</div>
-			</section>
+                            <h3>Components</h3>	
+                            <p>These are mainly page layout snippets that may not make much sense when viewed on their own. Components are assembled into pages by templates.</p>
+                            <ul>
+                                <!--#include virtual="inc_components.shtml" -->
+                            </ul>
+                            <h3>Modules</h3>
+                            <p>These are standalone content modules that are included in page view files and rendered by a template.</p>
+                            <ul>
+                                <!--#include virtual="inc_modules.shtml" -->
+                            </ul>
+                            <h3>Pages</h3>								
+                            <p>Pages are generated by calling a template that includes components, and by page view files that include modules.</p>
+                            <ul>
+                                <!--#include virtual="inc_pages.shtml" -->
+                            </ul>
+                            <h3>Templates</h3>
+                            <p>Each page controller defines the template to use, and the view (list of modules) to include in the template. Much like components, templates don't make sense when viewed on their own. They are just empty shells where the components and modules are included dynamically, to create full pages that contain different module configurations. Templates are included here only for completeness. You should view templates in your editor instead.</p>
+                            <ul>
+                                <!--#include virtual="inc_templates.shtml" -->
+                            </ul>								
+                        </div>
+                        <footer>
+                            <!-- hCard microformat -->							
+                            <p class="vcard author">
+                                <span class="fn">Aki Karkkainen</span>, 
+                                <time class="published" datetime="2012-09-09" pubdate>
+                                    9 September, 2012								
+                                    <span class="value-title" title="2012-09-09"> </span>
+                                </time>	
+                            </p>
+                        </footer>
+                    </div>
+                </article>
 
-		</div>
+            </div>
+        </section>
 
-		<aside role="complementary">
-		</aside>
+    </div>
 
-	</div>
+    <aside role="complementary">
+    </aside>
 
-	<footer role="contentinfo">
-		<p>Oh, site info goes here by the way (by default, anyway)</p>
-	</footer>
+</div>
 
-	<!-- For improving flexible images quality on IE6/7 -->  
-	<!--[if (lt IE 9) & (!IEMobile)]>
-		<script src="../assets/js/lib/selectivizr.js"></script> 
-		<script src="../assets/js/lib/imgsizer.js"></script>   
-	<![endif]-->
-	
-	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="../assets/js/lib/jquery-1.6.2.min.js"><\/script>')</script>
-	<script defer src="../assets/js/mylib.js"></script>
-	<script defer src="../assets/js/script.js"></script>
+<footer role="contentinfo">
+    <p>Oh, site info goes here by the way (by default, anyway)</p>
+</footer>
+
+<!-- For improving flexible images quality on IE6/7 -->  
+<!--[if (lt IE 9) & (!IEMobile)]>
+    <script src="../assets/js/lib/selectivizr.js"></script> 
+    <script src="../assets/js/lib/imgsizer.js"></script>   
+<![endif]-->
+
+<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../assets/js/lib/jquery-1.6.2.min.js"><\/script>')</script>
+<script defer src="../assets/js/mylib.js"></script>
+<script defer src="../assets/js/script.js"></script>
 
 </body>
 </html>
