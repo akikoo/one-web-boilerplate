@@ -166,8 +166,8 @@ styles inherit only from base rules, not from other modules.
 ### JavaScript
 * Third-party plugins are included in /webroot/assets/js/lib. Custom scripts are 
 in /webroot/assets/js/modules. Dependancies are managed by RequireJS (http://requirejs.org/), 
-a script loader that supports AMD (Asynchronous Module Definition) API. main.js is 
-the entry point. 
+a script loader that supports AMD (Asynchronous Module Definition) API. Script paths 
+and their dependencies are defined in config.js. Scripts are imported in main.js. 
 
 
 ## Credits
@@ -227,7 +227,9 @@ the entry point.
 * https://github.com/necolas/normalize.css
 
 ### JavaScript:
-* http://labjs.com/
+* http://requirejs.org/
+* https://github.com/tbranyen/backbone-boilerplate
+* https://github.com/ryanfitzer/Example-RequireJS-jQuery-Project
 
 
 ## Ant build process
@@ -264,7 +266,9 @@ This assumes you've set up the build, as explained in Build configuration.
     Queries. Both files are then minified and placed in build/publish/assets/css. 
     Page specific stylesheets are minified individually.
 14. JavaScript files are minified and concatenated and placed in 
-    /build/publish/assets/js. 
+    /build/publish/assets/js/lib (currently only Modernizr and require.js.) 
+    Note that compiled require.js contains the original require.js and all the 
+    modules, loaded with almond require/define shim.
 15. Unoptimised images are copied to /build/publish/assets/img
 16. Temporary directory that was used during the build is deleted
 17. That's it!
