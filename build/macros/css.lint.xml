@@ -1,4 +1,4 @@
-<!-- CHECK CSS CODE QUALITY [public] -->	
+<!-- CHECK CSS CODE QUALITY -->	
 <!-- CSSLint - Keep this public so it can be run independantly -->
 <!-- See https://github.com/stubbornella/csslint/wiki/Build-System-Integration -->
 <project name="Css.Lint">

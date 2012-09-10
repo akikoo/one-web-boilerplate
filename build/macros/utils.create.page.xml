@@ -1,6 +1,5 @@
-<!-- CREATE A NEW PAGE [public] -->	
+<!-- CREATE A NEW PAGE -->	
 <!-- Copy the master page to a new page -->
-<!-- Keep this public so it can be run independantly -->
 <project name="Utils.Create.Page">
 
     <macrodef name="utils.create.page" description="(PUBLIC) Creates a new page, based on the master page and saves it as webroot/html/pages/newpage. The name is prompted for.">

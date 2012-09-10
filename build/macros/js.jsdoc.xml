@@ -1,4 +1,4 @@
-<!-- GENERATE JSDOC DOCUMENTATION BASED ON THE SCRIPTS SPECIFIED BELOW [private] -->
+<!-- GENERATE JSDOC DOCUMENTATION BASED ON THE SCRIPTS SPECIFIED BELOW -->
 <project name="Js.Doc">
 
     <macrodef name="js.jsdoc" description="(PRIVATE) Generates JSDocs output">	

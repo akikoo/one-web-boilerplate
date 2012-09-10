@@ -10,8 +10,6 @@
                     dir="${build.dir}/${publish.dir}/${temp.dir}/assets/js/" 
                     includes="lib/${modernizr.js}"
                 />
-                <!-- Add '-min' to the filename-->			
-                <!-- <mapper type="glob" from="*.js" to="*-min.js"/> -->
             </copy>
             <echo message="Copied ${modernizr.js} to ${build.dir}/${publish.dir}/assets/js/lib"/>
 

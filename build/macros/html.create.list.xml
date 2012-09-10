@@ -1,4 +1,4 @@
-<!-- CREATE INC FILES FOR MAIN INDEX FILE, WITH LINKS TO COMPONENTS, MODULES AND PAGES [private]-->	
+<!-- CREATE INC FILES FOR MAIN INDEX FILE, WITH LINKS TO COMPONENTS, MODULES AND PAGES -->	
 <project name="Html.Create.List">
 
     <target name="html.create.list" description="(PRIVATE) Reads file names in specified folder and calls another target to write them in a file.">

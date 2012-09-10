@@ -1,4 +1,4 @@
-<!-- COPY FILES FOR MANIPULATION [private]-->
+<!-- COPY FILES FOR MANIPULATION -->
 <!-- Copy the images to be published, without optimising them -->
 <project name="Img.Copy">
 

@@ -1,4 +1,4 @@
-<!-- MERGE THE SSI INTO FULL WEB PAGES [private]-->
+<!-- MERGE THE SSI INTO FULL WEB PAGES -->
 <!-- Author: Robert Lie (http://www.mobilefish.com/download/ant/build_demo7.xml.txt) -->
 <!-- Customizations by Dawn Budge (http://www.dawnbudge.co.uk) and Aki Karkkainen (http://www.akikoo.org) -->
 <project name="Html.Compile.Shtml">

@@ -1,4 +1,4 @@
-<!-- OPTIMIZE CSS AND JAVASCRIPT FILES [private] -->
+<!-- OPTIMIZE CSS AND JAVASCRIPT FILES -->
 <!-- RequireJS optimizer Ant task -->
 <!-- Adapted from https://gist.github.com/825117 -->
 <project name="Utils.Optimize">
@@ -11,7 +11,7 @@
 
             <echo message="Combining and compressing CSS and JS files..." />
                         
-            <!-- Optimize stylesheets and JavaScript files with RequireJS optimizer [private]-->
+            <!-- Optimize stylesheets and JavaScript files with RequireJS optimizer -->
             <java classname="org.mozilla.javascript.tools.shell.Main">
                 <classpath>
                     <pathelement location="${tool.rhino}" />

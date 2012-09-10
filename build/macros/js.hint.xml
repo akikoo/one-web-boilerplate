@@ -1,5 +1,4 @@
-<!-- CHECK JAVASCRIPT CODE QUALITY [public]-->	
-<!-- JSHint (option 1) - This is the default. Keep this public so it can be run independantly -->
+<!-- CHECK JAVASCRIPT CODE QUALITY -->	
 <!-- Adapted from the article: Improving Rhino CLI utility performance -->	
 <!-- http://www.nczonline.net/blog/2011/10/25/improving-rhino-cli-utility-performance/ -->
 <project name="Js.Hint">
