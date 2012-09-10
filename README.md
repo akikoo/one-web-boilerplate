@@ -16,10 +16,10 @@ why I'm publishing it here for you to use and improve. It builds on many of the
 best practices found in the resources listed under Credits. It basically extends 
 popular boilerplates, including 320 and Up (https://github.com/malarkey/320andup/), 
 HTML5 Boilerplate (http://html5boilerplate.com/), and Mobile Boilerplate 
-(http://html5boilerplate.com/html5boilerplate.com/dist/mobile/) with Server Side 
-Includes. The goal is to achieve a modular and responsive frontend build environment, 
-following industry best practices. The framework can easily be plugged into 
-Continuous Integration solutions, such as Jenkins: http://jenkins-ci.org. 
+(http://html5boilerplate.com/html5boilerplate.com/dist/mobile/) and many others, with 
+Server Side Includes. The goal is to achieve a modular and responsive frontend 
+build environment, following industry best practices. The framework can easily be 
+plugged into Continuous Integration solutions, such as Jenkins: http://jenkins-ci.org. 
 
 This framework doesn't include any grid. You decide how you build your site. 
 If you need a grid though, have a look at the Fluid Grid: http://akikoo.github.com/Fluid-Grid/. 
