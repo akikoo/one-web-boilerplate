@@ -2,7 +2,7 @@
 <!-- JSHint (option 1) - This is the default. Keep this public so it can be run independantly -->
 <!-- Adapted from the article: Improving Rhino CLI utility performance -->	
 <!-- http://www.nczonline.net/blog/2011/10/25/improving-rhino-cli-utility-performance/ -->
-<project name="JS.Hint">
+<project name="Js.Hint">
 
     <macrodef name="js.hint" description="(PUBLIC) Runs JSHint against all non-lib JS. Outputs to console.">
 

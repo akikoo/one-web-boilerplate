@@ -1,5 +1,5 @@
 <!-- GENERATE JSDOC DOCUMENTATION BASED ON THE SCRIPTS SPECIFIED BELOW [private] -->
-<project name="JS.Doc">
+<project name="Js.Doc">
 
     <macrodef name="js.jsdoc" description="(PRIVATE) Generates JSDocs output">	
 

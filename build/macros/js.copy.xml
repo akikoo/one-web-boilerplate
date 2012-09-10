@@ -1,4 +1,4 @@
-<project name="JS.Copy">
+<project name="Js.Copy">
 
     <macrodef name="js.copy">
 
