@@ -454,7 +454,7 @@ caption {
 /* Markup example wrapper
 ------------------------------------------------------------------------------*/
 .example {
-  margin: 1em -1em;
+  margin: 1em;
   /*16px*/
 
   outline: 1px solid #eee;
