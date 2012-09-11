@@ -3,18 +3,21 @@
  * RequireJS build profile for stylesheets and JavaScript files.
  * Defines paths where to read and write, as well as optimization options.
  * 
- * appDir               : The top level assets directory, relative to this file. All the files from this directory will be copied to the 'dir'.
- * baseUrl              : Directory path to the JS source files, relative to the 'appDir' above.
+ * baseUrl              : Directory path to the JS source files, relative to the 'appDir'.
+ * appDir               : The top level assets directory, relative to this file. All the files from this directory will be copied to 'dir'.
  * dir                  : Directory path to save the output, relative to this file.
- * 
+ *
  * mainConfigFile       : Configuration, relative to the 'baseUrl'.
  * 
- * optimizeCss          : CSS optimization option "standard": @import inlining, comment removal, line returns
- * fileExclusionRegExp  : files to exclude (here we exclude all .*, .txt, .js, .json, .html, .png, .jpg and .gif files under baseUrl)
- * fileExclusionRegExp  : files to exclude (here we exclude all .*, .txt, .json, .css, .html, .png, .jpg and .gif files under baseUrl)
- * optimize             : how to optimize all the JS files in the build output dir 
- *                        "closure": uses Google's Closure Compiler in simple optimization
- * closure              : these config options can be used to configure Closure Compiler
+ * name                 : Optimize a module and its dependencies with a single file as the output.
+ * 
+ * wrap                 : Use this to encapsulate the module code so that define/require are not globals.
+ *
+ * optimizeCss          : CSS optimization option "standard": @import inlining, comment removal, line returns.
+ *
+ * optimize             : How to optimize all the JS files in the build output dir. "closure": uses Google's Closure Compiler in simple optimization.
+ *
+ * closure              : These config options can be used to configure Closure Compiler.
  * 
  * More info            https://github.com/jrburke/r.js/blob/master/build/example.build.js
  *                      https://github.com/ryanfitzer/Example-RequireJS-jQuery-Project
@@ -39,15 +42,15 @@
     // Root application module
     name: 'config',
 
-    // Wrap everything in an IIFE
-    wrap: true,
+    // Do not wrap everything in an IIFE
+    wrap: false,
 
-    // CSS specific 
+    // CSS optimization
     optimizeCss : 'standard',
 
-    // JS specific
+    // JS optimization
     optimize    : 'closure', 
-    closure		: {
+    closure     : {
         CompilerOptions : {},
         CompilationLevel: 'SIMPLE_OPTIMIZATIONS',
         loggingLevel    : 'WARNING'

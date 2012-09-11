@@ -14,17 +14,19 @@
 require([
     'jquery',
     'a'
-    ], function ($, a) {
+], 
 
-        'use strict';
+function ($, a) {
 
-        var App = {
+    'use strict';
 
-            init : function () {
+    var app = {
 
-            }
-        };
+        init: function () {
 
-        return App.init();
-    }
-);
+        }
+    };
+
+    return app.init();
+
+});

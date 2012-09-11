@@ -13,24 +13,24 @@
  */
 
 
-// Pass a config object to require
+// Set the require.js configuration
 require.config({
 
-    // Initialize the application with the main application file.
+    // Initialize the application with the main application file
     deps: ['main'],
 
     // Set file paths, relative to this file
     paths: {
-        'jquery'    : 'lib/jquery-1.8.1.min',
-        'a'         : 'modules/a'
+        jquery      : 'lib/jquery-1.8.1.min',
+        a           : 'modules/a'
     },
 
     // Set the configuration for scripts that are not AMD compatible
     shim: {
-        'jquery': {
+        jquery      : {
             exports: '$'
         },
-        'a': { 
+        a           : { 
             deps: ['jquery'] // These script dependencies should be loaded before loading a.js
         }
     } // end Shim Configuration
