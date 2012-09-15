@@ -19,7 +19,7 @@
                 <arg path="${tool.rhino}" />
                 <arg path="${tool.csslint}" />
                 <!-- your customized arguments go here -->
-                <arg line="${cssfiles.clean} --warnings=${tool.csslint.warnings} --errors=${tool.csslint.errors}"/>
+                <arg line="${cssfiles.clean} --ignore=${tool.csslint.ignore} --warnings=${tool.csslint.warnings} --errors=${tool.csslint.errors}"/>
             </exec>
             <echo>CSSLint Successful</echo>	
 

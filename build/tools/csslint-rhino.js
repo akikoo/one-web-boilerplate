@@ -21,7 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 */
-/* Build time: 5-January-2012 09:26:45 */
+/* Build time: 12-September-2012 01:46:26 */
 var CSSLint = (function(){
 
 /*!
@@ -47,7 +47,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 */
-/* Version v0.1.3, Build time: 5-January-2012 09:23:31 */
+/* Version v0.1.9, Build time: 23-July-2012 10:52:31 */
 var parserlib = {};
 (function(){
 
@@ -957,7 +957,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 */
-/* Version v0.1.3, Build time: 5-January-2012 09:23:31 */
+/* Version v0.1.9, Build time: 23-July-2012 10:52:31 */
 (function(){
 var EventTarget = parserlib.util.EventTarget,
 TokenStreamBase = parserlib.util.TokenStreamBase,
@@ -2666,7 +2666,8 @@ Parser.prototype = function(){
                     expr        = null,
                     prio        = null,
                     error       = null,
-                    invalid     = null;
+                    invalid     = null,
+                    propertyName= "";
                 
                 property = this._property();
                 if (property !== null){
@@ -2683,8 +2684,20 @@ Parser.prototype = function(){
                     
                     prio = this._prio();
                     
+                    /*
+                     * If hacks should be allowed, then only check the root
+                     * property. If hacks should not be allowed, treat
+                     * _property or *property as invalid properties.
+                     */
+                    propertyName = property.toString();
+                    if (this.options.starHack && property.hack == "*" ||
+                            this.options.underscoreHack && property.hack == "_") {
+                         
+                        propertyName = property.text;
+                    }
+                    
                     try {
-                        this._validateProperty(property, expr);
+                        this._validateProperty(propertyName, expr);
                     } catch (ex) {
                         invalid = ex;
                     }
@@ -3012,9 +3025,15 @@ Parser.prototype = function(){
                 var tokenStream = this._tokenStream,
                     token,
                     tt,
-                    name;            
+                    name,
+                    prefix = "";            
                     
                 tokenStream.mustMatch(Tokens.KEYFRAMES_SYM);
+                token = tokenStream.token();
+                if (/^@\-([^\-]+)\-/.test(token.value)) {
+                    prefix = RegExp.$1;
+                }
+                
                 this._readWhitespace();
                 name = this._keyframe_name();
                 
@@ -3024,8 +3043,9 @@ Parser.prototype = function(){
                 this.fire({
                     type:   "startkeyframes",
                     name:   name,
-                    line:   name.line,
-                    col:    name.col
+                    prefix: prefix,
+                    line:   token.startLine,
+                    col:    token.startCol
                 });                
                 
                 this._readWhitespace();
@@ -3041,8 +3061,9 @@ Parser.prototype = function(){
                 this.fire({
                     type:   "endkeyframes",
                     name:   name,
-                    line:   name.line,
-                    col:    name.col
+                    prefix: prefix,
+                    line:   token.startLine,
+                    col:    token.startCol
                 });                      
                     
                 this._readWhitespace();
@@ -3205,7 +3226,7 @@ Parser.prototype = function(){
                     
                     while(true){
                     
-                        if (readMargins && this._margin()){
+                        if (tokenStream.match(Tokens.SEMICOLON) || (readMargins && this._margin())){
                             //noop
                         } else if (this._declaration()){
                             if (!tokenStream.match(Tokens.SEMICOLON)){
@@ -3437,45 +3458,106 @@ nth
          ['-'|'+']? INTEGER | {O}{D}{D} | {E}{V}{E}{N} ] S*
   ;
 */
+/*global Validation, ValidationTypes, ValidationError*/
 var Properties = {
 
     //A
     "alignment-adjust"              : "auto | baseline | before-edge | text-before-edge | middle | central | after-edge | text-after-edge | ideographic | alphabetic | hanging | mathematical | <percentage> | <length>",
     "alignment-baseline"            : "baseline | use-script | before-edge | text-before-edge | after-edge | text-after-edge | central | middle | ideographic | alphabetic | hanging | mathematical",
     "animation"                     : 1,
-    "animation-delay"               : { multi: "<time>", separator: "," },
-    "animation-direction"           : { multi: "normal | alternate", separator: "," },
-    "animation-duration"            : { multi: "<time>", separator: "," },
-    "animation-iteration-count"     : { multi: "<number> | infinite", separator: "," },
-    "animation-name"                : { multi: "none | <ident>", separator: "," },
-    "animation-play-state"          : { multi: "running | paused", separator: "," },
+    "animation-delay"               : { multi: "<time>", comma: true },
+    "animation-direction"           : { multi: "normal | alternate", comma: true },
+    "animation-duration"            : { multi: "<time>", comma: true },
+    "animation-iteration-count"     : { multi: "<number> | infinite", comma: true },
+    "animation-name"                : { multi: "none | <ident>", comma: true },
+    "animation-play-state"          : { multi: "running | paused", comma: true },
     "animation-timing-function"     : 1,
+    
+    //vendor prefixed
+    "-moz-animation-delay"               : { multi: "<time>", comma: true },
+    "-moz-animation-direction"           : { multi: "normal | alternate", comma: true },
+    "-moz-animation-duration"            : { multi: "<time>", comma: true },
+    "-moz-animation-iteration-count"     : { multi: "<number> | infinite", comma: true },
+    "-moz-animation-name"                : { multi: "none | <ident>", comma: true },
+    "-moz-animation-play-state"          : { multi: "running | paused", comma: true },
+    
+    "-ms-animation-delay"               : { multi: "<time>", comma: true },
+    "-ms-animation-direction"           : { multi: "normal | alternate", comma: true },
+    "-ms-animation-duration"            : { multi: "<time>", comma: true },
+    "-ms-animation-iteration-count"     : { multi: "<number> | infinite", comma: true },
+    "-ms-animation-name"                : { multi: "none | <ident>", comma: true },
+    "-ms-animation-play-state"          : { multi: "running | paused", comma: true },
+    
+    "-webkit-animation-delay"               : { multi: "<time>", comma: true },
+    "-webkit-animation-direction"           : { multi: "normal | alternate", comma: true },
+    "-webkit-animation-duration"            : { multi: "<time>", comma: true },
+    "-webkit-animation-iteration-count"     : { multi: "<number> | infinite", comma: true },
+    "-webkit-animation-name"                : { multi: "none | <ident>", comma: true },
+    "-webkit-animation-play-state"          : { multi: "running | paused", comma: true },
+    
+    "-o-animation-delay"               : { multi: "<time>", comma: true },
+    "-o-animation-direction"           : { multi: "normal | alternate", comma: true },
+    "-o-animation-duration"            : { multi: "<time>", comma: true },
+    "-o-animation-iteration-count"     : { multi: "<number> | infinite", comma: true },
+    "-o-animation-name"                : { multi: "none | <ident>", comma: true },
+    "-o-animation-play-state"          : { multi: "running | paused", comma: true },        
+    
     "appearance"                    : "icon | window | desktop | workspace | document | tooltip | dialog | button | push-button | hyperlink | radio-button | checkbox | menu-item | tab | menu | menubar | pull-down-menu | pop-up-menu | list-menu | radio-group | checkbox-group | outline-tree | range | field | combo-box | signature | password | normal | inherit",
-    "azimuth"                       : 1,
+    "azimuth"                       : function (expression) {
+        var simple      = "<angle> | leftwards | rightwards | inherit",
+            direction   = "left-side | far-left | left | center-left | center | center-right | right | far-right | right-side",
+            behind      = false,
+            valid       = false,
+            part;
+        
+        if (!ValidationTypes.isAny(expression, simple)) {
+            if (ValidationTypes.isAny(expression, "behind")) {
+                behind = true;
+                valid = true;
+            }
+            
+            if (ValidationTypes.isAny(expression, direction)) {
+                valid = true;
+                if (!behind) {
+                    ValidationTypes.isAny(expression, "behind");
+                }
+            }
+        }
+        
+        if (expression.hasNext()) {
+            part = expression.next();
+            if (valid) {
+                throw new ValidationError("Expected end of value but found '" + part + "'.", part.line, part.col);
+            } else {
+                throw new ValidationError("Expected (<'azimuth'>) but found '" + part + "'.", part.line, part.col);
+            }
+        }        
+    },
     
     //B
     "backface-visibility"           : "visible | hidden",
     "background"                    : 1,
-    "background-attachment"         : { multi: "<attachment>", separator: "," },
-    "background-clip"               : { multi: "<box>", separator: "," },
+    "background-attachment"         : { multi: "<attachment>", comma: true },
+    "background-clip"               : { multi: "<box>", comma: true },
     "background-color"              : "<color> | inherit",
-    "background-image"              : { multi: "<bg-image>", separator: "," },
-    "background-origin"             : { multi: "<box>", separator: "," },
-    "background-position"           : { multi: "<bg-position>", separator: ",", complex: true },
-    "background-repeat"             : { multi: "<repeat-style>", complex: true },
-    "background-size"               : { multi: "<bg-size>", separator: ",", complex: true },
-    "baseline-shift"                : "baseline | sub | super | <percentage> <length>",
+    "background-image"              : { multi: "<bg-image>", comma: true },
+    "background-origin"             : { multi: "<box>", comma: true },
+    "background-position"           : { multi: "<bg-position>", comma: true },
+    "background-repeat"             : { multi: "<repeat-style>" },
+    "background-size"               : { multi: "<bg-size>", comma: true },
+    "baseline-shift"                : "baseline | sub | super | <percentage> | <length>",
+    "behavior"                      : 1,
     "binding"                       : 1,
     "bleed"                         : "<length>",
     "bookmark-label"                : "<content> | <attr> | <string>",
     "bookmark-level"                : "none | <integer>",
     "bookmark-state"                : "open | closed",
     "bookmark-target"               : "none | <uri> | <attr>",
-    "border"                        : { group: "<border-width> || <border-style> || <color>" },
-    "border-bottom"                 : { group: "<border-width> || <border-style> || <color>" },
+    "border"                        : "<border-width> || <border-style> || <color>",
+    "border-bottom"                 : "<border-width> || <border-style> || <color>",
     "border-bottom-color"           : "<color>",
-    "border-bottom-left-radius"     :  { single: "<x-one-radius>", complex: true },
-    "border-bottom-right-radius"    :  { single: "<x-one-radius>", complex: true },
+    "border-bottom-left-radius"     :  "<x-one-radius>",
+    "border-bottom-right-radius"    :  "<x-one-radius>",
     "border-bottom-style"           : "<border-style>",
     "border-bottom-width"           : "<border-width>",
     "border-collapse"               : "collapse | separate | inherit",
@@ -3483,23 +3565,94 @@ var Properties = {
     "border-image"                  : 1,
     "border-image-outset"           : { multi: "<length> | <number>", max: 4 },
     "border-image-repeat"           : { multi: "stretch | repeat | round", max: 2 },
-    "border-image-slice"            : 1,
+    "border-image-slice"            : function(expression) {
+        
+        var valid   = false,
+            numeric = "<number> | <percentage>",
+            fill    = false,
+            count   = 0,
+            max     = 4,
+            part;
+        
+        if (ValidationTypes.isAny(expression, "fill")) {
+            fill = true;
+            valid = true;
+        }
+        
+        while (expression.hasNext() && count < max) {
+            valid = ValidationTypes.isAny(expression, numeric);
+            if (!valid) {
+                break;
+            }
+            count++;
+        }
+        
+        
+        if (!fill) {
+            ValidationTypes.isAny(expression, "fill");
+        } else {
+            valid = true;
+        }
+        
+        if (expression.hasNext()) {
+            part = expression.next();
+            if (valid) {
+                throw new ValidationError("Expected end of value but found '" + part + "'.", part.line, part.col);
+            } else {
+                throw new ValidationError("Expected ([<number> | <percentage>]{1,4} && fill?) but found '" + part + "'.", part.line, part.col);
+            }
+        }         
+    },
     "border-image-source"           : "<image> | none",
     "border-image-width"            : { multi: "<length> | <percentage> | <number> | auto", max: 4 },
-    "border-left"                   : { group: "<border-width> || <border-style> || <color>" },
+    "border-left"                   : "<border-width> || <border-style> || <color>",
     "border-left-color"             : "<color> | inherit",
     "border-left-style"             : "<border-style>",
     "border-left-width"             : "<border-width>",
-    "border-radius"                 : 1,
-    "border-right"                  : { group: "<border-width> || <border-style> || <color>" },
+    "border-radius"                 : function(expression) {
+        
+        var valid   = false,
+            numeric = "<length> | <percentage>",
+            slash   = false,
+            fill    = false,
+            count   = 0,
+            max     = 8,
+            part;
+
+        while (expression.hasNext() && count < max) {
+            valid = ValidationTypes.isAny(expression, numeric);
+            if (!valid) {
+            
+                if (expression.peek() == "/" && count > 1 && !slash) {
+                    slash = true;
+                    max = count + 5;
+                    expression.next();
+                } else {
+                    break;
+                }
+            }
+            count++;
+        }
+        
+        if (expression.hasNext()) {
+            part = expression.next();
+            if (valid) {
+                throw new ValidationError("Expected end of value but found '" + part + "'.", part.line, part.col);
+            } else {
+                throw new ValidationError("Expected (<'border-radius'>) but found '" + part + "'.", part.line, part.col);
+            }
+        }         
+    },
+    "border-right"                  : "<border-width> || <border-style> || <color>",
     "border-right-color"            : "<color> | inherit",
     "border-right-style"            : "<border-style>",
     "border-right-width"            : "<border-width>",
+    "border-spacing"                : { multi: "<length> | inherit", max: 2 },
     "border-style"                  : { multi: "<border-style>", max: 4 },
-    "border-top"                    : { group: "<border-width> || <border-style> || <color>" },
+    "border-top"                    : "<border-width> || <border-style> || <color>",
     "border-top-color"              : "<color> | inherit",
-    "border-top-left-radius"        : { single: "<x-one-radius>", complex: true },
-    "border-top-right-radius"       : { single: "<x-one-radius>", complex: true },
+    "border-top-left-radius"        : "<x-one-radius>",
+    "border-top-right-radius"       : "<x-one-radius>",
     "border-top-style"              : "<border-style>",
     "border-top-width"              : "<border-width>",
     "border-width"                  : { multi: "<border-width>", max: 4 },
@@ -3513,7 +3666,19 @@ var Properties = {
     "box-ordinal-group"             : "<integer>",
     "box-orient"                    : "horizontal | vertical | inline-axis | block-axis | inherit",
     "box-pack"                      : "start | end | center | justify",
-    "box-shadow"                    : { property: true },
+    "box-shadow"                    : function (expression) {
+        var result      = false,
+            part;
+
+        if (!ValidationTypes.isAny(expression, "none")) {
+            Validation.multiProperty("<shadow>", expression, true, Infinity);                       
+        } else {
+            if (expression.hasNext()) {
+                part = expression.next();
+                throw new ValidationError("Expected end of value but found '" + part + "'.", part.line, part.col);
+            }   
+        }
+    },
     "box-sizing"                    : "content-box | border-box | inherit",
     "break-after"                   : "auto | always | avoid | left | right | page | column | avoid-page | avoid-column",
     "break-before"                  : "auto | always | avoid | left | right | page | column | avoid-page | avoid-column",
@@ -3528,7 +3693,7 @@ var Properties = {
     "column-count"                  : "<integer> | auto",                      //http://www.w3.org/TR/css3-multicol/
     "column-fill"                   : "auto | balance",
     "column-gap"                    : "<length> | normal",
-    "column-rule"                   : { group: "<border-width> || <border-style> || <color>" },
+    "column-rule"                   : "<border-width> || <border-style> || <color>",
     "column-rule-color"             : "<color>",
     "column-rule-style"             : "<border-style>",
     "column-rule-width"             : "<border-width>",
@@ -3680,6 +3845,7 @@ var Properties = {
     "pitch"                         : 1,
     "pitch-range"                   : 1,
     "play-during"                   : 1,
+    "pointer-events"                : "auto | none | visiblePainted | visibleFill | visibleStroke | visible | painted | fill | stroke | all | inherit",
     "position"                      : "static | relative | absolute | fixed | inherit",
     "presentation-level"            : 1,
     "punctuation-trim"              : 1,
@@ -3728,6 +3894,7 @@ var Properties = {
     "text-justify"                  : "auto | none | inter-word | inter-ideograph | inter-cluster | distribute | kashida",
     "text-outline"                  : 1,
     "text-overflow"                 : 1,
+    "text-rendering"                : "auto | optimizeSpeed | optimizeLegibility | geometricPrecision | inherit",
     "text-shadow"                   : 1,
     "text-transform"                : "capitalize | uppercase | lowercase | none | inherit",
     "text-wrap"                     : "normal | none | avoid",
@@ -3868,6 +4035,13 @@ function PropertyValueIterator(value){
      */
     this._marks = [];
     
+    /**
+     * Holds the original property value.
+     * @type parserlib.css.PropertyValue
+     * @property value
+     */
+    this.value = value;
+    
 }
 
 /**
@@ -3877,6 +4051,15 @@ function PropertyValueIterator(value){
  */
 PropertyValueIterator.prototype.count = function(){
     return this._parts.length;
+};
+
+/**
+ * Indicates if the iterator is positioned at the first item.
+ * @return {Boolean} True if positioned at first item, false if not.
+ * @method isFirst
+ */
+PropertyValueIterator.prototype.isFirst = function(){
+    return this._i === 0;
 };
 
 /**
@@ -3918,6 +4101,17 @@ PropertyValueIterator.prototype.peek = function(count){
  */
 PropertyValueIterator.prototype.next = function(){
     return this.hasNext() ? this._parts[this._i++] : null;
+};
+
+/**
+ * Returns the previous part of the property value or null if there is no
+ * previous part.
+ * @return {parserlib.css.PropertyValuePart} The previous part of the 
+ * property value or null if there is no next part.
+ * @method previous
+ */
+PropertyValueIterator.prototype.previous = function(){
+    return this._i > 0 ? this._parts[--this._i] : null;
 };
 
 /**
@@ -3977,6 +4171,7 @@ function PropertyValuePart(text, line, col){
             case "in":
             case "pt":
             case "pc":
+            case "ch":
                 this.type = "length";
                 break;
                 
@@ -5395,7 +5590,7 @@ var Tokens  = [
     //{ name: "ATKEYWORD"},
     
     //CSS3 animations
-    { name: "KEYFRAMES_SYM", text: [ "@keyframes", "@-webkit-keyframes", "@-moz-keyframes" ] },
+    { name: "KEYFRAMES_SYM", text: [ "@keyframes", "@-webkit-keyframes", "@-moz-keyframes", "@-o-keyframes" ] },
 
     //important symbol
     { name: "IMPORTANT_SYM"},
@@ -5567,7 +5762,7 @@ var Tokens  = [
 
 
 //This file will likely change a lot! Very experimental!
-/*global Properties, ValidationError, PropertyValueIterator */
+/*global Properties, ValidationTypes, ValidationError, PropertyValueIterator */
 var Validation = {
 
     validate: function(property, value){
@@ -5594,516 +5789,142 @@ var Validation = {
         
             //initialization
             if (typeof spec == "string"){
-                types = spec.split(/\s\|\s/g);
-                max = 1;
-            } else if (spec.multi) {
-                types = spec.multi.split(/\s\|\s/g);
-                max = spec.max;
-            } else if (spec.single) {
-                types = spec.single.split(/\s\|\s/g);
-            } else if (spec.group){
-                types = spec.group.split(/\s\|\|\s/g);
-                group = { total: 0 };
-            }
-
-            //Start validation----        
-            //TODO: Clean up once I figure out the best way to do this
-            //Check for complex validations first
-            if (spec.complex) {
-                if (spec.multi) {
-                    Validation.types.multiProperty(types[0], value);
+                if (spec.indexOf("||") > -1) {
+                    this.groupProperty(spec, expression);
                 } else {
-                    Validation.types.singleProperty(types[0], value);
+                    this.singleProperty(spec, expression, 1);
                 }
-            } else if (spec.property) {
-                Validation.properties[name](value);
-            } else {
 
-                //if there's a maximum set, use it (max can't be 0)
-                if (max) {
-                    if (parts.length > max){
-                        throw new ValidationError("Expected a max of " + max + " property value(s) but found " + parts.length + ".", value.line, value.col);
-                    }
-                }                
-
-                while (expression.hasNext()){
-                    part = expression.peek();
-                    msg = [];
-                    valid = false;
-                    
-                    if (spec.separator && part.type == "operator"){
-                        
-                        //two operators in a row - not allowed?
-                        if ((last && last.type == "operator")){
-                            msg = msg.concat(types);
-                        } else if (!expression.peek(1)){
-                            msg = msg.concat("end of line");
-                        } else if (part != spec.separator){
-                            msg.push("'" + spec.separator + "'");
-                        } else {
-                            valid = true;
-                            expression.next();
-                            
-                            //if it's a group, reset the tracker
-                            if (group) {
-                                group = { total: 0 };
-                            }
-                        }
-                    } else {
-
-                        literals = [];
-
-                        for (j=0, count=types.length; j < count; j++){
-                        
-                            //if it's a group and one of the values has been found, skip it
-                            if (group && group[types[j]]){
-                                continue;
-                            }                   
-                            
-                            expression.mark();
-                            if (typeof Validation.types[types[j]] == "undefined"){
-                                valid = Validation.types.literal(expression.next(), types[j]);
-                                literals.push(types[j]);
-                            } else {
-                                valid = Validation.types[types[j]](expression.next());
-                                msg.push(types[j]);
-                            }
-
-                            if (valid) {
-                                if (group){
-                                    group[types[j]] = 1;
-                                    group.total++;
-                                }
-                                break;  
-                            } else {
-                                expression.restore();
-                            }
-                        }
-                    }
-
-                    
-                    if (!valid) {
-                        if (literals.length) {
-                            msg.push("one of (" + literals.join(" | ") + ")");
-                        }
-                        throw new ValidationError("Expected " + (msg.join(" or ") || "end of value") + " but found '" + part + "'.", value.line, value.col);
-                    }
-                    
-                    
-                    last = part;
-                }                          
+            } else if (spec.multi) {
+                this.multiProperty(spec.multi, expression, spec.comma, spec.max || Infinity);
+            } else if (typeof spec == "function") {
+                spec(expression);
             }
-            
-            //for groups, make sure all items are there
-            //if (group && group.total != types.length){
-            //    throw new ValidationError("Expected all of (" + types.join(", ") + ") but found '" + value + "'.", value.line, value.col);
-            //}
+
         }
 
     },
-
-    types: {
     
-        any: function(part, spec) {
-            var types = spec.split(/\s\|\s/g),
-                result = false,
-                i, len;
-                
-            for (i=0, len=types.length; i < len && !result; i++){
-                if (this[types[i]]){
-                    result = this[types[i]](part);
-                } else {
-                    result = this.literal(part, types[i]);
-                }
-            }
-            
-            return result;
-        },
+    singleProperty: function(types, expression, max, partial) {
 
-        "<absolute-size>": function(part){
-            return this.literal(part, "xx-small | x-small | small | medium | large | x-large | xx-large");
-        },
-        
-        "<attachment>": function(part){
-            return this.literal(part, "scroll | fixed | local");
-        },
-        
-        "<attr>": function(part){
-            return part.type == "function" && part.name == "attr";
-        },
-                
-        "<bg-image>": function(part){
-            return this["<image>"](part) || part == "none";
-        },        
-        
-        "<box>": function(part){
-            return this.literal(part, "padding-box | border-box | content-box");
-        },
-        
-        "<content>": function(part){
-            return part.type == "function" && part.name == "content";
-        },        
-        
-        "<relative-size>": function(part){
-            return this.literal(part, "smaller | larger");
-        },
-        
-        //any identifier
-        "<ident>": function(part){
-            return part.type == "identifier";
-        },
-        
-        //specific identifiers
-        "literal": function(part, options){
-            var text = part.text.toString().toLowerCase(),
-                args = options.split(" | "),
-                i, len, found = false;
-
-            
-            for (i=0,len=args.length; i < len && !found; i++){
-                if (text == args[i]){
-                    found = true;
-                }
-            }
-            
-            return found;
-        },
-        
-        "<length>": function(part){
-            return part.type == "length" || part.type == "number" || part.type == "integer" || part == "0";
-        },
-        
-        "<color>": function(part){
-            return part.type == "color" || part == "transparent";
-        },
-        
-        "<number>": function(part){
-            return part.type == "number" || this["<integer>"](part);
-        },
-        
-        "<integer>": function(part){
-            return part.type == "integer";
-        },
-        
-        "<line>": function(part){
-            return part.type == "integer";
-        },
-        
-        "<angle>": function(part){
-            return part.type == "angle";
-        },        
-        
-        "<uri>": function(part){
-            return part.type == "uri";
-        },
-        
-        "<image>": function(part){
-            return this["<uri>"](part);
-        },
-        
-        "<percentage>": function(part){
-            return part.type == "percentage" || part == "0";
-        },
-
-        "<border-width>": function(part){
-            return this["<length>"](part) || this.literal(part, "thin | medium | thick");
-        },
-        
-        "<border-style>": function(part){
-            return this.literal(part, "none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset");
-        },
-        
-        "<margin-width>": function(part){
-            return this["<length>"](part) || this["<percentage>"](part) || this.literal(part, "auto");
-        },
-        
-        "<padding-width>": function(part){
-            return this["<length>"](part) || this["<percentage>"](part);
-        },
-        
-        "<shape>": function(part){
-            return part.type == "function" && (part.name == "rect" || part.name == "inset-rect");
-        },
-
-        //---------------------------------------------------------------------
-        // Complex Types
-        //---------------------------------------------------------------------        
-    
-        "<bg-position>": function(expression){
-            var types   = this,
-                result  = false,
-                numeric = "<percentage> | <length>",
-                xDir    = "left | center | right",
-                yDir    = "top | center | bottom",
-                part,
-                i, len;
-            
-            if (expression.hasNext()){
-            
-                part = expression.next();
-                
-                if (types.literal(part, "top | bottom")) {
-                    result = true;
-                } else {
-                    
-                    //must be two-part
-                    if (types.any(part, numeric)){
-                        if (expression.hasNext()){
-                            part = expression.next();                            
-                            result = types.any(part, numeric + " | " + yDir);
-                        }
-                    } else if (types.any(part, xDir)){
-                        if (expression.hasNext()){
-                            part = expression.next();
-                            
-                            //two- or three-part
-                            if (types.any(part, yDir)){
-                                 result = true;
-                          
-                                if (expression.hasNext() && types.any(expression.peek(), numeric)) {
-                                    expression.next();
-                                } 
-
-                            } else if (types.any(part, numeric)){
-                            
-                                //could also be two-part, so check the next part
-                                if (expression.hasNext() && types.any(expression.peek(), yDir)){
-                                        expression.next();  //skip, already tested
-                                        part = expression.next();
-                                        
-                                        if (expression.hasNext() && types.any(expression.peek(), numeric)){
-                                            expression.next();
-                                            result = true;
-                                        } else {
-                                            result = true;
-                                        }
-                                   
-                                } else {
-                                    result = true;  //it's two-part
-                                }
-                            }
-                        }
-                    }                                 
-                }            
-            }
-            
-            return result;
-        },
-
-        "<bg-size>": function(expression){
-            //<bg-size> = [ <length> | <percentage> | auto ]{1,2} | cover | contain
-            var types   = this,
-                result  = false,
-                numeric = "<percentage> | <length> | auto",
-                part,
-                i, len;      
-      
-            if (expression.hasNext()){
-                part = expression.next();
-                
-                if (types.literal(part, "cover | contain")) {
-                    result = true;
-                } else if (types.any(part, numeric)) {
-                    result = true;
-                    
-                    if (expression.hasNext() && types.any(expression.peek(), numeric)) {
-                        expression.next();
-                    }
-                }
-            }          
-            
-            return result;
-        },
-        
-        "<repeat-style>": function(expression){
-            //repeat-x | repeat-y | [repeat | space | round | no-repeat]{1,2}
-            var result  = false,
-                values  = "repeat | space | round | no-repeat",
-                part;
-            
-            if (expression.hasNext()){
-                part = expression.next();
-                
-                if (this.literal(part, "repeat-x | repeat-y")) {
-                    result = true;                    
-                } else if (this.literal(part, values)) {
-                    result = true;
-
-                    if (expression.hasNext() && this.literal(expression.peek(), values)) {
-                        expression.next();
-                    }
-                }
-            }
-            
-            return result;
-            
-        },
-        
-        "<shadow>": function(expression) {
-            //inset? && [ <length>{2,4} && <color>? ]
-            var result  = false,
-                inset   = false,
-                color   = false,
-                count   = 0,
-                part;
-                
-            if (expression.hasNext()) {            
-                part = expression.peek();
-                
-                if (this.literal(part, "inset")){
-                    expression.next();
-                    part = expression.peek();
-                    inset = true;
-                }
-                
-                if (part) {
-                    if (this["<color>"](part)) {
-                        expression.next();
-                        part = expression.peek();
-                        color = true;
-                    }
-                }                
-                
-                while (part && this["<length>"](part) && count < 4) {
-                    count++;
-                    expression.next();                    
-                    part = expression.peek();
-                }
-                
-                
-                if (part) {
-                    if (this["<color>"](part) && !color) {
-                        expression.next();
-                        part = expression.peek();
-                    }
-                }
-                
-                if (part && this.literal(part, "inset") && !inset){
-                    expression.next();
-                }                
-                
-                result = (count >= 2 && count <= 4);
-            
-            }
-            
-            return result;
-        },
-        
-        "<x-one-radius>": function(expression) {
-            //[ <length> | <percentage> ] [ <length> | <percentage> ]?
-            var result  = false,
-                count   = 0,
-                numeric = "<length> | <percentage>",
-                part;
-                
-            if (expression.hasNext()) {            
-                part = expression.peek();
-                
-                if (this.any(part, numeric)){
-                    result = true;
-                    expression.next();
-                    part = expression.peek();
-                    
-                    if (part && this.any(part, numeric)){
-                        expression.next();
-                    }
-                }                
-            
-            }
-            
-            return result;
-        },        
-        
-        //---------------------------------------------------------------------
-        // Properties
-        //---------------------------------------------------------------------
-        
-        singleProperty: function ( type, value, expression, partial ) {
-            //so ashamed...
-            expression  = expression || new PropertyValueIterator(value);
-            
-            var result      = false,
-                part;
-                
-            if (expression.hasNext()) {
-                if ( this[type](expression) ) {
-                    result = true;
-                } 
-            }
-            
+        var result      = false,
+            value       = expression.value,
+            count       = 0,
+            part;
+         
+        while (expression.hasNext() && count < max) {
+            result = ValidationTypes.isAny(expression, types);
             if (!result) {
-                throw new ValidationError("Expected " + type + " but found '" + value + "'.", value.line, value.col);
-            } else if (expression.hasNext() && !partial) {
-                part = expression.next();
+                break;
+            }
+            count++;
+        }
+        
+        if (!result) {
+            if (expression.hasNext() && !expression.isFirst()) {
+                part = expression.peek();
                 throw new ValidationError("Expected end of value but found '" + part + "'.", part.line, part.col);
-            }             
-        },
-        
-        multiProperty: function ( type, value, expression, partial ) {
-        
-            //so ashamed...
-            expression  = expression || new PropertyValueIterator(value);
+            } else {
+                 throw new ValidationError("Expected (" + types + ") but found '" + value + "'.", value.line, value.col);
+            }        
+        } else if (expression.hasNext()) {
+            part = expression.next();
+            throw new ValidationError("Expected end of value but found '" + part + "'.", part.line, part.col);
+        }          
+                 
+    },    
+    
+    multiProperty: function (types, expression, comma, max) {
+
+        var result      = false,
+            value       = expression.value,
+            count       = 0,
+            sep         = false,
+            part;
             
-            var result      = false,
-                part;
-                
-            while(expression.hasNext() && !result) {
-                if ( this[type]( expression ) ) {
-                    
-                    if (!expression.hasNext()) {
-                        result = true;
-                    } else if (expression.peek() == ",") {
-                        expression.next();
+        while(expression.hasNext() && !result && count < max) {
+            if (ValidationTypes.isAny(expression, types)) {
+                count++;
+                if (!expression.hasNext()) {
+                    result = true;
+
+                } else if (comma) {
+                    if (expression.peek() == ",") {
+                        part = expression.next();
                     } else {
-                        result = true;
                         break;
                     }
+                }
+            } else {
+                break;
+
+            }
+        }
+        
+        if (!result) {
+            if (expression.hasNext() && !expression.isFirst()) {
+                part = expression.peek();
+                throw new ValidationError("Expected end of value but found '" + part + "'.", part.line, part.col);
+            } else {
+                part = expression.previous();
+                if (comma && part == ",") {
+                    throw new ValidationError("Expected end of value but found '" + part + "'.", part.line, part.col); 
                 } else {
-                    break;
+                    throw new ValidationError("Expected (" + types + ") but found '" + value + "'.", value.line, value.col);
                 }
             }
-            
-            if (!result) {
-                throw new ValidationError("Expected " + type + " but found '" + value + "'.", value.line, value.col);
-            } else if (expression.hasNext() && !partial) {
-                part = expression.next();
-                throw new ValidationError("Expected end of value but found '" + part + "'.", part.line, part.col);
-            }           
-        }
-    
-    
+        
+        } else if (expression.hasNext()) {
+            part = expression.next();
+            throw new ValidationError("Expected end of value but found '" + part + "'.", part.line, part.col);
+        }  
+
     },
     
-    properties: {
-    
-        "box-shadow": function (value) {
-            var expression  = new PropertyValueIterator(value),
-                result      = false,
-                part;
-                
-            if (expression.hasNext()){
-                part = expression.peek();
-                
-                if (!Validation.types.literal(part, "none")) {
-                    Validation.types.multiProperty("<shadow>", value, expression);                       
-                } else {
-                    expression.next();
-                    if (expression.hasNext()) {
-                        part = expression.next();
-                        throw new ValidationError("Expected end of value but found '" + part + "'.", part.line, part.col);
-                    }   
-                }
-            }
+    groupProperty: function (types, expression, comma) {
+
+        var result      = false,
+            value       = expression.value,
+            typeCount   = types.split("||").length,
+            groups      = { count: 0 },
+            partial     = false,
+            name,
+            part;
             
-        },
-        
-        "border-one-radius": function (value) {
-            this.singleProperty("<x-one-radius>", value);
+        while(expression.hasNext() && !result) {
+            name = ValidationTypes.isAnyOfGroup(expression, types);
+            if (name) {
+            
+                //no dupes
+                if (groups[name]) {
+                    break;
+                } else {
+                    groups[name] = 1;
+                    groups.count++;
+                    partial = true;
+                    
+                    if (groups.count == typeCount || !expression.hasNext()) {
+                        result = true;
+                    }
+                }
+            } else {
+                break;
+            }
         }
-    
-    
+        
+        if (!result) {        
+            if (partial && expression.hasNext()) {
+                    part = expression.peek();
+                    throw new ValidationError("Expected end of value but found '" + part + "'.", part.line, part.col);
+            } else {
+                throw new ValidationError("Expected (" + types + ") but found '" + value + "'.", value.line, value.col);
+            }
+        } else if (expression.hasNext()) {
+            part = expression.next();
+            throw new ValidationError("Expected end of value but found '" + part + "'.", part.line, part.col);
+        }           
     }
-    
+
     
 
 };
@@ -6143,6 +5964,348 @@ function ValidationError(message, line, col){
 
 //inherit from Error
 ValidationError.prototype = new Error();
+//This file will likely change a lot! Very experimental!
+/*global Properties, Validation, ValidationError, PropertyValueIterator, console*/
+var ValidationTypes = {
+
+    isLiteral: function (part, literals) {
+        var text = part.text.toString().toLowerCase(),
+            args = literals.split(" | "),
+            i, len, found = false;
+        
+        for (i=0,len=args.length; i < len && !found; i++){
+            if (text == args[i].toLowerCase()){
+                found = true;
+            }
+        }
+        
+        return found;    
+    },
+    
+    isSimple: function(type) {
+        return !!this.simple[type];
+    },
+    
+    isComplex: function(type) {
+        return !!this.complex[type];
+    },
+    
+    /**
+     * Determines if the next part(s) of the given expression
+     * are any of the given types.
+     */
+    isAny: function (expression, types) {
+        var args = types.split(" | "),
+            i, len, found = false;
+        
+        for (i=0,len=args.length; i < len && !found && expression.hasNext(); i++){
+            found = this.isType(expression, args[i]);
+        }
+        
+        return found;    
+    },
+    
+    /**
+     * Determines if the next part(s) of the given expresion
+     * are one of a group.
+     */
+    isAnyOfGroup: function(expression, types) {
+        var args = types.split(" || "),
+            i, len, found = false;
+        
+        for (i=0,len=args.length; i < len && !found; i++){
+            found = this.isType(expression, args[i]);
+        }
+        
+        return found ? args[i-1] : false;
+    },
+    
+    /**
+     * Determines if the next part(s) of the given expression
+     * are of a given type.
+     */
+    isType: function (expression, type) {
+        var part = expression.peek(),
+            result = false;
+            
+        if (type.charAt(0) != "<") {
+            result = this.isLiteral(part, type);
+            if (result) {
+                expression.next();
+            }
+        } else if (this.simple[type]) {
+            result = this.simple[type](part);
+            if (result) {
+                expression.next();
+            }
+        } else {
+            result = this.complex[type](expression);
+        }
+        
+        return result;
+    },
+    
+    
+    
+    simple: {
+
+        "<absolute-size>": function(part){
+            return ValidationTypes.isLiteral(part, "xx-small | x-small | small | medium | large | x-large | xx-large");
+        },
+        
+        "<attachment>": function(part){
+            return ValidationTypes.isLiteral(part, "scroll | fixed | local");
+        },
+        
+        "<attr>": function(part){
+            return part.type == "function" && part.name == "attr";
+        },
+                
+        "<bg-image>": function(part){
+            return this["<image>"](part) || this["<gradient>"](part) ||  part == "none";
+        },        
+        
+        "<gradient>": function(part) {
+            return part.type == "function" && /^(?:\-(?:ms|moz|o|webkit)\-)?(?:repeating\-)?(?:radial\-|linear\-)?gradient/i.test(part);
+        },
+        
+        "<box>": function(part){
+            return ValidationTypes.isLiteral(part, "padding-box | border-box | content-box");
+        },
+        
+        "<content>": function(part){
+            return part.type == "function" && part.name == "content";
+        },        
+        
+        "<relative-size>": function(part){
+            return ValidationTypes.isLiteral(part, "smaller | larger");
+        },
+        
+        //any identifier
+        "<ident>": function(part){
+            return part.type == "identifier";
+        },
+        
+        "<length>": function(part){
+            return part.type == "length" || part.type == "number" || part.type == "integer" || part == "0";
+        },
+        
+        "<color>": function(part){
+            return part.type == "color" || part == "transparent";
+        },
+        
+        "<number>": function(part){
+            return part.type == "number" || this["<integer>"](part);
+        },
+        
+        "<integer>": function(part){
+            return part.type == "integer";
+        },
+        
+        "<line>": function(part){
+            return part.type == "integer";
+        },
+        
+        "<angle>": function(part){
+            return part.type == "angle";
+        },        
+        
+        "<uri>": function(part){
+            return part.type == "uri";
+        },
+        
+        "<image>": function(part){
+            return this["<uri>"](part);
+        },
+        
+        "<percentage>": function(part){
+            return part.type == "percentage" || part == "0";
+        },
+
+        "<border-width>": function(part){
+            return this["<length>"](part) || ValidationTypes.isLiteral(part, "thin | medium | thick");
+        },
+        
+        "<border-style>": function(part){
+            return ValidationTypes.isLiteral(part, "none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset");
+        },
+        
+        "<margin-width>": function(part){
+            return this["<length>"](part) || this["<percentage>"](part) || ValidationTypes.isLiteral(part, "auto");
+        },
+        
+        "<padding-width>": function(part){
+            return this["<length>"](part) || this["<percentage>"](part);
+        },
+        
+        "<shape>": function(part){
+            return part.type == "function" && (part.name == "rect" || part.name == "inset-rect");
+        },
+        
+        "<time>": function(part) {
+            return part.type == "time";
+        }
+    },
+    
+    complex: {
+
+        "<bg-position>": function(expression){
+            var types   = this,
+                result  = false,
+                numeric = "<percentage> | <length>",
+                xDir    = "left | center | right",
+                yDir    = "top | center | bottom",
+                part,
+                i, len;
+            
+/*
+<position> = [
+  [ left | center | right | top | bottom | <percentage> | <length> ]
+|
+  [ left | center | right | <percentage> | <length> ]
+  [ top | center | bottom | <percentage> | <length> ]
+|
+  [ center | [ left | right ] [ <percentage> | <length> ]? ] &&
+  [ center | [ top | bottom ] [ <percentage> | <length> ]? ]
+]
+
+*/            
+                
+            if (ValidationTypes.isAny(expression, "top | bottom")) {
+                result = true;
+            } else {
+                
+                //must be two-part
+                if (ValidationTypes.isAny(expression, numeric)){
+                    if (expression.hasNext()){
+                        result = ValidationTypes.isAny(expression, numeric + " | " + yDir);
+                    }
+                } else if (ValidationTypes.isAny(expression, xDir)){
+                    if (expression.hasNext()){
+                        
+                        //two- or three-part
+                        if (ValidationTypes.isAny(expression, yDir)){
+                            result = true;
+                      
+                            ValidationTypes.isAny(expression, numeric);
+                            
+                        } else if (ValidationTypes.isAny(expression, numeric)){
+                        
+                            //could also be two-part, so check the next part
+                            if (ValidationTypes.isAny(expression, yDir)){                                    
+                                ValidationTypes.isAny(expression, numeric);                               
+                            }
+                            
+                            result = true;
+                        }
+                    }
+                }                                 
+            }            
+
+            
+            return result;
+        },
+
+        "<bg-size>": function(expression){
+            //<bg-size> = [ <length> | <percentage> | auto ]{1,2} | cover | contain
+            var types   = this,
+                result  = false,
+                numeric = "<percentage> | <length> | auto",
+                part,
+                i, len;      
+      
+            if (ValidationTypes.isAny(expression, "cover | contain")) {
+                result = true;
+            } else if (ValidationTypes.isAny(expression, numeric)) {
+                result = true;                
+                ValidationTypes.isAny(expression, numeric);
+            }
+            
+            return result;
+        },
+        
+        "<repeat-style>": function(expression){
+            //repeat-x | repeat-y | [repeat | space | round | no-repeat]{1,2}
+            var result  = false,
+                values  = "repeat | space | round | no-repeat",
+                part;
+            
+            if (expression.hasNext()){
+                part = expression.next();
+                
+                if (ValidationTypes.isLiteral(part, "repeat-x | repeat-y")) {
+                    result = true;                    
+                } else if (ValidationTypes.isLiteral(part, values)) {
+                    result = true;
+
+                    if (expression.hasNext() && ValidationTypes.isLiteral(expression.peek(), values)) {
+                        expression.next();
+                    }
+                }
+            }
+            
+            return result;
+            
+        },
+        
+        "<shadow>": function(expression) {
+            //inset? && [ <length>{2,4} && <color>? ]
+            var result  = false,
+                count   = 0,
+                inset   = false,
+                color   = false,
+                part;
+                
+            if (expression.hasNext()) {            
+                
+                if (ValidationTypes.isAny(expression, "inset")){
+                    inset = true;
+                }
+                
+                if (ValidationTypes.isAny(expression, "<color>")) {
+                    color = true;
+                }                
+                
+                while (ValidationTypes.isAny(expression, "<length>") && count < 4) {
+                    count++;
+                }
+                
+                
+                if (expression.hasNext()) {
+                    if (!color) {
+                        ValidationTypes.isAny(expression, "<color>");
+                    }
+                    
+                    if (!inset) {
+                        ValidationTypes.isAny(expression, "inset");
+                    }
+
+                }
+                
+                result = (count >= 2 && count <= 4);
+            
+            }
+            
+            return result;
+        },
+        
+        "<x-one-radius>": function(expression) {
+            //[ <length> | <percentage> ] [ <length> | <percentage> ]?
+            var result  = false,
+                count   = 0,
+                numeric = "<length> | <percentage>",
+                part;
+                
+            if (ValidationTypes.isAny(expression, numeric)){
+                result = true;
+                
+                ValidationTypes.isAny(expression, numeric);
+            }                
+            
+            return result;
+        }
+    }
+};
 
 
 parserlib.css = {
@@ -6179,7 +6342,7 @@ var CSSLint = (function(){
         formatters = [],
         api        = new parserlib.util.EventTarget();
         
-    api.version = "0.9.2";
+    api.version = "0.9.9";
 
     //-------------------------------------------------------------------------
     // Rule Management
@@ -6212,6 +6375,23 @@ var CSSLint = (function(){
         return [].concat(rules).sort(function(a,b){ 
             return a.id > b.id ? 1 : 0;
         });
+    };
+    
+    /**
+     * Returns a ruleset configuration object with all current rules.
+     * @return A ruleset object.
+     * @method getRuleset
+     */
+    api.getRuleset = function() {
+        var ruleset = {},
+            i = 0,
+            len = rules.length;
+        
+        while (i < len){
+            ruleset[rules[i++].id] = 1;    //by default, everything is a warning
+        }
+        
+        return ruleset;
     };
 
     //-------------------------------------------------------------------------
@@ -6293,13 +6473,11 @@ var CSSLint = (function(){
             parser = new parserlib.css.Parser({ starHack: true, ieFilters: true,
                                                 underscoreHack: true, strict: false });
 
-        lines = text.split(/\n\r?/g);
+        // normalize line endings
+        lines = text.replace(/\n\r?/g, "$split$").split('$split$');
         
         if (!ruleset){
-            ruleset = {};
-            while (i < len){
-                ruleset[rules[i++].id] = 1;    //by default, everything is a warning
-            }
+            ruleset = this.getRuleset();
         }
         
         reporter = new Reporter(lines, ruleset);
@@ -6509,48 +6687,68 @@ Reporter.prototype = {
 
 //expose for testing purposes
 CSSLint._Reporter = Reporter;
+
+/*global CSSLint*/
+
 /*
  * Utility functions that make life easier.
  */
+CSSLint.Util = {
+    /*
+     * Adds all properties from supplier onto receiver,
+     * overwriting if the same name already exists on
+     * reciever.
+     * @param {Object} The object to receive the properties.
+     * @param {Object} The object to provide the properties.
+     * @return {Object} The receiver
+     */
+    mix: function(receiver, supplier){
+        var prop;
 
-/*
- * Adds all properties from supplier onto receiver,
- * overwriting if the same name already exists on
- * reciever.
- * @param {Object} The object to receive the properties.
- * @param {Object} The object to provide the properties.
- * @return {Object} The receiver
- */
-function mix(receiver, supplier){
-    var prop;
-
-    for (prop in supplier){
-        if (supplier.hasOwnProperty(prop)){
-            receiver[prop] = supplier[prop];
-        }
-    }
-
-    return prop;
-}
-
-/*
- * Polyfill for array indexOf() method.
- * @param {Array} values The array to search.
- * @param {Variant} value The value to search for.
- * @return {int} The index of the value if found, -1 if not.
- */
-function indexOf(values, value){
-    if (values.indexOf){
-        return values.indexOf(value);
-    } else {
-        for (var i=0, len=values.length; i < len; i++){
-            if (values[i] === value){
-                return i;
+        for (prop in supplier){
+            if (supplier.hasOwnProperty(prop)){
+                receiver[prop] = supplier[prop];
             }
         }
-        return -1;
+
+        return prop;
+    },
+
+    /*
+     * Polyfill for array indexOf() method.
+     * @param {Array} values The array to search.
+     * @param {Variant} value The value to search for.
+     * @return {int} The index of the value if found, -1 if not.
+     */
+    indexOf: function(values, value){
+        if (values.indexOf){
+            return values.indexOf(value);
+        } else {
+            for (var i=0, len=values.length; i < len; i++){
+                if (values[i] === value){
+                    return i;
+                }
+            }
+            return -1;
+        }
+    },
+
+    /*
+     * Polyfill for array forEach() method.
+     * @param {Array} values The array to operate on.
+     * @param {Function} func The function to call on each item.
+     * @return {void}
+     */
+    forEach: function(values, func) {
+        if (values.forEach){
+            return values.forEach(func);
+        } else {
+            for (var i=0, len=values.length; i < len; i++){
+                func(values[i], i, values);
+            }
+        }
     }
-}
+};
 /*global CSSLint*/
 /*
  * Rule: Don't use adjoining classes (.foo.bar).
@@ -6628,36 +6826,42 @@ CSSLint.addRule({
                 "padding-bottom": 1,
                 "padding-top": 1
             },
-            properties;
+            properties,
+            boxSizing = false;
 
         function startRule(){
             properties = {};
+            boxSizing = false;
         }
 
         function endRule(){
-            var prop;
-            if (properties.height){
-                for (prop in heightProperties){
-                    if (heightProperties.hasOwnProperty(prop) && properties[prop]){
-                    
-                        //special case for padding
-                        if (!(prop == "padding" && properties[prop].value.parts.length === 2 && properties[prop].value.parts[0].value === 0)){
-                            reporter.report("Using height with " + prop + " can sometimes make elements larger than you expect.", properties[prop].line, properties[prop].col, rule);
+            var prop, value;
+            
+            if (!boxSizing) {
+                if (properties.height){
+                    for (prop in heightProperties){
+                        if (heightProperties.hasOwnProperty(prop) && properties[prop]){
+                            value = properties[prop].value;
+                            //special case for padding
+                            if (!(prop == "padding" && value.parts.length === 2 && value.parts[0].value === 0)){
+                                reporter.report("Using height with " + prop + " can sometimes make elements larger than you expect.", properties[prop].line, properties[prop].col, rule);
+                            }
                         }
                     }
                 }
-            }
 
-            if (properties.width){
-                for (prop in widthProperties){
-                    if (widthProperties.hasOwnProperty(prop) && properties[prop]){
-
-                        if (!(prop == "padding" && properties[prop].value.parts.length === 2 && properties[prop].value.parts[1].value === 0)){
-                            reporter.report("Using width with " + prop + " can sometimes make elements larger than you expect.", properties[prop].line, properties[prop].col, rule);
+                if (properties.width){
+                    for (prop in widthProperties){
+                        if (widthProperties.hasOwnProperty(prop) && properties[prop]){
+                            value = properties[prop].value;
+                            
+                            if (!(prop == "padding" && value.parts.length === 2 && value.parts[1].value === 0)){
+                                reporter.report("Using width with " + prop + " can sometimes make elements larger than you expect.", properties[prop].line, properties[prop].col, rule);
+                            }
                         }
                     }
-                }
-            }        
+                }   
+            }     
         }
 
         parser.addListener("startrule", startRule);
@@ -6674,8 +6878,10 @@ CSSLint.addRule({
                     properties[name] = { line: event.property.line, col: event.property.col, value: event.value };
                 }
             } else {
-                if (name == "width" || name == "height"){
+                if (/^(width|height)/i.test(name) && /^(length|percentage)/.test(event.value.parts[0].type)){
                     properties[name] = 1;
+                } else if (name == "box-sizing") {
+                    boxSizing = true;
                 }
             }
             
@@ -6740,20 +6946,21 @@ CSSLint.addRule({
             prefixed,
             i,
             len,
+            inKeyFrame = false,
             arrayPush = Array.prototype.push,
             applyTo = [];
 
         // See http://peter.sh/experiments/vendor-prefixed-css-property-overview/ for details
         compatiblePrefixes = {
-            "animation"                  : "webkit moz ms",
-            "animation-delay"            : "webkit moz ms",
-            "animation-direction"        : "webkit moz ms",
-            "animation-duration"         : "webkit moz ms",
-            "animation-fill-mode"        : "webkit moz ms",
-            "animation-iteration-count"  : "webkit moz ms",
-            "animation-name"             : "webkit moz ms",
-            "animation-play-state"       : "webkit moz ms",
-            "animation-timing-function"  : "webkit moz ms",
+            "animation"                  : "webkit moz",
+            "animation-delay"            : "webkit moz",
+            "animation-direction"        : "webkit moz",
+            "animation-duration"         : "webkit moz",
+            "animation-fill-mode"        : "webkit moz",
+            "animation-iteration-count"  : "webkit moz",
+            "animation-name"             : "webkit moz",
+            "animation-play-state"       : "webkit moz",
+            "animation-timing-function"  : "webkit moz",
             "appearance"                 : "webkit moz",
             "border-end"                 : "webkit moz",
             "border-end-color"           : "webkit moz",
@@ -6793,16 +7000,17 @@ CSSLint.addRule({
             "text-size-adjust"           : "webkit ms",
             "transform"                  : "webkit moz ms o",
             "transform-origin"           : "webkit moz ms o",
-            "transition"                 : "webkit moz o ms",
-            "transition-delay"           : "webkit moz o ms",
-            "transition-duration"        : "webkit moz o ms",
-            "transition-property"        : "webkit moz o ms",
-            "transition-timing-function" : "webkit moz o ms",
+            "transition"                 : "webkit moz o",
+            "transition-delay"           : "webkit moz o",
+            "transition-duration"        : "webkit moz o",
+            "transition-property"        : "webkit moz o",
+            "transition-timing-function" : "webkit moz o",
             "user-modify"                : "webkit moz",
             "user-select"                : "webkit moz ms",
             "word-break"                 : "epub ms",
             "writing-mode"               : "epub ms"
         };
+
 
         for (prop in compatiblePrefixes) {
             if (compatiblePrefixes.hasOwnProperty(prop)) {
@@ -6815,14 +7023,28 @@ CSSLint.addRule({
                 arrayPush.apply(applyTo, variations);
             }
         }
+                
         parser.addListener("startrule", function () {
             properties = [];
         });
 
+        parser.addListener("startkeyframes", function (event) {
+            inKeyFrame = event.prefix || true;
+        });
+
+        parser.addListener("endkeyframes", function (event) {
+            inKeyFrame = false;
+        });
+
         parser.addListener("property", function (event) {
-            var name = event.property.text;
-            if (applyTo.indexOf(name) > -1) {
-                properties.push(name);
+            var name = event.property;
+            if (CSSLint.Util.indexOf(applyTo, name.text) > -1) {
+            
+                // e.g., -moz-transform is okay to be alone in @-moz-keyframes
+                if (!inKeyFrame || typeof inKeyFrame != "string" || 
+                        name.text.indexOf("-" + inKeyFrame + "-") !== 0) {
+                    properties.push(name);
+                }
             }
         });
 
@@ -6849,15 +7071,17 @@ CSSLint.addRule({
                 for (prop in compatiblePrefixes) {
                     if (compatiblePrefixes.hasOwnProperty(prop)) {
                         variations = compatiblePrefixes[prop];
-                        if (variations.indexOf(name) > -1) {
-                            if (propertyGroups[prop] === undefined) {
+                        if (CSSLint.Util.indexOf(variations, name.text) > -1) {
+                            if (!propertyGroups[prop]) {
                                 propertyGroups[prop] = {
                                     full : variations.slice(0),
-                                    actual : []
+                                    actual : [],
+                                    actualNodes: []
                                 };
                             }
-                            if (propertyGroups[prop].actual.indexOf(name) === -1) {
-                                propertyGroups[prop].actual.push(name);
+                            if (CSSLint.Util.indexOf(propertyGroups[prop].actual, name.text) === -1) {
+                                propertyGroups[prop].actual.push(name.text);
+                                propertyGroups[prop].actualNodes.push(name);
                             }
                         }
                     }
@@ -6873,9 +7097,9 @@ CSSLint.addRule({
                     if (full.length > actual.length) {
                         for (i = 0, len = full.length; i < len; i++) {
                             item = full[i];
-                            if (actual.indexOf(item) === -1) {
+                            if (CSSLint.Util.indexOf(actual, item) === -1) {
                                 propertiesSpecified = (actual.length === 1) ? actual[0] : (actual.length == 2) ? actual.join(" and ") : actual.join(", ");
-                                reporter.report("The property " + item + " is compatible with " + propertiesSpecified + " and should be included as well.", event.selectors[0].line, event.selectors[0].col, rule); 
+                                reporter.report("The property " + item + " is compatible with " + propertiesSpecified + " and should be included as well.", value.actualNodes[0].line, value.actualNodes[0].col, rule); 
                             }
                         }
 
@@ -7483,7 +7707,7 @@ CSSLint.addRule({
         parser.addListener("endstylesheet", function(){
             reporter.stat("important", count);
             if (count >= 10){
-                reporter.rollupWarn("Too many !important declarations (" + count + "), try to use less than 10 to avoid specifity issues.", rule);
+                reporter.rollupWarn("Too many !important declarations (" + count + "), try to use less than 10 to avoid specificity issues.", rule);
             }
         });
     }
@@ -7499,308 +7723,20 @@ CSSLint.addRule({
     //rule information
     id: "known-properties",
     name: "Require use of known properties",
-    desc: "Properties should be known (listed in CSS specification) or be a vendor-prefixed property.",
+    desc: "Properties should be known (listed in CSS3 specification) or be a vendor-prefixed property.",
     browsers: "All",
 
     //initialization
     init: function(parser, reporter){
-        var rule = this,
-            properties = {
-
-                "alignment-adjust": 1,
-                "alignment-baseline": 1,
-                "animation": 1,
-                "animation-delay": 1,
-                "animation-direction": 1,
-                "animation-duration": 1,
-                "animation-fill-mode": 1,
-                "animation-iteration-count": 1,
-                "animation-name": 1,
-                "animation-play-state": 1,
-                "animation-timing-function": 1,
-                "appearance": 1,
-                "azimuth": 1,
-                "backface-visibility": 1,
-                "background": 1,
-                "background-attachment": 1,
-                "background-break": 1,
-                "background-clip": 1,
-                "background-color": 1,
-                "background-image": 1,
-                "background-origin": 1,
-                "background-position": 1,
-                "background-repeat": 1,
-                "background-size": 1,
-                "baseline-shift": 1,
-                "binding": 1,
-                "bleed": 1,
-                "bookmark-label": 1,
-                "bookmark-level": 1,
-                "bookmark-state": 1,
-                "bookmark-target": 1,
-                "border": 1,
-                "border-bottom": 1,
-                "border-bottom-color": 1,
-                "border-bottom-left-radius": 1,
-                "border-bottom-right-radius": 1,
-                "border-bottom-style": 1,
-                "border-bottom-width": 1,
-                "border-collapse": 1,
-                "border-color": 1,
-                "border-image": 1,
-                "border-image-outset": 1,
-                "border-image-repeat": 1,
-                "border-image-slice": 1,
-                "border-image-source": 1,
-                "border-image-width": 1,
-                "border-left": 1,
-                "border-left-color": 1,
-                "border-left-style": 1,
-                "border-left-width": 1,
-                "border-radius": 1,
-                "border-right": 1,
-                "border-right-color": 1,
-                "border-right-style": 1,
-                "border-right-width": 1,
-                "border-spacing": 1,
-                "border-style": 1,
-                "border-top": 1,
-                "border-top-color": 1,
-                "border-top-left-radius": 1,
-                "border-top-right-radius": 1,
-                "border-top-style": 1,
-                "border-top-width": 1,
-                "border-width": 1,
-                "bottom": 1, 
-                "box-align": 1,
-                "box-decoration-break": 1,
-                "box-direction": 1,
-                "box-flex": 1,
-                "box-flex-group": 1,
-                "box-lines": 1,
-                "box-ordinal-group": 1,
-                "box-orient": 1,
-                "box-pack": 1,
-                "box-shadow": 1,
-                "box-sizing": 1,
-                "break-after": 1,
-                "break-before": 1,
-                "break-inside": 1,
-                "caption-side": 1,
-                "clear": 1,
-                "clip": 1,
-                "color": 1,
-                "color-profile": 1,
-                "column-count": 1,
-                "column-fill": 1,
-                "column-gap": 1,
-                "column-rule": 1,
-                "column-rule-color": 1,
-                "column-rule-style": 1,
-                "column-rule-width": 1,
-                "column-span": 1,
-                "column-width": 1,
-                "columns": 1,
-                "content": 1,
-                "counter-increment": 1,
-                "counter-reset": 1,
-                "crop": 1,
-                "cue": 1,
-                "cue-after": 1,
-                "cue-before": 1,
-                "cursor": 1,
-                "direction": 1,
-                "display": 1,
-                "dominant-baseline": 1,
-                "drop-initial-after-adjust": 1,
-                "drop-initial-after-align": 1,
-                "drop-initial-before-adjust": 1,
-                "drop-initial-before-align": 1,
-                "drop-initial-size": 1,
-                "drop-initial-value": 1,
-                "elevation": 1,
-                "empty-cells": 1,
-                "fit": 1,
-                "fit-position": 1,
-                "float": 1,                
-                "float-offset": 1,
-                "font": 1,
-                "font-family": 1,
-                "font-size": 1,
-                "font-size-adjust": 1,
-                "font-stretch": 1,
-                "font-style": 1,
-                "font-variant": 1,
-                "font-weight": 1,
-                "grid-columns": 1,
-                "grid-rows": 1,
-                "hanging-punctuation": 1,
-                "height": 1,
-                "hyphenate-after": 1,
-                "hyphenate-before": 1,
-                "hyphenate-character": 1,
-                "hyphenate-lines": 1,
-                "hyphenate-resource": 1,
-                "hyphens": 1,
-                "icon": 1,
-                "image-orientation": 1,
-                "image-rendering": 1,
-                "image-resolution": 1,
-                "inline-box-align": 1,
-                "left": 1,
-                "letter-spacing": 1,
-                "line-height": 1,
-                "line-stacking": 1,
-                "line-stacking-ruby": 1,
-                "line-stacking-shift": 1,
-                "line-stacking-strategy": 1,
-                "list-style": 1,
-                "list-style-image": 1,
-                "list-style-position": 1,
-                "list-style-type": 1,
-                "margin": 1,
-                "margin-bottom": 1,
-                "margin-left": 1,
-                "margin-right": 1,
-                "margin-top": 1,
-                "mark": 1,
-                "mark-after": 1,
-                "mark-before": 1,
-                "marks": 1,
-                "marquee-direction": 1,
-                "marquee-play-count": 1,
-                "marquee-speed": 1,
-                "marquee-style": 1,
-                "max-height": 1,
-                "max-width": 1,
-                "min-height": 1,
-                "min-width": 1,
-                "move-to": 1,
-                "nav-down": 1,
-                "nav-index": 1,
-                "nav-left": 1,
-                "nav-right": 1,
-                "nav-up": 1,
-                "opacity": 1,
-                "orphans": 1,
-                "outline": 1,
-                "outline-color": 1,
-                "outline-offset": 1,
-                "outline-style": 1,
-                "outline-width": 1,
-                "overflow": 1,
-                "overflow-style": 1,
-                "overflow-x": 1,
-                "overflow-y": 1,
-                "padding": 1,
-                "padding-bottom": 1,
-                "padding-left": 1,
-                "padding-right": 1,
-                "padding-top": 1,
-                "page": 1,
-                "page-break-after": 1,
-                "page-break-before": 1,
-                "page-break-inside": 1,
-                "page-policy": 1,
-                "pause": 1,
-                "pause-after": 1,
-                "pause-before": 1,
-                "perspective": 1,
-                "perspective-origin": 1,
-                "phonemes": 1,
-                "pitch": 1,
-                "pitch-range": 1,
-                "play-during": 1,
-                "position": 1,
-                "presentation-level": 1,
-                "punctuation-trim": 1,
-                "quotes": 1,
-                "rendering-intent": 1,
-                "resize": 1,
-                "rest": 1,
-                "rest-after": 1,
-                "rest-before": 1,
-                "richness": 1,
-                "right": 1,
-                "rotation": 1,
-                "rotation-point": 1,
-                "ruby-align": 1,
-                "ruby-overhang": 1,
-                "ruby-position": 1,
-                "ruby-span": 1,
-                "size": 1,
-                "speak": 1,
-                "speak-header": 1,
-                "speak-numeral": 1,
-                "speak-punctuation": 1,
-                "speech-rate": 1,
-                "stress": 1,
-                "string-set": 1,
-                "table-layout": 1,
-                "target": 1,
-                "target-name": 1,
-                "target-new": 1,
-                "target-position": 1,
-                "text-align": 1,
-                "text-align-last": 1,
-                "text-decoration": 1,
-                "text-emphasis": 1,
-                "text-height": 1,
-                "text-indent": 1,
-                "text-justify": 1,
-                "text-outline": 1,
-                "text-shadow": 1,
-                "text-transform": 1,
-                "text-wrap": 1,
-                "top": 1,
-                "transform": 1,
-                "transform-origin": 1,
-                "transform-style": 1,
-                "transition": 1,
-                "transition-delay": 1,
-                "transition-duration": 1,
-                "transition-property": 1,
-                "transition-timing-function": 1,
-                "unicode-bidi": 1,
-                "user-modify": 1,
-                "user-select": 1,
-                "vertical-align": 1,
-                "visibility": 1,
-                "voice-balance": 1,
-                "voice-duration": 1,
-                "voice-family": 1,
-                "voice-pitch": 1,
-                "voice-pitch-range": 1,
-                "voice-rate": 1,
-                "voice-stress": 1,
-                "voice-volume": 1,
-                "volume": 1,
-                "white-space": 1,
-                "white-space-collapse": 1,
-                "widows": 1,
-                "width": 1,
-                "word-break": 1,
-                "word-spacing": 1,
-                "word-wrap": 1,
-                "z-index": 1,
-                
-                //IE
-                "filter": 1,
-                "zoom": 1,
-                
-                //@font-face
-                "src": 1
-            };
+        var rule = this;
 
         parser.addListener("property", function(event){
             var name = event.property.text.toLowerCase();
 
+            // the check is handled entirely by the parser-lib (https://github.com/nzakas/parser-lib)
             if (event.invalid) {
                 reporter.report(event.invalid.message, event.line, event.col, rule);
             }
-            //if (!properties[name] && name.charAt(0) != "-"){
-            //    reporter.error("Unknown property '" + event.property + "'.", event.line, event.col, rule);
-            //}
 
         });
     }
@@ -8140,8 +8076,35 @@ CSSLint.addRule({
 
 });
 /*
- * Rule: Don't use text-indent for image replacement if you need to support rtl. 
- * 
+ * Rule: Don't use properties with a star prefix.
+ *
+ */
+/*global CSSLint*/
+CSSLint.addRule({
+
+    //rule information
+    id: "star-property-hack",
+    name: "Disallow properties with a star prefix",
+    desc: "Checks for the star property hack (targets IE6/7)",
+    browsers: "All",
+
+    //initialization
+    init: function(parser, reporter){
+        var rule = this;
+
+        //check if property name starts with "*"
+        parser.addListener("property", function(event){
+            var property = event.property;
+
+            if (property.hack == "*") {
+                reporter.report("Property with star prefix found.", event.property.line, event.property.col, rule);
+            }
+        });
+    }
+});
+/*
+ * Rule: Don't use text-indent for image replacement if you need to support rtl.
+ *
  */
 /*global CSSLint*/
 CSSLint.addRule({
@@ -8151,27 +8114,29 @@ CSSLint.addRule({
     name: "Disallow negative text-indent",
     desc: "Checks for text indent less than -99px",
     browsers: "All",
-    
+
     //initialization
     init: function(parser, reporter){
         var rule = this,
-            textIndent = false;
-            
-            
+            textIndent,
+            direction;
+
+
         function startRule(event){
             textIndent = false;
+            direction = "inherit";
         }
-        
+
         //event handler for end of rules
         function endRule(event){
-            if (textIndent){
+            if (textIndent && direction != "ltr"){
                 reporter.report("Negative text-indent doesn't work well with RTL. If you use text-indent for image replacement explicitly set direction for that item to ltr.", textIndent.line, textIndent.col, rule);
             }
-        }        
-        
+        }
+
         parser.addListener("startrule", startRule);
         parser.addListener("startfontface", startRule);
-    
+
         //check for use of "font-size"
         parser.addListener("property", function(event){
             var name = event.property.toString().toLowerCase(),
@@ -8180,15 +8145,42 @@ CSSLint.addRule({
             if (name == "text-indent" && value.parts[0].value < -99){
                 textIndent = event.property;
             } else if (name == "direction" && value == "ltr"){
-                textIndent = false;
+                direction = "ltr";
             }
         });
 
         parser.addListener("endrule", endRule);
-        parser.addListener("endfontface", endRule);     
+        parser.addListener("endfontface", endRule);
 
     }
 
+});
+/*
+ * Rule: Don't use properties with a underscore prefix.
+ *
+ */
+/*global CSSLint*/
+CSSLint.addRule({
+
+    //rule information
+    id: "underscore-property-hack",
+    name: "Disallow properties with an underscore prefix",
+    desc: "Checks for the underscore property hack (targets IE6)",
+    browsers: "All",
+
+    //initialization
+    init: function(parser, reporter){
+        var rule = this;
+
+        //check if property name starts with "_"
+        parser.addListener("property", function(event){
+            var property = event.property;
+
+            if (property.hack == "_") {
+                reporter.report("Property with underscore prefix found.", event.property.line, event.property.col, rule);
+            }
+        });
+    }
 });
 /*
  * Rule: Headings (h1-h6) should be defined only once.
@@ -8295,6 +8287,48 @@ CSSLint.addRule({
                     reporter.report(rule.desc, part.line, part.col, rule);
                 }
             }
+        });
+    }
+
+});
+/*
+ * Rule: Don't use unqualified attribute selectors because they're just like universal selectors.
+ */
+/*global CSSLint*/
+CSSLint.addRule({
+
+    //rule information
+    id: "unqualified-attributes",
+    name: "Disallow unqualified attribute selectors",
+    desc: "Unqualified attribute selectors are known to be slow.",
+    browsers: "All",
+
+    //initialization
+    init: function(parser, reporter){
+        var rule = this;
+
+        parser.addListener("startrule", function(event){
+            
+            var selectors = event.selectors,
+                selector,
+                part,
+                modifier,
+                i, j, k;
+
+            for (i=0; i < selectors.length; i++){
+                selector = selectors[i];
+                
+                part = selector.parts[selector.parts.length-1];
+                if (part.type == parser.SELECTOR_PART_TYPE){
+                    for (k=0; k < part.modifiers.length; k++){
+                        modifier = part.modifiers[k];
+                        if (modifier.type == "attribute" && (!part.elementName || part.elementName == "*")){
+                            reporter.report(rule.desc, part.line, part.col, rule);                               
+                        }
+                    }
+                }
+                
+            }            
         });
     }
 
@@ -8407,11 +8441,11 @@ CSSLint.addRule({
                 actual = needsStandard[i].actual;
 
                 if (!properties[needed]){               
-                    reporter.report("Missing standard property '" + needed + "' to go along with '" + actual + "'.", event.line, event.col, rule);
+                    reporter.report("Missing standard property '" + needed + "' to go along with '" + actual + "'.", properties[actual][0].name.line, properties[actual][0].name.col, rule);
                 } else {
                     //make sure standard property is last
                     if (properties[needed][0].pos < properties[actual][0].pos){
-                        reporter.report("Standard property '" + needed + "' should come after vendor-prefixed property '" + actual + "'.", event.line, event.col, rule);
+                        reporter.report("Standard property '" + needed + "' should come after vendor-prefixed property '" + actual + "'.", properties[actual][0].name.line, properties[actual][0].name.col, rule);
                     }
                 }
             }
@@ -8465,7 +8499,7 @@ CSSLint.addRule({
                 len = parts.length;
 
             while(i < len){
-                if ((parts[i].units || parts[i].type == "percentage") && parts[i].value === 0){
+                if ((parts[i].units || parts[i].type == "percentage") && parts[i].value === 0 && parts[i].type != "time"){
                     reporter.report("Values of 0 shouldn't have units specified.", parts[i].line, parts[i].col, rule);
                 }
                 i++;
@@ -8477,85 +8511,114 @@ CSSLint.addRule({
 
 });
 /*global CSSLint*/
-CSSLint.addFormatter({
-    //format information
-    id: "checkstyle-xml",
-    name: "Checkstyle XML format",
+(function() {
 
     /**
-     * Return opening root XML tag.
-     * @return {String} to prepend before all results
+     * Replace special characters before write to output.
+     *
+     * Rules:
+     *  - single quotes is the escape sequence for double-quotes
+     *  - &amp; is the escape sequence for &
+     *  - &lt; is the escape sequence for <
+     *  - &gt; is the escape sequence for >
+     *
+     * @param {String} message to escape
+     * @return escaped message as {String}
      */
-    startFormat: function(){
-        return "<?xml version=\"1.0\" encoding=\"utf-8\"?><checkstyle>";
-    },
-
-    /**
-     * Return closing root XML tag.
-     * @return {String} to append after all results
-     */
-    endFormat: function(){
-        return "</checkstyle>";
-    },
-
-    /**
-     * Given CSS Lint results for a file, return output for this format.
-     * @param results {Object} with error and warning messages
-     * @param filename {String} relative file path
-     * @param options {Object} (UNUSED for now) specifies special handling of output
-     * @return {String} output for results
-     */
-    formatResults: function(results, filename, options) {
-        var messages = results.messages,
-            output = [];
-
-        /**
-         * Generate a source string for a rule.
-         * Checkstyle source strings usually resemble Java class names e.g
-         * net.csslint.SomeRuleName
-         * @param {Object} rule
-         * @return rule source as {String}
-         */
-        var generateSource = function(rule) {
-            if (!rule || !('name' in rule)) {
-                return "";
-            }
-            return 'net.csslint.' + rule.name.replace(/\s/g,'');
-        };
-
-        /**
-         * Replace special characters before write to output.
-         *
-         * Rules:
-         *  - single quotes is the escape sequence for double-quotes
-         *  - &lt; is the escape sequence for <
-         *  - &gt; is the escape sequence for >
-         *
-         * @param {String} message to escape
-         * @return escaped message as {String}
-         */
-        var escapeSpecialCharacters = function(str) {
-            if (!str || str.constructor !== String) {
-                return "";
-            }
-            return str.replace(/\"/g, "'").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        };
-
-        if (messages.length > 0) {
-            output.push("<file name=\""+filename+"\">");
-            messages.forEach(function (message, i) {
-                //ignore rollups for now
-                if (!message.rollup) {
-                  output.push("<error line=\"" + message.line + "\" column=\"" + message.col + "\" severity=\"" + message.type + "\"" +
-                      " message=\"" + escapeSpecialCharacters(message.message) + "\" source=\"" + generateSource(message.rule) +"\"/>");
-                }
-            });
-            output.push("</file>");
+    var xmlEscape = function(str) {
+        if (!str || str.constructor !== String) {
+            return "";
         }
+        
+        return str.replace(/[\"&><]/g, function(match) {
+            switch (match) {
+                case "\"":
+                    return "&quot;";
+                case "&":
+                    return "&amp;";
+                case "<":
+                    return "&lt;";
+                case ">":
+                    return "&gt;";            
+            }
+        });
+    };
 
-        return output.join("");
-    }
-});
+    CSSLint.addFormatter({
+        //format information
+        id: "checkstyle-xml",
+        name: "Checkstyle XML format",
+
+        /**
+         * Return opening root XML tag.
+         * @return {String} to prepend before all results
+         */
+        startFormat: function(){
+            return "<?xml version=\"1.0\" encoding=\"utf-8\"?><checkstyle>";
+        },
+
+        /**
+         * Return closing root XML tag.
+         * @return {String} to append after all results
+         */
+        endFormat: function(){
+            return "</checkstyle>";
+        },
+        
+        /**
+         * Returns message when there is a file read error.
+         * @param {String} filename The name of the file that caused the error.
+         * @param {String} message The error message
+         * @return {String} The error message.
+         */
+        readError: function(filename, message) {
+            return "<file name=\"" + xmlEscape(filename) + "\"><error line=\"0\" column=\"0\" severty=\"error\" message=\"" + xmlEscape(message) + "\"></error></file>";
+        },
+
+        /**
+         * Given CSS Lint results for a file, return output for this format.
+         * @param results {Object} with error and warning messages
+         * @param filename {String} relative file path
+         * @param options {Object} (UNUSED for now) specifies special handling of output
+         * @return {String} output for results
+         */
+        formatResults: function(results, filename, options) {
+            var messages = results.messages,
+                output = [];
+
+            /**
+             * Generate a source string for a rule.
+             * Checkstyle source strings usually resemble Java class names e.g
+             * net.csslint.SomeRuleName
+             * @param {Object} rule
+             * @return rule source as {String}
+             */
+            var generateSource = function(rule) {
+                if (!rule || !('name' in rule)) {
+                    return "";
+                }
+                return 'net.csslint.' + rule.name.replace(/\s/g,'');
+            };
+
+
+
+            if (messages.length > 0) {
+                output.push("<file name=\""+filename+"\">");
+                CSSLint.Util.forEach(messages, function (message, i) {
+                    //ignore rollups for now
+                    if (!message.rollup) {
+                      output.push("<error line=\"" + message.line + "\" column=\"" + message.col + "\" severity=\"" + message.type + "\"" +
+                          " message=\"" + xmlEscape(message.message) + "\" source=\"" + generateSource(message.rule) +"\"/>");
+                    }
+                });
+                output.push("</file>");
+            }
+
+            return output.join("");
+        }
+    });
+
+}());
 /*global CSSLint*/
 CSSLint.addFormatter({
     //format information
@@ -8603,7 +8666,7 @@ CSSLint.addFormatter({
             return options.quiet ? "" : filename + ": Lint Free!";
         }
 
-        messages.forEach(function(message, i) {
+        CSSLint.Util.forEach(messages, function(message, i) {
             if (message.rollup) {
                 output += filename + ": " + capitalize(message.type) + " - " + message.message + "\n";
             } else {
@@ -8653,6 +8716,7 @@ CSSLint.addFormatter({
          *
          * Rules:
          *  - single quotes is the escape sequence for double-quotes
+         *  - &amp; is the escape sequence for &
          *  - &lt; is the escape sequence for <
          *  - &gt; is the escape sequence for >
          * 
@@ -8663,12 +8727,12 @@ CSSLint.addFormatter({
             if (!str || str.constructor !== String) {
                 return "";
             }
-            return str.replace(/\"/g, "'").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            return str.replace(/\"/g, "'").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         };
 
         if (messages.length > 0) {
             output.push("<file name=\""+filename+"\">");
-            messages.forEach(function (message, i) {
+            CSSLint.Util.forEach(messages, function (message, i) {
                 if (message.rollup) {
                     output.push("<issue severity=\"" + message.type + "\" reason=\"" + escapeSpecialCharacters(message.message) + "\" evidence=\"" + escapeSpecialCharacters(message.evidence) + "\"/>");
                 } else {
@@ -8680,6 +8744,111 @@ CSSLint.addFormatter({
         }
 
         return output.join("");
+    }
+});
+/*global CSSLint*/
+CSSLint.addFormatter({
+    //format information
+    id: "junit-xml",
+    name: "JUNIT XML format",
+
+    /**
+     * Return opening root XML tag.
+     * @return {String} to prepend before all results
+     */
+    startFormat: function(){
+        return "<?xml version=\"1.0\" encoding=\"utf-8\"?><testsuites>";
+    },
+
+    /**
+     * Return closing root XML tag.
+     * @return {String} to append after all results
+     */
+    endFormat: function() {
+        return "</testsuites>";
+    },
+
+    /**
+     * Given CSS Lint results for a file, return output for this format.
+     * @param results {Object} with error and warning messages
+     * @param filename {String} relative file path
+     * @param options {Object} (UNUSED for now) specifies special handling of output
+     * @return {String} output for results
+     */
+    formatResults: function(results, filename, options) {
+
+        var messages = results.messages,
+            output = [],
+            tests = {
+                'error': 0,
+                'failure': 0
+            };
+
+        /**
+         * Generate a source string for a rule.
+         * JUNIT source strings usually resemble Java class names e.g
+         * net.csslint.SomeRuleName
+         * @param {Object} rule
+         * @return rule source as {String}
+         */
+        var generateSource = function(rule) {
+            if (!rule || !('name' in rule)) {
+                return "";
+            }
+            return 'net.csslint.' + rule.name.replace(/\s/g,'');
+        };
+
+        /**
+         * Replace special characters before write to output.
+         *
+         * Rules:
+         *  - single quotes is the escape sequence for double-quotes
+         *  - &lt; is the escape sequence for <
+         *  - &gt; is the escape sequence for >
+         *
+         * @param {String} message to escape
+         * @return escaped message as {String}
+         */
+        var escapeSpecialCharacters = function(str) {
+
+            if (!str || str.constructor !== String) {
+                return "";
+            }
+
+            return str.replace(/\"/g, "'").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+        };
+
+        if (messages.length > 0) {
+
+            messages.forEach(function (message, i) {
+
+                // since junit has no warning class
+                // all issues as errors
+                var type = message.type === 'warning' ? 'error' : message.type;
+
+                //ignore rollups for now
+                if (!message.rollup) {
+
+                    // build the test case seperately, once joined
+                    // we'll add it to a custom array filtered by type
+                    output.push("<testcase time=\"0\" name=\"" + generateSource(message.rule) + "\">");
+                    output.push("<" + type + " message=\"" + escapeSpecialCharacters(message.message) + "\"><![CDATA[" + message.line + ':' + message.col + ':' + escapeSpecialCharacters(message.evidence)  + "]]></" + type + ">");
+                    output.push("</testcase>");
+
+                    tests[type] += 1;
+
+                }
+
+            });
+
+            output.unshift("<testsuite time=\"0\" tests=\"" + messages.length + "\" skipped=\"0\" errors=\"" + tests.error + "\" failures=\"" + tests.failure + "\" package=\"net.csslint\" name=\"" + filename + "\">");
+            output.push("</testsuite>");
+
+        }
+
+        return output.join("");
+
     }
 });
 /*global CSSLint*/
@@ -8720,6 +8889,7 @@ CSSLint.addFormatter({
          *
          * Rules:
          *  - single quotes is the escape sequence for double-quotes
+         *  - &amp; is the escape sequence for &
          *  - &lt; is the escape sequence for <
          *  - &gt; is the escape sequence for >
          * 
@@ -8730,13 +8900,13 @@ CSSLint.addFormatter({
             if (!str || str.constructor !== String) {
                 return "";
             }
-            return str.replace(/\"/g, "'").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            return str.replace(/\"/g, "'").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         };
 
         if (messages.length > 0) {
         
             output.push("<file name=\""+filename+"\">");
-            messages.forEach(function (message, i) {
+            CSSLint.Util.forEach(messages, function (message, i) {
                 if (message.rollup) {
                     output.push("<issue severity=\"" + message.type + "\" reason=\"" + escapeSpecialCharacters(message.message) + "\" evidence=\"" + escapeSpecialCharacters(message.evidence) + "\"/>");
                 } else {
@@ -8799,7 +8969,7 @@ CSSLint.addFormatter({
             shortFilename = filename.substring(pos+1);
         }
 
-        messages.forEach(function (message, i) {
+        CSSLint.Util.forEach(messages, function (message, i) {
             output = output + "\n\n" + shortFilename;
             if (message.rollup) {
                 output += "\n" + (i+1) + ": " + message.type;
@@ -8848,9 +9018,8 @@ function cli(api){
      * @param options {Object} The CLI options.
      * @return {Object} A ruleset object.
      */
-    function gatherRules(options){
-        var ruleset,
-            warnings = options.rules || options.warnings,
+    function gatherRules(options, ruleset){
+        var warnings = options.rules || options.warnings,
             errors = options.errors;
         
         if (warnings){
@@ -8866,6 +9035,25 @@ function cli(api){
                 ruleset[value] = 2;
             });
         }
+           
+        return ruleset;
+    }
+    
+    /**
+     * Filters out rules using the ignore command line option.
+     * @param options {Object} the CLI options
+     * @return {Object} A ruleset object.
+     */
+    function filterRules(options) {
+        var ignore = options.ignore,
+            ruleset = null;
+        
+        if (ignore) {
+            ruleset = CSSLint.getRuleset();
+            ignore.split(",").forEach(function(value){
+                delete ruleset[value];
+            });            
+        }
         
         return ruleset;
     }
@@ -8878,7 +9066,7 @@ function cli(api){
         api.print("");
         var rules = CSSLint.getRules();
         rules.forEach(function(rule){
-            api.print(rule.id + "\n" + rule.desc + "\n");
+            api.print(rule.id + "\n  " + rule.desc + "\n");
         });
     }
 
@@ -8890,14 +9078,19 @@ function cli(api){
      */
     function processFile(relativeFilePath, options) {
         var input = api.readFile(relativeFilePath),
-            result = CSSLint.verify(input, gatherRules(options)),
+            ruleset = filterRules(options),
+            result = CSSLint.verify(input, gatherRules(options, ruleset)),
             formatter = CSSLint.getFormatter(options.format || "text"),
             messages = result.messages || [],
             output,
             exitCode = 0;
 
         if (!input) {
-            api.print("csslint: Could not read file data in " + relativeFilePath + ". Is the file empty?");
+            if (formatter.readError) {
+                api.print(formatter.readError(relativeFilePath, "Could not read file data. Is the file empty?"));
+            } else {
+                api.print("csslint: Could not read file data in " + relativeFilePath + ". Is the file empty?");
+            }
             exitCode = 1;
         } else {
             //var relativeFilePath = getRelativePath(api.getWorkingDirectory(), fullFilePath);
@@ -8931,6 +9124,7 @@ function cli(api){
             "  --quiet                   Only output when errors are present.",
             "  --errors=<rule[,rule]+>   Indicate which rules to include as errors.",
             "  --warnings=<rule[,rule]+> Indicate which rules to include as warnings.",
+            "  --ignore=<rule,[,rule]+>  Indicate which rules to ignore completely.",
             "  --version                 Outputs the current version number."
         ].join("\n") + "\n");
     }
@@ -8977,44 +9171,72 @@ function cli(api){
             }
         }
         return exitCode;
-    }    
+    } 
+    
+    
+    function processArguments(args, options) {
+        var arg = args.shift(),
+            argName,
+            parts,
+            files = [];
+        
+        while(arg){
+            if (arg.indexOf("--") === 0){
+                argName = arg.substring(2);
+                options[argName] = true;
+                
+                if (argName.indexOf("=") > -1){
+                    parts = argName.split("=");
+                    options[parts[0]] = parts[1];
+                } else {
+                    options[argName] = true;
+                }
+
+            } else {
+                
+                //see if it's a directory or a file
+                if (api.isDirectory(arg)){
+                    files = files.concat(api.getFiles(arg));
+                } else {
+                    files.push(arg);
+                }
+            }
+            arg = args.shift();
+        }
+        
+        options.files = files;
+        return options;
+    }
+    
+    function readConfigFile(options) {
+        var data = api.readFile(api.getFullPath(".csslintrc"));
+        if (data) {           
+            options = processArguments(data.split(/[\s\n\r]+/m), options);
+            api.print("ignore = " + options.ignore);
+            api.print("errors = " + options.errors);
+            api.print("warnings = " + options.warnings);
+        }
+    
+        return options;
+    }
+    
+    
 
     //-----------------------------------------------------------------------------
     // Process command line
     //-----------------------------------------------------------------------------
 
     var args     = api.args,
-        argName,
-        parts,
-        arg      = args.shift(),
-        options  = {},
-        files    = [];
+        argCount = args.length,
+        options  = {};
+        
+    // first look for config file .csslintrc
+    options = readConfigFile(options);    
+    
+    // Command line arguments override config file
+    options = processArguments(args, options);
 
-    while(arg){
-        if (arg.indexOf("--") === 0){
-            argName = arg.substring(2);
-            options[argName] = true;
-            
-            if (argName.indexOf("=") > -1){
-                parts = argName.split("=");
-                options[parts[0]] = parts[1];
-            } else {
-                options[argName] = true;
-            }
-
-        } else {
-            
-            //see if it's a directory or a file
-            if (api.isDirectory(arg)){
-                files = files.concat(api.getFiles(arg));
-            } else {
-                files.push(arg);
-            }
-        }
-        arg = args.shift();
-    }
-
-    if (options.help || arguments.length === 0){
+    if (options.help || argCount === 0){
         outputHelp();
         api.quit(0);
     }
@@ -9029,7 +9251,7 @@ function cli(api){
         api.quit(0);
     }
 
-    api.quit(processFiles(files,options));
+    api.quit(processFiles(options.files,options));
 }
 /*
  * CSSLint Rhino Command Line Interface
@@ -9040,7 +9262,7 @@ function cli(api){
 importPackage(java.io);
 
 cli({
-    args: arguments,
+    args: Array.prototype.concat.call(arguments),
     print: print,
     quit: quit,
     
@@ -9076,5 +9298,11 @@ cli({
         return (new File(filename)).getCanonicalPath();
     },
 
-    readFile: readFile
+    readFile: function(filename) {
+        try {
+            return readFile(filename);
+        } catch (ex) {
+            return "";
+        }
+    }
 });
