@@ -13,17 +13,17 @@
 // Load the modules
 require([
     'jquery',
-    'a'
+    'utils'
 ], 
 
-function ($, a) {
+function ($, utils) {
 
     'use strict';
 
     var app = {
 
         init: function () {
-
+            // Code
         }
     };
 
