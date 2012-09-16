@@ -46,7 +46,9 @@ function ($) {
 
         /**
          * @author Aki Karkkainen
-         * @description Creates script tags dynamically via JavaScript. Non-blocking download begins immediately, and the script executes as soon as it is downloaded completely.
+         * @description Creates script tags dynamically via JavaScript. 
+         * Non-blocking download begins immediately, and the script executes 
+         * as soon as it is downloaded completely.
          * @param {String} url Script url.
          * @example utils.loadJS('/assets/js/modules/new.js');
          * @returns N/A
@@ -62,22 +64,31 @@ function ($) {
 
 
         /**
-         * @author Aki Karkkainen
-         * @description Checks for Internet Explorer browser (all IE versions) using conditional comments.
+         * @author Aki Karkkainen. From JavaScript Patterns by Stoyan Stefanov.
+         * @description Checks for Internet Explorer browser (all IE versions) 
+         * using conditional comments. Useful if we only need to detect IE in 
+         * general, without a version number. It is slightly safer than looking 
+         * for strings in navigator.userAgent, because these strings are easy to 
+         * change by the user.
          * @example utils.isIE();
-         * @returns {Boolean} Returns true for IE and false on all other browsers (useful if we only need to detect IE in general, without version number).
+         * @returns {Boolean} Will return false in all browsers (because they 
+         * ignore the comment), but it will be true in Internet Explorer, 
+         * because of the negation ! in the conditional comment.
          */
         isIE: function () {
+            // IE returns !false;
             return /*@cc_on!@*/false;
         },
 
 
         /**
          * @author Aki Karkkainen
-         * @description Checks for specific Internet Explorer browser version from conditional comments.
-         * @param {String} ieversion IE version string from conditional comments (ie6, ie7, iem7, ie8, ie9).
+         * @description Checks for specific Internet Explorer browser version 
+         * from conditional comments.
+         * @param {String} ieversion IE version string from conditional comments. 
+         * (ie6, ie7, iem7, ie8, ie9).
          * @example utils.isIEVersion(ie7);
-         * @returns {Boolean} Returns true for IE version passed in as a parameter.
+         * @returns {Boolean} On IE, returns true for IE version passed in as a parameter.
          */
         isIEVersion: function (ieversion) {
             return document.documentElement.className.indexOf(ieversion) >= 0;
