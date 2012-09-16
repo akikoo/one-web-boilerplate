@@ -292,6 +292,10 @@ You can now deploy the site using your favourite Continuous Integration server.
 It could be Jenkins (http://jenkins-ci.org) or Bamboo 
 (http://www.atlassian.com/software/bamboo/). You decide. 
 
+Please note that the earlier version of this framework that uses the Yahoo YUI 
+compressor is tagged here: https://github.com/akikoo/one-web-boilerplate/tags. 
+Nowadays I prefer the framework to use RequireJS with an optimizer that manages 
+dependencies in a much easier way. 
 
 ## To-Do: 
 * Small tweaks here and there...
