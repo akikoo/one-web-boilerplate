@@ -312,7 +312,10 @@ select {
 }
 
 textarea {
-    width: 99%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 input[type="checkbox"],
@@ -370,7 +373,7 @@ input[type="submit"]:active {
 }
 
 
-/* Module display and source
+/*=Module display and source wrappers
 ------------------------------------------------------------------------------*/
 .module {
     margin-bottom: 3em;
@@ -384,25 +387,28 @@ input[type="submit"]:active {
     vertical-align: middle;
 }
 
+/* Module display wrapper */
 .display {
-    margin-bottom: 1em;
+    margin: 0.5em 0 1em; /*8px 0 16px*/
+    padding: 0.375em 1em; /*6px 16px*/
 }
 
+/* Module source wrapper */
 .source {
 
 }
 
 .source textarea {
-    border: 1px solid #CCCCCC;
+    border: 1px solid #ccc;
     overflow: auto;
-    padding: 6px 10px;    
+    padding: 0.5em; /*12px*/
     vertical-align: middle;
     font-size: 0.75em; /*12px*/
     line-height: 1.5; /*18px, off the system*/
-    font-family: Consolas,Menlo,"Liberation Mono",Courier,monospace;
+    font-family: Consolas, Menlo, "Liberation Mono",Courier,monospace;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: none;
     background: #f8f8f8;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow:  none;
 }
 
 
@@ -477,14 +483,4 @@ caption {
 
 .icon-a {
     background-position:0 0;
-}
-
-
-/* Markup example wrapper
-------------------------------------------------------------------------------*/
-.example {
-    margin: 1em; /*16px*/
-    outline: 1px solid #eee;
-    padding: 0.375em 1em; /*6px 16px*/
-    background: #f0f0f0;   
 }
