@@ -31,7 +31,7 @@ require.config({
             exports: '$'
         },
         utils       : { 
-            deps: ['jquery'] // These script dependencies should be loaded before loading a.js
+            deps: ['jquery'] // These script dependencies should be loaded before loading utils.js
         }
     } // end Shim Configuration
 
