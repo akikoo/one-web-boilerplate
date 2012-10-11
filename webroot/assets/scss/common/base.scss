@@ -1,0 +1,77 @@
+/**
+ * 
+ * Mobile first stylesheet for all the browsers out there
+ *
+ * @author Aki Karkkainen
+ * @url https://github.com/akikoo/one-web-boilerplate
+ * Twitter: http://twitter.com/akikoo
+ * 
+*/
+
+
+
+/*==============================================================================
+1)	Mini reset and global base styles, to extend normalize.css which is included 
+    before these styles
+==============================================================================*/
+
+/* Enable this if you want to reset ALL paddings and margins; CSSLint will throw a warning though
+* {
+    margin: 0;
+    padding: 0;
+}
+*/
+
+body {
+    font-size: 100%; /* 16px (assuming browser default is 16px) */
+    line-height: 1; /* 16px */
+}
+
+/* Visually hiding content that will be read by a screen reader
+------------------------------------------------------------------------------*/
+.accessibility a {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/*active when the user tabs to the link*/
+.accessibility a:focus {
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+/*Typefaces: Sans-serif
+------------------------------------------------------------------------------*/
+
+
+/*Typefaces: Serif
+------------------------------------------------------------------------------*/
+
+
+
+/*==============================================================================
+2)	Mobile first styles: Only colour and typography
+    Begin with a layout-less version and serve only default, linear layout
+    Remember these rules are applied also in older desktop browsers that don't 
+    support media queries
+==============================================================================*/
+
+/*Flexible images and embedded videos
+------------------------------------------------------------------------------*/
+img,
+audio, 
+video,
+object,
+embed, 
+svg {
+    max-width: 100%;
+}
+
+
+
+/*Put your styles here...*/
