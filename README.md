@@ -111,7 +111,7 @@ You should now be up and running with both the environment and the local build.
 * A CSS preprocessor, either Sass (http://sass-lang.com/, default option) or LESS 
     (http://lesscss.org/) is used to compile the stylesheets. If you don't want to 
     use a preprocessor, you can of course work with the CSS files directly. To do so, 
-    comment out &lt;css.compile.scss /&gt; macrodef call in /build/build.xml. Sass is 
+    comment out &lt;css.compile.sass /&gt; macrodef call in /build/build.xml. Sass is 
     used by default but if you prefer LESS, there's a commented out task for that too, 
     in /build/build.xml. 
 
@@ -141,8 +141,7 @@ You should now be up and running with both the environment and the local build.
     For more information, see project main index file: 
     https://github.com/akikoo/one-web-boilerplate/blob/master/webroot/html/index.shtml
 
-### CSS - six stylesheets by default, compiled by Sass (default) or LESS, included 
-    in the following order: 
+### CSS - six stylesheets by default, compiled by Sass (default) or LESS, included in the following order: 
 * /webroot/assets/css/common/normalize.css (reset styles)
 * /webroot/assets/css/common/base.css (global, mobile first styles, containing only 
     common colour and typographic rules for basic experience to all users)
@@ -303,8 +302,12 @@ It could be Jenkins (http://jenkins-ci.org) or Bamboo
 
 Please note that the earlier version of this framework that uses the Yahoo YUI 
 compressor is tagged here: https://github.com/akikoo/one-web-boilerplate/tags. 
-Nowadays I prefer the framework to use RequireJS with an optimizer that manages 
+Nowadays I prefer this framework to use RequireJS with an optimizer that manages 
 dependencies in a much easier way. 
+
+One more thing: you should obviously exclude /build/publish directory from version 
+control because that directory is cleaned up and recreated on each build. 
+No need to track changes to that.
 
 ## To-Do: 
 * Small tweaks here and there...
