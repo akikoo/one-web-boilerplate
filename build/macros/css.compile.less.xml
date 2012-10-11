@@ -13,7 +13,7 @@
                         dir="${src.less.dir}"
                         includes="common/*.less, pages/*.less, *.less" 
                         excludes=""
-                />
+                    />
                 </path>
             </foreach>
 

@@ -1,0 +1,62 @@
+<!-- COMPILE SASS TO CSS -->
+<!-- Author: Aki Karkkainen, adapted from https://github.com/h5bp/ant-build-script/blob/master/build.xml -->
+<!-- See also http://workingonthecoolstuff.blogspot.dk/2011/02/using-sass-in-ant-build.html -->
+<project name="Css.Compile.Sass">
+
+    <macrodef name="css.compile.sass" description="(PUBLIC) Converts Sass files into CSS files and copies generated files under /css, to be used both for development and RequireJS optimizer">
+
+        <sequential>
+
+            <!-- Process soecified files in the scss dir by calling the actual scss target -->
+            <foreach param="input" target="scss">
+                <path>
+                    <fileset 
+                        dir="${src.sass.dir}"
+                        includes="common/*.scss, pages/*.scss, *.scss" 
+                        excludes="**/_*"
+                    />
+                </path>
+            </foreach>
+
+        </sequential>
+
+    </macrodef>
+
+
+    <target name="scss">
+
+        <!-- Define tools -->
+        <path id="JRuby">
+            <fileset file="${tool.jruby}" />
+            <fileset file="${tool.gemsass}" />
+        </path>
+
+        <!-- Set output file path using propertyregex task, using input file path as source -->
+        <propertyregex 
+            property="output"
+            input="${input}"
+            regexp="scss"
+            replace="css"
+            casesensitive="false" 
+        />
+
+        <!-- Input: passed in as parameter -->
+        <property name="scss.src" value="${input}" />
+
+        <!-- Output: string replacement with propertyregex above -->
+        <property name="scss.dest" value="${output}" />
+
+        <!-- Now compile -->
+        <script language="ruby" classpathref="JRuby">
+            <![CDATA[require 'rubygems'
+                require 'sass'
+                require 'sass/exec'
+                opts = Sass::Exec::Sass.new([$project.getProperty('scss.src'), $project.getProperty('scss.dest')])
+                opts.parse]]>
+        </script>
+
+        <echo>Sass (scss): generated ${output}</echo>
+
+    </target>
+
+</project>
