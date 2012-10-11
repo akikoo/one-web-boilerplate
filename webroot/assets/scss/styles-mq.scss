@@ -40,29 +40,25 @@
     larger screens. You can then use these stylesheets to overwrite only the rules 
     you need to, for each range.
 ==============================================================================*/
-@import "mq-overlap/320-up";
+
 @media only screen and (min-width: 20em) {
-.320-up();
+    @import "mq-overlap/320-up";
 }
 
-@import "mq-overlap/480-up";
 @media only screen and (min-width: 30em) {
-.480-up();
+    @import "mq-overlap/480-up";
 }
 
-@import "mq-overlap/768-up";
 @media only screen and (min-width: 48em) {
-.768-up();
+    @import "mq-overlap/768-up";
 }
 
-@import "mq-overlap/992-up";
 @media only screen and (min-width: 62em) {
-.992-up();
+    @import "mq-overlap/992-up";
 }
 
-@import "mq-overlap/1382-up";
 @media only screen and (min-width: 86.375em) {
-.1382-up();
+    @import "mq-overlap/1382-up";
 }
 
 
@@ -73,24 +69,20 @@
     Use these if you only want to target a specific resolution range, without 
     styles cascading outside the range or to larger screens
 ==============================================================================*/
-@import "mq-stack/320-479";
 @media only screen and (min-width: 20em) and (max-width: 29.9375em) {
-.320-479();
+    @import "mq-stack/320-479";
 }
 
-@import "mq-stack/480-767";
 @media only screen and (min-width: 30em) and (max-width: 47.9375em) {
-.480-767();
+    @import "mq-stack/480-767";
 }
 
-@import "mq-stack/768-991";
 @media only screen and (min-width: 48em) and (max-width: 61.9375em) {
-.768-991();
+    @import "mq-stack/768-991";
 }
 
-@import "mq-stack/992-1381";
 @media only screen and (min-width: 62em) and (max-width: 86.3125em) {
-.992-1381();
+    @import "mq-stack/992-1381";
 }
 
 
@@ -100,10 +92,9 @@
 
     Use these if you need to target smartphones, tablets or high pixel ratio devices
 ==============================================================================*/
-@import "mq-device/pixel-ratio";
 @media 
 only screen and (-webkit-min-device-pixel-ratio: '1.5'),
 only screen and (-o-min-device-pixel-ratio: '3/2'),
 only screen and (min-device-pixel-ratio: '1.5') {
-.high-pixel();
+    @import "mq-device/pixel-ratio";
 }

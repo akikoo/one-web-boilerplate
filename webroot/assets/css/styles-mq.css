@@ -1,10 +1,7 @@
-@import "common/normalize.css";
-
-@import "common/base.css";
-
-@import "common/utilities.css";
-
-@import "common/theme.css";
+@import url(common/normalize.css);
+@import url(common/base.css);
+@import url(common/utilities.css);
+@import url(common/theme.css);
 /**
  * 
  * Media Queries for responsive design for smartphones, tablets and larger screens
@@ -42,395 +39,383 @@
     larger screens. You can then use these stylesheets to overwrite only the rules 
     you need to, for each range.
 ==============================================================================*/
-/**
- * ==|== 320-up ====
- * 
- * 320px and up
- * 
- * Overlapping Media Query
- *
- * Widths are defined in ems, based on generic browser default 
- * setting of 16px font size.
- *
- * These enhance and sometimes override the primary (mobile first) styles.
- * 
- * Credits: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * 
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
-/*==============================================================================
-    320px and up
-
-Em conversion: 
-320 / 16 = 20em
-==============================================================================*/
 @media only screen and (min-width: 20em) {
+  /**
+   * ==|== 320-up ====
+   * 
+   * 320px and up
+   * 
+   * Overlapping Media Query
+   *
+   * Widths are defined in ems, based on generic browser default 
+   * setting of 16px font size.
+   *
+   * These enhance and sometimes override the primary (mobile first) styles.
+   * 
+   * Credits: 
+   * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+   * http://forabeautifulweb.com/blog/about/320_and_up/
+   * http://html5boilerplate.com/mobile
+   * http://adactio.com/journal/1700/
+   * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+   * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+   * 
+   * @url https://github.com/akikoo/one-web-boilerplate
+   * Twitter: http://twitter.com/akikoo
+   *
+   */
+  /*==============================================================================
+      320px and up
+  
+  Em conversion: 
+  320 / 16 = 20em
+  ==============================================================================*/
   /** 
-       * Generic style adjustments for viewports 320px and over go here 
-       * Remember these styles cascade into all sizes above 320px 
-       */
+   * Generic style adjustments for viewports 320px and over go here 
+   * Remember these styles cascade into all sizes above 320px 
+   */
   /**  
-       * We sometimes want the footer to always stay at the bottom
-       * If not, just remove this block 
-       * 
-       * Sticky Footer Solution by Steve Hatcher 
-       * http://stever.ca
-       * http://www.cssstickyfooter.com
-       * 
-       * NOTE: Use padding, not margins or borders to create spacing inside the elements
-       * Place your content elements inside the main div
-       * A header could be placed inside the #page but above the main
-       * Structure:
-          <div class="page">
-              <div role="main"></div>
-          </div>
-          <div role="contentinfo"></div>
-       */
+   * We sometimes want the footer to always stay at the bottom
+   * If not, just remove this block 
+   * 
+   * Sticky Footer Solution by Steve Hatcher 
+   * http://stever.ca
+   * http://www.cssstickyfooter.com
+   * 
+   * NOTE: Use padding, not margins or borders to create spacing inside the elements
+   * Place your content elements inside the main div
+   * A header could be placed inside the #page but above the main
+   * Structure:
+      <div class="page">
+          <div role="main"></div>
+      </div>
+      <div role="contentinfo"></div>
+   */
   html, body {
-    height: 100%;
-  }
+    height: 100%; }
+
   .page {
-    min-height: 100%;
-  }
+    min-height: 100%; }
+
   [role="main"] {
     overflow: auto;
     padding-bottom: 60px;
-    /*must be same height as the footer*/
-  
-  }
+    /*must be same height as the footer*/ }
+
   [role="contentinfo"] {
     position: relative;
     margin-top: -60px;
     /*negative value of footer height*/
-  
     height: 60px;
-    clear: both;
-  }
-  /*END Sticky footer*/
-}
-/**
- * ==|== 480-up ====
- * 
- * 480px and up  
- * 
- * Overlapping Media Query
- *
- * Widths are defined in ems, based on generic browser default 
- * setting of 16px font size.
- *
- * These enhance and sometimes override the primary (mobile first) styles.
- * 
- * Credits: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * 
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
-/*==============================================================================
-    480px and up  
+    clear: both; }
 
-    Em conversion: 
-    480 / 16 = 30em
-==============================================================================*/
+  /*END Sticky footer*/ }
 @media only screen and (min-width: 30em) {
-  /* Style adjustments for viewports 480px and over go here */
-}
-/**
- * ==|== 768-up ====
- * 
- * 768px and up 
- * 
- * Overlapping Media Query
- *
- * Widths are defined in ems, based on generic browser default 
- * setting of 16px font size.
- *
- * These enhance and sometimes override the primary (mobile first) styles.
- * 
- * Credits: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * 
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
-/*==============================================================================
-    768px and up 
-
-    Em conversion: 
-    768 / 16 = 48em
-==============================================================================*/
+  /**
+   * ==|== 480-up ====
+   * 
+   * 480px and up  
+   * 
+   * Overlapping Media Query
+   *
+   * Widths are defined in ems, based on generic browser default 
+   * setting of 16px font size.
+   *
+   * These enhance and sometimes override the primary (mobile first) styles.
+   * 
+   * Credits: 
+   * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+   * http://forabeautifulweb.com/blog/about/320_and_up/
+   * http://html5boilerplate.com/mobile
+   * http://adactio.com/journal/1700/
+   * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+   * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+   * 
+   * @url https://github.com/akikoo/one-web-boilerplate
+   * Twitter: http://twitter.com/akikoo
+   *
+   */
+  /*==============================================================================
+      480px and up  
+  
+      Em conversion: 
+      480 / 16 = 30em
+  ==============================================================================*/
+  /* Style adjustments for viewports 480px and over go here */ }
 @media only screen and (min-width: 48em) {
-  /* Style adjustments for viewports 768px and over go here */
-}
-/**
- * ==|== 992-up ====
- * 
- * 992px and up 
- * 
- * Overlapping Media Query
- *
- * Widths are defined in ems, based on generic browser default 
- * setting of 16px font size.
- *
- * These enhance and sometimes override the primary (mobile first) styles.
- * 
- * Credits: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * 
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
-/*==============================================================================
-    992px and up 
-
-    Em conversion: 
-    992 / 16 = 62em
-==============================================================================*/
+  /**
+   * ==|== 768-up ====
+   * 
+   * 768px and up 
+   * 
+   * Overlapping Media Query
+   *
+   * Widths are defined in ems, based on generic browser default 
+   * setting of 16px font size.
+   *
+   * These enhance and sometimes override the primary (mobile first) styles.
+   * 
+   * Credits: 
+   * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+   * http://forabeautifulweb.com/blog/about/320_and_up/
+   * http://html5boilerplate.com/mobile
+   * http://adactio.com/journal/1700/
+   * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+   * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+   * 
+   * @url https://github.com/akikoo/one-web-boilerplate
+   * Twitter: http://twitter.com/akikoo
+   *
+   */
+  /*==============================================================================
+      768px and up 
+  
+      Em conversion: 
+      768 / 16 = 48em
+  ==============================================================================*/
+  /* Style adjustments for viewports 768px and over go here */ }
 @media only screen and (min-width: 62em) {
-  /* Style adjustments for viewports 992px and over go here */
-}
-/**
- * ==|== 1382-up ====
- * 
- * 1382px and up 
- * 
- * Overlapping Media Query
- *
- * Widths are defined in ems, based on generic browser default 
- * setting of 16px font size.
- *
- * These enhance and sometimes override the primary (mobile first) styles.
- * 
- * Credits: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * 
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
-/*==============================================================================
-    1382px and up 
-
-    Em conversion: 
-    1382 / 16 = 86.375em
-==============================================================================*/
+  /**
+   * ==|== 992-up ====
+   * 
+   * 992px and up 
+   * 
+   * Overlapping Media Query
+   *
+   * Widths are defined in ems, based on generic browser default 
+   * setting of 16px font size.
+   *
+   * These enhance and sometimes override the primary (mobile first) styles.
+   * 
+   * Credits: 
+   * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+   * http://forabeautifulweb.com/blog/about/320_and_up/
+   * http://html5boilerplate.com/mobile
+   * http://adactio.com/journal/1700/
+   * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+   * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+   * 
+   * @url https://github.com/akikoo/one-web-boilerplate
+   * Twitter: http://twitter.com/akikoo
+   *
+   */
+  /*==============================================================================
+      992px and up 
+  
+      Em conversion: 
+      992 / 16 = 62em
+  ==============================================================================*/
+  /* Style adjustments for viewports 992px and over go here */ }
 @media only screen and (min-width: 86.375em) {
+  /**
+   * ==|== 1382-up ====
+   * 
+   * 1382px and up 
+   * 
+   * Overlapping Media Query
+   *
+   * Widths are defined in ems, based on generic browser default 
+   * setting of 16px font size.
+   *
+   * These enhance and sometimes override the primary (mobile first) styles.
+   * 
+   * Credits: 
+   * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+   * http://forabeautifulweb.com/blog/about/320_and_up/
+   * http://html5boilerplate.com/mobile
+   * http://adactio.com/journal/1700/
+   * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+   * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+   * 
+   * @url https://github.com/akikoo/one-web-boilerplate
+   * Twitter: http://twitter.com/akikoo
+   *
+   */
+  /*==============================================================================
+      1382px and up 
+  
+      Em conversion: 
+      1382 / 16 = 86.375em
+  ==============================================================================*/
   /* Style adjustments for viewports 1382px and over go here */
-  /* Consider using max-width here, for better readability... */
-}
+  /* Consider using max-width here, for better readability... */ }
 /*==============================================================================
     (OPTION B) Stacked Media Queries (Responsive larger screen styles)
 
     Use these if you only want to target a specific resolution range, without 
     styles cascading outside the range or to larger screens
 ==============================================================================*/
-/**
- * ==|== 320-479 ====
- * 
- * 320px - 479px
- * 
- * Stacked Media Query, use if necessary to isolate rules to target a specific 
- * resolution range. 
- * 
- * Widths are defined in ems, based on generic browser default 
- * setting of 16px font size.
- *
- * These enhance and sometimes override the primary (mobile first) styles.
- * 
- * Credits: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * 
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
-/*==============================================================================
-    320px - 479px
-
-    Em conversion: 
-    320 / 16 = 20em
-    479 / 16 = 29.9375em
-==============================================================================*/
 @media only screen and (min-width: 20em) and (max-width: 29.9375em) {
-  /* Style adjustments for viewports between 320px and 479px go here */
-}
-/**
- * ==|== 480-767 ====
- * 
- * 480px - 767px
- * 
- * Stacked Media Query, use if necessary to isolate rules to target a specific 
- * resolution range. 
- * 
- * Widths are defined in ems, based on generic browser default 
- * setting of 16px font size.
- *
- * These enhance and sometimes override the primary (mobile first) styles.
- * 
- * Credits: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * 
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
-/*==============================================================================
-    480px - 767px
-
-    Em conversion: 
-    480 / 16 = 30em
-    767 / 16 = 47.9375em
-==============================================================================*/@media only screen and (min-width: 30em) and (max-width: 47.9375em) {
-  /* Style adjustments for viewports between 480px and 767px go here */
-}
-/**
- * ==|== 768-991 ====
- * 
- * 768px - 991px 
- * 
- * Stacked Media Query, use if necessary to isolate rules to target a specific 
- * resolution range. 
- * 
- * Widths are defined in ems, based on generic browser default 
- * setting of 16px font size.
- *
- * These enhance and sometimes override the primary (mobile first) styles.
- * 
- * Credits: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * 
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
-/*==============================================================================
-    768px - 991px 
-
-    Em conversion: 
-    768 / 16 = 48em
-    991 / 16 = 61.9375em
-==============================================================================*/@media only screen and (min-width: 48em) and (max-width: 61.9375em) {
-  /* Style adjustments for viewports between 768px and 991px go here */
-}
-/**
- * ==|== 992-1381 ====
- * 
- * 992px - 1381px
- * 
- * Stacked Media Query, use if necessary to isolate rules to target a specific 
- * resolution range. 
- * 
- * Widths are defined in ems, based on generic browser default 
- * setting of 16px font size.
- *
- * These enhance and sometimes override the primary (mobile first) styles.
- * 
- * Credits: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * 
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
-/*==============================================================================
-    992px - 1381px
-
-    Em conversion: 
-    992 / 16 = 62em
-    1381 / 16 = 86.3125em
-==============================================================================*/@media only screen and (min-width: 62em) and (max-width: 86.3125em) {
-  /* Style adjustments for viewports between 992px and 1381px go here */
-}
+  /**
+   * ==|== 320-479 ====
+   * 
+   * 320px - 479px
+   * 
+   * Stacked Media Query, use if necessary to isolate rules to target a specific 
+   * resolution range. 
+   * 
+   * Widths are defined in ems, based on generic browser default 
+   * setting of 16px font size.
+   *
+   * These enhance and sometimes override the primary (mobile first) styles.
+   * 
+   * Credits: 
+   * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+   * http://forabeautifulweb.com/blog/about/320_and_up/
+   * http://html5boilerplate.com/mobile
+   * http://adactio.com/journal/1700/
+   * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+   * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+   * 
+   * @author Aki Karkkainen
+   * @url https://github.com/akikoo/one-web-boilerplate
+   * Twitter: http://twitter.com/akikoo
+   *
+   */
+  /*==============================================================================
+      320px - 479px
+  
+      Em conversion: 
+      320 / 16 = 20em
+      479 / 16 = 29.9375em
+  ==============================================================================*/
+  /* Style adjustments for viewports between 320px and 479px go here */ }
+@media only screen and (min-width: 30em) and (max-width: 47.9375em) {
+  /**
+   * ==|== 480-767 ====
+   * 
+   * 480px - 767px
+   * 
+   * Stacked Media Query, use if necessary to isolate rules to target a specific 
+   * resolution range. 
+   * 
+   * Widths are defined in ems, based on generic browser default 
+   * setting of 16px font size.
+   *
+   * These enhance and sometimes override the primary (mobile first) styles.
+   * 
+   * Credits: 
+   * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+   * http://forabeautifulweb.com/blog/about/320_and_up/
+   * http://html5boilerplate.com/mobile
+   * http://adactio.com/journal/1700/
+   * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+   * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+   * 
+   * @author Aki Karkkainen
+   * @url https://github.com/akikoo/one-web-boilerplate
+   * Twitter: http://twitter.com/akikoo
+   *
+   */
+  /*==============================================================================
+      480px - 767px
+  
+      Em conversion: 
+      480 / 16 = 30em
+      767 / 16 = 47.9375em
+  ==============================================================================*/
+  /* Style adjustments for viewports between 480px and 767px go here */ }
+@media only screen and (min-width: 48em) and (max-width: 61.9375em) {
+  /**
+   * ==|== 768-991 ====
+   * 
+   * 768px - 991px 
+   * 
+   * Stacked Media Query, use if necessary to isolate rules to target a specific 
+   * resolution range. 
+   * 
+   * Widths are defined in ems, based on generic browser default 
+   * setting of 16px font size.
+   *
+   * These enhance and sometimes override the primary (mobile first) styles.
+   * 
+   * Credits: 
+   * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+   * http://forabeautifulweb.com/blog/about/320_and_up/
+   * http://html5boilerplate.com/mobile
+   * http://adactio.com/journal/1700/
+   * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+   * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+   * 
+   * @author Aki Karkkainen
+   * @url https://github.com/akikoo/one-web-boilerplate
+   * Twitter: http://twitter.com/akikoo
+   *
+   */
+  /*==============================================================================
+      768px - 991px 
+  
+      Em conversion: 
+      768 / 16 = 48em
+      991 / 16 = 61.9375em
+  ==============================================================================*/
+  /* Style adjustments for viewports between 768px and 991px go here */ }
+@media only screen and (min-width: 62em) and (max-width: 86.3125em) {
+  /**
+   * ==|== 992-1381 ====
+   * 
+   * 992px - 1381px
+   * 
+   * Stacked Media Query, use if necessary to isolate rules to target a specific 
+   * resolution range. 
+   * 
+   * Widths are defined in ems, based on generic browser default 
+   * setting of 16px font size.
+   *
+   * These enhance and sometimes override the primary (mobile first) styles.
+   * 
+   * Credits: 
+   * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+   * http://forabeautifulweb.com/blog/about/320_and_up/
+   * http://html5boilerplate.com/mobile
+   * http://adactio.com/journal/1700/
+   * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+   * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+   * 
+   * @author Aki Karkkainen
+   * @url https://github.com/akikoo/one-web-boilerplate
+   * Twitter: http://twitter.com/akikoo
+   *
+   */
+  /*==============================================================================
+      992px - 1381px
+  
+      Em conversion: 
+      992 / 16 = 62em
+      1381 / 16 = 86.3125em
+  ==============================================================================*/
+  /* Style adjustments for viewports between 992px and 1381px go here */ }
 /*==============================================================================
     (OPTION C) Device-specific Media Queries
 
     Use these if you need to target smartphones, tablets or high pixel ratio devices
 ==============================================================================*/
-/**
- * ==|== pixel-ratio ====
- * 
- * 
- * 
- * Media Queries for responsive design for high pixel ratio devices
- *
- * Widths are defined in ems, based on generic browser default 
- * setting of 16px font size.
- *
- * These enhance and sometimes override the primary (mobile first) styles.
- * 
- * Credits: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * 
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
-/*==============================================================================
-    iPhone 4, Opera Mobile 11 and other high pixel ratio devices 
-==============================================================================*/
-@media only screen and (-webkit-min-device-pixel-ratio: '1.5'),
-only screen and (-o-min-device-pixel-ratio: '3/2'),
-only screen and (min-device-pixel-ratio: '1.5') {
-  /* Styles */
-}
-
+@media only screen and (-webkit-min-device-pixel-ratio: '1.5'), only screen and (-o-min-device-pixel-ratio: '3/2'), only screen and (min-device-pixel-ratio: '1.5') {
+  /**
+   * ==|== pixel-ratio ====
+   * 
+   * 
+   * 
+   * Media Queries for responsive design for high pixel ratio devices
+   *
+   * Widths are defined in ems, based on generic browser default 
+   * setting of 16px font size.
+   *
+   * These enhance and sometimes override the primary (mobile first) styles.
+   * 
+   * Credits: 
+   * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+   * http://forabeautifulweb.com/blog/about/320_and_up/
+   * http://html5boilerplate.com/mobile
+   * http://adactio.com/journal/1700/
+   * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+   * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+   * 
+   * @url https://github.com/akikoo/one-web-boilerplate
+   * Twitter: http://twitter.com/akikoo
+   *
+   */
+  /*==============================================================================
+      iPhone 4, Opera Mobile 11 and other high pixel ratio devices 
+  ==============================================================================*/
+  /* Styles */ }

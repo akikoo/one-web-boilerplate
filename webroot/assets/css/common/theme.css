@@ -19,21 +19,21 @@
     This results in consistent baseline even if element font size decreases or increases.
 -------------------------------------------------------------------------------*/
 header[role="banner"] {
-  display: none;
-}
+  display: none; }
+
 .nav-main {
-  padding: 0;
-}
+  padding: 0; }
+
 .footer-main p {
-  margin: 0;
-}
+  margin: 0; }
+
 body {
   font-family: Cambria, Georgia, serif;
   color: #333;
   width: 80%;
   max-width: 48em;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
+
 /*=hx
 ------------------------------------------------------------------------------*/
 h1,
@@ -44,84 +44,69 @@ h5,
 h6 {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-weight: normal;
-  padding: 0;
-}
+  padding: 0; }
+
 h1 {
   font-size: 2.25em;
   /*36px*/
-
   line-height: 1;
   /*36px */
+  margin: 0.66666666666667em 0; }
 
-  margin: 0.66666666666667em 0;
-}
 h2 {
   font-size: 1.5em;
   /*24px*/
-
   line-height: 1;
   /*24px*/
-
   margin: 2em 0 0;
   /*48px*/
+  color: #839F03; }
 
-  color: #839F03;
-}
 h3 {
   font-size: 1.3125em;
   /*21px*/
-
   line-height: 1.14285714285714;
   /*24px*/
-
   margin: 1.14285714285714em 0 0;
-  color: #333;
-}
+  color: #333; }
+
 h4 {
   font-size: 1.125em;
   /*18px*/
-
   line-height: 1.33333333333333;
   /*24px*/
-
   margin: 1.33333333333333em 0 0;
-  color: #444;
-}
+  color: #444; }
+
 h5 {
   font-size: 1em;
   /*16px*/
-
   line-height: 1.5;
   /*24px*/
-
   margin: 1.5em 0 0;
   text-transform: uppercase;
   letter-spacing: 0.0625em;
   /*1px*/
+  color: #555; }
 
-  color: #555;
-}
 h6 {
   font-size: 0.875em;
   /*14px*/
-
   line-height: 1.71428571428571;
   /*24px*/
-
   margin: 1.71428571428571em 0 0;
   text-transform: uppercase;
   letter-spacing: 0.07142857142857em;
   /*1px*/
+  color: #666; }
 
-  color: #666;
-}
 /*=hr
 ------------------------------------------------------------------------------*/
 hr {
   border: none;
   height: 1px;
-  background: #ccc;
-}
+  background: #ccc; }
+
 /* Grouped declarations
 ------------------------------------------------------------------------------*/
 ul,
@@ -132,36 +117,32 @@ form,
 fieldset {
   font-size: 1em;
   /*16px*/
-
   line-height: 1.5;
   /*24px*/
-
   margin: 0.75em 0;
-  /*12px*/
+  /*12px*/ }
 
-}
 /*=lists
 ------------------------------------------------------------------------------*/
-ul, ol, dl {
+ul,
+ol,
+dl {
   font-size: 1em;
   /*16px*/
-
   line-height: 1.5;
   /*24px*/
-
   margin: 0.75em 0;
-  /*12px*/
+  /*12px*/ }
 
-}
 ul ul,
 ul ol,
 ol ol,
 ol ul {
-  margin: 0;
-}
+  margin: 0; }
+
 dt {
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 /*=blockquotes
 ------------------------------------------------------------------------------*/
 blockquote {
@@ -172,19 +153,15 @@ blockquote {
   font-style: italic;
   font-size: 1em;
   /*16px*/
-
   line-height: 1.5;
   /*24px*/
-
   margin: 0.75em 0;
   /*12px*/
-
   letter-spacing: 0.0625em;
   /*1px*/
-
   color: #888;
-  border-color: #ddd;
-}
+  border-color: #ddd; }
+
 /*=img
 ------------------------------------------------------------------------------*/
 img {
@@ -194,9 +171,8 @@ img {
   margin: 0;
   max-width: 97%;
   padding: 5px;
-  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */ }
 
-}
 /*=figures
 ------------------------------------------------------------------------------*/
 figcaption {
@@ -204,81 +180,79 @@ figcaption {
   font-style: italic;
   font-size: 1em;
   /*16px*/
-
   line-height: 1.5;
   /*24px*/
-
   margin: 0.75em 0;
   /*12px*/
+  color: #666; }
 
-  color: #666;
-}
 /*=p
 ------------------------------------------------------------------------------*/
 p {
   font-size: 1em;
   /*16px*/
-
   line-height: 1.5;
   /*24px*/
-
   margin: 0.75em 0;
-  /*12px*/
+  /*12px*/ }
 
-}
 /*=anchors
 ------------------------------------------------------------------------------*/
 a {
   text-decoration: none;
   border-bottom-style: dotted;
   border-bottom-width: 1px;
-  white-space: pre-wrap;
-}
-a:link, a:visited {
+  white-space: pre-wrap; }
+
+a:link,
+a:visited {
   color: #369;
-  border-bottom-color: #369;
-}
-a:hover, a:focus {
+  border-bottom-color: #369; }
+
+a:hover,
+a:focus {
   color: #c03;
-  border-bottom-color: #c03;
-}
+  border-bottom-color: #c03; }
+
 a:active {
   color: #900;
-  border-bottom-color: #900;
-}
+  border-bottom-color: #900; }
+
 /*=form elements
 ------------------------------------------------------------------------------*/
 .control-group {
-  margin: 0 0 1em 0;
-}
+  margin: 0 0 1em 0; }
+
 fieldset fieldset .control-group {
-  margin: 0;
-}
+  margin: 0; }
+
 /* http://nicolasgallagher.com/micro-clearfix-hack/ */
-.control-group:before, .control-group:after {
-  content: "";
-  display: table;
-}
+.control-group:before,
 .control-group:after {
-  clear: both;
-}
+  content: "";
+  display: table; }
+
+.control-group:after {
+  clear: both; }
+
 /* For IE 6/7 (trigger hasLayout) */
 .ie7 .control-group {
-  zoom: 1;
-}
+  zoom: 1; }
+
 label {
   float: left;
   width: 30%;
-  cursor: pointer;
-}
-input[type="radio"], input[type="checkbox"] {
+  cursor: pointer; }
+
+input[type="radio"],
+input[type="checkbox"] {
   float: left;
   width: auto;
-  margin: 0 10px 0 30%;
-}
+  margin: 0 10px 0 30%; }
+
 .ie7 input[type="radio"] {
-  clear: both;
-}
+  clear: both; }
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -286,8 +260,8 @@ input[type="password"],
 input[type="search"],
 select,
 textarea {
-  width: 50%;
-}
+  width: 50%; }
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -299,28 +273,32 @@ select,
 textarea,
 button {
   box-shadow: 0 1px 0 #DDDDDD inset;
-  font: 300 1em/1.5 'Akagi Book', 'Helvetica Neue', Arial, sans-serif;
+  font: 300 1em/1.5 "Akagi Book", "Helvetica Neue", Arial, sans-serif;
   padding: 0.25em 2%;
-  vertical-align: middle;
-}
+  vertical-align: middle; }
+
 .control-help {
-  margin: 0 0 0 30%;
-}
-input[type], textarea, select {
+  margin: 0 0 0 30%; }
+
+input[type],
+textarea,
+select {
   padding: 0.125em;
   border: 1px solid #eee;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -o-border-radius: 4px;
-  border-radius: 4px;
-}
+  border-radius: 4px; }
+
 textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 100%;
-}
-button, input[type="button"], input[type="submit"] {
+  width: 100%; }
+
+button,
+input[type="button"],
+input[type="submit"] {
   padding: 0.5em;
   text-align: center;
   cursor: pointer;
@@ -328,105 +306,92 @@ button, input[type="button"], input[type="submit"] {
   color: #383838;
   background: #f8f8f8;
   /* Old browsers */
-
   background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
   /* FF3.6+ */
-
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8f8f8), color-stop(100%, #dddddd));
   /* Chrome,Safari4+ */
-
   background: -webkit-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
   /* Chrome10+,Safari5.1+ */
-
   background: -o-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
   /* Opera 11.10+ */
-
   background: -ms-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
   /* IE10+ */
-
   background: linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
   /* W3C */
-
   border: 1px solid #d2d2d2;
   border-radius: 5px 5px 5px 5px;
-  -webkit-box-shadow: 0 1px 0 #ffffff inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset;
-  -moz-box-shadow: 0 1px 0 #ffffff inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset;
-  box-shadow: 0 1px 0 #ffffff inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset;
-}
+  -webkit-box-shadow: 0 1px 0 white inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset;
+  -moz-box-shadow: 0 1px 0 white inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 white inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset; }
+
 /*=Module display and source wrappers
 ------------------------------------------------------------------------------*/
 .module {
-  margin-bottom: 3em;
-}
+  margin-bottom: 3em; }
+
 .module h3 span {
   display: inline-block;
   font-size: 0.85714285714286em;
   /*18px (18/21)*/
-
   line-height: 1;
   /*18px*/
-
   padding: 0 3px 3px;
-  vertical-align: middle;
-}
+  vertical-align: middle; }
+
 /* Module display wrapper */
 .display {
   margin: 0.5em 0 1em;
   /*8px 0 16px*/
-
   padding: 0.375em 1em;
-  /*6px 16px*/
+  /*6px 16px*/ }
 
-}
 /* Module source wrapper */
 .source textarea {
   border: 1px solid #ccc;
   overflow: auto;
   padding: 0.5em;
   /*12px*/
-
   vertical-align: middle;
   font-size: 0.75em;
   /*12px*/
-
   line-height: 1.5;
   /*18px, off the system*/
-
-  font-family: Consolas, Menlo, "Liberation Mono", Courier, monospace;
+  font-family: Consolas, Menlo, "Liberation Mono",Courier,monospace;
   border-radius: 3px 3px 3px 3px;
   box-shadow: none;
-  background: #f8f8f8;
-}
+  background: #f8f8f8; }
+
 /*=tables
 ------------------------------------------------------------------------------*/
 table {
-  width: 100%;
-}
-th, td {
+  width: 100%; }
+
+th,
+td {
   padding: 1em;
   border: 1px solid #ccc;
-  text-align: left;
-}
+  text-align: left; }
+
 caption {
-  padding: 1em;
-}
+  padding: 1em; }
+
 /*=media object http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/ 
                 http://jsfiddle.net/necolas/rZvEF/
 ------------------------------------------------------------------------------*/
 .media {
-  margin: 10px;
-}
+  margin: 10px; }
+
 .media .img {
   float: left;
-  margin: 0 10px 0 0;
-}
+  margin: 0 10px 0 0; }
+
 .media .img img {
-  display: block;
-}
+  display: block; }
+
 .media .img-ext {
   float: right;
-  margin-left: 10px;
-}
+  margin-left: 10px; }
+
 /*
  * 1. Create new block formatting context in modern browsers
  * 2. Avoid shrink-wrap behaviour of table-cell
@@ -439,28 +404,22 @@ caption {
 .media .content {
   display: table-cell;
   /* 1 */
-
   width: 10000px;
-  /* 2 */
+  /* 2 */ }
 
-}
 .ie7 .media .content {
   width: auto;
   /* 3 */
-
   zoom: 1;
-  /* 4 */
+  /* 4 */ }
 
-}
 /* ----- REUSABLE ICONS ----- */
 .icon {
   display: inline-block;
   width: 16px;
   height: 16px;
   margin: 0 5px 0 0;
-  background: url(http://placekitten.com/16/16);
-}
-.icon-a {
-  background-position: 0 0;
-}
+  background: url(http://placekitten.com/16/16); }
 
+.icon-a {
+  background-position: 0 0; }

@@ -20,11 +20,9 @@
 body {
   font-size: 100%;
   /* 16px (assuming browser default is 16px) */
-
   line-height: 1;
-  /* 16px */
+  /* 16px */ }
 
-}
 /* Visually hiding content that will be read by a screen reader
 ------------------------------------------------------------------------------*/
 .accessibility a {
@@ -33,14 +31,14 @@ body {
   top: auto;
   width: 1px;
   height: 1px;
-  overflow: hidden;
-}
+  overflow: hidden; }
+
 /*active when the user tabs to the link*/
 .accessibility a:focus {
   position: static;
   width: auto;
-  height: auto;
-}
+  height: auto; }
+
 /*Typefaces: Sans-serif
 ------------------------------------------------------------------------------*/
 /*Typefaces: Serif
@@ -59,6 +57,6 @@ video,
 object,
 embed,
 svg {
-  max-width: 100%;
-}
+  max-width: 100%; }
+
 /*Put your styles here...*/
