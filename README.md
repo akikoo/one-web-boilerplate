@@ -103,6 +103,9 @@ After Apache Ant and SSI setup, you need to do two more things to configure the 
 2. In that same file, look for 'web.url' in line number 123. Create an Apache 
     virtualhost that points to the location you defined for 'web.home' above. 
 
+If you get the "java.lang.OutOfMemoryError: PermGen space" error during the build 
+on OS X (I did!), try running this in your terminal: export ANT_OPTS=-XX:MaxPermSize=256m
+
 You should now be up and running with both the environment and the local build. 
 
 
