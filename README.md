@@ -91,8 +91,8 @@ http://httpd.apache.org/docs/2.2/howto/ssi.html
 
 ### Ruby (you need this if you use Sass/Compass)
 On OS X, you'll already have Ruby installed. On Windows, see http://rubyinstaller.org/downloads/. 
-For installing Compass, see http://compass-style.org/install/. You should use it, 
-it's awesome. 
+For installing Sass, see http://sass-lang.com/tutorial.html. For installing Compass, 
+see http://compass-style.org/install/. You should use it, it's awesome. 
 
 All the other tools needed in the local build are in the tools folder.
 
@@ -117,7 +117,18 @@ You should now be up and running with both the environment and the local build.
     to compile the stylesheets. If you don't want to use a preprocessor, you can 
     of course work with the CSS files directly. To do so, comment out &lt;css.compile.sass /&gt; 
     macrodef call in /build/build.xml. Sass is used by default but if you prefer LESS, 
-    there's a commented out task for that too, in /build/build.xml. 
+    there's a commented out task for that too, in /build/build.xml. Another option 
+    would be to work on the SCSS files and generating CSS files on local machine, 
+    by typing one of the following in the terminal (replace the '{pathtoworkingcopy}' 
+    with your local path):
+    a) using Sass:
+       sass --watch /{pathtoworkingcopy}/webroot/assets/scss:/{pathtoworkingcopy}/webroot/assets/css
+    b) using Compass with Sass:
+       compass watch /{pathtoworkingcopy}/webroot/assets
+    If you do this, generating the CSS files already on your local machine, you 
+    don't need to use the SCSS task in /build/build.xml. If that's what you want, 
+    just comment out both the &lt;css.compile.sass /&gt; and &lt;css.compile.less /&gt; 
+    macrodef calls.
 
 * Media Queries are based on 16px default font size and defined in ems. 
     If you don't go for responsive design (you should!), just replace the default 
