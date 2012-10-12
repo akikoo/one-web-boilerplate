@@ -118,8 +118,8 @@ You should now be up and running with both the environment and the local build.
     of course work with the CSS files directly. To do so, comment out &lt;css.compile.sass /&gt; 
     macrodef call in /build/build.xml. Sass is used by default but if you prefer LESS, 
     there's a commented out task for that too, in /build/build.xml. Another option 
-    would be to work on the SCSS files and generating CSS files on local machine, 
-    by typing one of the following in the terminal (replace the '{pathtoworkingcopy}' 
+    would be to work on the SCSS files and generate CSS files on your local machine. 
+    To do this, type one of the following in the terminal (replace the '{pathtoworkingcopy}' 
     with your local path):
 
     a) using Sass:
@@ -129,9 +129,8 @@ You should now be up and running with both the environment and the local build.
        compass watch /{pathtoworkingcopy}/webroot/assets
 
     If you do this, generating the CSS files already on your local machine, you 
-    don't need to use the SCSS task in /build/build.xml. If that's what you want, 
-    just comment out both the &lt;css.compile.sass /&gt; and &lt;css.compile.less /&gt; 
-    macrodef calls.
+    don't need to use the SCSS task in /build/build.xml. To do so, just comment out 
+    both the &lt;css.compile.sass /&gt; and &lt;css.compile.less /&gt; macrodef calls.
 
 * Media Queries are based on 16px default font size and defined in ems. 
     If you don't go for responsive design (you should!), just replace the default 
