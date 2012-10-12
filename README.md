@@ -89,9 +89,10 @@ Optimised files are in /build/publish/assets and /build/publish/html.
 To permit SSI on your server, see this article: 
 http://httpd.apache.org/docs/2.2/howto/ssi.html
 
-### Ruby (you need this if you use Sass)
-On OS X, you'll already have Ruby installed. 
-On Windows, see http://rubyinstaller.org/downloads/
+### Ruby (you need this if you use Sass/Compass)
+On OS X, you'll already have Ruby installed. On Windows, see http://rubyinstaller.org/downloads/. 
+For installing Compass, see http://compass-style.org/install/. You should use it, 
+it's awesome. 
 
 All the other tools needed in the local build are in the tools folder.
 
@@ -104,19 +105,19 @@ After Apache Ant and SSI setup, you need to do two more things to configure the 
     virtualhost that points to the location you defined for 'web.home' above. 
 
 If you get the "java.lang.OutOfMemoryError: PermGen space" error during the build 
-on OS X (I did!), try running this in your terminal: export ANT_OPTS=-XX:MaxPermSize=256m
+on OS X (I did), try running this in your terminal: export ANT_OPTS=-XX:MaxPermSize=256m
 
 You should now be up and running with both the environment and the local build. 
 
 
 ## Things you need to know
 
-* A CSS preprocessor, either Sass (http://sass-lang.com/, default option) or LESS 
-    (http://lesscss.org/) is used to compile the stylesheets. If you don't want to 
-    use a preprocessor, you can of course work with the CSS files directly. To do so, 
-    comment out &lt;css.compile.sass /&gt; macrodef call in /build/build.xml. Sass is 
-    used by default but if you prefer LESS, there's a commented out task for that too, 
-    in /build/build.xml. 
+* A CSS preprocessor, either Sass (http://sass-lang.com/, default option) with 
+    Compass (http://compass-style.org/), or LESS (http://lesscss.org/) is used 
+    to compile the stylesheets. If you don't want to use a preprocessor, you can 
+    of course work with the CSS files directly. To do so, comment out &lt;css.compile.sass /&gt; 
+    macrodef call in /build/build.xml. Sass is used by default but if you prefer LESS, 
+    there's a commented out task for that too, in /build/build.xml. 
 
 * Media Queries are based on 16px default font size and defined in ems. 
     If you don't go for responsive design (you should!), just replace the default 
