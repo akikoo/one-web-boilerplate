@@ -23,7 +23,7 @@ plugged into Continuous Integration solutions, such as Jenkins: http://jenkins-c
 
 This framework doesn't include any grid. You decide how you build your site. 
 If you need a grid though, have a look at the Fluid Grid: http://akikoo.github.com/Fluid-Grid/. 
-If you need a good set of LESS utilities (Sass is used by default), see 320 and Up: https://github.com/malarkey/320andup/.
+If you need a good set of LESS utilities (Sass/Compass is used by default), see 320 and Up: https://github.com/malarkey/320andup/.
 
 
 ## File structure
@@ -112,8 +112,8 @@ You should now be up and running with both the environment and the local build.
 
 ## Things you need to know
 
-* A CSS preprocessor, either Sass (http://sass-lang.com/, default option) with 
-    Compass (http://compass-style.org/), or LESS (http://lesscss.org/) is used 
+* A CSS preprocessor, either Sass (http://sass-lang.com/, default option with 
+    Compass (http://compass-style.org/)), or LESS (http://lesscss.org/) is used 
     to compile the stylesheets. If you don't want to use a preprocessor, you can 
     of course work with the CSS files directly. To do so, comment out &lt;css.compile.sass /&gt; 
     macrodef call in /build/build.xml. Sass is used by default but if you prefer LESS, 
@@ -181,6 +181,9 @@ After the base styles, the order in which the module stylesheets are included
 should't matter (you write your styles carefully, right?) The idea is that module 
 styles inherit only from base rules, not from other modules. 
 
+config.rb file in /assets is used for passing compile options for Compass. You 
+don't need to touch this file (unless you want to change something in it). 
+
 ### JavaScript
 * Third-party plugins are included in /webroot/assets/js/lib. Custom scripts are 
 in /webroot/assets/js/modules. Dependancies are managed by RequireJS (http://requirejs.org/), 
@@ -188,67 +191,6 @@ a script loader that supports AMD (Asynchronous Module Definition) API. Script p
 and their dependencies are defined in /webroot/assets/js/config.js. Scripts are 
 imported in /webroot/assets/js/main.js. 
 
-
-## Credits
-
-### Boilerplates:
-* http://html5boilerplate.com
-* http://html5boilerplate.com/mobile
-* http://stuffandnonsense.co.uk/projects/320andup/
-* Big thanks to *Will Howat* (@willhowat: http://twitter.com/willhowat) and *Andrew 
-    Massey* (@wearymadness: http://twitter.com/wearymadness) for the inspiration, 
-    code, and fresh ideas. Great work on the Archetype framework!
-
-### Generic build/deploy process optimization:
-* Thanks to *Dennis Green-Lieber* (@dennislieber: http://twitter.com/dennislieber) 
-    for promoting the use of the framework and for great suggestions and ideas for 
-    making it better. 
-
-### Solutions:
-* http://code.google.com/chrome/chromeframe/
-* http://www.cssstickyfooter.com/
-
-### Media queries:
-* http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
-* http://stuffandnonsense.co.uk/blog/about/proportional_leading_with_css3_media_queries/
-* http://www.blog.highub.com/mobile-2/revisit-hardboiled-css3-media-queries/
-* http://css-tricks.com/6731-css-media-queries/
-* http://www.quirksmode.org/blog/archives/2010/08/combining_media.html
-* http://www.slideshare.net/bryanrieger/rethinking-the-mobile-web-by-yiibu
-* http://www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/
-* http://www.broken-links.com/2011/02/21/using-media-queries-in-the-real-world/
-* http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
-
-### Inspiration:
-* http://www.abookapart.com/products/responsive-web-design
-* http://easy-readers.net/
-* http://www.alistapart.com/articles/responsive-web-design/
-* http://www.lukew.com/ff/entry.asp?933
-* http://adactio.com/journal/1716/
-* http://adactio.com/journal/4780/
-* http://adactio.com/journal/1700/
-
-### Markup:
-* http://www.456bereastreet.com/archive/201103/html5_sectioning_elements_headings_and_document_outlines/
-* http://www.456bereastreet.com/archive/201104/html5_document_outline_revisited/
-* http://mezzoblue.com/archives/2011/01/31/boilerplate/
-* http://www.nczonline.net/blog/2011/03/22/using-html5-semantic-elements-today/
-* http://tantek.com/presentations/2010/11/html5-now/
-* http://microformats.org/wiki/hatom
-
-### Images:
-* http://unstoppablerobotninja.com/entry/fluid-images/
-* http://www.cloudfour.com/responsive-imgs-part-2/
-
-### CSS:
-* http://oli.jp/2011/ids/
-* http://code.google.com/p/universal-ie6-css/
-* https://github.com/necolas/normalize.css
-
-### JavaScript:
-* http://requirejs.org/
-* https://github.com/tbranyen/backbone-boilerplate
-* https://github.com/ryanfitzer/Example-RequireJS-jQuery-Project
 
 
 ## Ant build process
@@ -317,5 +259,70 @@ No need to track changes to that.
 * Small tweaks here and there...
 
 Thanks and good luck! 
+
+
+
+## Credits
+
+### Boilerplates:
+* http://html5boilerplate.com
+* http://html5boilerplate.com/mobile
+* http://stuffandnonsense.co.uk/projects/320andup/
+* Big thanks to *Will Howat* (@willhowat: http://twitter.com/willhowat) and *Andrew 
+    Massey* (@wearymadness: http://twitter.com/wearymadness) for the inspiration, 
+    code, and fresh ideas. Great work on the Archetype framework!
+
+### Generic build/deploy process optimization:
+* Thanks to *Dennis Green-Lieber* (@dennislieber: http://twitter.com/dennislieber) 
+    for promoting the use of the framework and for great suggestions and ideas for 
+    making it better. 
+
+### Solutions:
+* http://code.google.com/chrome/chromeframe/
+* http://www.cssstickyfooter.com/
+
+### Media queries:
+* http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+* http://stuffandnonsense.co.uk/blog/about/proportional_leading_with_css3_media_queries/
+* http://www.blog.highub.com/mobile-2/revisit-hardboiled-css3-media-queries/
+* http://css-tricks.com/6731-css-media-queries/
+* http://www.quirksmode.org/blog/archives/2010/08/combining_media.html
+* http://www.slideshare.net/bryanrieger/rethinking-the-mobile-web-by-yiibu
+* http://www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/
+* http://www.broken-links.com/2011/02/21/using-media-queries-in-the-real-world/
+* http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+
+### Inspiration:
+* http://www.abookapart.com/products/responsive-web-design
+* http://easy-readers.net/
+* http://www.alistapart.com/articles/responsive-web-design/
+* http://www.lukew.com/ff/entry.asp?933
+* http://adactio.com/journal/1716/
+* http://adactio.com/journal/4780/
+* http://adactio.com/journal/1700/
+
+### Markup:
+* http://www.456bereastreet.com/archive/201103/html5_sectioning_elements_headings_and_document_outlines/
+* http://www.456bereastreet.com/archive/201104/html5_document_outline_revisited/
+* http://mezzoblue.com/archives/2011/01/31/boilerplate/
+* http://www.nczonline.net/blog/2011/03/22/using-html5-semantic-elements-today/
+* http://tantek.com/presentations/2010/11/html5-now/
+* http://microformats.org/wiki/hatom
+
+### Images:
+* http://unstoppablerobotninja.com/entry/fluid-images/
+* http://www.cloudfour.com/responsive-imgs-part-2/
+
+### CSS:
+* http://oli.jp/2011/ids/
+* http://code.google.com/p/universal-ie6-css/
+* https://github.com/necolas/normalize.css
+
+### JavaScript:
+* http://requirejs.org/
+* https://github.com/tbranyen/backbone-boilerplate
+* https://github.com/ryanfitzer/Example-RequireJS-jQuery-Project
+
+
 
 > There's no mobile, everything's mobile.
