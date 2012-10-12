@@ -124,6 +124,7 @@ You should now be up and running with both the environment and the local build.
 
     a) using Sass:
        sass --watch /{pathtoworkingcopy}/webroot/assets/scss:/{pathtoworkingcopy}/webroot/assets/css
+
     b) using Compass with Sass:
        compass watch /{pathtoworkingcopy}/webroot/assets
 
