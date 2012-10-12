@@ -121,10 +121,12 @@ You should now be up and running with both the environment and the local build.
     would be to work on the SCSS files and generating CSS files on local machine, 
     by typing one of the following in the terminal (replace the '{pathtoworkingcopy}' 
     with your local path):
+
     a) using Sass:
        sass --watch /{pathtoworkingcopy}/webroot/assets/scss:/{pathtoworkingcopy}/webroot/assets/css
     b) using Compass with Sass:
        compass watch /{pathtoworkingcopy}/webroot/assets
+
     If you do this, generating the CSS files already on your local machine, you 
     don't need to use the SCSS task in /build/build.xml. If that's what you want, 
     just comment out both the &lt;css.compile.sass /&gt; and &lt;css.compile.less /&gt; 
