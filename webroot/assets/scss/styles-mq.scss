@@ -33,6 +33,14 @@
 @import "common/theme.css";         /* 4. Temp skin styles, should be removed */
 
 
+
+/*==============================================================================
+    Get Compass utilities first
+==============================================================================*/
+@import "compass";
+
+
+
 /*==============================================================================
     (OPTION A) Overlapping Media Queries (Responsive larger screen styles)
 
