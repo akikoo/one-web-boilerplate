@@ -97,11 +97,12 @@ see http://compass-style.org/install/. You should use it, it's awesome.
 All the other tools needed in the local build are in the tools folder.
 
 ### Build configuration
-After Apache Ant and SSI setup, you need to do two more things to configure the build:
+After Apache Ant, SSI, Ruby, Sass and Compass setup, you need to do two more things 
+to configure the build:
 
-1. In /build/config/project.properties, look for 'web.home' in line number 121. 
+1. In /build/config/project.properties, look for 'web.home' in line number 124. 
     Change the path to your local directory.
-2. In that same file, look for 'web.url' in line number 123. Create an Apache 
+2. In that same file, look for 'web.url' in line number 126. Create an Apache 
     virtualhost that points to the location you defined for 'web.home' above. 
 
 If you get the "java.lang.OutOfMemoryError: PermGen space" error during the build 
@@ -118,9 +119,9 @@ You should now be up and running with both the environment and the local build.
     of course work with the CSS files directly. To do so, comment out &lt;css.compile.sass /&gt; 
     macrodef call in /build/build.xml. Sass is used by default but if you prefer LESS, 
     there's a commented out task for that too, in /build/build.xml. Another option 
-    would be to work on the SCSS files and generate CSS files on your local machine. 
-    To do this, type one of the following in the terminal (replace the '{pathtoworkingcopy}' 
-    with your local path):
+    would be to work on the scss files and generate CSS files on your local machine. 
+    To do this, type one of the following commands in the terminal (replace the 
+    '{pathtoworkingcopy}' with your local path):
 
     a) using Sass:
        sass --watch /{pathtoworkingcopy}/webroot/assets/scss:/{pathtoworkingcopy}/webroot/assets/css
@@ -128,8 +129,8 @@ You should now be up and running with both the environment and the local build.
     b) using Compass with Sass:
        compass watch /{pathtoworkingcopy}/webroot/assets
 
-    If you do this, generating the CSS files already on your local machine, you 
-    don't need to use the SCSS task in /build/build.xml. To do so, just comment out 
+    If you do this (generate the CSS files already on your local machine) you 
+    don't need to use the SCSS task in /build/build.xml. In that case just comment out 
     both the &lt;css.compile.sass /&gt; and &lt;css.compile.less /&gt; macrodef calls.
 
 * Media Queries are based on 16px default font size and defined in ems. 
@@ -194,8 +195,8 @@ After the base styles, the order in which the module stylesheets are included
 should't matter (you write your styles carefully, right?) The idea is that module 
 styles inherit only from base rules, not from other modules. 
 
-config.rb file in /assets is used for passing compile options for Compass. You 
-don't need to touch this file (unless you want to change something in it). 
+config.rb file in /assets is used for passing compile options to Compass. By default 
+you don't need to touch that file. If you want to edit it, see Compass documentation. 
 
 ### JavaScript
 * Third-party plugins are included in /webroot/assets/js/lib. Custom scripts are 
