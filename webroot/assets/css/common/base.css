@@ -17,27 +17,33 @@
     padding: 0;
 }
 */
+/* line 25, ../../scss/common/base.scss */
 body {
   font-size: 100%;
   /* 16px (assuming browser default is 16px) */
   line-height: 1;
-  /* 16px */ }
+  /* 16px */
+}
 
 /* Visually hiding content that will be read by a screen reader
 ------------------------------------------------------------------------------*/
+/* line 32, ../../scss/common/base.scss */
 .accessibility a {
   position: absolute;
   left: -10000px;
   top: auto;
   width: 1px;
   height: 1px;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 /*active when the user tabs to the link*/
+/* line 42, ../../scss/common/base.scss */
 .accessibility a:focus {
   position: static;
   width: auto;
-  height: auto; }
+  height: auto;
+}
 
 /*Typefaces: Sans-serif
 ------------------------------------------------------------------------------*/
@@ -51,12 +57,14 @@ body {
 ==============================================================================*/
 /*Flexible images and embedded videos
 ------------------------------------------------------------------------------*/
+/* line 71, ../../scss/common/base.scss */
 img,
 audio,
 video,
 object,
 embed,
 svg {
-  max-width: 100%; }
+  max-width: 100%;
+}
 
 /*Put your styles here...*/

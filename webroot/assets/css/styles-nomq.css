@@ -41,6 +41,9 @@
 /* 3. HTML5 boilerplate helper classes    */
 /* 4. Temp skin styles, should be removed */
 /*==============================================================================
+    Get Compass utilities first
+==============================================================================*/
+/*==============================================================================
     (A) Modular styles for each range (these are simply inlined without Media Queries, 
     so watch out cascading!)
 ==============================================================================*/
@@ -95,23 +98,31 @@ Em conversion:
     </div>
     <div role="contentinfo"></div>
  */
+/* line 57, ../scss/mq-overlap/_320-up.scss */
 html, body {
-  height: 100%; }
+  height: 100%;
+}
 
+/* line 60, ../scss/mq-overlap/_320-up.scss */
 .page {
-  min-height: 100%; }
+  min-height: 100%;
+}
 
+/* line 63, ../scss/mq-overlap/_320-up.scss */
 [role="main"] {
   overflow: auto;
   padding-bottom: 60px;
-  /*must be same height as the footer*/ }
+  /*must be same height as the footer*/
+}
 
+/* line 67, ../scss/mq-overlap/_320-up.scss */
 [role="contentinfo"] {
   position: relative;
   margin-top: -60px;
   /*negative value of footer height*/
   height: 60px;
-  clear: both; }
+  clear: both;
+}
 
 /*END Sticky footer*/
 /**

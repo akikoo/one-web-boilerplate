@@ -33,6 +33,9 @@
 /* 3. HTML5 boilerplate helper classes    */
 /* 4. Temp skin styles, should be removed */
 /*==============================================================================
+    Get Compass utilities first
+==============================================================================*/
+/*==============================================================================
     (OPTION A) Overlapping Media Queries (Responsive larger screen styles)
 
     Use these if you have a lot of common rules that you want to cascade to 
@@ -91,25 +94,34 @@
       </div>
       <div role="contentinfo"></div>
    */
+  /* line 57, ../scss/mq-overlap/_320-up.scss */
   html, body {
-    height: 100%; }
+    height: 100%;
+  }
 
+  /* line 60, ../scss/mq-overlap/_320-up.scss */
   .page {
-    min-height: 100%; }
+    min-height: 100%;
+  }
 
+  /* line 63, ../scss/mq-overlap/_320-up.scss */
   [role="main"] {
     overflow: auto;
     padding-bottom: 60px;
-    /*must be same height as the footer*/ }
+    /*must be same height as the footer*/
+  }
 
+  /* line 67, ../scss/mq-overlap/_320-up.scss */
   [role="contentinfo"] {
     position: relative;
     margin-top: -60px;
     /*negative value of footer height*/
     height: 60px;
-    clear: both; }
+    clear: both;
+  }
 
-  /*END Sticky footer*/ }
+  /*END Sticky footer*/
+}
 @media only screen and (min-width: 30em) {
   /**
    * ==|== 480-up ====
@@ -141,7 +153,8 @@
       Em conversion: 
       480 / 16 = 30em
   ==============================================================================*/
-  /* Style adjustments for viewports 480px and over go here */ }
+  /* Style adjustments for viewports 480px and over go here */
+}
 @media only screen and (min-width: 48em) {
   /**
    * ==|== 768-up ====
@@ -173,7 +186,8 @@
       Em conversion: 
       768 / 16 = 48em
   ==============================================================================*/
-  /* Style adjustments for viewports 768px and over go here */ }
+  /* Style adjustments for viewports 768px and over go here */
+}
 @media only screen and (min-width: 62em) {
   /**
    * ==|== 992-up ====
@@ -205,7 +219,8 @@
       Em conversion: 
       992 / 16 = 62em
   ==============================================================================*/
-  /* Style adjustments for viewports 992px and over go here */ }
+  /* Style adjustments for viewports 992px and over go here */
+}
 @media only screen and (min-width: 86.375em) {
   /**
    * ==|== 1382-up ====
@@ -238,7 +253,8 @@
       1382 / 16 = 86.375em
   ==============================================================================*/
   /* Style adjustments for viewports 1382px and over go here */
-  /* Consider using max-width here, for better readability... */ }
+  /* Consider using max-width here, for better readability... */
+}
 /*==============================================================================
     (OPTION B) Stacked Media Queries (Responsive larger screen styles)
 
@@ -279,7 +295,8 @@
       320 / 16 = 20em
       479 / 16 = 29.9375em
   ==============================================================================*/
-  /* Style adjustments for viewports between 320px and 479px go here */ }
+  /* Style adjustments for viewports between 320px and 479px go here */
+}
 @media only screen and (min-width: 30em) and (max-width: 47.9375em) {
   /**
    * ==|== 480-767 ====
@@ -314,7 +331,8 @@
       480 / 16 = 30em
       767 / 16 = 47.9375em
   ==============================================================================*/
-  /* Style adjustments for viewports between 480px and 767px go here */ }
+  /* Style adjustments for viewports between 480px and 767px go here */
+}
 @media only screen and (min-width: 48em) and (max-width: 61.9375em) {
   /**
    * ==|== 768-991 ====
@@ -349,7 +367,8 @@
       768 / 16 = 48em
       991 / 16 = 61.9375em
   ==============================================================================*/
-  /* Style adjustments for viewports between 768px and 991px go here */ }
+  /* Style adjustments for viewports between 768px and 991px go here */
+}
 @media only screen and (min-width: 62em) and (max-width: 86.3125em) {
   /**
    * ==|== 992-1381 ====
@@ -384,13 +403,14 @@
       992 / 16 = 62em
       1381 / 16 = 86.3125em
   ==============================================================================*/
-  /* Style adjustments for viewports between 992px and 1381px go here */ }
+  /* Style adjustments for viewports between 992px and 1381px go here */
+}
 /*==============================================================================
     (OPTION C) Device-specific Media Queries
 
     Use these if you need to target smartphones, tablets or high pixel ratio devices
 ==============================================================================*/
-@media only screen and (-webkit-min-device-pixel-ratio: '1.5'), only screen and (-o-min-device-pixel-ratio: '3/2'), only screen and (min-device-pixel-ratio: '1.5') {
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5) {
   /**
    * ==|== pixel-ratio ====
    * 
@@ -418,4 +438,5 @@
   /*==============================================================================
       iPhone 4, Opera Mobile 11 and other high pixel ratio devices 
   ==============================================================================*/
-  /* Styles */ }
+  /* Styles */
+}
