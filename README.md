@@ -11,19 +11,21 @@ modular frontend framework (please see Credits section below). The project also
 includes Ant build script that runs code quality tools against JavaScript and 
 CSS files, minifying and concatenating them at the end of the process. 
 
-There's nothing really new in this boilerplate, but it works well for me which is 
-why I'm publishing it here for you to use and improve. It builds on many of the 
-best practices found in the resources listed under Credits. It basically extends 
-popular boilerplates, including 320 and Up (https://github.com/malarkey/320andup/), 
-HTML5 Boilerplate (http://html5boilerplate.com/), and Mobile Boilerplate 
-(http://html5boilerplate.com/html5boilerplate.com/dist/mobile/) and many others, with 
-Server Side Includes. The goal is to achieve a modular and responsive frontend 
-build environment, following industry best practices. The framework can easily be 
-plugged into Continuous Integration solutions, such as Jenkins: http://jenkins-ci.org. 
+There's nothing really new in this boilerplate, but it's full of goodies and it 
+works well for me which is why I'm publishing it here for you to use and improve. 
+It builds on many of the best practices found in the resources listed under Credits. 
+It basically extends popular boilerplates, including 320 and Up 
+(https://github.com/malarkey/320andup/), HTML5 Boilerplate (http://html5boilerplate.com/), 
+and Mobile Boilerplate (http://html5boilerplate.com/html5boilerplate.com/dist/mobile/) 
+and many others, with Server Side Includes. The goal is to achieve a modular and 
+responsive frontend build environment, following industry best practices. 
+The framework can easily be plugged into Continuous Integration solutions, such as 
+Jenkins: http://jenkins-ci.org. 
 
 This framework doesn't include any grid. You decide how you build your site. 
-If you need a grid though, have a look at the Fluid Grid: http://akikoo.github.com/Fluid-Grid/. 
-If you need a good set of LESS utilities (Sass/Compass is used by default), see 320 and Up: https://github.com/malarkey/320andup/.
+However, if you need a grid, have a look at the Fluid Grid that supports both 
+Sass (SCSS) and LESS CSS: http://akikoo.github.com/Fluid-Grid/. Sass/Compass is 
+used by default, both in One Web Boilerplate and the Fluid Grid. 
 
 
 ## File structure
