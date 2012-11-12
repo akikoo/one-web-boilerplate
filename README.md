@@ -6,7 +6,7 @@
 The One Web Frontend Boilerplate is a modular framework for building responsive 
 websites with **Apache Server Side Includes** (http://httpd.apache.org/docs/2.2/howto/ssi.html), 
 **SMACSS** (Scalable and Modular Architecture for CSS, http://smacss.com/), and 
-RequireJS (http://requirejs.org/). 
+**RequireJS** (http://requirejs.org/). 
 
 It draws code from many other projects, combining various solutions into a custom, 
 modular frontend framework (please see Credits section below). The project also 
