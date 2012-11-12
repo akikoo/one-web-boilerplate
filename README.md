@@ -137,9 +137,9 @@ You should now be up and running with both the environment and the local build.
 
 * Media Queries are based on 16px default font size and defined in ems. 
     If you don't go for responsive design (you should!), just replace the default 
-    @import rules in /webroot/assets/scss/styles-nomq.scss with your own modular 
+    @import rules in /webroot/assets/scss/main-ie.scss with your own modular 
     ones. The framework is designed to be modular so you should split the rules 
-    into logical modules, and place the styles in /webroot/assets/scss/modules. 
+    into logical modules, and place the styles in /webroot/assets/scss/components/modules. 
 
 * JavaScript should not be relied on for layout. That's why I've adopted a 
     bulletproof solution from Nicholas Zakas and Tantek Çelik: 
@@ -161,13 +161,19 @@ You should now be up and running with both the environment and the local build.
     For more information, see project main index file: 
     https://github.com/akikoo/one-web-boilerplate/blob/master/webroot/html/index.shtml
 
-### CSS - six stylesheets by default, compiled by Sass (default) or LESS, included in the following order: 
+### CSS - A number of stylesheets by default, compiled by Sass (default) or LESS, 
+included in the following order: 
 * /webroot/assets/css/common/normalize.css (reset styles)
-* /webroot/assets/css/common/base.css (global, mobile first styles, containing only 
+* /webroot/assets/css/common/elements.css (global, mobile first styles, containing only 
     common colour and typographic rules for basic experience to all users)
 * /webroot/assets/css/common/utilities.css (helper styles from HTML5 Boilerplate and 
     HTML5 Mobile Boilerplate)
-* /webroot/assets/css/common/theme.css (temp theme styles, you should create your own)
+* /webroot/assets/css/common/base.css (base stylesheet that imports the above 
+    mentioned three stylesheets)
+* /webroot/assets/css/components/layout.css (page layout rules)
+* /webroot/assets/css/components/module.css (module base stylesheet that imports all the modules)
+* /webroot/assets/css/components/state.css (state rules for layout and modules)
+* /webroot/assets/css/components/theme.css (temp theme styles, you should create your own)
 * /webroot/assets/css/main.css (layout with Media Queries for responsive, 
     enhanced design for smartphones, tablets and larger screens)
 * /webroot/assets/css/main-ie.css (layout without Media Queries for legacy 
@@ -191,7 +197,8 @@ So you basically have two possible main routes here: go responsive, or go modula
 changes in /webroot/assets/scss/ directory, as the files in /webroot/assets/css/ 
 will obviously be the generated ones, rewritten on each save or build. 
 
-New stylesheets you create should probably be placed in /webroot/assets/scss/modules. 
+New stylesheets you create should probably be placed in 
+/webroot/assets/scss/components/modules. 
 Remember to add @import rules for any new styles in main.scss and main-ie.scss. 
 After the base styles, the order in which the module stylesheets are included 
 should't matter (you write your styles carefully, right?) The idea is that module 
@@ -330,6 +337,8 @@ Thanks and good luck!
 * http://www.cloudfour.com/responsive-imgs-part-2/
 
 ### CSS:
+* http://smacss.com/
+* http://oocss.org/
 * http://oli.jp/2011/ids/
 * http://code.google.com/p/universal-ie6-css/
 * https://github.com/necolas/normalize.css
