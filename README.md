@@ -168,13 +168,13 @@ You should now be up and running with both the environment and the local build.
 * /webroot/assets/css/common/utilities.css (helper styles from HTML5 Boilerplate and 
     HTML5 Mobile Boilerplate)
 * /webroot/assets/css/common/theme.css (temp theme styles, you should create your own)
-* /webroot/assets/css/styles-mq.css (layout with Media Queries for responsive, 
+* /webroot/assets/css/main.css (layout with Media Queries for responsive, 
     enhanced design for smartphones, tablets and larger screens)
-* /webroot/assets/css/styles-nomq.css (layout without Media Queries for legacy 
+* /webroot/assets/css/main-ie.css (layout without Media Queries for legacy 
     IE 6/7/8 browsers; alternatively, you can use this as non-responsive main 
     stylesheet that simply includes modular stylesheets). 
 
-styles-mq.scss and styles-nomq.scss are the main stylesheets that @import all the 
+main.scss and main-ie.scss are the main stylesheets that @import all the 
 common styles. Note that styles are @import-ed only for development. For production, 
 the build script inlines and minifies styles in the same order that you @import-ed 
 them. Nice, eh? But keep in mind that you have to @import the core styles (see above) 
@@ -192,7 +192,7 @@ changes in /webroot/assets/scss/ directory, as the files in /webroot/assets/css/
 will obviously be the generated ones, rewritten on each save or build. 
 
 New stylesheets you create should probably be placed in /webroot/assets/scss/modules. 
-Remember to add @import rules for any new styles in styles-mq.scss and styles-nomq.scss. 
+Remember to add @import rules for any new styles in main.scss and main-ie.scss. 
 After the base styles, the order in which the module stylesheets are included 
 should't matter (you write your styles carefully, right?) The idea is that module 
 styles inherit only from base rules, not from other modules. 
@@ -238,7 +238,7 @@ This assumes you've set up the build, as explained in Build configuration.
 11. JSHint tool is run against JavaScript code (excluding third-party scripts)
 12. JSDoc documentation is created and placed in build/publish/docs/jsdocs
 13. CSS files are concatenated by inlining all @import-ed styles, producing two 
-    files: styles-mq.css and styles-nomq.css (one with and one without Media 
+    files: main.css and main-ie.css (one with and one without Media 
     Queries). This way, we can keep the CSS rules separate from the actual Media 
     Queries. Both files are then minified and placed in build/publish/assets/css. 
     Page specific stylesheets are minified individually.

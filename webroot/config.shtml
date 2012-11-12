@@ -11,5 +11,5 @@
 <!--#set var="TEMPLATES" value="${HTML}/templates" -->
 
 <!--#set var="PUBLISH" value="../../../assets" -->
-<!--#set var="STYLES" value="styles-mq" -->
-<!--#set var="STYLES-IE" value="styles-nomq" -->
+<!--#set var="STYLES" value="main" -->
+<!--#set var="STYLES-IE" value="main-ie" -->
