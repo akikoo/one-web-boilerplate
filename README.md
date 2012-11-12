@@ -4,7 +4,9 @@
 ## What is it? 
 
 The One Web Frontend Boilerplate is a modular framework for building responsive 
-websites with Apache Server Side Includes: http://httpd.apache.org/docs/2.2/howto/ssi.html.
+websites with **Apache Server Side Includes** (http://httpd.apache.org/docs/2.2/howto/ssi.html), 
+**SMACSS** (Scalable and Modular Architecture for CSS, http://smacss.com/), and 
+RequireJS (http://requirejs.org/). 
 
 It draws code from many other projects, combining various solutions into a custom, 
 modular frontend framework (please see Credits section below). The project also 
@@ -161,8 +163,7 @@ You should now be up and running with both the environment and the local build.
     For more information, see project main index file: 
     https://github.com/akikoo/one-web-boilerplate/blob/master/webroot/html/index.shtml
 
-### CSS - A number of stylesheets by default, compiled by Sass (default) or LESS, 
-included in the following order: 
+### CSS - A number of stylesheets by default, compiled by Sass (default) or LESS, included in the following order: 
 * /webroot/assets/css/common/normalize.css (reset styles)
 * /webroot/assets/css/common/elements.css (global, mobile first styles, containing only 
     common colour and typographic rules for basic experience to all users)
