@@ -52,13 +52,13 @@ Remove this if you use the .htaccess -->
 <link rel="stylesheet" href="../assets/css/common/normalize.css">
 
 <!-- 2. Mobile first styles for all browsers -->		
-<link rel="stylesheet" href="../assets/css/common/base.css">
+<link rel="stylesheet" href="../assets/css/common/elements.css">
 
 <!-- 3. HTML5 boilerplate helper classes -->				
 <link rel="stylesheet" href="../assets/css/common/utilities.css">
 
 <!-- 4. Temp skin styles -->
-<link rel="stylesheet" href="../assets/css/common/theme.css">
+<link rel="stylesheet" href="../assets/css/components/theme.css">
 
 <noscript>
 <!-- For more info, see http://labjs.com/ -->

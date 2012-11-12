@@ -1,6 +1,6 @@
-@import url(1.normalize.css);
-@import url(2.elements.css);
-@import url(3.utilities.css);
+@import url(normalize.css);
+@import url(elements.css);
+@import url(utilities.css);
 /* 1. Reset styles                                */
 /* 2. Mobile first base styles                    */
 /* 3. HTML5 boilerplate helper classes            */
