@@ -57,8 +57,8 @@
 
         <!-- P R O D: styles concatenated and minified via optimizer task -->
         <!--#set var='ASSETS' value='${PUBLISH}' -->
-        <!--#set var='STYLES-MQ' value='styles-mq-min.css' -->
-        <!--#set var='STYLES-NOMQ' value='styles-nomq-min.css' -->
+        <!--#set var='STYLES-MQ' value='${STYLES}-min.css' -->
+        <!--#set var='STYLES-NOMQ' value='${STYLES-IE}-min.css' -->
         <!--#if expr="${PAGESTYLES}" -->
             <!--#set var='PAGESTYLESHEET' value='${PAGE}-min.css' -->
         <!--#endif -->
@@ -68,8 +68,8 @@
 
         <!-- D E V: scripts included separately with @import rules: reset, mobile first, utilities and then Media Queries -->
         <!--#set var='ASSETS' value='${SHARD}' -->
-        <!--#set var='STYLES-MQ' value='styles-mq.css' -->
-        <!--#set var='STYLES-NOMQ' value='styles-nomq.css' -->
+        <!--#set var='STYLES-MQ' value='${STYLES}.css' -->
+        <!--#set var='STYLES-NOMQ' value='${STYLES-IE}.css' -->
         <!--#if expr="${PAGESTYLES}" -->
             <!--#set var='PAGESTYLESHEET' value='${PAGE}.css' -->
         <!--#endif -->
