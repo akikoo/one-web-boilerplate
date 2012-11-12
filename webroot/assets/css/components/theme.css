@@ -8,32 +8,37 @@
  * Twitter: http://twitter.com/akikoo
  * 
 */
-/* Font sizes & line heights are calculated as follows:
---------------------------------------------------------------------------------
+/* ==========================================================================
+   Font sizes & line heights are calculated as follows:
 
-    Base font-size: 16px
-    Base line-height: 24px (1.5 x 16)
+   Base font-size: 16px
+   Base line-height: 24px (1.5 x 16)
 
-    Element font-size in ems: desired font-size in pixels / parent font-size in pixels
-    Line-height & margin-bottom: base line-height in pixels / desired font-size in pixels
-    This results in consistent baseline even if element font size decreases or increases.
--------------------------------------------------------------------------------*/
-/* line 24, ../../scss/common/theme.scss */
+   Element font-size in ems: 
+   desired font-size in pixels / parent font-size in pixels.
+   
+   Line-height & margin-bottom: 
+   base line-height in pixels / desired font-size in pixels.
+   
+   This results in consistent baseline even if element font size decreases or 
+   increases.
+   ========================================================================== */
+/* line 29, ../../scss/components/theme.scss */
 header[role="banner"] {
   display: none;
 }
 
-/* line 28, ../../scss/common/theme.scss */
+/* line 33, ../../scss/components/theme.scss */
 .nav-main {
   padding: 0;
 }
 
-/* line 32, ../../scss/common/theme.scss */
+/* line 37, ../../scss/components/theme.scss */
 .footer-main p {
   margin: 0;
 }
 
-/* line 36, ../../scss/common/theme.scss */
+/* line 41, ../../scss/components/theme.scss */
 body {
   font-family: Cambria, Georgia, serif;
   color: #333;
@@ -42,9 +47,10 @@ body {
   margin: 0 auto;
 }
 
-/*=hx
-------------------------------------------------------------------------------*/
-/* line 51, ../../scss/common/theme.scss */
+/* ==========================================================================
+   =Headings
+   ========================================================================== */
+/* line 57, ../../scss/components/theme.scss */
 h1,
 h2,
 h3,
@@ -56,7 +62,7 @@ h6 {
   padding: 0;
 }
 
-/* line 57, ../../scss/common/theme.scss */
+/* line 63, ../../scss/components/theme.scss */
 h1 {
   font-size: 2.25em;
   /*36px*/
@@ -65,7 +71,7 @@ h1 {
   margin: 0.66666666666667em 0;
 }
 
-/* line 63, ../../scss/common/theme.scss */
+/* line 69, ../../scss/components/theme.scss */
 h2 {
   font-size: 1.5em;
   /*24px*/
@@ -76,7 +82,7 @@ h2 {
   color: #839F03;
 }
 
-/* line 70, ../../scss/common/theme.scss */
+/* line 76, ../../scss/components/theme.scss */
 h3 {
   font-size: 1.3125em;
   /*21px*/
@@ -86,7 +92,7 @@ h3 {
   color: #333;
 }
 
-/* line 77, ../../scss/common/theme.scss */
+/* line 83, ../../scss/components/theme.scss */
 h4 {
   font-size: 1.125em;
   /*18px*/
@@ -96,7 +102,7 @@ h4 {
   color: #444;
 }
 
-/* line 84, ../../scss/common/theme.scss */
+/* line 90, ../../scss/components/theme.scss */
 h5 {
   font-size: 1em;
   /*16px*/
@@ -109,7 +115,7 @@ h5 {
   color: #555;
 }
 
-/* line 93, ../../scss/common/theme.scss */
+/* line 99, ../../scss/components/theme.scss */
 h6 {
   font-size: 0.875em;
   /*14px*/
@@ -122,18 +128,20 @@ h6 {
   color: #666;
 }
 
-/*=hr
-------------------------------------------------------------------------------*/
-/* line 105, ../../scss/common/theme.scss */
+/* ==========================================================================
+   =hr
+   ========================================================================== */
+/* line 112, ../../scss/components/theme.scss */
 hr {
   border: none;
   height: 1px;
   background: #ccc;
 }
 
-/* Grouped declarations
-------------------------------------------------------------------------------*/
-/* line 119, ../../scss/common/theme.scss */
+/* ==========================================================================
+   =Grouped declarations
+   ========================================================================== */
+/* line 127, ../../scss/components/theme.scss */
 ul,
 ol,
 hr,
@@ -148,9 +156,10 @@ fieldset {
   /*12px*/
 }
 
-/*=lists
-------------------------------------------------------------------------------*/
-/* line 130, ../../scss/common/theme.scss */
+/* ==========================================================================
+   =Lists
+   ========================================================================== */
+/* line 139, ../../scss/components/theme.scss */
 ul,
 ol,
 dl {
@@ -162,7 +171,7 @@ dl {
   /*12px*/
 }
 
-/* line 139, ../../scss/common/theme.scss */
+/* line 148, ../../scss/components/theme.scss */
 ul ul,
 ul ol,
 ol ol,
@@ -170,14 +179,15 @@ ol ul {
   margin: 0;
 }
 
-/* line 143, ../../scss/common/theme.scss */
+/* line 152, ../../scss/components/theme.scss */
 dt {
   font-weight: bold;
 }
 
-/*=blockquotes
-------------------------------------------------------------------------------*/
-/* line 150, ../../scss/common/theme.scss */
+/* ==========================================================================
+   =Blockquotes
+   ========================================================================== */
+/* line 160, ../../scss/components/theme.scss */
 blockquote {
   border-top: 1px solid;
   border-bottom: 1px solid;
@@ -196,9 +206,10 @@ blockquote {
   border-color: #ddd;
 }
 
-/*=img
-------------------------------------------------------------------------------*/
-/* line 167, ../../scss/common/theme.scss */
+/* ==========================================================================
+   =Images
+   ========================================================================== */
+/* line 178, ../../scss/components/theme.scss */
 img {
   background: #fff;
   border: 1px solid #ccc;
@@ -209,9 +220,10 @@ img {
   /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
 }
 
-/*=figures
-------------------------------------------------------------------------------*/
-/* line 180, ../../scss/common/theme.scss */
+/* ==========================================================================
+   =Figures
+   ========================================================================== */
+/* line 192, ../../scss/components/theme.scss */
 figcaption {
   font-family: Palatino, Cambria, Georgia, serif;
   font-style: italic;
@@ -224,9 +236,10 @@ figcaption {
   color: #666;
 }
 
-/*=p
-------------------------------------------------------------------------------*/
-/* line 192, ../../scss/common/theme.scss */
+/* ==========================================================================
+   =Paragraphs
+   ========================================================================== */
+/* line 205, ../../scss/components/theme.scss */
 p {
   font-size: 1em;
   /*16px*/
@@ -236,9 +249,10 @@ p {
   /*12px*/
 }
 
-/*=anchors
-------------------------------------------------------------------------------*/
-/* line 201, ../../scss/common/theme.scss */
+/* ==========================================================================
+   =Anchors
+   ========================================================================== */
+/* line 215, ../../scss/components/theme.scss */
 a {
   text-decoration: none;
   border-bottom-style: dotted;
@@ -246,65 +260,66 @@ a {
   white-space: pre-wrap;
 }
 
-/* line 209, ../../scss/common/theme.scss */
+/* line 223, ../../scss/components/theme.scss */
 a:link,
 a:visited {
   color: #369;
   border-bottom-color: #369;
 }
 
-/* line 215, ../../scss/common/theme.scss */
+/* line 229, ../../scss/components/theme.scss */
 a:hover,
 a:focus {
   color: #c03;
   border-bottom-color: #c03;
 }
 
-/* line 220, ../../scss/common/theme.scss */
+/* line 234, ../../scss/components/theme.scss */
 a:active {
   color: #900;
   border-bottom-color: #900;
 }
 
-/*=form elements
-------------------------------------------------------------------------------*/
-/* line 228, ../../scss/common/theme.scss */
+/* ==========================================================================
+   =Form elements
+   ========================================================================== */
+/* line 243, ../../scss/components/theme.scss */
 .control-group {
   margin: 0 0 1em 0;
 }
 
-/* line 232, ../../scss/common/theme.scss */
+/* line 247, ../../scss/components/theme.scss */
 fieldset fieldset .control-group {
   margin: 0;
 }
 
 /* http://nicolasgallagher.com/micro-clearfix-hack/ */
-/* line 238, ../../scss/common/theme.scss */
+/* line 253, ../../scss/components/theme.scss */
 .control-group:before,
 .control-group:after {
   content: "";
   display: table;
 }
 
-/* line 243, ../../scss/common/theme.scss */
+/* line 258, ../../scss/components/theme.scss */
 .control-group:after {
   clear: both;
 }
 
 /* For IE 6/7 (trigger hasLayout) */
-/* line 248, ../../scss/common/theme.scss */
+/* line 263, ../../scss/components/theme.scss */
 .ie7 .control-group {
   zoom: 1;
 }
 
-/* line 252, ../../scss/common/theme.scss */
+/* line 267, ../../scss/components/theme.scss */
 label {
   float: left;
   width: 30%;
   cursor: pointer;
 }
 
-/* line 259, ../../scss/common/theme.scss */
+/* line 274, ../../scss/components/theme.scss */
 input[type="radio"],
 input[type="checkbox"] {
   float: left;
@@ -312,12 +327,12 @@ input[type="checkbox"] {
   margin: 0 10px 0 30%;
 }
 
-/* line 265, ../../scss/common/theme.scss */
+/* line 280, ../../scss/components/theme.scss */
 .ie7 input[type="radio"] {
   clear: both;
 }
 
-/* line 275, ../../scss/common/theme.scss */
+/* line 290, ../../scss/components/theme.scss */
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -328,7 +343,7 @@ textarea {
   width: 50%;
 }
 
-/* line 288, ../../scss/common/theme.scss */
+/* line 303, ../../scss/components/theme.scss */
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -345,12 +360,12 @@ button {
   vertical-align: middle;
 }
 
-/* line 299, ../../scss/common/theme.scss */
+/* line 314, ../../scss/components/theme.scss */
 .control-help {
   margin: 0 0 0 30%;
 }
 
-/* line 305, ../../scss/common/theme.scss */
+/* line 320, ../../scss/components/theme.scss */
 input[type],
 textarea,
 select {
@@ -362,7 +377,7 @@ select {
   border-radius: 4px;
 }
 
-/* line 314, ../../scss/common/theme.scss */
+/* line 329, ../../scss/components/theme.scss */
 textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -370,7 +385,7 @@ textarea {
   width: 100%;
 }
 
-/* line 340, ../../scss/common/theme.scss */
+/* line 355, ../../scss/components/theme.scss */
 button,
 input[type="button"],
 input[type="submit"] {
@@ -400,14 +415,15 @@ input[type="submit"] {
   box-shadow: 0 1px 0 white inset, 0 -1px 0 rgba(0, 0, 0, 0.03) inset;
 }
 
-/*=Module display and source wrappers
-------------------------------------------------------------------------------*/
-/* line 378, ../../scss/common/theme.scss */
+/* ==========================================================================
+   =Module display and source wrappers
+   ========================================================================== */
+/* line 394, ../../scss/components/theme.scss */
 .module {
   margin-bottom: 3em;
 }
 
-/* line 382, ../../scss/common/theme.scss */
+/* line 398, ../../scss/components/theme.scss */
 .module h3 span {
   display: inline-block;
   font-size: 0.85714285714286em;
@@ -419,7 +435,7 @@ input[type="submit"] {
 }
 
 /* Module display wrapper */
-/* line 391, ../../scss/common/theme.scss */
+/* line 407, ../../scss/components/theme.scss */
 .display {
   margin: 0.5em 0 1em;
   /*8px 0 16px*/
@@ -428,7 +444,7 @@ input[type="submit"] {
 }
 
 /* Module source wrapper */
-/* line 401, ../../scss/common/theme.scss */
+/* line 417, ../../scss/components/theme.scss */
 .source textarea {
   border: 1px solid #ccc;
   overflow: auto;
@@ -445,14 +461,15 @@ input[type="submit"] {
   background: #f8f8f8;
 }
 
-/*=tables
-------------------------------------------------------------------------------*/
-/* line 417, ../../scss/common/theme.scss */
+/* ==========================================================================
+   =Tables
+   ========================================================================== */
+/* line 434, ../../scss/components/theme.scss */
 table {
   width: 100%;
 }
 
-/* line 422, ../../scss/common/theme.scss */
+/* line 439, ../../scss/components/theme.scss */
 th,
 td {
   padding: 1em;
@@ -460,31 +477,33 @@ td {
   text-align: left;
 }
 
-/* line 428, ../../scss/common/theme.scss */
+/* line 445, ../../scss/components/theme.scss */
 caption {
   padding: 1em;
 }
 
-/*=media object http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/ 
-                http://jsfiddle.net/necolas/rZvEF/
-------------------------------------------------------------------------------*/
-/* line 437, ../../scss/common/theme.scss */
+/* ==========================================================================
+   =Media object 
+   http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/ 
+   http://jsfiddle.net/necolas/rZvEF/
+   ========================================================================== */
+/* line 455, ../../scss/components/theme.scss */
 .media {
   margin: 10px;
 }
 
-/* line 441, ../../scss/common/theme.scss */
+/* line 459, ../../scss/components/theme.scss */
 .media .img {
   float: left;
   margin: 0 10px 0 0;
 }
 
-/* line 446, ../../scss/common/theme.scss */
+/* line 464, ../../scss/components/theme.scss */
 .media .img img {
   display: block;
 }
 
-/* line 450, ../../scss/common/theme.scss */
+/* line 468, ../../scss/components/theme.scss */
 .media .img-ext {
   float: right;
   margin-left: 10px;
@@ -499,7 +518,7 @@ caption {
  * www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
  * facebook.com
 */
-/* line 465, ../../scss/common/theme.scss */
+/* line 483, ../../scss/components/theme.scss */
 .media .content {
   display: table-cell;
   /* 1 */
@@ -507,7 +526,7 @@ caption {
   /* 2 */
 }
 
-/* line 470, ../../scss/common/theme.scss */
+/* line 488, ../../scss/components/theme.scss */
 .ie7 .media .content {
   width: auto;
   /* 3 */
@@ -516,7 +535,7 @@ caption {
 }
 
 /* ----- REUSABLE ICONS ----- */
-/* line 476, ../../scss/common/theme.scss */
+/* line 494, ../../scss/components/theme.scss */
 .icon {
   display: inline-block;
   width: 16px;
@@ -525,7 +544,7 @@ caption {
   background: url(http://placekitten.com/16/16);
 }
 
-/* line 484, ../../scss/common/theme.scss */
+/* line 502, ../../scss/components/theme.scss */
 .icon-a {
   background-position: 0 0;
 }

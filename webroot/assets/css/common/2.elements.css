@@ -7,8 +7,6 @@
  * Twitter: http://twitter.com/akikoo
  * 
  */
-
-
 /* ==========================================================================
    @group Elements. Base/Mobile First, opinionated layout-less default styles 
    (mini reset, and global colour and typography styles for base elements. 
@@ -20,7 +18,6 @@
    Remember these rules are applied also in older desktop browsers that don't 
    support media queries.
    ========================================================================== */
-
 /* Enable this if you want to reset ALL paddings and margins; CSSLint will throw 
    a warning though.
 * {
@@ -28,107 +25,85 @@
     padding: 0;
 }
 */
-
+/* line 36, ../../scss/common/2.elements.scss */
 html,
 button,
 input,
 select,
 textarea {
-    color: #222;
+  color: #222;
 }
 
+/* line 40, ../../scss/common/2.elements.scss */
 body {
-    font-size: 100%; /* 16px (assuming browser default is 16px) */
-    line-height: 1;  /* 16px */
+  font-size: 100%;
+  /* 16px (assuming browser default is 16px) */
+  line-height: 1;
+  /* 16px */
 }
-
 
 /* ==========================================================================
    Links
    ========================================================================== */
-
-a {
-
-}
-
-a:visited {
-
-}
-
-a:hover, 
-a:active {
-
-}
-
-
 /* ==========================================================================
    Typography
    ========================================================================== */
-
 /* 
  * Typefaces: Sans-serif
  */
-
 /* 
  * Typefaces: Serif
  */
-
-
 /* ==========================================================================
    Lists
    ========================================================================== */
-   
-   
 /* ==========================================================================
    Embedded content
    ========================================================================== */
-   
 /*
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
  */
+/* line 89, ../../scss/common/2.elements.scss */
 img {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 /*
  * Flexible images and embedded videos
  */
+/* line 101, ../../scss/common/2.elements.scss */
 img,
-audio, 
+audio,
 video,
 object,
-embed, 
+embed,
 svg {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 /* ==========================================================================
    Figures
    ========================================================================== */
-
-
 /* ==========================================================================
    Forms
    ========================================================================== */
-
 /*
  * Remove default fieldset styles.
  */
-
+/* line 118, ../../scss/common/2.elements.scss */
 fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /*
  * Allow only vertical resizing of textareas.
  */
-
+/* line 128, ../../scss/common/2.elements.scss */
 textarea {
-    resize: vertical;
+  resize: vertical;
 }
-
 
 /* ==========================================================================
    Tables
