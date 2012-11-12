@@ -180,11 +180,11 @@ included in the following order:
     IE 6/7/8 browsers; alternatively, you can use this as non-responsive main 
     stylesheet that simply includes modular stylesheets). 
 
-main.scss and main-ie.scss are the main stylesheets that @import all the 
-common styles. Note that styles are @import-ed only for development. For production, 
-the build script inlines and minifies styles in the same order that you @import-ed 
-them. Nice, eh? But keep in mind that you have to @import the core styles (see above) 
-before anything else. 
+Scalable and Modular Architecture for CSS (SMACSS, http://smacss.com/) is used by default. 
+main.scss and main-ie.scss are the main stylesheets that @import all the common styles. 
+Note that styles are @import-ed only for development. For production, the build script 
+inlines and minifies styles in the same order that you @import-ed them. Nice, eh? 
+But keep in mind that you have to @import the core styles (see above) before anything else. 
 
 If you need to overwrite common rules, or add new ones on a page level, you can do 
 so by creating a new stylesheet in /webroot/assets/scss/pages. Page specific stylesheet 
