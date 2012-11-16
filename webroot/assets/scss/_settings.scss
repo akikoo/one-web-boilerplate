@@ -1,0 +1,62 @@
+// Variables file containing defaults
+
+/* ==========================================================================
+   Font sizes & line heights are calculated as follows:
+
+   Base font-size: 16px
+   Base line-height: 24px (1.5 x 16)
+
+   Element font-size in ems: 
+   desired font-size in pixels / parent font-size in pixels.
+   
+   Line-height & margin-bottom: 
+   base line-height in pixels / desired font-size in pixels.
+   
+   This results in consistent baseline even if element font size decreases or 
+   increases.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   =Grid settings
+   ========================================================================== */
+
+
+
+/* ==========================================================================
+   =Color settings
+   ========================================================================== */
+// Common colours
+$color-text                 : #222;
+$color-background           : #eee;
+$color-border               : #ddd;
+
+// Links
+$color-link-default         : #05B;
+$color-link-visited         : #05B;
+$color-link-hover           : #07d;
+$color-link-active          : #07d;
+
+
+
+/* ==========================================================================
+   =Font settings
+   ========================================================================== */
+/* Base sizes */
+$base-font-size             : 16px; /* 16px (assuming browser default is 16px)*/
+$base-line-height           : 24px; /* 21px */
+
+/* Font stacks */
+$font-family-sans           : "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif          : Cambria, Georgia, Times, "Times New Roman";
+$font-family-monospace      : "Bitstream Vera Sans", Consolas, Menlo, "Lucida Console", "Liberation Mono", Courier, monospace;
+
+
+
+/* ==========================================================================
+   =Media Query breakpoint settings. Define your own to suit the design.
+   ========================================================================== */
+$breakpoint-small           : 30em;
+$breakpoint-medium          : 48em;
+$breakpoint-large           : 62em;
+$breakpoint-xlarge          : 86.375em;
