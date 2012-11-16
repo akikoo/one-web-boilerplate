@@ -1,0 +1,54 @@
+/* ==========================================================================
+   @group Media Object
+   http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/ 
+   http://jsfiddle.net/necolas/rZvEF/
+   ========================================================================== */
+
+/*
+ * 1. Create new block formatting context in modern browsers
+ * 2. Avoid shrink-wrap behaviour of table-cell
+ * 3. Override for IE6/7
+ * 4. Create new block formatting context in IE6/7
+ * Alternatively, use `overflow:hidden` if clipping is OK
+ * www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+ * facebook.com
+*/
+.media {
+    margin: 0 0 1em;
+    .img {
+        float: left;
+        margin: 0 10px 0 0;
+        img {
+            display: block;
+        }
+    }
+    .img-ext {
+        float: right; 
+        margin-left: 10px;
+    }
+    .content {
+        display: table-cell; /* 1 */
+        width: 10000px; /* 2 */
+        *width: auto; /* 3 */
+        *zoom: 1; /* 4 */
+    }
+    p {
+        margin: 0 0 1em;
+    }
+    @include clearfix();
+}
+
+
+
+/* ----- REUSABLE ICONS ----- */
+.icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px 0 0;
+    background: url(http://placekitten.com/16/16);
+}
+
+.icon-a {
+    background-position: 0 0;
+}
