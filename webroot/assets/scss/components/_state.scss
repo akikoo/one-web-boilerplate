@@ -4,7 +4,7 @@
    Module states should be defined in modules, and kept together with Sass. 
    State classes may indicate JS dependancy (.js-is-hidden).
 
-   Use either:
+   Consider using either:
      class (.is-collapsed / .is-error / .is-hidden)
      pseudo-class (:hover) 
      attribute states (data-state="transitioning")
