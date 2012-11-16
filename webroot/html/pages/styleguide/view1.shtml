@@ -1,5 +1,5 @@
 <h1><!--#echo var="PAGE-HEADING" --></h1>
 
-<p>A guide to the base markup styles used throughout the site.</p>
+<p>A guide to the base markup and custom patterns/modules used throughout the site.</p>
 
 <!--#include virtual="${MODULES}/content_elements.shtml" -->
