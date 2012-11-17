@@ -12,7 +12,7 @@
  * Alternatively, use `overflow:hidden` if clipping is OK
  * www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
  * facebook.com
-*/
+ */
 .media {
     margin: 0 0 1em;
     .img {
@@ -39,8 +39,9 @@
 }
 
 
-
-/* ----- REUSABLE ICONS ----- */
+/*
+ * Reusable  icons
+ */
 .icon {
     display: inline-block;
     width: 16px;
