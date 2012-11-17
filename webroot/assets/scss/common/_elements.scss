@@ -1,6 +1,13 @@
 /**
  * 
- * Mobile First stylesheet for all the browsers.
+ * Base/Mobile First default colour and typography styles for base elements. 
+ * No layout rules, nor classes/IDs here.
+ * 
+ * Extending normalize.css, following the same element order.
+ *
+ * The idea is to begin with a layout-less version and serve only default, linear 
+ * layout. Remember these rules are applied also in older desktop browsers that 
+ * don't support media queries.
  *
  * @author Aki Karkkainen
  * @url https://github.com/akikoo/one-web-boilerplate
@@ -8,17 +15,8 @@
  * 
  */
 
-
 /* ==========================================================================
-   @group Elements. Base/Mobile First, opinionated layout-less default styles 
-   (mini reset, and global colour and typography styles for base elements. 
-   No classes/IDs here. 
-
-   Extending normalize.css which is included before these styles.
-
-   Begin with a layout-less version and serve only default, linear layout.
-   Remember these rules are applied also in older desktop browsers that don't 
-   support media queries.
+   @group Base.
    ========================================================================== */
 
 /* Enable this if you want to reset ALL paddings and margins; CSSLint will throw 
@@ -34,21 +32,36 @@ button,
 input,
 select,
 textarea {
-    color: #222;
+    color: $color-text;
+    font-family: $font-family-sans;
 }
 
 body {
-    font-size: 100%; /* 16px (assuming browser default is 16px) */
-    line-height: 1;  /* 16px */
+    font-size: 1em;     /* 16px */
+    line-height: 1.5;   /* 24px */
+}
+    
+/* 
+ * =hr (a better looking default horizontal rule)
+ */
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $color-border;
+    margin: relative-size($base-line-height) 0;
+    padding: 0;
 }
 
-
 /* ==========================================================================
-   Links
+   @group Links
    ========================================================================== */
 
 a {
-
+    color: $color-link-default;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 85, 187, 0.1);
+    white-space: pre-wrap;
 }
 
 a:visited {
@@ -57,12 +70,13 @@ a:visited {
 
 a:hover, 
 a:active {
-
+    color: $color-link-hover;
+    border-bottom-color: rgba(0, 119, 221, 0.2);
 }
 
 
 /* ==========================================================================
-   Typography
+   @group Typography
    ========================================================================== */
 
 /* 
@@ -73,14 +87,103 @@ a:active {
  * Typefaces: Serif
  */
 
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+    color: $color-text;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: relative-size(36); 
+    line-height: relative-size(36, 36);
+    margin: relative-size($base-line-height, 72) 0 relative-size($base-line-height, 36);
+}
+
+h2 {
+    font-size: relative-size(24); 
+    line-height: relative-size($base-line-height, 24);
+    margin: 0 0 relative-size($base-line-height, 24);
+}
+
+h3 {
+    font-size: relative-size(21); 
+    line-height: relative-size($base-line-height, 21);
+    margin: 0 0 relative-size($base-line-height, 21);
+}
+
+h4 {
+    font-size: relative-size(16); 
+    line-height: relative-size($base-line-height, 16);
+    margin: 0 0 relative-size($base-line-height, 16);
+    font-weight: bold;
+}
+
+h5 {
+    font-size: relative-size(14);
+    line-height: relative-size($base-line-height, 14); 
+    margin: 0 0 relative-size($base-line-height, 14);
+    text-transform: uppercase;
+    letter-spacing: relative-size(1, 14);
+    color: #555;
+}
+
+h6 {
+    font-size: relative-size(12); 
+    line-height: relative-size($base-line-height, 12); 
+    margin: 0 0 relative-size($base-line-height, 12);
+    text-transform: uppercase;
+    letter-spacing: relative-size(1, 12);
+    color: #555;
+}
+
+blockquote {
+    margin: 0 40px relative-size($base-line-height, 16);
+}
+
+p, 
+pre {
+    line-height: relative-size($base-line-height, 16); 
+    margin: 0 0 relative-size($base-line-height, 16);
+}
+
 
 /* ==========================================================================
-   Lists
+   @group Grouped declarations
    ========================================================================== */
-   
-   
+ul, 
+ol, 
+dl, 
+menu, 
+hr, 
+table, 
+form, 
+fieldset {
+    margin: 0 0 relative-size($base-line-height, 16);
+}
+
+
 /* ==========================================================================
-   Embedded content
+   @group Lists
+   ========================================================================== */
+
+ul ul, 
+ul ol, 
+ol ol, 
+ol ul {
+    margin: 0;
+}
+
+dt {
+    font-weight: bold;
+}
+
+
+/* ==========================================================================
+   @group Embedded content
    ========================================================================== */
    
 /*
@@ -89,6 +192,16 @@ a:active {
 img {
     vertical-align: middle;
 }
+
+img {
+    background: #fff;
+    border: 1px solid $color-border;
+    display: block;
+    margin: 0;
+    max-width: 97%;
+    padding: 5px;
+}
+
 
 /*
  * Flexible images and embedded videos
@@ -103,33 +216,37 @@ svg {
 }
 
 /* ==========================================================================
-   Figures
+   @group Figures
    ========================================================================== */
 
 
 /* ==========================================================================
-   Forms
+   @group Forms - see Forms module!
    ========================================================================== */
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-    resize: vertical;
-}
 
 
 /* ==========================================================================
-   Tables
+   @group Tables
    ========================================================================== */
+
+table {
+    border-top: 1px solid $color-border;
+    border-left: 1px solid $color-border;
+}
+
+caption {
+    font-weight: bold;
+    text-align: left;
+}
+
+td, 
+th {
+    text-align: left;
+    border-right: 1px solid $color-border;
+    border-bottom: 1px solid $color-border;
+    padding: 2px 6px;
+}
+
+th {
+    background: $color-background;
+}
