@@ -49,16 +49,7 @@ Remove this if you use the .htaccess -->
 <meta http-equiv="cleartype" content="on">
 
 <!-- 1. Reset styles -->				
-<link rel="stylesheet" href="../assets/css/common/normalize.css">
-
-<!-- 2. Mobile first styles for all browsers -->		
-<link rel="stylesheet" href="../assets/css/common/elements.css">
-
-<!-- 3. HTML5 boilerplate helper classes -->				
-<link rel="stylesheet" href="../assets/css/common/utilities.css">
-
-<!-- 4. Temp skin styles -->
-<link rel="stylesheet" href="../assets/css/components/theme.css">
+<link rel="stylesheet" href="../assets/css/main.css">
 
 <noscript>
 <!-- For more info, see http://labjs.com/ -->
@@ -71,7 +62,7 @@ Remove this if you use the .htaccess -->
 <script src="../assets/js/lib/modernizr-2.0.6-custom.min.js"></script>
 
 </head>
-<body>
+<body class="l-constrained">
 
 <div class="page">
 
