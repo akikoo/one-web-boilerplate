@@ -1,26 +1,25 @@
-// Variables file containing defaults
+// 
+// Variables file containing defaults for One Web Boilerplate.
+//
 
-/* ==========================================================================
-   Font sizes & line heights are calculated as follows:
+// Font sizes & line heights are calculated as follows:
 
-   Base font-size: 16px
-   Base line-height: 24px (1.5 x 16)
+//     Base font-size: 16px
+//     Base line-height: 24px (1.5 x 16)
 
-   Element font-size in ems: 
-   desired font-size in pixels / parent font-size in pixels.
-   
-   Line-height & margin-bottom: 
-   base line-height in pixels / desired font-size in pixels.
-   
-   This results in consistent baseline even if element font size decreases or 
-   increases.
-   ========================================================================== */
+//     Element font-size in ems: desired font-size in pixels / parent font-size in pixels.
+//     Example: 14px/16px = 0.875em
+
+//     Line-height & margin-bottom: base line-height in pixels / current font-size in pixels.
+//     Example: 24px/14px = 1.71428571428571em
+
+//     This results in consistent baseline even if element font size decreases or increases.
 
 
 /* ==========================================================================
    =Grid settings
    ========================================================================== */
-
+// Column number, gutter etc. 
 
 
 /* ==========================================================================
@@ -38,13 +37,12 @@ $color-link-hover           : #07d;
 $color-link-active          : #07d;
 
 
-
 /* ==========================================================================
    =Font settings
    ========================================================================== */
 /* Base sizes */
-$base-font-size             : 16px; /* 16px (assuming browser default is 16px)*/
-$base-line-height           : 24px; /* 21px */
+$base-font-size             : 16; /* browser default */
+$base-line-height           : $base-font-size * 1.5; 
 
 /* Font stacks */
 $font-family-sans           : "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -52,11 +50,10 @@ $font-family-serif          : Cambria, Georgia, Times, "Times New Roman";
 $font-family-monospace      : "Bitstream Vera Sans", Consolas, Menlo, "Lucida Console", "Liberation Mono", Courier, monospace;
 
 
-
 /* ==========================================================================
-   =Media Query breakpoint settings. Define your own to suit the design.
+   =Media Query breakpoint settings. Define your own to suit the design. 
    ========================================================================== */
-$breakpoint-small           : 30em;
-$breakpoint-medium          : 48em;
-$breakpoint-large           : 62em;
-$breakpoint-xlarge          : 86.375em;
+$breakpoint-small           : 30em;     /* 480/16 */
+$breakpoint-medium          : 48em;     /* 768/16 */
+$breakpoint-large           : 62em;     /* 992/16 */
+$breakpoint-xlarge          : 86.375em; /* 1382/16 */
