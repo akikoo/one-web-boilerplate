@@ -1,16 +1,37 @@
+/**
+ * 
+ * Module @imports for One Web Boilerplate modules. Import all the modules in this file.
+ * For more info on how to categorize your CSS, see SMACSS: http://smacss.com/
+ *
+ * Ems are based on generic browser default setting of 16px font size.
+ * 
+ * Use classes, no major layout rules here (those are defined with '.l-' prefix).
+ * Modules should be treated as standalone instances that are easy to move around. 
+ * 
+ * No anonymous span/div elements, only classes and semantic HTML elements. 
+ * Use subclassing if needed, for example: '.pod' / '.pod-constrained' / '.pod-callout'. 
+ * 
+ * Modules can be nested too.
+ * 
+ * Credits & inspiration: 
+ * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+ * http://forabeautifulweb.com/blog/about/320_and_up/
+ * http://html5boilerplate.com/mobile
+ * http://adactio.com/journal/1700/
+ * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+ * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+ *
+ * @author Aki Karkkainen
+ * @url https://github.com/akikoo/one-web-boilerplate
+ * Twitter: http://twitter.com/akikoo
+ * 
+ */
+
+
 /* ==========================================================================
-   @group Module. Import all the modules in this file.
-
-   Use classes, no major layout rules here (those are defined with '.layout-' prefix). 
-
-   Modules should be treated as standalone instances that are easy to move around. 
-
-   No anonymous span/div elements, only classes and semantic HTML elements. 
-   Use subclassing if needed, for example: '.pod' / '.pod-constrained' / '.pod-callout'. 
-
-   Modules can be nested too.
+   @group Module.
    ========================================================================== */
-
 @import "modules/styleguide";
 @import "modules/media-object";
 @import "modules/buttons";
+@import "modules/forms";

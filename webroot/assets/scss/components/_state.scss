@@ -1,14 +1,56 @@
+/**
+ * 
+ * State for One Web Boilerplate elements and modules.
+ * For more info on how to categorize your CSS, see SMACSS: http://smacss.com/
+ *
+ * Ems are based on generic browser default setting of 16px font size.
+ * 
+ * Set only global states here. Module states should be defined in modules, 
+*  and kept together with Sass. State classes may indicate JS dependancy (.js-is-hidden).
+ * 
+ * Consider using either:
+ *     class (.is-collapsed / .is-error / .is-hidden)
+ *     pseudo-class (:hover) 
+ *     attribute states (data-state="transitioning")
+ *     @media queries
+
+ * !important should only be used with State styles. 
+ * 
+ * Credits & inspiration: 
+ * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+ * http://forabeautifulweb.com/blog/about/320_and_up/
+ * http://html5boilerplate.com/mobile
+ * http://adactio.com/journal/1700/
+ * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+ * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+ *
+ * @author Aki Karkkainen
+ * @url https://github.com/akikoo/one-web-boilerplate
+ * Twitter: http://twitter.com/akikoo
+ * 
+ */
+
 /* ==========================================================================
-   @group State. Put only global states here. 
-
-   Module states should be defined in modules, and kept together with Sass. 
-   State classes may indicate JS dependancy (.js-is-hidden).
-
-   Consider using either:
-     class (.is-collapsed / .is-error / .is-hidden)
-     pseudo-class (:hover) 
-     attribute states (data-state="transitioning")
-     @media queries
-
-   !important should only be used with State styles. 
+   @group State. 
    ========================================================================== */
+
+// http://www.mobilexweb.com/blog/windows-8-surface-ie10-html5
+@-webkit-viewport { 
+    width : device-width; 
+}
+
+@-moz-viewport { 
+    width : device-width; 
+}
+
+@-ms-viewport { 
+    width : device-width; 
+}
+
+@-o-viewport { 
+    width : device-width; 
+}
+
+@viewport { 
+    width : device-width; 
+}
