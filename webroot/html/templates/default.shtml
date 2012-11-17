@@ -5,7 +5,7 @@
 <!--#elif expr="${PAGE} != 'home'" -->
 <!--#set var="HEADERTAG" value="div" -->
 <!--#endif -->
-<body>
+<body class="l-constrained">
 
     <div class="page">
 
