@@ -59,9 +59,6 @@
         <!--#set var='ASSETS' value='${PUBLISH}' -->
         <!--#set var='STYLES-MQ' value='${STYLES}-min.css' -->
         <!--#set var='STYLES-NOMQ' value='${STYLES-IE}-min.css' -->
-        <!--#if expr="${PAGESTYLES}" -->
-            <!--#set var='PAGESTYLESHEET' value='${PAGE}-min.css' -->
-        <!--#endif -->
         <!--#set var='MODERNIZR' value='${MODERNIZR}' -->
 
     <!--#else -->
@@ -70,9 +67,6 @@
         <!--#set var='ASSETS' value='${SHARD}' -->
         <!--#set var='STYLES-MQ' value='${STYLES}.css' -->
         <!--#set var='STYLES-NOMQ' value='${STYLES-IE}.css' -->
-        <!--#if expr="${PAGESTYLES}" -->
-            <!--#set var='PAGESTYLESHEET' value='${PAGE}.css' -->
-        <!--#endif -->
         <!--#set var='MODERNIZR' value='${MODERNIZR}' -->
     <!--#endif -->
 
@@ -84,10 +78,6 @@
     <!--[if (lt IE 9) & (!IEMobile)]>
     <link rel="stylesheet" href="<!--#echo var='ASSETS' -->/css/<!--#echo var='STYLES-NOMQ' -->">
     <![endif]-->
-
-    <!--#if expr="${PAGESTYLES}" -->
-        <link rel="stylesheet" href="<!--#echo var='ASSETS' -->/css/pages/<!--#echo var='PAGESTYLESHEET' -->">
-    <!--#endif -->
 
     <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
     <script src="<!--#echo var='ASSETS' -->/js/lib/<!--#echo var='MODERNIZR' -->"></script>
