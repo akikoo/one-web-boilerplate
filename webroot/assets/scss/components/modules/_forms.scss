@@ -1,0 +1,89 @@
+/* ==========================================================================
+   @group Forms
+   ========================================================================== */
+
+/* 
+ * Remove default fieldset styles. 
+ */
+fieldset {
+    border: 0;
+    padding: 0;
+}
+
+/* 
+ * Allow only vertical resizing of textareas. 
+ */
+textarea {
+    resize: vertical;
+}
+
+/* 
+ * Wrapper for label and input groups (radio buttons, checkboxes). 
+ */
+.field-group {
+    clear: both;
+}
+
+/* 
+ * Wrapper for label and input. 
+ */
+.field {
+    margin: 1em 0;
+    clear: both;
+}
+
+/* 
+ * Wrapper for label and input inside a group (radio buttons, checkboxes). 
+ */
+.field-group .field {
+    clear: none;
+    margin: .5em 0 .5em 25%;
+}
+
+/* 
+ * Wrapper for submit button. 
+ */
+.field-submit {
+    margin: 1em 0 1em 25%;        
+}
+        
+/* 
+ * Label for single inputs, and legend for input groups. 
+ */
+label, 
+.field-group legend {
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+label {
+    cursor: pointer;
+}
+
+/* 
+ * Radio button and checkbox labels. 
+ */
+.check-label, 
+.radio-label {
+    display: inline;
+    float: none;
+    width: auto;
+}
+
+/* 
+ * Message next to input elements. 
+ */
+.inline-message {
+    width: 66%;
+}
+
+/* 
+ * Text input styles. 
+ */
+/*input*/.text, 
+select, 
+textarea {
+    width: 38%;
+    border: 1px solid $color-border;
+}
