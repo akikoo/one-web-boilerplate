@@ -1,9 +1,7 @@
-@charset "utf-8";
-
 /**
  * 
- * Modular styles for browsers that don't support Media Queries 
- * This means legacy IE 6/7/8
+ * Main stylesheet for browsers that don't support Media Queries. 
+ * This means legacy IE 6/7/8.
  * 
  * Alternatively, this file could be used to build an old-school non-responsive 
  * website, where the @import-ed stylesheets could be various standalone modules 
@@ -25,6 +23,7 @@
  * http://adactio.com/journal/1700/
  * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
  * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+ * http://jakearchibald.github.com/sass-ie/
  * 
  * @author Aki Karkkainen
  * @url https://github.com/akikoo/one-web-boilerplate
@@ -32,50 +31,6 @@
  *
  */
 
-
-/* ==========================================================================
-   Get Compass utilities first.
-   ========================================================================== */
-@import "compass";
-
-
-/* ==========================================================================
-   Variables, functions and mixins (these are partials).
-   ========================================================================== */
-// @import "settings";
-// @import "functions/all";
-// @import "mixins/all";
-
-
-/* ==========================================================================
-   Styles are defined in the following order & groupings: Base, Layout, Module, State.
-   Following the Scalable and Modular Architecture for CSS (SMACSS) http://smacss.com/book.
-   ========================================================================== */
-@import "common/base.css";              /* 1. Reset, base elements, utilities */
-@import "components/layout.css";        /* 2. Layout                          */
-@import "components/module.css";        /* 3. Modules                         */
-@import "components/state.css";         /* 4. State (Layout and Modules)      */
-@import "components/theme.css";         /* 5. TEMP skin styles, should be removed */
-
-
-
-/* ==========================================================================
-   (A) Modular styles for each range (these are simply inlined without Media 
-   Queries, so watch out cascading!).
-   ========================================================================== */
-// @import "mq-overlap/320-up";
-// @import "mq-overlap/480-up";
-// @import "mq-overlap/768-up";
-// @import "mq-overlap/992-up";
-
-
-
-/* ==========================================================================
-   (B) Standalone modules instead, if you prefer that way. 
-
-   This file is served to browsers that don't support Media Queries, so you may 
-   decide to reuse the above stylesheets under css/mq-overlap/*, or include your 
-   own modular ones here.
-   ========================================================================== */
-
-/* Any module CSS files @import-ed here... */
+$old-ie: true;
+$fix-mqs: 62em;
+@import 'main';

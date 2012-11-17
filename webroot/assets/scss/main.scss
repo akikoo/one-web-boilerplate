@@ -1,28 +1,20 @@
-@charset "utf-8";
-
 /**
-* 
-* Media Queries for responsive design for smartphones, tablets and larger screens
-*
-* These enhance and sometimes override the primary (mobile first) styles
-* Layout styles (width, float etc.) and styles for extra elements requested with 
-* Media Queries and Ajax
-* Several resolution breakpoints are being used, using ems
-* Ems are based on generic browser default setting of 16px font size
-* 
-* Credits & inspiration: 
-* http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
-* http://forabeautifulweb.com/blog/about/320_and_up/
-* http://html5boilerplate.com/mobile
-* http://adactio.com/journal/1700/
-* http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
-* http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
-* 
-* @author Aki Karkkainen
-* @url https://github.com/akikoo/one-web-boilerplate
-* Twitter: http://twitter.com/akikoo
-*
-*/
+ * 
+ * Main stylesheet for responsive design for smartphones, tablets and large screens. 
+ * 
+ * Credits & inspiration: 
+ * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+ * http://forabeautifulweb.com/blog/about/320_and_up/
+ * http://html5boilerplate.com/mobile
+ * http://adactio.com/journal/1700/
+ * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+ * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+ * 
+ * @author Aki Karkkainen
+ * @url https://github.com/akikoo/one-web-boilerplate
+ * Twitter: http://twitter.com/akikoo
+ *
+ */
 
 
 /* ==========================================================================
@@ -35,86 +27,17 @@
 /* ==========================================================================
    Settings, functions and mixins (these are partials).
    ========================================================================== */
-// @import "settings";
-// @import "functions/all";
-// @import "mixins/all";
+@import "settings";
+@import "functions/all";
+@import "mixins/all";
 
 
 /* ==========================================================================
    Styles are defined in the following order & groupings: Base, Layout, Module, State.
    Following the Scalable and Modular Architecture for CSS (SMACSS) http://smacss.com/book.
    ========================================================================== */
-@import "common/base.css";              /* 1. Reset, base elements, utilities */
-@import "components/layout.css";        /* 2. Layout                          */
-@import "components/module.css";        /* 3. Modules                         */
-@import "components/state.css";         /* 4. State (Layout and Modules)      */
-@import "components/theme.css";         /* 5. TEMP skin styles, should be removed */
-
-
-
-
-/* ==========================================================================
-   (OPTION A) Overlapping Media Queries (Responsive larger screen styles).
-
-   Use these if you have a lot of common rules that you want to cascade to 
-   larger screens. You can then use these stylesheets to overwrite only the 
-   rules you need to, for each range.
-   ========================================================================== */
-@media only screen and (min-width: 20em) {
-    // @import "mq-overlap/320-up";
-}
-
-@media only screen and (min-width: 30em) {
-    // @import "mq-overlap/480-up";
-}
-
-@media only screen and (min-width: 48em) {
-    // @import "mq-overlap/768-up";
-}
-
-@media only screen and (min-width: 62em) {
-    // @import "mq-overlap/992-up";
-}
-
-@media only screen and (min-width: 86.375em) {
-    // @import "mq-overlap/1382-up";
-}
-
-
-
-/* ==========================================================================
-   (OPTION B) Stacked Media Queries (Responsive larger screen styles).
-
-   Use these if you only want to target a specific resolution range, without 
-   styles cascading outside the range or to larger screens.
-   ========================================================================== */
-@media only screen and (min-width: 20em) and (max-width: 29.9375em) {
-    // @import "mq-stack/320-479";
-}
-
-@media only screen and (min-width: 30em) and (max-width: 47.9375em) {
-    // @import "mq-stack/480-767";
-}
-
-@media only screen and (min-width: 48em) and (max-width: 61.9375em) {
-    // @import "mq-stack/768-991";
-}
-
-@media only screen and (min-width: 62em) and (max-width: 86.3125em) {
-    // @import "mq-stack/992-1381";
-}
-
-
-
-/* ==========================================================================
-   (OPTION C) Device-specific Media Queries.
-
-   Use these if you need to target smartphones, tablets or high pixel ratio 
-   devices.
-   ========================================================================== */
-@media 
-only screen and (-webkit-min-device-pixel-ratio: '1.5'),
-only screen and (-o-min-device-pixel-ratio: '3/2'),
-only screen and (min-device-pixel-ratio: '1.5') {
-    // @import "mq-device/pixel-ratio";
-}
+@import "common/base";                  /* 1. Reset, base elements, utilities */
+@import "components/layout";            /* 2. Layout                          */
+@import "components/module";            /* 3. Modules                         */
+@import "components/state";             /* 4. State (Layout and Modules)      */
+@import "components/theme";             /* 5. Theme styles (not always needed)*/
