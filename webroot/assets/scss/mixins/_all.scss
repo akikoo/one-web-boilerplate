@@ -73,7 +73,7 @@ box-shadow : $shadow; }
 
 // Gradient (vertical)
 // ===================
-@mixin vertical($startColor : $white, $endColor:  $lightergrey) {
+@mixin gradient-vertical($startColor : $white, $endColor:  $lightergrey) {
     background-color  : $endColor; /* Old browsers */
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $startColor), color-stop(100%, $endColor));
     background-image: -webkit-linear-gradient($startColor, $endColor);

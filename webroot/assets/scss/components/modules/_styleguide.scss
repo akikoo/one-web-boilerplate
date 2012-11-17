@@ -1,3 +1,55 @@
 /* ==========================================================================
-   @group Buttons
+   @group Styleguide display and source wrappers
    ========================================================================== */
+
+/* 
+ * Styleguide module 
+ */
+.styleguide {
+    clear: both;
+    float: left;
+    width: 100%;
+}
+
+/* 
+ * Styleguide module heading 
+ */
+.styleguide-heading {
+    background: $color-background;
+    padding: relative-size($base-line-height, 84) 1%;
+}
+
+/* 
+ * Styleguide module display wrapper 
+ */
+/*div*/.display {
+    @include respond-to(medium) { 
+        float: left;
+        width: 60%;
+    }
+}
+
+/* 
+ * Module source wrapper 
+ */
+/*textarea*/.source {
+    width: 100%;
+    outline: 1px solid $color-border;
+    border: none;
+    overflow: auto;
+    padding: 0 1px; 
+    vertical-align: middle;
+    font-size: relative-size(11); 
+    line-height: relative-size(16, 11); /* Custom line-height */
+    font-family: $font-family-monospace;
+    box-shadow: none;
+    margin: 0 0 relative-size($base-line-height);
+    height: 12em;
+    @include respond-to(medium) { 
+        float: right;
+        width: 36%;
+        @include old-ie {
+            // These hacks won't appear in the normal stylesheet
+        }
+    }
+}

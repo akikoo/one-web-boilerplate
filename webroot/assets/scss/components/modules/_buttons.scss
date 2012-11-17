@@ -1,3 +1,17 @@
 /* ==========================================================================
    @group Buttons
    ========================================================================== */
+
+button,
+input[type="button"],
+input[type="submit"] {
+    padding: 0.5em;
+    text-align: center;
+    cursor: pointer;
+    color: $color-text;
+    border: 1px solid $color-border;
+    margin: 0 0 relative-size($base-line-height);
+    @include gradient-vertical(rgba(248,248,248,1), rgba(221,221,221,1));
+    @include border-radius(5px);
+    @include box-shadow(0 -1px 0 rgba(0, 0, 0, 0.03) inset);
+}
