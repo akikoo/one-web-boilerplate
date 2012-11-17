@@ -1,0 +1,83 @@
+// 
+// SCSS mixins for One Web Boilerplate.
+//
+// @author Aki Karkkainen (see inline credits however)
+// @url https://github.com/akikoo/one-web-boilerplate
+// Twitter: http://twitter.com/akikoo
+//
+
+
+// The micro clearfix
+// ==================
+// Used to contain floats: http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix() {
+    *zoom: 1; // For IE 6/7 only. Include this rule to trigger hasLayout and contain floats.
+    &:before, 
+    &:after {
+        content: ""; 
+        display: table; 
+    }
+    &:after {
+        clear: both; 
+    }
+}
+
+
+// Media queries
+// =============
+@mixin respond-to($media) {
+
+    @if $media == small { 
+        @media only screen and (min-width: $breakpoint-small) { @content; }
+    }
+    @if $media == medium { 
+        @media only screen and (min-width: $breakpoint-medium) { @content; }
+    }
+    @if $media == large { 
+        @media only screen and (min-width: $breakpoint-large) { @content; }
+    }
+    @if $media == xlarge { 
+        @media only screen and (min-width: $breakpoint-xlarge) { @content; }
+    }
+}
+
+
+// Old-IE
+// ===================
+$old-ie: false !default;
+@mixin old-ie {
+    @if $old-ie {
+        @content;
+    }
+}
+
+
+// Border radius
+// =============
+@mixin border-radius($radius: 4px) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+
+// Box shadow
+// =============
+@mixin box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
+-webkit-box-shadow : $shadow;
+-moz-box-shadow : $shadow;
+box-shadow : $shadow; }
+
+
+// Gradient (vertical)
+// ===================
+@mixin vertical($startColor : $white, $endColor:  $lightergrey) {
+    background-color  : $endColor; /* Old browsers */
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $startColor), color-stop(100%, $endColor));
+    background-image: -webkit-linear-gradient($startColor, $endColor);
+    background-image: -moz-linear-gradient($startColor, $endColor);
+    background-image: -o-linear-gradient($startColor, $endColor);
+    background-image: linear-gradient($startColor, $endColor);
+}

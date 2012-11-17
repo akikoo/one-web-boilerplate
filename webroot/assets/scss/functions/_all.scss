@@ -1,0 +1,32 @@
+// 
+// SCSS functions for One Web Boilerplate.
+// 
+// @author Aki Karkkainen (see inline credits however)
+// @url https://github.com/akikoo/one-web-boilerplate
+// Twitter: http://twitter.com/akikoo
+//
+
+
+// Relative Size
+// =============
+// Desired font-size ÷ font-size of containing element, or more succinctly:
+// target ÷ context = result
+
+// Based on the relative-size function from Stitch, http://stitchcss.com/
+// To use rems, pass in `rem` as the last parameter.
+// To return unitless number for line-height for example, pass '' as the last parameter.
+// Usage examples, assuming $base-font-size: 16px
+//   max-width: relative-size(992, $base-font-size);    --> max-width: 62em;
+//   line-height: relative-size(36, 24, '');            --> line-height: 1.5;
+//   font-size: relative-size(36, 24, rem);             --> font-size: 1.5rem;
+//   font-size: relative-size(21);                      --> font-size: 1.3125em;
+
+@function relative-size($target, $context: $base-font-size, $unit: em) {    
+
+    @if $unit == '' {
+        @return #{$target/$context};
+    }
+    @else {
+        @return #{$target/$context}$unit;
+    }
+}
