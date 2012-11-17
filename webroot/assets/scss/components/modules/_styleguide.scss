@@ -40,7 +40,7 @@
     padding: 0 1px; 
     vertical-align: middle;
     font-size: relative-size(11); 
-    line-height: relative-size(16, 11); /* Custom line-height */
+    line-height: relative-size(16, 11, ''); /* Custom line-height */
     font-family: $font-family-monospace;
     box-shadow: none;
     margin: 0 0 relative-size($base-line-height);

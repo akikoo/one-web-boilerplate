@@ -2,10 +2,6 @@
  * 
  * Main stylesheet for browsers that don't support Media Queries. 
  * This means legacy IE 6/7/8.
- * 
- * Alternatively, this file could be used to build an old-school non-responsive 
- * website, where the @import-ed stylesheets could be various standalone modules 
- * on the page. You decide, it obviously depends on the project.
  *
  * These enhance and sometimes override the primary (mobile first) styles.
  * Layout styles (width, float etc.) and styles for extra elements.
