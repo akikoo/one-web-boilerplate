@@ -34,10 +34,8 @@
         </aside>
         <!--#endif -->
 
+        <!--#include virtual="${DOCFOOTER}" -->
     </div>
-
-    <!--#include virtual="${DOCFOOTER}" -->
-
     <!--#include virtual="${DOCSCRIPTS}" -->
 </body>
 </html>

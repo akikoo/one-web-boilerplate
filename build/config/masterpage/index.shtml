@@ -18,20 +18,6 @@
 <!--#set var="DOCFOOTER" value="${COMPONENTS}/document_footer.shtml"-->
 <!--#set var="DOCSCRIPTS" value="${COMPONENTS}/document_scripts.shtml"-->
 
-<!--#set var="PAGECRIPTS" value=""-->
-<!--#set var="PAGESTYLES" value=""-->
-
 <!--#set var="VIEW1" value="${PAGES}/${PAGE}/view1.shtml"-->
 <!--#set var="NAV" value="${COMPONENTS}/document_nav.shtml"-->
 <!--#include virtual="${TEMPLATES}/default.shtml" -->
-
-<!-- 
-    If you need page specific styles and scripts, set PAGECRIPTS and PAGESTYLES 
-    to 'true' above..
-
-    Then, place them here:
-    /assets/css/pages/${PAGE}.css
-    /assets/js/pages/${PAGE}.js
-
-    The template will then load them only on pages where they're needed. 
--->

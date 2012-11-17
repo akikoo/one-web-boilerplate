@@ -12,7 +12,7 @@
                 <path>
                     <fileset 
                         dir="${src.sass.dir}"
-                        includes="common/*.scss, pages/*.scss, *.scss" 
+                        includes="common/*.scss, *.scss" 
                         excludes="**/_*"
                     />
                 </path>
