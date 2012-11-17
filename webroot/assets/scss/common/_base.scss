@@ -1,3 +1,27 @@
-@import "normalize";  /* 1. Reset styles */
-@import "elements";   /* 2. Mobile first base styles */
-@import "utilities";  /* 3. HTML5 boilerplate helper classes */
+/**
+ * 
+ * Base @imports for One Web Boilerplate.
+ * For more info on how to categorize your CSS, see SMACSS: http://smacss.com/
+ *
+ * Ems are based on generic browser default setting of 16px font size.
+ * 
+ * Credits & inspiration: 
+ * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+ * http://forabeautifulweb.com/blog/about/320_and_up/
+ * http://html5boilerplate.com/mobile
+ * http://adactio.com/journal/1700/
+ * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+ * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+ *
+ * @author Aki Karkkainen
+ * @url https://github.com/akikoo/one-web-boilerplate
+ * Twitter: http://twitter.com/akikoo
+ * 
+ */
+
+/* ==========================================================================
+   @group Base.
+   ========================================================================== */
+@import "../../assets/css/common/normalize.css"; /* 1. Reset styles, keep this outside CSSLint check as it's 3rd party code */
+@import "elements";                              /* 2. Mobile first base styles (SCSS partial) */
+@import "utilities";                             /* 3. HTML5 boilerplate helper classes (SCSS partial) */

@@ -1,6 +1,37 @@
-/* ==========================================================================
-   @group Layout. Grid column widths and left margins (use your own classes, 
-   this is just for demonstration).
+/**
+ * 
+ * Layout rules for One Web Boilerplate elements and modules.
+ * For more info on how to categorize your CSS, see SMACSS: http://smacss.com/
+ *
+ * Ems are based on generic browser default setting of 16px font size.
+ * 
+ * Use 'layout-' or 'l-' prefix in your classes.
+ * 
+ * Credits & inspiration: 
+ * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+ * http://forabeautifulweb.com/blog/about/320_and_up/
+ * http://html5boilerplate.com/mobile
+ * http://adactio.com/journal/1700/
+ * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+ * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+ *
+ * @author Aki Karkkainen
+ * @url https://github.com/akikoo/one-web-boilerplate
+ * Twitter: http://twitter.com/akikoo
+ * 
+ */
 
-   Use 'layout-' prefix in your classes.
+/* ==========================================================================
+   @group Layout. 
    ========================================================================== */
+/* 
+ * Center the layout and set max width too. 
+ */
+.l-constrained {
+    width: 90%;
+    max-width: relative-size(992, $base-font-size); 
+    margin: 0 auto; 
+    @include old-ie {
+        // rules for IE<9 here. 
+    }
+}

@@ -1,12 +1,13 @@
 /**
  * 
- * Module @imports for One Web Boilerplate modules. Import all the modules in this file.
+ * Module @imports for One Web Boilerplate modules. Import all the modules here.
  * For more info on how to categorize your CSS, see SMACSS: http://smacss.com/
  *
  * Ems are based on generic browser default setting of 16px font size.
  * 
- * Use classes, no major layout rules here (those are defined with '.l-' prefix).
- * Modules should be treated as standalone instances that are easy to move around. 
+ * Don't put any major layout rules here. Major layout rules should be defined 
+ * with 'layout-' or 'l-' prefix and placed in the layout file. Modules should 
+ * be treated as standalone instances that are easy to move around. 
  * 
  * No anonymous span/div elements, only classes and semantic HTML elements. 
  * Use subclassing if needed, for example: '.pod' / '.pod-constrained' / '.pod-callout'. 
@@ -26,7 +27,6 @@
  * Twitter: http://twitter.com/akikoo
  * 
  */
-
 
 /* ==========================================================================
    @group Module.
