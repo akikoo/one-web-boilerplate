@@ -67,9 +67,9 @@
                 <!-- 2.e Revert to dev HTML -->
                 <html.useseparate />
 
-            <!-- 3. Process CSS either with Sass (default) or LESS -->
+            <!-- 3. Process CSS either with Sass (default) or LESS, and run CSSLint -->
             <!-- css.compile.less -->
-            <css.compile.sass />
+            <!-- <css.compile.sass /> -->
             <css.lint />
 
             <!-- 4. Process JS -->
