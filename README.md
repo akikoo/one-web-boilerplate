@@ -3,7 +3,7 @@
 
 ## What is it? 
 
-The One Web Frontend Boilerplate is a modular framework for building responsive 
+The One Web Front-end Boilerplate is a modular framework for building responsive 
 websites with **Apache Server Side Includes** (http://httpd.apache.org/docs/2.2/howto/ssi.html), 
 **SMACSS** (Scalable and Modular Architecture for CSS, http://smacss.com/), 
 **Sass** preprocessor (http://sass-lang.com/), and **RequireJS** (http://requirejs.org/). 
@@ -15,7 +15,7 @@ listed under Credits. The project also includes Ant build script that runs code
 quality tools against JavaScript and CSS files, minifying and concatenating them 
 at the end of the process. 
 
-The One Web Frontend Boilerplate works well for me which is why I'm publishing it 
+The One Web Boilerplate works well for me which is why I'm publishing it 
 here for you to use and improve. It basically extends popular boilerplates, including 
 320 and Up (https://github.com/malarkey/320andup/), HTML5 Boilerplate (http://html5boilerplate.com/), 
 Mobile Boilerplate (http://html5boilerplate.com/mobile/), ZURB Foundation (http://foundation.zurb.com/), 
@@ -116,22 +116,24 @@ You should now be up and running with both the environment and the local build.
 
 ## Things you need to know
 
-* A CSS preprocessor, either Sass (http://sass-lang.com/, default option with 
-    Compass (http://compass-style.org/)), or LESS (http://lesscss.org/) is used 
+* A CSS preprocessor, either Sass (http://sass-lang.com/), default option with 
+    Compass (http://compass-style.org/), or LESS (http://lesscss.org/) is used 
     to compile the stylesheets. If you don't want to use a preprocessor, you can 
     of course work with the CSS files directly. By default, it's assumed that you 
     compile Sass or LESS files on your local machine, and let the build process 
     do the CSSLint check on your generated CSS files. (There are tasks for Sass 
-    and LESS processing in /build/build.xml (&lt;css.compile.sass /&gt; and 
-    &lt;css.compile.less /&gt; macrodef calls) but they are commented out.) 
-    To compile CSS files on the fly, type one of the following commands in the 
-    terminal (replace the '{pathtoworkingcopy}' with your local path):
+    and LESS processing in /build/build.xml, namely &lt;css.compile.sass /&gt; and 
+    &lt;css.compile.less /&gt; macrodef calls, but they are commented out.) 
+    To compile CSS files on your local machine, type one of the following commands 
+    in the terminal (replace the '{pathtoworkingcopy}' with your local path):
 
     a) using Sass:
        sass --watch /{pathtoworkingcopy}/webroot/assets/scss:/{pathtoworkingcopy}/webroot/assets/css
 
     b) using Compass with Sass:
        compass watch /{pathtoworkingcopy}/webroot/assets
+
+    For more info, see Sass and Compass documentation. 
 
 * Media Queries are based on 16px default font size and defined in ems. 
     The framework is designed to be modular so you should split the rules 
@@ -157,7 +159,7 @@ You should now be up and running with both the environment and the local build.
     https://github.com/akikoo/one-web-boilerplate/blob/master/webroot/html/index.shtml
 
 ### CSS - A number of stylesheets by default, compiled and imported by Sass, included in the following order: 
-* /webroot/assets/scss/common/normalize.scss (reset styles)
+* /webroot/assets/css/common/normalize.css (third-party reset styles)
 * /webroot/assets/scss/common/elements.scss (global, mobile first styles, containing only 
     common colour and typographic rules for basic experience to all users)
 * /webroot/assets/scss/common/utilities.scss (helper styles from HTML5 Boilerplate and 
@@ -179,11 +181,11 @@ Note that styles are @import-ed only for development. For production, the build 
 inlines and minifies styles in the same order that you @import-ed them. Nice, eh? 
 But keep in mind that you have to @import the core styles (see above) before anything else. 
 
-Keep in mind that if you work with Sass, you should only do changes in /webroot/assets/scss/ 
+Remember that if you work with Sass, you should only do changes in /webroot/assets/scss/ 
 directory, as the files in /webroot/assets/css/ will obviously be the generated ones, 
-rewritten on each save or build. 
+rewritten on each save. 
 
-New stylesheets you create should probably be placed in /webroot/assets/scss/components/modules. 
+New stylesheets you create should be placed in /webroot/assets/scss/components/modules. 
 Remember to add @import rules for any new styles. After the base styles, the order 
 in which the module stylesheets are included should't matter (you write your styles 
 carefully, right?) The idea is that module styles inherit only from base rules, not 
@@ -197,8 +199,9 @@ you don't need to touch that file. If you want to edit it, see Compass documenta
 in /webroot/assets/js/modules. Dependancies are managed by RequireJS (http://requirejs.org/), 
 a script loader that supports AMD (Asynchronous Module Definition) API. Script paths 
 and their dependencies are defined in /webroot/assets/js/config.js. Scripts are 
-imported in /webroot/assets/js/main.js. 
-
+imported in /webroot/assets/js/main.js. In the optimized script bundle, almond.js 
+(https://github.com/jrburke/almond) is used in place of require.js, to package 
+everything in just one script file. 
 
 
 ## Ant build process
@@ -275,7 +278,6 @@ No need to track changes to that.
 Thanks and good luck! 
 
 
-
 ## Credits
 
 ### Boilerplates:
@@ -340,9 +342,9 @@ Thanks and good luck!
 
 ### JavaScript:
 * http://requirejs.org/
+* https://github.com/jrburke/almond
 * https://github.com/tbranyen/backbone-boilerplate
 * https://github.com/ryanfitzer/Example-RequireJS-jQuery-Project
-
 
 
 > There's no mobile, everything's mobile.
