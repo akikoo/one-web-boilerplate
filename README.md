@@ -142,8 +142,8 @@ You should now be up and running with both the environment and the local build.
 
 * JavaScript should not be relied on for layout. That's why I've adopted a 
     bulletproof solution from Nicholas Zakas and Tantek Çelik: 
-    http://www.nczonline.net/blog/2011/03/22/using-html5-semantic-elements-today/, 
-    http://tantek.com/presentations/2010/11/html5-now/.
+    http://www.nczonline.net/blog/2011/03/22/using-html5-semantic-elements-today/ 
+    and http://tantek.com/presentations/2010/11/html5-now/.
 
 * Don't use IDs in CSS selectors. Use classes, or ARIA landmark roles instead 
     (referenced with CSS attribute selectors). See also http://oli.jp/2011/ids/.
@@ -156,7 +156,7 @@ You should now be up and running with both the environment and the local build.
     In that file, we include the config file and set variables, define the view, 
     and template file that we need to include, to render that particular page. 
     For more information, see project main index file: 
-    https://github.com/akikoo/one-web-boilerplate/blob/master/webroot/html/index.shtml
+    https://github.com/akikoo/one-web-boilerplate/blob/master/webroot/html/index.shtml.
 
 ### CSS - A number of stylesheets by default, compiled and imported by Sass, included in the following order: 
 * /webroot/assets/css/common/normalize.css (third-party reset styles)
@@ -169,7 +169,7 @@ You should now be up and running with both the environment and the local build.
 * /webroot/assets/scss/components/layout.scss (page layout rules)
 * /webroot/assets/scss/components/module.scss (module base stylesheet that imports all the modules)
 * /webroot/assets/scss/components/state.scss (state rules for layout and modules)
-* /webroot/assets/scss/components/theme.scss (temp theme styles, you should create your own)
+* /webroot/assets/scss/components/theme.scss (theme styles)
 * /webroot/assets/scss/main.scss (layout with Media Queries for responsive, 
     enhanced design for smartphones, tablets and larger screens)
 * /webroot/assets/scss/main-ie.scss (layout without Media Queries for legacy 
@@ -235,7 +235,6 @@ This assumes you've set up the build, as explained in Build configuration.
     files: main.css and main-ie.css (one with and one without Media 
     Queries). This way, we can keep the CSS rules separate from the actual Media 
     Queries. Both files are then minified and placed in build/publish/assets/css. 
-    Page specific stylesheets are minified individually.
 13. JavaScript files are minified and concatenated and placed in 
     /build/publish/assets/js/lib (currently only Modernizr and require.js.) 
     Note that compiled require.js contains the original require.js and all the 
@@ -283,7 +282,9 @@ Thanks and good luck!
 ### Boilerplates:
 * http://html5boilerplate.com
 * http://html5boilerplate.com/mobile
-* http://stuffandnonsense.co.uk/projects/320andup/
+* https://github.com/malarkey/320andup/
+* http://foundation.zurb.com/
+* http://twitter.github.com/bootstrap/
 * Big thanks to *Will Howat* (@willhowat: http://twitter.com/willhowat) and *Andrew 
     Massey* (@wearymadness: http://twitter.com/wearymadness) for the inspiration, 
     code, and fresh ideas. Great work on the Archetype framework!
@@ -327,7 +328,9 @@ Thanks and good luck!
 
 ### Images:
 * http://unstoppablerobotninja.com/entry/fluid-images/
+* http://blog.cloudfour.com/responsive-imgs/
 * http://www.cloudfour.com/responsive-imgs-part-2/
+* http://blog.cloudfour.com/responsive-imgs-part-3-future-of-the-img-tag/
 
 ### CSS:
 * http://smacss.com/
