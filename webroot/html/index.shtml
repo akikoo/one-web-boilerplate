@@ -127,9 +127,9 @@ Remove this if you use the .htaccess -->
                             <!-- hCard microformat -->							
                             <p class="vcard author">
                                 <span class="fn">Aki Karkkainen</span>, 
-                                <time class="published" datetime="2012-09-11" pubdate>
-                                    11 September, 2012								
-                                    <span class="value-title" title="2012-09-11"> </span>
+                                <time class="published" datetime="2012-11-18" pubdate>
+                                    18 November, 2012								
+                                    <span class="value-title" title="2012-11-18"> </span>
                                 </time>	
                             </p>
                         </footer>

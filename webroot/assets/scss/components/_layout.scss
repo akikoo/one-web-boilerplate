@@ -29,7 +29,7 @@
  * Center the layout and set max width too. 
  */
 .l-constrained {
-    width: 90%;
+    width: 80%;
     max-width: relative-size(992, $base-font-size); 
     margin: 0 auto; 
     @include old-ie {

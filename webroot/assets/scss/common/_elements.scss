@@ -61,7 +61,7 @@ hr {
 a {
     color: $color-link-default;
     text-decoration: none;
-    border-bottom: 1px solid rgba(0, 85, 187, 0.1);
+    border-bottom: 1px solid $color-link-default;
     white-space: pre-wrap;
 }
 
@@ -72,7 +72,8 @@ a:visited {
 a:hover, 
 a:active {
     color: $color-link-hover;
-    border-bottom-color: rgba(0, 119, 221, 0.2);
+    border-bottom-color: $color-border;
+
 }
 
 
@@ -111,6 +112,7 @@ h2 {
 }
 
 h3 {
+    color: #DD322D;
     font-size: relative-size(21); 
     line-height: relative-size($base-line-height, 21, '');
     margin: 0 0 relative-size($base-line-height, 21);

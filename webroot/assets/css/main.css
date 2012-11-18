@@ -77,9 +77,9 @@ hr {
    ========================================================================== */
 /* line 61, ../scss/common/_elements.scss */
 a {
-  color: #0055bb;
+  color: #2e8aca;
   text-decoration: none;
-  border-bottom: 1px solid rgba(0, 85, 187, 0.1);
+  border-bottom: 1px solid #2e8aca;
   white-space: pre-wrap;
 }
 
@@ -87,7 +87,7 @@ a {
 a:hover,
 a:active {
   color: #0077dd;
-  border-bottom-color: rgba(0, 119, 221, 0.2);
+  border-bottom-color: #dddddd;
 }
 
 /* ==========================================================================
@@ -99,7 +99,7 @@ a:active {
 /* 
  * Typefaces: Serif
  */
-/* line 96, ../scss/common/_elements.scss */
+/* line 97, ../scss/common/_elements.scss */
 h1,
 h2,
 h3,
@@ -110,28 +110,29 @@ h6 {
   font-weight: normal;
 }
 
-/* line 101, ../scss/common/_elements.scss */
+/* line 102, ../scss/common/_elements.scss */
 h1 {
   font-size: 2.25em;
   line-height: 1;
   margin: 1em 0 0.666666666666667em;
 }
 
-/* line 107, ../scss/common/_elements.scss */
+/* line 108, ../scss/common/_elements.scss */
 h2 {
   font-size: 1.5em;
   line-height: 1;
   margin: 0 0 1em;
 }
 
-/* line 113, ../scss/common/_elements.scss */
+/* line 114, ../scss/common/_elements.scss */
 h3 {
+  color: #DD322D;
   font-size: 1.3125em;
   line-height: 1.14285714285714;
   margin: 0 0 1.14285714285714em;
 }
 
-/* line 119, ../scss/common/_elements.scss */
+/* line 121, ../scss/common/_elements.scss */
 h4 {
   font-size: 1em;
   line-height: 1.5;
@@ -139,7 +140,7 @@ h4 {
   font-weight: bold;
 }
 
-/* line 126, ../scss/common/_elements.scss */
+/* line 128, ../scss/common/_elements.scss */
 h5 {
   font-size: 0.875em;
   line-height: 1.71428571428571;
@@ -149,7 +150,7 @@ h5 {
   color: #555;
 }
 
-/* line 135, ../scss/common/_elements.scss */
+/* line 137, ../scss/common/_elements.scss */
 h6 {
   font-size: 0.75em;
   line-height: 2;
@@ -159,12 +160,12 @@ h6 {
   color: #555;
 }
 
-/* line 144, ../scss/common/_elements.scss */
+/* line 146, ../scss/common/_elements.scss */
 blockquote {
   margin: 0 40px 1.5em;
 }
 
-/* line 149, ../scss/common/_elements.scss */
+/* line 151, ../scss/common/_elements.scss */
 p,
 pre {
   line-height: 1.5;
@@ -174,7 +175,7 @@ pre {
 /* ==========================================================================
    @group Grouped declarations
    ========================================================================== */
-/* line 165, ../scss/common/_elements.scss */
+/* line 167, ../scss/common/_elements.scss */
 ul,
 ol,
 dl,
@@ -189,7 +190,7 @@ fieldset {
 /* ==========================================================================
    @group Lists
    ========================================================================== */
-/* line 177, ../scss/common/_elements.scss */
+/* line 179, ../scss/common/_elements.scss */
 ul ul,
 ul ol,
 ol ol,
@@ -197,7 +198,7 @@ ol ul {
   margin: 0;
 }
 
-/* line 181, ../scss/common/_elements.scss */
+/* line 183, ../scss/common/_elements.scss */
 dt {
   font-weight: bold;
 }
@@ -208,12 +209,12 @@ dt {
 /*
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
  */
-/* line 193, ../scss/common/_elements.scss */
+/* line 195, ../scss/common/_elements.scss */
 img {
   vertical-align: middle;
 }
 
-/* line 197, ../scss/common/_elements.scss */
+/* line 199, ../scss/common/_elements.scss */
 img {
   background: #fff;
   border: 1px solid #dddddd;
@@ -226,7 +227,7 @@ img {
 /*
  * Flexible images and embedded videos
  */
-/* line 215, ../scss/common/_elements.scss */
+/* line 217, ../scss/common/_elements.scss */
 img,
 audio,
 video,
@@ -245,19 +246,19 @@ svg {
 /* ==========================================================================
    @group Tables
    ========================================================================== */
-/* line 233, ../scss/common/_elements.scss */
+/* line 235, ../scss/common/_elements.scss */
 table {
   border-top: 1px solid #dddddd;
   border-left: 1px solid #dddddd;
 }
 
-/* line 238, ../scss/common/_elements.scss */
+/* line 240, ../scss/common/_elements.scss */
 caption {
   font-weight: bold;
   text-align: left;
 }
 
-/* line 244, ../scss/common/_elements.scss */
+/* line 246, ../scss/common/_elements.scss */
 td,
 th {
   text-align: left;
@@ -266,7 +267,7 @@ th {
   padding: 2px 6px;
 }
 
-/* line 251, ../scss/common/_elements.scss */
+/* line 253, ../scss/common/_elements.scss */
 th {
   background: #eeeeee;
 }
@@ -413,7 +414,7 @@ textarea[contenteditable] {
  */
 /* line 31, ../scss/components/_layout.scss */
 .l-constrained {
-  width: 90%;
+  width: 80%;
   max-width: 62em;
   margin: 0 auto;
 }
