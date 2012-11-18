@@ -15,12 +15,13 @@ listed under Credits. The project also includes Ant build script that runs code
 quality tools against JavaScript and CSS files, minifying and concatenating them 
 at the end of the process. 
 
-It works well for me which is why I'm publishing it here for you to use and improve. 
-It basically extends popular boilerplates, including 320 and Up (https://github.com/malarkey/320andup/), 
-HTML5 Boilerplate (http://html5boilerplate.com/), Mobile Boilerplate (http://html5boilerplate.com/mobile/), 
-ZURB Foundation (http://foundation.zurb.com/), Twitter Bootstrap (http://twitter.github.com/bootstrap/), 
-and many others, with Server Side Includes. The framework can easily be plugged into 
-Continuous Integration solutions, such as Jenkins: http://jenkins-ci.org. 
+The One Web Frontend Boilerplate works well for me which is why I'm publishing it 
+here for you to use and improve. It basically extends popular boilerplates, including 
+320 and Up (https://github.com/malarkey/320andup/), HTML5 Boilerplate (http://html5boilerplate.com/), 
+Mobile Boilerplate (http://html5boilerplate.com/mobile/), ZURB Foundation (http://foundation.zurb.com/), 
+Twitter Bootstrap (http://twitter.github.com/bootstrap/), and many others, with 
+Server Side Includes. The framework can easily be plugged into Continuous Integration 
+solutions, such as Jenkins: http://jenkins-ci.org. 
 
 This framework doesn't include any grid. You decide how you build your site. 
 However, if you need a grid, have a look at the Fluid Grid that supports both 
@@ -133,9 +134,7 @@ You should now be up and running with both the environment and the local build.
        compass watch /{pathtoworkingcopy}/webroot/assets
 
 * Media Queries are based on 16px default font size and defined in ems. 
-    If you don't go for responsive design (you should!), just replace the default 
-    @import rules in /webroot/assets/scss/main-ie.scss with your own modular 
-    ones. The framework is designed to be modular so you should split the rules 
+    The framework is designed to be modular so you should split the rules 
     into logical modules, and place the styles in /webroot/assets/scss/components/modules. 
     For more info on how to categorize your CSS, see SMACSS: http://smacss.com/.
 
@@ -158,20 +157,20 @@ You should now be up and running with both the environment and the local build.
     https://github.com/akikoo/one-web-boilerplate/blob/master/webroot/html/index.shtml
 
 ### CSS - A number of stylesheets by default, compiled and imported by Sass, included in the following order: 
-* /webroot/assets/css/common/normalize.css (reset styles)
-* /webroot/assets/css/common/elements.css (global, mobile first styles, containing only 
+* /webroot/assets/scss/common/normalize.scss (reset styles)
+* /webroot/assets/scss/common/elements.scss (global, mobile first styles, containing only 
     common colour and typographic rules for basic experience to all users)
-* /webroot/assets/css/common/utilities.css (helper styles from HTML5 Boilerplate and 
+* /webroot/assets/scss/common/utilities.scss (helper styles from HTML5 Boilerplate and 
     HTML5 Mobile Boilerplate)
-* /webroot/assets/css/common/base.css (base stylesheet that imports the above 
+* /webroot/assets/scss/common/base.scss (base stylesheet that imports the above 
     mentioned three stylesheets)
-* /webroot/assets/css/components/layout.css (page layout rules)
-* /webroot/assets/css/components/module.css (module base stylesheet that imports all the modules)
-* /webroot/assets/css/components/state.css (state rules for layout and modules)
-* /webroot/assets/css/components/theme.css (temp theme styles, you should create your own)
-* /webroot/assets/css/main.css (layout with Media Queries for responsive, 
+* /webroot/assets/scss/components/layout.scss (page layout rules)
+* /webroot/assets/scss/components/module.scss (module base stylesheet that imports all the modules)
+* /webroot/assets/scss/components/state.scss (state rules for layout and modules)
+* /webroot/assets/scss/components/theme.scss (temp theme styles, you should create your own)
+* /webroot/assets/scss/main.scss (layout with Media Queries for responsive, 
     enhanced design for smartphones, tablets and larger screens)
-* /webroot/assets/css/main-ie.css (layout without Media Queries for legacy 
+* /webroot/assets/scss/main-ie.scss (layout without Media Queries for legacy 
     IE 6/7/8 browsers). 
 
 Scalable and Modular Architecture for CSS (SMACSS, http://smacss.com/) is used by default. 
@@ -185,10 +184,10 @@ directory, as the files in /webroot/assets/css/ will obviously be the generated 
 rewritten on each save or build. 
 
 New stylesheets you create should probably be placed in /webroot/assets/scss/components/modules. 
-Remember to add @import rules for any new styles in main.scss and main-ie.scss. 
-After the base styles, the order in which the module stylesheets are included 
-should't matter (you write your styles carefully, right?) The idea is that module 
-styles inherit only from base rules, not from other modules. 
+Remember to add @import rules for any new styles. After the base styles, the order 
+in which the module stylesheets are included should't matter (you write your styles 
+carefully, right?) The idea is that module styles inherit only from base rules, not 
+from other modules. 
 
 config.rb file in /assets is used for passing compile options to Compass. By default 
 you don't need to touch that file. If you want to edit it, see Compass documentation. 
@@ -259,11 +258,11 @@ compressor is tagged here: https://github.com/akikoo/one-web-boilerplate/tags.
 Nowadays I prefer this framework to use RequireJS with an optimizer that manages 
 dependencies in a much easier way. 
 
-Another note: I prefer Sass preprocessor nowadays because it is more powerful 
+Another note: I prefer Sass preprocessor nowadays because it's more powerful 
 (especially with Compass) and because it's actively maintained and developed. 
-This unfortunately means that I'm not anymore actively maintaining the LESS files 
-in this framework. Just wanted to let you know. However do let me know if you have 
-any LESS issues that I can try to fix (I'd be more up for it if I knew someone out 
+This means that I'm not anymore actively maintaining the LESS files in this 
+framework. Just wanted to let you know. However do let me know if you have any 
+LESS issues so I can try to fix them (I'd be more up for it if I knew someone out 
 there was still using LESS with this framework...).
 
 One more thing: you should obviously exclude /build/publish directory from version 
@@ -331,6 +330,10 @@ Thanks and good luck!
 ### CSS:
 * http://smacss.com/
 * http://oocss.org/
+* http://sass-lang.com/
+* https://github.com/davidrapson/scss-toolkit
+* http://jakearchibald.github.com/sass-ie/
+* http://lesscss.org/
 * http://oli.jp/2011/ids/
 * http://code.google.com/p/universal-ie6-css/
 * https://github.com/necolas/normalize.css
