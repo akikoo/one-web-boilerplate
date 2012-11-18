@@ -1,10 +1,11 @@
-// 
+// ========================================================================== //
 // SCSS mixins for One Web Boilerplate.
 //
 // @author Aki Karkkainen (see inline credits however)
 // @url https://github.com/akikoo/one-web-boilerplate
 // Twitter: http://twitter.com/akikoo
 //
+// ========================================================================== //
 
 
 // The micro clearfix
@@ -25,25 +26,28 @@
 
 // Media queries
 // =============
-@mixin respond-to($media) {
+// Mixin inspired by http://jakearchibald.github.com/sass-ie/
+$fix-mqs: false !default;
+@mixin respond-to($breakpoint) {
 
-    @if $media == small { 
-        @media only screen and (min-width: $breakpoint-small) { @content; }
+    // Old-IE gets a mid-screen sized desktop version, with styles up until predefined width ($fix-mqs).
+    @if $fix-mqs {
+        @if $fix-mqs >= $breakpoint {
+            @content;
+        }
     }
-    @if $media == medium { 
-        @media only screen and (min-width: $breakpoint-medium) { @content; }
-    }
-    @if $media == large { 
-        @media only screen and (min-width: $breakpoint-large) { @content; }
-    }
-    @if $media == xlarge { 
-        @media only screen and (min-width: $breakpoint-xlarge) { @content; }
+    // Modern browsers
+    @else {
+        @media only screen and (min-width: $breakpoint) { 
+            @content; 
+        }
     }
 }
 
 
 // Old-IE
-// ===================
+// ======
+// See http://jakearchibald.github.com/sass-ie/
 $old-ie: false !default;
 @mixin old-ie {
     @if $old-ie {
@@ -64,7 +68,7 @@ $old-ie: false !default;
 
 
 // Box shadow
-// =============
+// ==========
 @mixin box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
 -webkit-box-shadow : $shadow;
 -moz-box-shadow : $shadow;

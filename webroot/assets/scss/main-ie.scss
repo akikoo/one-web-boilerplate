@@ -1,32 +1,34 @@
-/**
- * 
- * Main stylesheet for browsers that don't support Media Queries. 
- * This means legacy IE 6/7/8.
- *
- * These enhance and sometimes override the primary (mobile first) styles.
- * Layout styles (width, float etc.) and styles for extra elements.
- * 
- * We are @import-ing the same stylesheets than for more capable browsers, but 
- * this time without Media Queries. Media Queries are stripped out during the 
- * build process. This way, we can serve less capable browsers a mid-screen sized 
- * desktop version. The minified version of this file is served with conditional 
- * comments for IE (or for all browsers if it's a one-size-fits-all kind of project). 
- * 
- * Credits & inspiration: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * http://jakearchibald.github.com/sass-ie/
- * 
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
+// ========================================================================== //
+// 
+// Main stylesheet for browsers that don't support Media Queries. 
+// This means legacy IE 6/7/8.
+//
+// These enhance and sometimes override the primary (mobile first) styles.
+// Layout styles (width, float etc.) and styles for extra elements.
+// 
+// We are @import-ing the same stylesheets than for more capable browsers, but 
+// this time without Media Queries. Media Queries are stripped out during the 
+// build process. This way, we can serve less capable browsers a mid-screen sized 
+// desktop version. The minified version of this file is served with conditional 
+// comments for IE (or for all browsers if it's a one-size-fits-all kind of project). 
+// 
+// Credits & inspiration: 
+// http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+// http://forabeautifulweb.com/blog/about/320_and_up/
+// http://html5boilerplate.com/mobile
+// http://adactio.com/journal/1700/
+// http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+// http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+// http://jakearchibald.github.com/sass-ie/
+// 
+// @author Aki Karkkainen
+// @url https://github.com/akikoo/one-web-boilerplate
+// Twitter: http://twitter.com/akikoo
+//
+// ========================================================================== //
 
+
+// Define fixed desktop breakpoint for old-IE (<9)
 $old-ie: true;
 $fix-mqs: 62em;
 @import 'main';

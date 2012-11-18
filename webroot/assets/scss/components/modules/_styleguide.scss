@@ -23,7 +23,7 @@
  * Styleguide module display wrapper 
  */
 /*div*/.display {
-    @include respond-to(medium) { 
+    @include respond-to($breakpoint-medium) { 
         float: left;
         width: 60%;
     }
@@ -45,7 +45,7 @@
     box-shadow: none;
     margin: 0 0 relative-size($base-line-height);
     height: 12em;
-    @include respond-to(medium) { 
+    @include respond-to($breakpoint-medium) { 
         float: right;
         width: 36%;
         @include old-ie {

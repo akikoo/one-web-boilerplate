@@ -1,120 +1,38 @@
 @import url(../../assets/css/common/normalize.css);
-/**
- * 
- * Main stylesheet for browsers that don't support Media Queries. 
- * This means legacy IE 6/7/8.
- *
- * These enhance and sometimes override the primary (mobile first) styles.
- * Layout styles (width, float etc.) and styles for extra elements.
- * 
- * We are @import-ing the same stylesheets than for more capable browsers, but 
- * this time without Media Queries. Media Queries are stripped out during the 
- * build process. This way, we can serve less capable browsers a mid-screen sized 
- * desktop version. The minified version of this file is served with conditional 
- * comments for IE (or for all browsers if it's a one-size-fits-all kind of project). 
- * 
- * Credits & inspiration: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * http://jakearchibald.github.com/sass-ie/
- * 
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
-/**
- * 
- * Main stylesheet for responsive design for smartphones, tablets and large screens. 
- * 
- * Credits & inspiration: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * 
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
-/* ==========================================================================
-   Get Compass utilities first.
-   ========================================================================== */
-/* ==========================================================================
-   Settings, functions and mixins (these are partials).
-   ========================================================================== */
-/* ==========================================================================
-   =Grid settings
-   ========================================================================== */
-/* ==========================================================================
-   =Color settings
-   ========================================================================== */
-/* ==========================================================================
-   =Font settings
-   ========================================================================== */
+/*
+  The stylesheets are imported in the following order:
+
+                | @import "settings";                                  |
+                | @import "functions/all";                             |
+                | @import "mixins/all";                                |
+                | @import "common/base";                               |
+                |     @import "../../assets/css/common/normalize.css"; | 
+                |     @import "elements";                              | 
+                |     @import "utilities";                             | 
+main.scss -->   | @import "components/layout";                         |  --> main.css  
+                | @import "components/module";                         |
+                |     @import "modules/styleguide";                    |
+                |     @import "modules/media-object";                  |
+                |     @import "modules/buttons";                       |
+                |     @import "modules/forms";                         |
+                |     ...                                              |
+                | @import "components/state";                          |
+                | @import "components/theme";                          |
+
+*/
 /* Base sizes */
 /* browser default */
 /* Font stacks */
-/* ==========================================================================
-   =Media Query breakpoint settings. Define your own to suit the design. 
-   ========================================================================== */
 /* 480/16 */
 /* 768/16 */
 /* 992/16 */
 /* 1382/16 */
 /* ==========================================================================
-   Styles are defined in the following order & groupings: Base, Layout, Module, State.
-   Following the Scalable and Modular Architecture for CSS (SMACSS) http://smacss.com/book.
-   ========================================================================== */
-/**
- * 
- * Base @imports for One Web Boilerplate.
- * For more info on how to categorize your CSS, see SMACSS: http://smacss.com/
- *
- * Ems are based on generic browser default setting of 16px font size.
- * 
- * Credits & inspiration: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- *
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- * 
- */
-/* ==========================================================================
-   @group Base.
+   @group Base imports
    ========================================================================== */
 /* 1. Reset styles, keep this outside CSSLint check as it's 3rd party code */
-/**
- * 
- * Base/Mobile First default colour and typography styles for base elements. 
- * No layout rules, nor classes/IDs here.
- * 
- * Extending normalize.css, following the same element order.
- *
- * The idea is to begin with a layout-less version and serve only default, linear 
- * layout. Remember these rules are applied also in older desktop browsers that 
- * don't support media queries.
- *
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- * 
- */
 /* ==========================================================================
-   @group Base.
+   @group Base
    ========================================================================== */
 /* Enable this if you want to reset ALL paddings and margins; CSSLint will throw 
    a warning though.
@@ -123,7 +41,7 @@
     padding: 0;
 }
 */
-/* line 34, ../scss/common/_elements.scss */
+/* line 35, ../scss/common/_elements.scss */
 html,
 button,
 input,
@@ -133,7 +51,7 @@ textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 39, ../scss/common/_elements.scss */
+/* line 40, ../scss/common/_elements.scss */
 body {
   font-size: 1em;
   /* 16px */
@@ -144,7 +62,7 @@ body {
 /* 
  * =hr (a better looking default horizontal rule)
  */
-/* line 47, ../scss/common/_elements.scss */
+/* line 48, ../scss/common/_elements.scss */
 hr {
   display: block;
   height: 1px;
@@ -157,7 +75,7 @@ hr {
 /* ==========================================================================
    @group Links
    ========================================================================== */
-/* line 60, ../scss/common/_elements.scss */
+/* line 61, ../scss/common/_elements.scss */
 a {
   color: #0055bb;
   text-decoration: none;
@@ -165,7 +83,7 @@ a {
   white-space: pre-wrap;
 }
 
-/* line 72, ../scss/common/_elements.scss */
+/* line 73, ../scss/common/_elements.scss */
 a:hover,
 a:active {
   color: #0077dd;
@@ -181,7 +99,7 @@ a:active {
 /* 
  * Typefaces: Serif
  */
-/* line 95, ../scss/common/_elements.scss */
+/* line 96, ../scss/common/_elements.scss */
 h1,
 h2,
 h3,
@@ -192,28 +110,28 @@ h6 {
   font-weight: normal;
 }
 
-/* line 100, ../scss/common/_elements.scss */
+/* line 101, ../scss/common/_elements.scss */
 h1 {
   font-size: 2.25em;
   line-height: 1;
   margin: 1em 0 0.666666666666667em;
 }
 
-/* line 106, ../scss/common/_elements.scss */
+/* line 107, ../scss/common/_elements.scss */
 h2 {
   font-size: 1.5em;
   line-height: 1;
   margin: 0 0 1em;
 }
 
-/* line 112, ../scss/common/_elements.scss */
+/* line 113, ../scss/common/_elements.scss */
 h3 {
   font-size: 1.3125em;
   line-height: 1.14285714285714;
   margin: 0 0 1.14285714285714em;
 }
 
-/* line 118, ../scss/common/_elements.scss */
+/* line 119, ../scss/common/_elements.scss */
 h4 {
   font-size: 1em;
   line-height: 1.5;
@@ -221,7 +139,7 @@ h4 {
   font-weight: bold;
 }
 
-/* line 125, ../scss/common/_elements.scss */
+/* line 126, ../scss/common/_elements.scss */
 h5 {
   font-size: 0.875em;
   line-height: 1.71428571428571;
@@ -231,7 +149,7 @@ h5 {
   color: #555;
 }
 
-/* line 134, ../scss/common/_elements.scss */
+/* line 135, ../scss/common/_elements.scss */
 h6 {
   font-size: 0.75em;
   line-height: 2;
@@ -241,12 +159,12 @@ h6 {
   color: #555;
 }
 
-/* line 143, ../scss/common/_elements.scss */
+/* line 144, ../scss/common/_elements.scss */
 blockquote {
   margin: 0 40px 1.5em;
 }
 
-/* line 148, ../scss/common/_elements.scss */
+/* line 149, ../scss/common/_elements.scss */
 p,
 pre {
   line-height: 1.5;
@@ -256,7 +174,7 @@ pre {
 /* ==========================================================================
    @group Grouped declarations
    ========================================================================== */
-/* line 164, ../scss/common/_elements.scss */
+/* line 165, ../scss/common/_elements.scss */
 ul,
 ol,
 dl,
@@ -271,7 +189,7 @@ fieldset {
 /* ==========================================================================
    @group Lists
    ========================================================================== */
-/* line 176, ../scss/common/_elements.scss */
+/* line 177, ../scss/common/_elements.scss */
 ul ul,
 ul ol,
 ol ol,
@@ -279,7 +197,7 @@ ol ul {
   margin: 0;
 }
 
-/* line 180, ../scss/common/_elements.scss */
+/* line 181, ../scss/common/_elements.scss */
 dt {
   font-weight: bold;
 }
@@ -290,12 +208,12 @@ dt {
 /*
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
  */
-/* line 192, ../scss/common/_elements.scss */
+/* line 193, ../scss/common/_elements.scss */
 img {
   vertical-align: middle;
 }
 
-/* line 196, ../scss/common/_elements.scss */
+/* line 197, ../scss/common/_elements.scss */
 img {
   background: #fff;
   border: 1px solid #dddddd;
@@ -308,7 +226,7 @@ img {
 /*
  * Flexible images and embedded videos
  */
-/* line 214, ../scss/common/_elements.scss */
+/* line 215, ../scss/common/_elements.scss */
 img,
 audio,
 video,
@@ -327,19 +245,19 @@ svg {
 /* ==========================================================================
    @group Tables
    ========================================================================== */
-/* line 232, ../scss/common/_elements.scss */
+/* line 233, ../scss/common/_elements.scss */
 table {
   border-top: 1px solid #dddddd;
   border-left: 1px solid #dddddd;
 }
 
-/* line 237, ../scss/common/_elements.scss */
+/* line 238, ../scss/common/_elements.scss */
 caption {
   font-weight: bold;
   text-align: left;
 }
 
-/* line 243, ../scss/common/_elements.scss */
+/* line 244, ../scss/common/_elements.scss */
 td,
 th {
   text-align: left;
@@ -348,26 +266,12 @@ th {
   padding: 2px 6px;
 }
 
-/* line 250, ../scss/common/_elements.scss */
+/* line 251, ../scss/common/_elements.scss */
 th {
   background: #eeeeee;
 }
 
 /* 2. Mobile first base styles (SCSS partial) */
-/**
- * 
- * Utility styles from the HTML5 Mobile Boilerplate and others.
- * 
- * Credits: big thanks to the H5BP dev community and team.
- * http://html5boilerplate.com
- * http://html5boilerplate.com/mobile
- * 
- * @author Aki Karkkainen (I'm only pulling stuff together from the fantastic 
- * resources mentioned above).
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- * 
-*/
 /* ==========================================================================
    @group Utilities (H5BP). Helper classes from the HTML5 Mobile boilerplate.
    ========================================================================== */
@@ -501,35 +405,13 @@ textarea[contenteditable] {
 
 /* 3. HTML5 boilerplate helper classes (SCSS partial) */
 /* 1. Reset, base elements, utilities */
-/**
- * 
- * Layout rules for One Web Boilerplate elements and modules.
- * For more info on how to categorize your CSS, see SMACSS: http://smacss.com/
- *
- * Ems are based on generic browser default setting of 16px font size.
- * 
- * Use 'layout-' or 'l-' prefix in your classes.
- * 
- * Credits & inspiration: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- *
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- * 
- */
 /* ==========================================================================
-   @group Layout. 
+   @group Layout
    ========================================================================== */
 /* 
  * Center the layout and set max width too. 
  */
-/* line 30, ../scss/components/_layout.scss */
+/* line 31, ../scss/components/_layout.scss */
 .l-constrained {
   width: 90%;
   max-width: 62em;
@@ -537,37 +419,8 @@ textarea[contenteditable] {
 }
 
 /* 2. Layout                          */
-/**
- * 
- * Module @imports for One Web Boilerplate modules. Import all the modules here.
- * For more info on how to categorize your CSS, see SMACSS: http://smacss.com/
- *
- * Ems are based on generic browser default setting of 16px font size.
- * 
- * Don't put any major layout rules here. Major layout rules should be defined 
- * with 'layout-' or 'l-' prefix and placed in the layout file. Modules should 
- * be treated as standalone instances that are easy to move around. 
- * 
- * No anonymous span/div elements, only classes and semantic HTML elements. 
- * Use subclassing if needed, for example: '.pod' / '.pod-constrained' / '.pod-callout'. 
- * 
- * Modules can be nested too.
- * 
- * Credits & inspiration: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- *
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- * 
- */
 /* ==========================================================================
-   @group Module.
+   @group Module imports
    ========================================================================== */
 /* ==========================================================================
    @group Styleguide display and source wrappers
@@ -672,12 +525,12 @@ textarea[contenteditable] {
 .media p {
   margin: 0 0 1em;
 }
-/* line 16, ../scss/mixins/_all.scss */
+/* line 17, ../scss/mixins/_all.scss */
 .media:before, .media:after {
   content: "";
   display: table;
 }
-/* line 20, ../scss/mixins/_all.scss */
+/* line 21, ../scss/mixins/_all.scss */
 .media:after {
   clear: both;
 }
@@ -831,40 +684,8 @@ textarea {
 }
 
 /* 3. Modules                         */
-/**
- * 
- * State for One Web Boilerplate elements and modules.
- * For more info on how to categorize your CSS, see SMACSS: http://smacss.com/
- *
- * Ems are based on generic browser default setting of 16px font size.
- * 
- * Set only global states here. Module states should be defined in modules, 
- * and kept together with Sass. State classes may indicate JS dependancy, for 
- * example '.js-is-hidden'.
- * 
- * Consider using either:
- *     class (.is-collapsed / .is-error / .is-hidden)
- *     pseudo-class (:hover) 
- *     attribute states (data-state="transitioning")
- *     @media queries
-
- * !important should only be used with State styles. 
- * 
- * Credits & inspiration: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- *
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- * 
- */
 /* ==========================================================================
-   @group State. 
+   @group State
    ========================================================================== */
 /*
 @-webkit-viewport { 
@@ -888,27 +709,7 @@ textarea {
 }
 */
 /* 4. State (Layout and Modules)      */
-/**
- * 
- * Theme for One Web Boilerplate elements and modules. 
- * For more info on how to categorize your CSS, see SMACSS: http://smacss.com/
- *
- * Ems are based on generic browser default setting of 16px font size.
- * 
- * Credits & inspiration: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- *
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- * 
- */
 /* ==========================================================================
-   @group Theme. 
+   @group Theme
    ========================================================================== */
 /* 5. Theme styles (not always needed)*/

@@ -1,22 +1,23 @@
-/**
- * 
- * Base/Mobile First default colour and typography styles for base elements. 
- * No layout rules, nor classes/IDs here.
- * 
- * Extending normalize.css, following the same element order.
- *
- * The idea is to begin with a layout-less version and serve only default, linear 
- * layout. Remember these rules are applied also in older desktop browsers that 
- * don't support media queries.
- *
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- * 
- */
+// ========================================================================== //
+// 
+// Base/Mobile First default colour and typography styles for base elements. 
+// No layout rules, nor classes/IDs here.
+// 
+// Extending normalize.css, following the same element order.
+//
+// The idea is to begin with a layout-less version and serve only default, linear 
+// layout. Remember these rules are applied also in older desktop browsers that 
+// don't support media queries.
+//
+// @author Aki Karkkainen
+// @url https://github.com/akikoo/one-web-boilerplate
+// Twitter: http://twitter.com/akikoo
+// 
+// ========================================================================== //
+
 
 /* ==========================================================================
-   @group Base.
+   @group Base
    ========================================================================== */
 
 /* Enable this if you want to reset ALL paddings and margins; CSSLint will throw 

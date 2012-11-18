@@ -1,39 +1,63 @@
-/**
- * 
- * Main stylesheet for responsive design for smartphones, tablets and large screens. 
- * 
- * Credits & inspiration: 
- * http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
- * http://forabeautifulweb.com/blog/about/320_and_up/
- * http://html5boilerplate.com/mobile
- * http://adactio.com/journal/1700/
- * http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
- * http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
- * 
- * @author Aki Karkkainen
- * @url https://github.com/akikoo/one-web-boilerplate
- * Twitter: http://twitter.com/akikoo
- *
- */
+// ========================================================================== //
+// 
+// Main stylesheet for responsive design for smartphones, tablets and large screens. 
+// 
+// Credits & inspiration: 
+// http://forabeautifulweb.com/blog/about/hardboiled_css3_media_queries/
+// http://forabeautifulweb.com/blog/about/320_and_up/
+// http://html5boilerplate.com/mobile
+// http://adactio.com/journal/1700/
+// http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/
+// http://nicolasgallagher.com/mobile-first-css-sass-and-ie/
+// 
+// @author Aki Karkkainen
+// @url https://github.com/akikoo/one-web-boilerplate
+// Twitter: http://twitter.com/akikoo
+//
+// ========================================================================== //
 
-/* ==========================================================================
-   Get Compass utilities first.
-   ========================================================================== */
+/*
+  The stylesheets are imported in the following order:
+
+                | @import "settings";                                  |
+                | @import "functions/all";                             |
+                | @import "mixins/all";                                |
+                | @import "common/base";                               |
+                |     @import "../../assets/css/common/normalize.css"; | 
+                |     @import "elements";                              | 
+                |     @import "utilities";                             | 
+main.scss -->   | @import "components/layout";                         |  --> main.css  
+                | @import "components/module";                         |
+                |     @import "modules/styleguide";                    |
+                |     @import "modules/media-object";                  |
+                |     @import "modules/buttons";                       |
+                |     @import "modules/forms";                         |
+                |     ...                                              |
+                | @import "components/state";                          |
+                | @import "components/theme";                          |
+
+*/
+
+
+// ========================================================================== //
+// Get Compass utilities first.
+// ========================================================================== //
 @import "compass";
 
 
-/* ==========================================================================
-   Settings, functions and mixins (these are partials).
-   ========================================================================== */
+// ========================================================================== //
+// Settings, functions and mixins (these are partials).
+// ========================================================================== //
 @import "settings";
 @import "functions/all";
 @import "mixins/all";
 
 
-/* ==========================================================================
-   Styles are defined in the following order & groupings: Base, Layout, Module, State.
-   Following the Scalable and Modular Architecture for CSS (SMACSS) http://smacss.com/book.
-   ========================================================================== */
+// ========================================================================== //
+// Styles are defined in the following order & groupings: Base, Layout, Module, State.
+// For more details, see the Scalable and Modular Architecture for CSS (SMACSS): 
+// http://smacss.com/book.
+// ========================================================================== //
 @import "common/base";                  /* 1. Reset, base elements, utilities */
 @import "components/layout";            /* 2. Layout                          */
 @import "components/module";            /* 3. Modules                         */
