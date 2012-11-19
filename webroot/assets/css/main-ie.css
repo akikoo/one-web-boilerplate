@@ -114,7 +114,7 @@ h6 {
 h1 {
   font-size: 3em;
   line-height: 1;
-  margin: 0.5em 0 0.5em;
+  margin: 1em 0 1em;
 }
 
 /* line 110, ../scss/common/_elements.scss */
@@ -424,136 +424,6 @@ textarea[contenteditable] {
    @group Module imports
    ========================================================================== */
 /* ==========================================================================
-   @group Styleguide display and source wrappers
-   ========================================================================== */
-/* 
- * Styleguide module 
- */
-/* line 8, ../scss/components/modules/_styleguide.scss */
-.styleguide {
-  clear: both;
-  float: left;
-  width: 100%;
-}
-
-/* 
- * Styleguide module heading 
- */
-/* line 17, ../scss/components/modules/_styleguide.scss */
-.styleguide-heading {
-  background: #eeeeee;
-  padding: 0.285714285714286em 1%;
-}
-
-/* 
- * Styleguide module display wrapper 
- */
-/*div*/
-/* line 25, ../scss/components/modules/_styleguide.scss */
-.display {
-  float: left;
-  width: 60%;
-}
-
-/* 
- * Module source wrapper 
- */
-/*textarea*/
-/* line 35, ../scss/components/modules/_styleguide.scss */
-.source {
-  width: 100%;
-  outline: 1px solid #dddddd;
-  border: none;
-  overflow: auto;
-  padding: 0 1px;
-  vertical-align: middle;
-  font-size: 0.6875em;
-  line-height: 1.45454545454546;
-  /* Custom line-height */
-  font-family: "Bitstream Vera Sans", Consolas, Menlo, "Lucida Console", "Liberation Mono", Courier, monospace;
-  box-shadow: none;
-  margin: 0 0 1.5em;
-  height: 12em;
-  float: right;
-  width: 36%;
-}
-
-/* ==========================================================================
-   @group Media Object
-   http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/ 
-   http://jsfiddle.net/necolas/rZvEF/
-   ========================================================================== */
-/*
- * 1. Create new block formatting context in modern browsers
- * 2. Avoid shrink-wrap behaviour of table-cell
- * 3. Override for IE6/7
- * 4. Create new block formatting context in IE6/7
- * Alternatively, use `overflow:hidden` if clipping is OK
- * www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
- * facebook.com
- */
-/* line 16, ../scss/components/modules/_media-object.scss */
-.media {
-  margin: 0 0 1em;
-  *zoom: 1;
-}
-/* line 18, ../scss/components/modules/_media-object.scss */
-.media .img {
-  float: left;
-  margin: 0 10px 0 0;
-}
-/* line 21, ../scss/components/modules/_media-object.scss */
-.media .img img {
-  display: block;
-}
-/* line 25, ../scss/components/modules/_media-object.scss */
-.media .img-ext {
-  float: right;
-  margin-left: 10px;
-}
-/* line 29, ../scss/components/modules/_media-object.scss */
-.media .content {
-  display: table-cell;
-  /* 1 */
-  width: 10000px;
-  /* 2 */
-  *width: auto;
-  /* 3 */
-  *zoom: 1;
-  /* 4 */
-}
-/* line 35, ../scss/components/modules/_media-object.scss */
-.media p {
-  margin: 0 0 1em;
-}
-/* line 17, ../scss/mixins/_all.scss */
-.media:before, .media:after {
-  content: "";
-  display: table;
-}
-/* line 21, ../scss/mixins/_all.scss */
-.media:after {
-  clear: both;
-}
-
-/*
- * Reusable  icons
- */
-/* line 45, ../scss/components/modules/_media-object.scss */
-.icon {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin: 0 5px 0 0;
-  background: url(http://placekitten.com/16/16);
-}
-
-/* line 53, ../scss/components/modules/_media-object.scss */
-.icon-a {
-  background-position: 0 0;
-}
-
-/* ==========================================================================
    @group Buttons
    ========================================================================== */
 /* line 7, ../scss/components/modules/_buttons.scss */
@@ -684,54 +554,171 @@ textarea {
   border: 1px solid #dddddd;
 }
 
-/* 3. Modules                         */
 /* ==========================================================================
-   @group State
-   ========================================================================== */
-/*
-@-webkit-viewport { 
-    width : device-width; 
-}
-
-@-moz-viewport { 
-    width : device-width; 
-}
-
-@-ms-viewport { 
-    width : device-width; 
-}
-
-@-o-viewport { 
-    width : device-width; 
-}
-
-@viewport { 
-    width : device-width; 
-}
-*/
-/* 4. State (Layout and Modules)      */
-/* ==========================================================================
-   @group Theme
+   @group Logo
    ========================================================================== */
 /* Site logo */
 /*a*/
-/* line 30, ../scss/components/_theme.scss */
+/* line 6, ../scss/components/modules/_logo.scss */
 .logo {
   color: white;
   background: #dd322d;
-  display: inline-block;
+  display: block;
   padding: 0.75em 0.75em;
   /* 24 / 32 = 0.75em */
   margin: 0.75em 0 0;
   border-bottom: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
 }
 
 /*a*/
-/* line 41, ../scss/components/_theme.scss */
+/* line 18, ../scss/components/modules/_logo.scss */
 .logo:hover,
 .logo:active,
 .logo:focus {
   color: white;
 }
 
+/* ==========================================================================
+   @group Media Object
+   http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/ 
+   http://jsfiddle.net/necolas/rZvEF/
+   ========================================================================== */
+/*
+ * 1. Create new block formatting context in modern browsers
+ * 2. Avoid shrink-wrap behaviour of table-cell
+ * 3. Override for IE6/7
+ * 4. Create new block formatting context in IE6/7
+ * Alternatively, use `overflow:hidden` if clipping is OK
+ * www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+ * facebook.com
+ */
+/* line 16, ../scss/components/modules/_media-object.scss */
+.media {
+  margin: 0 0 1em;
+  *zoom: 1;
+}
+/* line 18, ../scss/components/modules/_media-object.scss */
+.media .img {
+  float: left;
+  margin: 0 10px 0 0;
+}
+/* line 21, ../scss/components/modules/_media-object.scss */
+.media .img img {
+  display: block;
+}
+/* line 25, ../scss/components/modules/_media-object.scss */
+.media .img-ext {
+  float: right;
+  margin-left: 10px;
+}
+/* line 29, ../scss/components/modules/_media-object.scss */
+.media .content {
+  display: table-cell;
+  /* 1 */
+  width: 10000px;
+  /* 2 */
+  *width: auto;
+  /* 3 */
+  *zoom: 1;
+  /* 4 */
+}
+/* line 35, ../scss/components/modules/_media-object.scss */
+.media p {
+  margin: 0 0 1em;
+}
+/* line 17, ../scss/mixins/_all.scss */
+.media:before, .media:after {
+  content: "";
+  display: table;
+}
+/* line 21, ../scss/mixins/_all.scss */
+.media:after {
+  clear: both;
+}
+
+/*
+ * Reusable  icons
+ */
+/* line 45, ../scss/components/modules/_media-object.scss */
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 5px 0 0;
+  background: url(http://placekitten.com/16/16);
+}
+
+/* line 53, ../scss/components/modules/_media-object.scss */
+.icon-a {
+  background-position: 0 0;
+}
+
+/* ==========================================================================
+   @group Styleguide display and source wrappers
+   ========================================================================== */
+/* 
+ * Styleguide module 
+ */
+/* line 8, ../scss/components/modules/_styleguide.scss */
+.styleguide {
+  clear: both;
+  float: left;
+  width: 100%;
+}
+
+/* 
+ * Styleguide module heading 
+ */
+/* line 17, ../scss/components/modules/_styleguide.scss */
+.styleguide-heading {
+  background: #eeeeee;
+  padding: 0.285714285714286em 1%;
+}
+
+/* 
+ * Styleguide module display wrapper 
+ */
+/*div*/
+/* line 25, ../scss/components/modules/_styleguide.scss */
+.display {
+  float: left;
+  width: 60%;
+}
+
+/* 
+ * Module source wrapper 
+ */
+/*textarea*/
+/* line 35, ../scss/components/modules/_styleguide.scss */
+.source {
+  width: 100%;
+  outline: 1px solid #dddddd;
+  border: none;
+  overflow: auto;
+  padding: 0 1px;
+  vertical-align: middle;
+  font-size: 0.6875em;
+  line-height: 1.45454545454546;
+  /* Custom line-height */
+  font-family: "Bitstream Vera Sans", Consolas, Menlo, "Lucida Console", "Liberation Mono", Courier, monospace;
+  box-shadow: none;
+  margin: 0 0 1.5em;
+  height: 12em;
+  float: right;
+  width: 36%;
+}
+
+/* 3. Modules                         */
+/* ==========================================================================
+   @group State
+   ========================================================================== */
+/* 4. State (Layout and Modules)      */
+/* ==========================================================================
+   @group Theme
+   ========================================================================== */
 /* 5. Theme styles (not always needed)*/

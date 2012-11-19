@@ -25,19 +25,3 @@
 /* ==========================================================================
    @group Theme
    ========================================================================== */
-
-/* Site logo */
-/*a*/.logo {
-    color: $color-logo-text;
-    background: $color-logo-background;
-    display: inline-block;
-    padding: relative-size($base-line-height, 32) relative-size($base-line-height, 32); /* 24 / 32 = 0.75em */
-    margin: relative-size($base-line-height, 32) 0 0;
-    border-bottom: none;
-}
-
-/*a*/.logo:hover, 
-/*a*/.logo:active, 
-/*a*/.logo:focus {
-    color: $color-logo-text;
-}
