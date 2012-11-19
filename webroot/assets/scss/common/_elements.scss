@@ -102,9 +102,9 @@ h6 {
 }
 
 h1 {
-    font-size: relative-size(36); 
+    font-size: relative-size(48); 
     line-height: relative-size(36, 36, '');
-    margin: relative-size($base-line-height, 24) 0 relative-size($base-line-height, 36);
+    margin: relative-size($base-line-height, 48) 0 relative-size($base-line-height, 48);
 }
 
 h2 {
@@ -114,7 +114,7 @@ h2 {
 }
 
 h3 {
-    color: #DD322D;
+    color: $color-heading;
     font-size: relative-size(21); 
     line-height: relative-size($base-line-height, 21, '');
     margin: 0 0 relative-size($base-line-height, 21);

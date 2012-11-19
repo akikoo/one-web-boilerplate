@@ -112,9 +112,9 @@ h6 {
 
 /* line 104, ../scss/common/_elements.scss */
 h1 {
-  font-size: 2.25em;
+  font-size: 3em;
   line-height: 1;
-  margin: 1em 0 0.666666666666667em;
+  margin: 0.5em 0 0.5em;
 }
 
 /* line 110, ../scss/common/_elements.scss */
@@ -126,7 +126,7 @@ h2 {
 
 /* line 116, ../scss/common/_elements.scss */
 h3 {
-  color: #DD322D;
+  color: #dd322d;
   font-size: 1.3125em;
   line-height: 1.14285714285714;
   margin: 0 0 1.14285714285714em;
@@ -713,4 +713,25 @@ textarea {
 /* ==========================================================================
    @group Theme
    ========================================================================== */
+/* Site logo */
+/*a*/
+/* line 30, ../scss/components/_theme.scss */
+.logo {
+  color: white;
+  background: #dd322d;
+  display: inline-block;
+  padding: 0.75em 0.75em;
+  /* 24 / 32 = 0.75em */
+  margin: 0.75em 0 0;
+  border-bottom: none;
+}
+
+/*a*/
+/* line 41, ../scss/components/_theme.scss */
+.logo:hover,
+.logo:active,
+.logo:focus {
+  color: white;
+}
+
 /* 5. Theme styles (not always needed)*/
