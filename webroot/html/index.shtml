@@ -74,7 +74,7 @@ Remove this if you use the .htaccess -->
 
         <!-- No h1 here since this is a subpage-->
         <div class="masthead">
-            <a href="#">One Web/Mobile First Responsive Boilerplate</a>  
+            <a class="logo" href="/html/">One Web/Mobile First Responsive Boilerplate</a>  
         </div> 
 
         <nav role="navigation">
@@ -82,7 +82,7 @@ Remove this if you use the .htaccess -->
 
     </header>
 
-    <div id="#main-content" role="main">
+    <div id="main-content" role="main">
 
         <section>
             <div class="section hfeed">

@@ -17,7 +17,7 @@
 
             <!-- No h1 here since this is not the homepage-->
             <<!--#echo var='HEADERTAG' --> class="masthead">
-            <a href="#">One Web/Mobile First Responsive Boilerplate</a>  
+            <a class="logo" href="/html/">One Web/Mobile First Responsive Boilerplate</a>  
             </<!--#echo var='HEADERTAG' -->> 
 
             <!--#include virtual="${NAV}" -->			
