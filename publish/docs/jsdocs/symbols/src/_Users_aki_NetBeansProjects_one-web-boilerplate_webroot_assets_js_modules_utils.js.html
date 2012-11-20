@@ -1,0 +1,108 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span>  *
+<span class='line'>  3</span>  * Reusable utility functions
+<span class='line'>  4</span>  * 
+<span class='line'>  5</span>  * Ideally, all the scripts you use would wrap themselves in a define() call so 
+<span class='line'>  6</span>  * that RequireJS can understand what dependencies need to be loaded before 
+<span class='line'>  7</span>  * defining the script's functionality.
+<span class='line'>  8</span>  * 
+<span class='line'>  9</span>  * @author Aki Karkkainen
+<span class='line'> 10</span>  * @url https://github.com/akikoo/one-web-boilerplate
+<span class='line'> 11</span>  * Twitter: http://twitter.com/akikoo
+<span class='line'> 12</span>  * 
+<span class='line'> 13</span>  **/</span><span class="WHIT">
+<span class='line'> 14</span> 
+<span class='line'> 15</span> 
+<span class='line'> 16</span> </span><span class="NAME">define</span><span class="PUNC">(</span><span class="PUNC">[</span><span class="WHIT">
+<span class='line'> 17</span> </span><span class="WHIT">    </span><span class="COMM">// Libraries</span><span class="WHIT">
+<span class='line'> 18</span> </span><span class="WHIT">    </span><span class="STRN">'jquery'</span><span class="WHIT">
+<span class='line'> 19</span> </span><span class="PUNC">]</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 20</span> 
+<span class='line'> 21</span> 
+<span class='line'> 22</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">$</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 23</span> 
+<span class='line'> 24</span> </span><span class="WHIT">    </span><span class="STRN">'use strict'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 25</span> 
+<span class='line'> 26</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">utils</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 27</span> 
+<span class='line'> 28</span> </span><span class="WHIT">        </span><span class="COMM">/**
+<span class='line'> 29</span>          * @author Aki Karkkainen
+<span class='line'> 30</span>          * @description Loads stylesheets.
+<span class='line'> 31</span>          * @param {String} url Stylesheet url.
+<span class='line'> 32</span>          * @example utils.loadCSS('/assets/css/new.css');
+<span class='line'> 33</span>          * @returns N/A
+<span class='line'> 34</span>          */</span><span class="WHIT">
+<span class='line'> 35</span> </span><span class="WHIT">        </span><span class="NAME">loadCSS</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">url</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 36</span> 
+<span class='line'> 37</span> </span><span class="WHIT">            </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">d</span><span class="WHIT">   </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="WHIT">                </span><span class="NAME">s</span><span class="WHIT">   </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">d.createElement</span><span class="PUNC">(</span><span class="STRN">'link'</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 39</span> </span><span class="WHIT">                </span><span class="NAME">x</span><span class="WHIT">   </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">d.getElementsByTagName</span><span class="PUNC">(</span><span class="STRN">'head'</span><span class="PUNC">)</span><span class="PUNC">[</span><span class="NUMB">0</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 40</span> 
+<span class='line'> 41</span> </span><span class="WHIT">            </span><span class="NAME">s.rel</span><span class="WHIT">   </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'stylesheet'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 42</span> </span><span class="WHIT">            </span><span class="NAME">s.href</span><span class="WHIT">  </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">url</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 43</span> </span><span class="WHIT">            </span><span class="NAME">x.appendChild</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 44</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 45</span> 
+<span class='line'> 46</span> 
+<span class='line'> 47</span> </span><span class="WHIT">        </span><span class="COMM">/**
+<span class='line'> 48</span>          * @author Aki Karkkainen
+<span class='line'> 49</span>          * @description Creates script tags dynamically via JavaScript. 
+<span class='line'> 50</span>          * Non-blocking download begins immediately, and the script executes 
+<span class='line'> 51</span>          * as soon as it is downloaded completely.
+<span class='line'> 52</span>          * @param {String} url Script url.
+<span class='line'> 53</span>          * @example utils.loadJS('/assets/js/modules/new.js');
+<span class='line'> 54</span>          * @returns N/A
+<span class='line'> 55</span>          */</span><span class="WHIT">
+<span class='line'> 56</span> </span><span class="WHIT">        </span><span class="NAME">loadJS</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">url</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 57</span> 
+<span class='line'> 58</span> </span><span class="WHIT">            </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">d</span><span class="WHIT">   </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 59</span> </span><span class="WHIT">                </span><span class="NAME">js</span><span class="WHIT">  </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">d.createElement</span><span class="PUNC">(</span><span class="STRN">'script'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 60</span> 
+<span class='line'> 61</span> </span><span class="WHIT">            </span><span class="NAME">js.src</span><span class="WHIT">  </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">url</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 62</span> </span><span class="WHIT">            </span><span class="PUNC">(</span><span class="NAME">d.head</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">d.getElementsByTagName</span><span class="PUNC">(</span><span class="STRN">'head'</span><span class="PUNC">)</span><span class="PUNC">[</span><span class="NUMB">0</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">appendChild</span><span class="PUNC">(</span><span class="NAME">js</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 64</span> 
+<span class='line'> 65</span> 
+<span class='line'> 66</span> </span><span class="WHIT">        </span><span class="COMM">/**
+<span class='line'> 67</span>          * @author Aki Karkkainen. From JavaScript Patterns by Stoyan Stefanov.
+<span class='line'> 68</span>          * @description Checks for Internet Explorer browser (all IE versions) 
+<span class='line'> 69</span>          * using conditional comments. Useful if we only need to detect IE in 
+<span class='line'> 70</span>          * general, without a version number. It is slightly safer than looking 
+<span class='line'> 71</span>          * for strings in navigator.userAgent, because these strings are easy to 
+<span class='line'> 72</span>          * change by the user.
+<span class='line'> 73</span>          * @example utils.isIE();
+<span class='line'> 74</span>          * @returns {Boolean} Will return false in all browsers (because they 
+<span class='line'> 75</span>          * ignore the comment), but it will be true in Internet Explorer, 
+<span class='line'> 76</span>          * because of the negation ! in the conditional comment.
+<span class='line'> 77</span>          */</span><span class="WHIT">
+<span class='line'> 78</span> </span><span class="WHIT">        </span><span class="NAME">isIE</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 79</span> </span><span class="WHIT">            </span><span class="COMM">// IE returns !false;</span><span class="WHIT">
+<span class='line'> 80</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="COMM">/*@cc_on!@*/</span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 82</span> 
+<span class='line'> 83</span> 
+<span class='line'> 84</span> </span><span class="WHIT">        </span><span class="COMM">/**
+<span class='line'> 85</span>          * @author Aki Karkkainen
+<span class='line'> 86</span>          * @description Checks for specific Internet Explorer browser version 
+<span class='line'> 87</span>          * from conditional comments.
+<span class='line'> 88</span>          * @param {String} ieversion IE version string from conditional comments. 
+<span class='line'> 89</span>          * (ie6, ie7, iem7, ie8, ie9).
+<span class='line'> 90</span>          * @example utils.isIEVersion(ie7);
+<span class='line'> 91</span>          * @returns {Boolean} On IE, returns true for IE version passed in as a parameter.
+<span class='line'> 92</span>          */</span><span class="WHIT">
+<span class='line'> 93</span> </span><span class="WHIT">        </span><span class="NAME">isIEVersion</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">ieversion</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 94</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">document.documentElement.className.indexOf</span><span class="PUNC">(</span><span class="NAME">ieversion</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">>=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 95</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 96</span> 
+<span class='line'> 97</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 98</span> 
+<span class='line'> 99</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">utils</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>100</span> 
+<span class='line'>101</span> </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span></pre></body></html>
