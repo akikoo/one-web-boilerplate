@@ -29,20 +29,21 @@
 // =Color settings
 // ========================================================================== //
 // Common colours
-$color-heading              : #dd322d;
+$color-heading              : #000;
 $color-text                 : #222;
 $color-background           : #eee;
 $color-border               : #ddd;
+$color-border-heading       : #fee620;
 
 // Links
-$color-link-default         : #2e8aca;
+$color-link-default         : #39c;
 $color-link-visited         : #05B;
-$color-link-hover           : #07d;
-$color-link-active          : #07d;
+$color-link-hover           : #39c;
+$color-link-active          : #39c;
 
 // Logo
-$color-logo-text            : #fff;
-$color-logo-background      : #dd322d;
+$color-logo-text            : $color-text;
+$color-logo-background      : $color-border-heading;
 
 
 // ========================================================================== //

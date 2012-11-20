@@ -77,16 +77,16 @@ hr {
    ========================================================================== */
 /* line 63, ../scss/common/_elements.scss */
 a {
-  color: #2e8aca;
+  color: #3399cc;
   text-decoration: none;
-  border-bottom: 1px solid #2e8aca;
+  border-bottom: 1px solid #3399cc;
   white-space: pre-wrap;
 }
 
 /* line 75, ../scss/common/_elements.scss */
 a:hover,
 a:active {
-  color: #0077dd;
+  color: #3399cc;
   border-bottom-color: #dddddd;
 }
 
@@ -126,7 +126,7 @@ h2 {
 
 /* line 116, ../scss/common/_elements.scss */
 h3 {
-  color: #dd322d;
+  color: black;
   font-size: 1.3125em;
   line-height: 1.14285714285714;
   margin: 0 0 1.14285714285714em;
@@ -414,7 +414,7 @@ textarea[contenteditable] {
  */
 /* line 33, ../scss/components/_layout.scss */
 .l-constrained {
-  width: 80%;
+  width: 95%;
   max-width: 62em;
   margin: 0 auto;
 }
@@ -561,10 +561,10 @@ textarea {
 /*a*/
 /* line 6, ../scss/components/modules/_logo.scss */
 .logo {
-  color: white;
-  background: #dd322d;
+  color: #222222;
+  background: #fee620;
   display: block;
-  padding: 0.75em 0.75em;
+  padding: 1.5em 1.5em;
   /* 24 / 32 = 0.75em */
   margin: 0.75em 0 0;
   border-bottom: none;
@@ -580,7 +580,7 @@ textarea {
 .logo:hover,
 .logo:active,
 .logo:focus {
-  color: white;
+  color: #222222;
 }
 
 /* ==========================================================================
@@ -676,8 +676,9 @@ textarea {
  */
 /* line 17, ../scss/components/modules/_styleguide.scss */
 .styleguide-heading {
-  background: #eeeeee;
   padding: 0.285714285714286em 1%;
+  border-left: 0.5em solid #fee620;
+  /* 24 / 48 */
 }
 
 /* 

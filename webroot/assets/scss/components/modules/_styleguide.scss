@@ -15,8 +15,8 @@
  * Styleguide module heading 
  */
 .styleguide-heading {
-    background: $color-background;
     padding: relative-size($base-line-height, 84) 1%;
+    border-left: relative-size($base-line-height, 48) solid $color-logo-background; /* 24 / 48 */
 }
 
 /* 
