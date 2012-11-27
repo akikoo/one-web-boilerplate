@@ -1,7 +1,12 @@
 <project name="Html.Replace.List">
 
     <target name="html.replace.list">
+        <!-- OS X users-->
         <replace file="${file.write}" token='webroot/html/' value='/html/'/>
+
+        <!-- Windows users-->
+        <replace file="${file.write}" token='webroot\html\' value='/html/'/>
+        <replace file="${file.write}" token='\' value='/'/>
     </target>
 
 </project>
