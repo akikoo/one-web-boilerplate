@@ -1,8 +1,7 @@
 <!--#set var="SHARD" value="/assets" -->
 <!--#set var="HTML" value="/html" -->
-<!--#set var="MODERNIZR" value="modernizr-2.0.6-custom.min.js" -->
-<!--#set var="JQUERY" value="jquery-1.7.2.min.js" -->
-<!--#set var="LAZYLOAD" value="lazyload-min.js" -->
+<!--#set var="MODERNIZR" value="modernizr.min.js" -->
+<!--#set var="JQUERY" value="jquery.min.js" -->
 
 <!--#set var="COMPONENTS" value="${HTML}/components" -->
 <!--#set var="MODULES" value="${HTML}/modules" -->
