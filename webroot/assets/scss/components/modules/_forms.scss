@@ -20,45 +20,49 @@ textarea {
 /* 
  * Wrapper for label and input groups (radio buttons, checkboxes). 
  */
-.field-group {
-    clear: both;
+.control-group {
+
 }
 
 /* 
  * Wrapper for label and input. 
  */
-.field {
-    margin: 1em 0;
-    clear: both;
+.control {
+    margin: 0.8em 0;
 }
 
 /* 
  * Wrapper for label and input inside a group (radio buttons, checkboxes). 
  */
-.field-group .field {
-    clear: none;
-    margin: .5em 0 .5em 25%;
+.control-group .control {
+
 }
 
 /* 
  * Wrapper for submit button. 
  */
-.field-submit {
-    margin: 1em 0 1em 25%;        
+.control-submit {
+
 }
         
 /* 
- * Label for single inputs, and legend for input groups. 
+ * Label for single inputs (and legend for input groups). 
  */
-label, 
-.field-group legend {
+.label-text, 
+.label-select, 
+.label-file  {
     display: block;
-    float: left;
-    width: 25%;
 }
 
 label {
     cursor: pointer;
+}
+
+/*
+ * See http://www.456bereastreet.com/archive/201210/how_to_line_wrap_text_in_legend_elements_even_in_ie/
+ */
+legend {
+    display: table; /* Enable line-wrapping in IE8+ */
 }
 
 /* 
@@ -66,24 +70,24 @@ label {
  */
 .label-check, 
 .label-radio {
-    display: inline;
-    float: none;
-    width: auto;
+
 }
 
 /* 
  * Message next to input elements. 
  */
 .inline-message {
-    width: 66%;
+
 }
 
 /* 
  * Text input styles. 
  */
-/*input*/.text, 
+/*input*/.control-text, 
 select, 
 textarea {
-    width: 38%;
     border: 1px solid $color-border;
+    display: block;
+    width: 100%;
+    padding: relative-size($base-line-height, 96);
 }

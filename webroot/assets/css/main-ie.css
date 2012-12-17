@@ -41,7 +41,18 @@ main.scss -->   | @import "components/layout";                         |  --> ma
     padding: 0;
 }
 */
-/* line 37, ../scss/common/_elements.scss */
+/* 
+ * Apply a natural box layout model to all elements.
+ * http://paulirish.com/2012/box-sizing-border-box-ftw/
+ */
+/* line 37, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 45, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 html,
 button,
 input,
@@ -51,7 +62,7 @@ textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 42, ../scss/common/_elements.scss */
+/* line 50, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 body {
   font-size: 1em;
   /* 16px */
@@ -62,7 +73,7 @@ body {
 /* 
  * =hr (a better looking default horizontal rule)
  */
-/* line 50, ../scss/common/_elements.scss */
+/* line 58, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 hr {
   display: block;
   height: 1px;
@@ -75,7 +86,7 @@ hr {
 /* ==========================================================================
    @group Links
    ========================================================================== */
-/* line 63, ../scss/common/_elements.scss */
+/* line 71, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 a {
   color: #3399cc;
   text-decoration: none;
@@ -83,7 +94,7 @@ a {
   white-space: pre-wrap;
 }
 
-/* line 75, ../scss/common/_elements.scss */
+/* line 83, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 a:hover,
 a:active {
   color: #3399cc;
@@ -99,7 +110,7 @@ a:active {
 /* 
  * Typefaces: Serif
  */
-/* line 99, ../scss/common/_elements.scss */
+/* line 107, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 h1,
 h2,
 h3,
@@ -110,21 +121,21 @@ h6 {
   font-weight: normal;
 }
 
-/* line 104, ../scss/common/_elements.scss */
+/* line 112, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 h1 {
   font-size: 3em;
   line-height: 1;
   margin: 1em 0 1em;
 }
 
-/* line 110, ../scss/common/_elements.scss */
+/* line 118, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 h2 {
   font-size: 1.5em;
   line-height: 1;
   margin: 0 0 1em;
 }
 
-/* line 116, ../scss/common/_elements.scss */
+/* line 124, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 h3 {
   color: black;
   font-size: 1.3125em;
@@ -132,7 +143,7 @@ h3 {
   margin: 0 0 1.14285714285714em;
 }
 
-/* line 123, ../scss/common/_elements.scss */
+/* line 131, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 h4 {
   font-size: 1em;
   line-height: 1.5;
@@ -140,7 +151,7 @@ h4 {
   font-weight: bold;
 }
 
-/* line 130, ../scss/common/_elements.scss */
+/* line 138, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 h5 {
   font-size: 0.875em;
   line-height: 1.71428571428571;
@@ -150,7 +161,7 @@ h5 {
   color: #555;
 }
 
-/* line 139, ../scss/common/_elements.scss */
+/* line 147, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 h6 {
   font-size: 0.75em;
   line-height: 2;
@@ -160,12 +171,12 @@ h6 {
   color: #555;
 }
 
-/* line 148, ../scss/common/_elements.scss */
+/* line 156, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 blockquote {
   margin: 0 40px 1.5em;
 }
 
-/* line 153, ../scss/common/_elements.scss */
+/* line 161, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 p,
 pre {
   line-height: 1.5;
@@ -175,7 +186,7 @@ pre {
 /* ==========================================================================
    @group Grouped declarations
    ========================================================================== */
-/* line 169, ../scss/common/_elements.scss */
+/* line 177, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 ul,
 ol,
 dl,
@@ -190,7 +201,7 @@ fieldset {
 /* ==========================================================================
    @group Lists
    ========================================================================== */
-/* line 181, ../scss/common/_elements.scss */
+/* line 189, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 ul ul,
 ul ol,
 ol ol,
@@ -198,7 +209,7 @@ ol ul {
   margin: 0;
 }
 
-/* line 185, ../scss/common/_elements.scss */
+/* line 193, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 dt {
   font-weight: bold;
 }
@@ -209,12 +220,12 @@ dt {
 /*
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
  */
-/* line 197, ../scss/common/_elements.scss */
+/* line 205, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 img {
   vertical-align: middle;
 }
 
-/* line 201, ../scss/common/_elements.scss */
+/* line 209, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 img {
   background: #fff;
   border: 1px solid #dddddd;
@@ -227,7 +238,7 @@ img {
 /*
  * Flexible images and embedded videos
  */
-/* line 219, ../scss/common/_elements.scss */
+/* line 227, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 img,
 audio,
 video,
@@ -246,19 +257,19 @@ svg {
 /* ==========================================================================
    @group Tables
    ========================================================================== */
-/* line 237, ../scss/common/_elements.scss */
+/* line 245, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 table {
   border-top: 1px solid #dddddd;
   border-left: 1px solid #dddddd;
 }
 
-/* line 242, ../scss/common/_elements.scss */
+/* line 250, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 caption {
   font-weight: bold;
   text-align: left;
 }
 
-/* line 248, ../scss/common/_elements.scss */
+/* line 256, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 td,
 th {
   text-align: left;
@@ -267,7 +278,7 @@ th {
   padding: 2px 6px;
 }
 
-/* line 255, ../scss/common/_elements.scss */
+/* line 263, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 th {
   background: #eeeeee;
 }
@@ -277,18 +288,18 @@ th {
    @group Utilities (H5BP). Helper classes from the HTML5 Mobile boilerplate.
    ========================================================================== */
 /* Prevent callout */
-/* line 24, ../scss/common/_utilities.scss */
+/* line 24, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 .nocallout {
   -webkit-touch-callout: none;
 }
 
-/* line 28, ../scss/common/_utilities.scss */
+/* line 28, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 .pressed {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* A hack for HTML5 contenteditable attribute on mobile */
-/* line 33, ../scss/common/_utilities.scss */
+/* line 33, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 textarea[contenteditable] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -296,7 +307,7 @@ textarea[contenteditable] {
 
 /* A workaround for S60 3.x and 5.0 devices which do not animated gif images if
    they have been set as display: none */
-/* line 40, ../scss/common/_utilities.scss */
+/* line 40, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 .gifhidden {
   position: absolute;
   left: -100%;
@@ -305,7 +316,7 @@ textarea[contenteditable] {
 /*
  * Image replacement
  */
-/* line 48, ../scss/common/_utilities.scss */
+/* line 48, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 .ir {
   background-color: transparent;
   background-repeat: no-repeat;
@@ -317,7 +328,7 @@ textarea[contenteditable] {
   text-indent: -999em;
 }
 
-/* line 59, ../scss/common/_utilities.scss */
+/* line 59, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 .ir br {
   display: none;
 }
@@ -325,7 +336,7 @@ textarea[contenteditable] {
 /*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
-/* line 66, ../scss/common/_utilities.scss */
+/* line 66, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 .hidden {
   display: none !important;
   visibility: hidden;
@@ -334,7 +345,7 @@ textarea[contenteditable] {
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
-/* line 74, ../scss/common/_utilities.scss */
+/* line 74, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -350,7 +361,7 @@ textarea[contenteditable] {
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-/* line 90, ../scss/common/_utilities.scss */
+/* line 90, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -364,7 +375,7 @@ textarea[contenteditable] {
 /*
  * Hide visually and from screenreaders, but maintain layout
  */
-/* line 102, ../scss/common/_utilities.scss */
+/* line 102, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 .invisible {
   visibility: hidden;
 }
@@ -375,7 +386,7 @@ textarea[contenteditable] {
 /* 
  * Visually hiding content that will be read by a screen reader.
  */
-/* line 115, ../scss/common/_utilities.scss */
+/* line 115, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 .accessibility a {
   position: absolute;
   left: -10000px;
@@ -386,19 +397,19 @@ textarea[contenteditable] {
 }
 
 /* Active when the user tabs to the link */
-/* line 125, ../scss/common/_utilities.scss */
+/* line 125, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 .accessibility a:focus {
   position: static;
   width: auto;
   height: auto;
 }
 
-/* line 131, ../scss/common/_utilities.scss */
+/* line 131, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 .break-word {
   word-wrap: break-word;
 }
 
-/* line 135, ../scss/common/_utilities.scss */
+/* line 135, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_utilities.scss */
 .disabled {
   pointer-events: none;
   opacity: 0.5;
@@ -476,82 +487,62 @@ textarea {
 /* 
  * Wrapper for label and input groups (radio buttons, checkboxes). 
  */
-/* line 23, ../scss/components/modules/_forms.scss */
-.field-group {
-  clear: both;
-}
-
 /* 
  * Wrapper for label and input. 
  */
 /* line 30, ../scss/components/modules/_forms.scss */
-.field {
-  margin: 1em 0;
-  clear: both;
+.control {
+  margin: 0.8em 0;
 }
 
 /* 
  * Wrapper for label and input inside a group (radio buttons, checkboxes). 
  */
-/* line 38, ../scss/components/modules/_forms.scss */
-.field-group .field {
-  clear: none;
-  margin: .5em 0 .5em 25%;
-}
-
 /* 
  * Wrapper for submit button. 
  */
-/* line 46, ../scss/components/modules/_forms.scss */
-.field-submit {
-  margin: 1em 0 1em 25%;
-}
-
 /* 
- * Label for single inputs, and legend for input groups. 
+ * Label for single inputs (and legend for input groups). 
  */
-/* line 54, ../scss/components/modules/_forms.scss */
-label,
-.field-group legend {
+/* line 53, ../scss/components/modules/_forms.scss */
+.label-text,
+.label-select,
+.label-file {
   display: block;
-  float: left;
-  width: 25%;
 }
 
-/* line 60, ../scss/components/modules/_forms.scss */
+/* line 57, ../scss/components/modules/_forms.scss */
 label {
   cursor: pointer;
+}
+
+/*
+ * See http://www.456bereastreet.com/archive/201210/how_to_line_wrap_text_in_legend_elements_even_in_ie/
+ */
+/* line 64, ../scss/components/modules/_forms.scss */
+legend {
+  display: table;
+  /* Enable line-wrapping in IE8+ */
 }
 
 /* 
  * Radio button and checkbox labels. 
  */
-/* line 68, ../scss/components/modules/_forms.scss */
-.label-check,
-.label-radio {
-  display: inline;
-  float: none;
-  width: auto;
-}
-
 /* 
  * Message next to input elements. 
  */
-/* line 77, ../scss/components/modules/_forms.scss */
-.inline-message {
-  width: 66%;
-}
-
 /* 
  * Text input styles. 
  */
 /*input*/
-/* line 86, ../scss/components/modules/_forms.scss */
-.text,
+/* line 88, ../scss/components/modules/_forms.scss */
+.control-text,
 select,
 textarea {
-  width: 38%;
   border: 1px solid #dddddd;
+  display: block;
+  width: 100%;
+  padding: 0.25em;
 }
 
 /* ==========================================================================
@@ -617,7 +608,7 @@ textarea {
   margin-left: 10px;
 }
 /* line 29, ../scss/components/modules/_media-object.scss */
-.media .content {
+.media .media-content {
   display: table-cell;
   /* 1 */
   width: 10000px;
