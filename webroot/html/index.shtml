@@ -62,9 +62,9 @@ Remove this if you use the .htaccess -->
 <script src="../assets/js/lib/modernizr.min.js"></script>
 
 </head>
-<body class="l-constrained">
+<body class="layout-constrained">
 
-<div class="page">
+<div class="layout-page">
 
     <div class="accessibility">
         <a href="#main-content">Skip to Main Content</a>
@@ -75,10 +75,7 @@ Remove this if you use the .htaccess -->
         <!-- No h1 here since this is a subpage-->
         <div class="masthead">
             <a class="logo" href="/html/">One Web/Mobile First Responsive Boilerplate</a>  
-        </div> 
-
-        <nav role="navigation">
-        </nav>
+        </div>
 
     </header>
 
@@ -144,11 +141,14 @@ Remove this if you use the .htaccess -->
     <aside role="complementary">
     </aside>
 
-</div>
+    <nav role="navigation">
+    </nav>
 
-<footer role="contentinfo">
-    <p>Site info goes here by the way (by default, anyway)</p>
-</footer>
+    <footer role="contentinfo">
+        <p>Site info goes here by the way (by default, anyway)</p>
+    </footer>
+
+</div>
 
 <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>

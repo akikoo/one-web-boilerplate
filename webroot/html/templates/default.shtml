@@ -5,9 +5,9 @@
 <!--#elif expr="${PAGE} != 'home'" -->
 <!--#set var="HEADERTAG" value="div" -->
 <!--#endif -->
-<body class="l-constrained">
+<body class="layout-constrained">
 
-    <div class="page">
+    <div class="layout-page">
 
         <div class="accessibility">
             <a href="#main-content">Skip to Main Content</a>
@@ -18,9 +18,7 @@
             <!-- No h1 here since this is not the homepage-->
             <<!--#echo var='HEADERTAG' --> class="masthead">
             <a class="logo" href="/html/">One Web/Mobile First Responsive Boilerplate</a>  
-            </<!--#echo var='HEADERTAG' -->> 
-
-            <!--#include virtual="${NAV}" -->			
+            </<!--#echo var='HEADERTAG' -->>
 
         </header>
 
@@ -33,6 +31,8 @@
             <!--#include virtual="${VIEW2}" -->
         </aside>
         <!--#endif -->
+
+        <!--#include virtual="${NAV}" -->
 
         <!--#include virtual="${DOCFOOTER}" -->
     </div>
