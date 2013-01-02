@@ -16,6 +16,57 @@
 //
 // Licensed under the MIT license.
 //
+// Consider using the following declaration order: 
+// (See https://github.com/necolas/idiomatic-css)
+// 
+// .selector {
+//     /* Positioning */
+//     position: absolute;
+//     z-index: 10;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+// 
+//     /* Display & Box Model */
+//     display: inline-block;
+//     overflow: hidden;
+//     box-sizing: border-box;
+//     width: 100px;
+//     height: 100px;
+//     padding: 10px;
+//     border: 10px solid #333;
+//     margin: 10px;
+// 
+//     /* Other */
+//     background: #000;
+//     color: #fff;
+//     font-family: sans-serif;
+//     font-size: 16px;
+//     text-align: right;
+// }
+//
+// 
+// Consider using component-based HTML/CSS naming and patterns: 
+// (See https://gist.github.com/1309546)
+// 
+// Patterns:
+// 
+// component-name
+// component-name--modifier-name
+// component-name__sub-object
+// component-name__sub-object--modifier-name
+// 
+// Examples:
+// 
+// btn
+// btn--large
+// 
+// media
+// media__img
+// media__img--large
+// media__body
+// 
 // ========================================================================== //
 
 /*
@@ -53,6 +104,7 @@ main.scss -->   | @import "components/layout";                         |  --> ma
 @import "settings";
 @import "functions/all";
 @import "mixins/all";
+@import "mixins/grid";
 
 
 // ========================================================================== //
