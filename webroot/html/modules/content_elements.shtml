@@ -10,10 +10,10 @@
 
 <p>Sectioning elements include body, article, section, nav, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer and address.</p>
 
-<h3 class="styleguide-heading">Headings</h3>
+<h3 class="styleguide__heading">Headings</h3>
 
 <div class="styleguide">
-<div class="display">
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-1.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-2.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-3.html" -->
@@ -21,7 +21,7 @@
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-5.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-6.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-1.html" -->
 
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-2.html" -->
@@ -46,88 +46,88 @@
 <p>Grouping elements are listed below.</p>
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Paragraph</h3>
-<div class="display">
+<h3 class="styleguide__heading">Paragraph</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Horizontal rule</h3>
-<div class="display">
+<h3 class="styleguide__heading">Horizontal rule</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/hr.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/hr.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Pre-formatted text</h3>
-<div class="display">
+<h3 class="styleguide__heading">Pre-formatted text</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/preformatted.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/preformatted.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Blockquote</h3>
-<div class="display">
+<h3 class="styleguide__heading">Blockquote</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/blockquote.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/blockquote.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Ordered list</h3>
-<div class="display">
+<h3 class="styleguide__heading">Ordered list</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/list-ordered.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/list-ordered.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Unordered list</h3>
-<div class="display">
+<h3 class="styleguide__heading">Unordered list</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/list-unordered.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/list-unordered.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Definition list</h3>
-<div class="display">
+<h3 class="styleguide__heading">Definition list</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/list-definition.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/list-definition.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Figure</h3>
-<div class="display">
+<h3 class="styleguide__heading">Figure</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/figure.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/figure.html" -->
 </textarea>
 </div>
@@ -142,253 +142,253 @@
 <p>Text-level elements are listed below.</p>
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Link and anchor</h3>
-<div class="display">
+<h3 class="styleguide__heading">Link and anchor</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-a.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-a.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Stressed emphasis</h3>
-<div class="display">
+<h3 class="styleguide__heading">Stressed emphasis</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-em.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-em.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Importance</h3>
-<div class="display">
+<h3 class="styleguide__heading">Importance</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-strong.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-strong.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Side comments (small print)</h3>
-<div class="display">
+<h3 class="styleguide__heading">Side comments (small print)</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-small.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-small.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Inaccurate text</h3>
-<div class="display">
+<h3 class="styleguide__heading">Inaccurate text</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-s.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-s.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Titles of works (citations)</h3>
-<div class="display">
+<h3 class="styleguide__heading">Titles of works (citations)</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-cite.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-cite.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Inline quotes</h3>
-<div class="display">
+<h3 class="styleguide__heading">Inline quotes</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-q.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-q.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Definition</h3>
-<div class="display">
+<h3 class="styleguide__heading">Definition</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-dfn.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-dfn.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Abbreviation</h3>
-<div class="display">
+<h3 class="styleguide__heading">Abbreviation</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-abbr.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-abbr.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Machine-readable equivalent of date- or time-related data</h3>
-<div class="display">
+<h3 class="styleguide__heading">Machine-readable equivalent of date- or time-related data</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-time.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-time.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Computer code</h3>
-<div class="display">
+<h3 class="styleguide__heading">Computer code</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-code.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-code.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Variable</h3>
-<div class="display">
+<h3 class="styleguide__heading">Variable</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-var.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-var.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Computer output</h3>
-<div class="display">
+<h3 class="styleguide__heading">Computer output</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-samp.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-samp.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">User input</h3>
-<div class="display">
+<h3 class="styleguide__heading">User input</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-kbd.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-kbd.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Subscript text</h3>
-<div class="display">
+<h3 class="styleguide__heading">Subscript text</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-sub.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-sub.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Superscript text</h3>
-<div class="display">
+<h3 class="styleguide__heading">Superscript text</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-sup.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-sup.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Alternative voice (italicized)</h3>
-<div class="display">
+<h3 class="styleguide__heading">Alternative voice (italicized)</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-i.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-i.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Emboldened keywords</h3>
-<div class="display">
+<h3 class="styleguide__heading">Emboldened keywords</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-b.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-b.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Annotations</h3>
-<div class="display">
+<h3 class="styleguide__heading">Annotations</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-u.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-u.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Marked or highlighted text</h3>
-<div class="display">
+<h3 class="styleguide__heading">Marked or highlighted text</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-mark.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-mark.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Ruby annotations</h3>
-<div class="display">
+<h3 class="styleguide__heading">Ruby annotations</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-ruby.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-ruby.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Text directionality isolation</h3>
-<div class="display">
+<h3 class="styleguide__heading">Text directionality isolation</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-bdi.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-bdi.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Text directionality formatting</h3>
-<div class="display">
+<h3 class="styleguide__heading">Text directionality formatting</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-bdo.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/text-bdo.html" -->
 </textarea>
 </div>
@@ -404,21 +404,21 @@
 <p>The <code>ins</code> and <code>del</code> elements represent edits to the document.</p>
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Addition</h3>
-<div class="display">
+<h3 class="styleguide__heading">Addition</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/edits-ins.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/edits-ins.html" -->
 </textarea>
 </div>
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Removal</h3>
-<div class="display">
+<h3 class="styleguide__heading">Removal</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/edits-del.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/edits-del.html" -->
 </textarea>
 </div>
@@ -432,10 +432,10 @@
 <p>Embedded content elements include img, iframe, embed, object, param, video, audio, source, track, canvas, map, area, svg, and math.</p>
 
 <div class="styleguide">
-<div class="display">
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/embedded-img.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/embedded-img.html" -->
 </textarea>
 </div>
@@ -448,10 +448,10 @@
 <h2>6. Tabular data</h2>
 
 <div class="styleguide">
-<div class="display">
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/table.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/table.html" -->
 </textarea>
 </div>
@@ -466,7 +466,7 @@
 <p>Form elements are presented below.</p>
 
 <div class="styleguide">
-<div class="display">
+<div class="styleguide__display">
     <form action="#">
         <fieldset>
             <legend>Group title (legend)</legend>
@@ -499,33 +499,33 @@
 <p>Design and mark-up patterns unique to this site.</p>
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Media object (simple)</h3>
-<div class="display">
+<h3 class="styleguide__heading">Media object (simple)</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/mediaobject-simple.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/mediaobject-simple.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Media object (extra content block on the right)</h3>
-<div class="display">
+<h3 class="styleguide__heading">Media object (extra content block on the right)</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/mediaobject-rightcontent.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/mediaobject-rightcontent.html" -->
 </textarea>
 </div>
 
 
 <div class="styleguide">
-<h3 class="styleguide-heading">Media object (nested)</h3>
-<div class="display">
+<h3 class="styleguide__heading">Media object (nested)</h3>
+<div class="styleguide__display">
 <!--#include virtual="${MODULES}/${PATTERNS}/mediaobject-nested.html" -->
 </div>
-<textarea class="source">
+<textarea class="styleguide__source">
 <!--#include virtual="${MODULES}/${PATTERNS}/mediaobject-nested.html" -->
 </textarea>
 </div>
