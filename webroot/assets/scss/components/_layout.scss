@@ -30,11 +30,11 @@
 /* 
  * Center the layout and set max width too. 
  */
-.l-constrained {
+.layout-constrained {
     width: 95%;
-    max-width: relative-size(992, $base-font-size); 
+    max-width: x-relative-size(992, $base-font-size); 
     margin: 0 auto; 
-    @include old-ie {
+    @include x-old-ie {
         // rules for IE<9 here. 
     }
 }
