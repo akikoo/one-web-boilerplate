@@ -89,5 +89,5 @@ textarea {
     border: 1px solid $color-border;
     display: block;
     width: 100%;
-    padding: relative-size($base-line-height, 96);
+    padding: x-relative-size($base-line-height, 96);
 }

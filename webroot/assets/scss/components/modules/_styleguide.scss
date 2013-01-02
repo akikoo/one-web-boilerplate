@@ -14,16 +14,16 @@
 /* 
  * Styleguide module heading 
  */
-.styleguide-heading {
-    padding: relative-size($base-line-height, 84) 1%;
-    border-left: relative-size($base-line-height, 48) solid $color-logo-background; /* 24 / 48 */
+.styleguide__heading {
+    padding: x-relative-size($base-line-height, 84) 1%;
+    border-left: x-relative-size($base-line-height, 48) solid $color-logo-background; /* 24 / 48 */
 }
 
 /* 
  * Styleguide module display wrapper 
  */
-/*div*/.display {
-    @include respond-to($breakpoint-medium) { 
+/*div*/.styleguide__display {
+    @include x-respond-to($breakpoint-medium) { 
         float: left;
         width: 60%;
     }
@@ -32,23 +32,23 @@
 /* 
  * Module source wrapper 
  */
-/*textarea*/.source {
+/*textarea*/.styleguide__source {
     width: 100%;
     outline: 1px solid $color-border;
     border: none;
     overflow: auto;
     padding: 0 1px; 
     vertical-align: middle;
-    font-size: relative-size(11); 
-    line-height: relative-size(16, 11, ''); /* Custom line-height */
+    font-size: x-relative-size(11); 
+    line-height: x-relative-size(16, 11, ''); /* Custom line-height */
     font-family: $font-family-monospace;
     box-shadow: none;
-    margin: 0 0 relative-size($base-line-height);
+    margin: 0 0 x-relative-size($base-line-height);
     height: 12em;
-    @include respond-to($breakpoint-medium) { 
+    @include x-respond-to($breakpoint-medium) { 
         float: right;
         width: 36%;
-        @include old-ie {
+        @include x-old-ie {
             // These hacks won't appear in the normal stylesheet
         }
     }

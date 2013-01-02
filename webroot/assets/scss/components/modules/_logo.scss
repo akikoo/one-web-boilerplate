@@ -7,10 +7,10 @@
     color: $color-logo-text;
     background: $color-logo-background;
     display: block;
-    padding: relative-size($base-line-height, 16) relative-size($base-line-height, 16); /* 24 / 32 = 0.75em */
-    margin: relative-size($base-line-height, 32) 0 0;
+    padding: x-relative-size($base-line-height, 16) x-relative-size($base-line-height, 16); /* 24 / 32 = 0.75em */
+    margin: x-relative-size($base-line-height, 32) 0 0;
     border-bottom: none;
-    @include border-radius(4px);
+    @include x-border-radius(4px);
 }
 
 /*a*/.logo:hover, 

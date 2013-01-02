@@ -5,6 +5,8 @@
 // @url https://github.com/akikoo/one-web-boilerplate
 // Twitter: http://twitter.com/akikoo
 //
+// Tip: Consider prefixing custom functions with x- or another namespace.
+// 
 // ========================================================================== //
 
 
@@ -22,7 +24,7 @@
 //   font-size: relative-size(36, 24, rem);             --> font-size: 1.5rem;
 //   font-size: relative-size(21);                      --> font-size: 1.3125em;
 
-@function relative-size($target, $context: $base-font-size, $unit: em) {    
+@function x-relative-size($target, $context: $base-font-size, $unit: em) {    
 
     @if $unit == '' {
         @return #{$target/$context};

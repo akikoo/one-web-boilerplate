@@ -10,8 +10,8 @@ input[type="submit"] {
     cursor: pointer;
     color: $color-text;
     border: 1px solid $color-border;
-    margin: 0 0 relative-size($base-line-height);
-    @include gradient-vertical(rgba(248,248,248,1), rgba(221,221,221,1));
-    @include border-radius(5px);
-    @include box-shadow(0 -1px 0 rgba(0, 0, 0, 0.03) inset);
+    margin: 0 0 x-relative-size($base-line-height);
+    @include x-gradient-vertical(rgba(248,248,248,1), rgba(221,221,221,1));
+    @include x-border-radius(5px);
+    @include x-box-shadow(0 -1px 0 rgba(0, 0, 0, 0.03) inset);
 }

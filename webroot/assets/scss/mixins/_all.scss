@@ -5,13 +5,15 @@
 // @url https://github.com/akikoo/one-web-boilerplate
 // Twitter: http://twitter.com/akikoo
 //
+// Prefix custom functions with x- or another namespace.
+// See https://github.com/necolas/idiomatic-css
 // ========================================================================== //
 
 
 // The micro clearfix
 // ==================
 // Used to contain floats: http://nicolasgallagher.com/micro-clearfix-hack/
-@mixin clearfix() {
+@mixin x-clearfix() {
     *zoom: 1; // For IE 6/7 only. Include this rule to trigger hasLayout and contain floats.
     &:before, 
     &:after {
@@ -28,7 +30,7 @@
 // =============
 // Mixin inspired by http://jakearchibald.github.com/sass-ie/
 $fix-mqs: false !default;
-@mixin respond-to($breakpoint) {
+@mixin x-respond-to($breakpoint) {
 
     // Old-IE gets a mid-screen sized desktop version, with styles up until predefined width ($fix-mqs).
     @if $fix-mqs {
@@ -49,7 +51,7 @@ $fix-mqs: false !default;
 // ======
 // See http://jakearchibald.github.com/sass-ie/
 $old-ie: false !default;
-@mixin old-ie {
+@mixin x-old-ie {
     @if $old-ie {
         @content;
     }
@@ -58,7 +60,7 @@ $old-ie: false !default;
 
 // Border radius
 // =============
-@mixin border-radius($radius: 4px) {
+@mixin x-border-radius($radius: 4px) {
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
     -ms-border-radius: $radius;
@@ -69,7 +71,7 @@ $old-ie: false !default;
 
 // Box shadow
 // ==========
-@mixin box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
+@mixin x-box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
 -webkit-box-shadow : $shadow;
 -moz-box-shadow : $shadow;
 box-shadow : $shadow; }
@@ -77,7 +79,7 @@ box-shadow : $shadow; }
 
 // Gradient (vertical)
 // ===================
-@mixin gradient-vertical($startColor : $white, $endColor:  $lightergrey) {
+@mixin x-gradient-vertical($startColor : $white, $endColor:  $lightergrey) {
     background-color  : $endColor; /* Old browsers */
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $startColor), color-stop(100%, $endColor));
     background-image: -webkit-linear-gradient($startColor, $endColor);

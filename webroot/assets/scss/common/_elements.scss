@@ -60,7 +60,7 @@ hr {
     height: 1px;
     border: 0;
     border-top: 1px solid $color-border;
-    margin: relative-size($base-line-height) 0;
+    margin: x-relative-size($base-line-height) 0;
     padding: 0;
 }
 
@@ -110,57 +110,57 @@ h6 {
 }
 
 h1 {
-    font-size: relative-size(48); 
-    line-height: relative-size(36, 36, '');
-    margin: relative-size($base-line-height, 24) 0 relative-size($base-line-height, 24);
+    font-size: x-relative-size(48); 
+    line-height: x-relative-size(36, 36, '');
+    margin: x-relative-size($base-line-height, 24) 0 x-relative-size($base-line-height, 24);
 }
 
 h2 {
-    font-size: relative-size(24); 
-    line-height: relative-size($base-line-height, 24, '');
-    margin: 0 0 relative-size($base-line-height, 24);
+    font-size: x-relative-size(24); 
+    line-height: x-relative-size($base-line-height, 24, '');
+    margin: 0 0 x-relative-size($base-line-height, 24);
 }
 
 h3 {
     color: $color-heading;
-    font-size: relative-size(21); 
-    line-height: relative-size($base-line-height, 21, '');
-    margin: 0 0 relative-size($base-line-height, 21);
+    font-size: x-relative-size(21); 
+    line-height: x-relative-size($base-line-height, 21, '');
+    margin: 0 0 x-relative-size($base-line-height, 21);
 }
 
 h4 {
-    font-size: relative-size(16); 
-    line-height: relative-size($base-line-height, 16, '');
-    margin: 0 0 relative-size($base-line-height, 16);
+    font-size: x-relative-size(16); 
+    line-height: x-relative-size($base-line-height, 16, '');
+    margin: 0 0 x-relative-size($base-line-height, 16);
     font-weight: bold;
 }
 
 h5 {
-    font-size: relative-size(14);
-    line-height: relative-size($base-line-height, 14, ''); 
-    margin: 0 0 relative-size($base-line-height, 14);
+    font-size: x-relative-size(14);
+    line-height: x-relative-size($base-line-height, 14, ''); 
+    margin: 0 0 x-relative-size($base-line-height, 14);
     text-transform: uppercase;
-    letter-spacing: relative-size(1, 14);
+    letter-spacing: x-relative-size(1, 14);
     color: #555;
 }
 
 h6 {
-    font-size: relative-size(12); 
-    line-height: relative-size($base-line-height, 12, ''); 
-    margin: 0 0 relative-size($base-line-height, 12);
+    font-size: x-relative-size(12); 
+    line-height: x-relative-size($base-line-height, 12, ''); 
+    margin: 0 0 x-relative-size($base-line-height, 12);
     text-transform: uppercase;
-    letter-spacing: relative-size(1, 12);
+    letter-spacing: x-relative-size(1, 12);
     color: #555;
 }
 
 blockquote {
-    margin: 0 40px relative-size($base-line-height, 16);
+    margin: 0 40px x-relative-size($base-line-height, 16);
 }
 
 p, 
 pre {
-    line-height: relative-size($base-line-height, 16, ''); 
-    margin: 0 0 relative-size($base-line-height, 16);
+    line-height: x-relative-size($base-line-height, 16, ''); 
+    margin: 0 0 x-relative-size($base-line-height, 16);
 }
 
 
@@ -175,7 +175,7 @@ hr,
 table, 
 form, 
 fieldset {
-    margin: 0 0 relative-size($base-line-height, 16);
+    margin: 0 0 x-relative-size($base-line-height, 16);
 }
 
 
@@ -226,6 +226,7 @@ object,
 embed, 
 svg {
     max-width: 100%;
+    height: auto; /* http://www.brucelawson.co.uk/2012/responsive-web-design-preserving-images-aspect-ratio/ */
 }
 
 /* ==========================================================================
