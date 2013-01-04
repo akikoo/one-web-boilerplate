@@ -30,11 +30,133 @@
 /* 
  * Center the layout and set max width too. 
  */
-.layout-constrained {
+.l-constrained {
     width: 95%;
     max-width: x-relative-size(992, $base-font-size); 
     margin: 0 auto; 
     @include x-old-ie {
         // rules for IE<9 here. 
     }
+}
+
+
+/* Grid container, containing any number of cells/columns 
+   ========================================================================== */
+.l-row {
+    display: block;
+    margin: 0 auto 20px;
+    /* min-width: x-relative-size(768, $base-font-size); */
+    /* For oldIE, will be overwritten inside @media query */
+    /*max-width: 1280px;*/  /* Make sure the grid doesn't get too wide */
+    width: 100%;
+    @include x-clearfix;
+}
+
+.l-row .l-row {
+    min-width: 0;
+}
+
+
+/* Grid cells. No explicit width by default. Extend with `.l-cell--n` classes.
+   ========================================================================== */
+/**
+* In order to work around browsers' different rounding behaviours, we'll float 
+* the last column in a row to the right so the edge aligns. You can override 
+* that behaviour by adding class="layout-cell--end" in the last column. 
+* 
+* Idea taken from: 
+* http://foundation.zurb.com/docs/grid.php 
+* http://www.netmagazine.com/tutorials/building-modern-grid-system
+* 
+*/
+
+.l-cell {
+    @include x-respond-to($breakpoint-medium) { 
+        display: inline;
+        float: left;
+        min-height: 1px;
+        position: relative;
+        margin: 0 0 0 $gutter;
+    }
+}
+
+/* Cancel the left margin in the first item */
+.l-cell:first-child, 
+.l-cell .l-cell:first-child {
+    margin-left: 0;
+}
+
+.l-cell:last-child { 
+    @include x-respond-to($breakpoint-medium) { 
+        float: right; 
+    }
+}
+
+.l-cell.l-cell--end {
+    @include x-respond-to($breakpoint-medium) { 
+        float: left; 
+    }
+}
+
+
+/* Cell dimensions (assuming we're using six columns; this can be changed in _settings.scss)
+   ========================================================================== */
+
+// First level
+.l-cell--1 {
+    @include x-respond-to($breakpoint-medium) { 
+        @include x-columns(1);
+    }
+}
+
+.l-cell--2 {
+    @include x-respond-to($breakpoint-medium) { 
+        @include x-columns(2);
+    }
+}
+
+.l-cell--3 {
+    @include x-respond-to($breakpoint-medium) { 
+        @include x-columns(3);
+    }
+}
+
+.l-cell--4 {
+    @include x-respond-to($breakpoint-medium) { 
+        @include x-columns(4);
+    }
+}
+
+.l-cell--5 {
+    @include x-respond-to($breakpoint-medium) { 
+        @include x-columns(5);
+    }
+}
+
+.l-cell--6 {
+    @include x-respond-to($breakpoint-medium) { 
+        @include x-columns(6);
+    }
+}
+
+// Second level
+// nestedcolumns(children, parent);
+.l-cell--3 .l-cell--2 {
+    @include x-respond-to($breakpoint-medium) { 
+        @include x-nestedcolumns(2, 3);
+    }
+}
+
+.l-cell--3 .l-cell--1 {
+    @include x-respond-to($breakpoint-medium) { 
+        @include x-nestedcolumns(1, 3);
+    }
+}
+
+/* Cell modifiers
+   ========================================================================== */
+
+.l-cell--detail,
+.l-cell--important {
+
 }

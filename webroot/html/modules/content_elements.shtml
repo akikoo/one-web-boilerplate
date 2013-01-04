@@ -3,6 +3,25 @@
 
 
 <!--****************************************************************************
+0) GRID
+*****************************************************************************-->
+
+<h2>0. Grid variations</h2>
+
+<p>6 columns by default. Can easily be changed in /assets/scss/_settings.scss. Then go to /assets/scss/components/_layout.scss, to generate new styles. Finally, update markup in /html/modules/patterns/grid.html.</p>
+
+<div class="styleguide">
+<h3 class="styleguide__heading">Grid</h3>
+<div class="styleguide__display">
+<!--#include virtual="${MODULES}/${PATTERNS}/grid.html" -->
+</div>
+<textarea class="styleguide__source">
+<!--#include virtual="${MODULES}/${PATTERNS}/grid.html" -->
+</textarea>
+</div>
+
+
+<!--****************************************************************************
 1) SECTIONS
 *****************************************************************************-->
 
