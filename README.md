@@ -23,10 +23,9 @@ Twitter Bootstrap (http://twitter.github.com/bootstrap/), and many others, with
 Server Side Includes. The framework can easily be plugged into Continuous Integration 
 solutions, such as Jenkins: http://jenkins-ci.org. 
 
-This framework doesn't include any grid. You decide how you build your site. 
-However, if you need a grid, have a look at the Fluid Grid that supports both 
-Sass (SCSS) and LESS CSS: http://akikoo.github.com/Fluid-Grid/. Sass/Compass is 
-used by default, both in One Web Boilerplate and the Fluid Grid. 
+This framework also includes a dynamic grid system called the Fluid Grid: 
+http://akikoo.github.com/Fluid-Grid/. Sass/Compass is used by default, both in 
+One Web Boilerplate and the Fluid Grid. 
 
 
 ## File structure
