@@ -58,7 +58,16 @@ $old-ie: false !default;
 }
 
 
-// Border radius
+// Set font size in rems with a pixel fallback
+// ===========================================
+// See https://github.com/csswizardry/CSS-Guidelines
+@mixin x-font-size($font-size){
+    font-size: $font-size +px;
+    font-size: $font-size / $base-font-size +rem;
+}
+
+
+// Border radius --Obsolete, use Compass instead
 // =============
 @mixin x-border-radius($radius: 4px) {
     -webkit-border-radius: $radius;
@@ -69,15 +78,15 @@ $old-ie: false !default;
 }
 
 
-// Box shadow
+// Box shadow --Obsolete, use Compass instead
 // ==========
-@mixin x-box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
+@mixin x-box-shadow($shadow: 0 1px 3px rgba(0, 0, 0, .25)) {
 -webkit-box-shadow : $shadow;
 -moz-box-shadow : $shadow;
 box-shadow : $shadow; }
 
 
-// Gradient (vertical)
+// Gradient (vertical) --Obsolete, use Compass instead
 // ===================
 @mixin x-gradient-vertical($startColor : $white, $endColor:  $lightergrey) {
     background-color  : $endColor; /* Old browsers */
