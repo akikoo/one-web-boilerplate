@@ -1,38 +1,19 @@
 /* ==========================================================================
-   @group Styleguide display and source wrappers
+   @group Styleguide display and source --Not for PROD
    ========================================================================== */
-
-/* 
- * Styleguide module 
- */
-.styleguide {
-    clear: both;
-    float: left;
-    width: 100%;
-}
 
 /* 
  * Styleguide module heading 
  */
-.styleguide__heading {
+.heading-styleguide {
     padding: x-relative-size($base-line-height, 84) 1%;
     border-left: x-relative-size($base-line-height, 48) solid $color-logo-background; /* 24 / 48 */
 }
 
 /* 
- * Styleguide module display wrapper 
- */
-/*div*/.styleguide__display {
-    @include x-respond-to($breakpoint-medium) { 
-        float: left;
-        width: 60%;
-    }
-}
-
-/* 
  * Module source wrapper 
  */
-/*textarea*/.styleguide__source {
+/*textarea*/.source-styleguide {
     width: 100%;
     outline: 1px solid $color-border;
     border: none;
@@ -46,14 +27,22 @@
     margin: 0 0 x-relative-size($base-line-height);
     height: 12em;
     @include x-respond-to($breakpoint-medium) { 
-        float: right;
-        width: 36%;
+       /* float: right;
+        width: 36%;*/
         @include x-old-ie {
             // These hacks won't appear in the normal stylesheet
         }
     }
 }
 
-.styleguide .l-cell {
+/**
+* Temp grid visualizations for the Style Guide module
+*/
+/* First level cells */
+.l-row--styleguide .l-cell {
     background: #ddd;
+}
+/* Nested cells */
+.l-row--styleguide .l-cell .l-cell {
+    background: #aaa;
 }

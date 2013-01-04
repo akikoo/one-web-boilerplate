@@ -468,7 +468,7 @@ textarea[contenteditable] {
   margin: 0 auto;
 }
 
-/* Grid container, containing any number of cells/columns 
+/* Grid container (row), containing any number of cells/columns 
    ========================================================================== */
 /* line 47, ../scss/components/_layout.scss */
 .l-row {
@@ -825,46 +825,24 @@ textarea {
 }
 
 /* ==========================================================================
-   @group Styleguide display and source wrappers
+   @group Styleguide display and source --Not for PROD
    ========================================================================== */
-/* 
- * Styleguide module 
- */
-/* line 8, ../scss/components/modules/_styleguide.scss */
-.styleguide {
-  clear: both;
-  float: left;
-  width: 100%;
-}
-
 /* 
  * Styleguide module heading 
  */
-/* line 17, ../scss/components/modules/_styleguide.scss */
-.styleguide__heading {
+/* line 8, ../scss/components/modules/_styleguide.scss */
+.heading-styleguide {
   padding: 0.285714285714286em 1%;
   border-left: 0.5em solid #fee620;
   /* 24 / 48 */
 }
 
 /* 
- * Styleguide module display wrapper 
- */
-/*div*/
-@media only screen and (min-width: 48em) {
-  /* line 25, ../scss/components/modules/_styleguide.scss */
-  .styleguide__display {
-    float: left;
-    width: 60%;
-  }
-}
-
-/* 
  * Module source wrapper 
  */
 /*textarea*/
-/* line 35, ../scss/components/modules/_styleguide.scss */
-.styleguide__source {
+/* line 16, ../scss/components/modules/_styleguide.scss */
+.source-styleguide {
   width: 100%;
   outline: 1px solid #dddddd;
   border: none;
@@ -880,16 +858,26 @@ textarea {
   height: 12em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 35, ../scss/components/modules/_styleguide.scss */
-  .styleguide__source {
-    float: right;
-    width: 36%;
+  /* line 16, ../scss/components/modules/_styleguide.scss */
+  .source-styleguide {
+    /* float: right;
+     width: 36%;*/
   }
 }
 
-/* line 57, ../scss/components/modules/_styleguide.scss */
-.styleguide .l-cell {
+/**
+* Temp grid visualizations for the Style Guide module
+*/
+/* First level cells */
+/* line 42, ../scss/components/modules/_styleguide.scss */
+.l-row--styleguide .l-cell {
   background: #ddd;
+}
+
+/* Nested cells */
+/* line 46, ../scss/components/modules/_styleguide.scss */
+.l-row--styleguide .l-cell .l-cell {
+  background: #aaa;
 }
 
 /* 3. Modules                         */
