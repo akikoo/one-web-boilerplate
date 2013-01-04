@@ -62,13 +62,11 @@ Remove this if you use the .htaccess -->
 <script src="../assets/js/lib/modernizr.min.js"></script>
 
 </head>
-<body class="layout-constrained">
+<body class="l-constrained">
 
-<div class="layout-page">
+<div class="l-page">
 
-    <div class="accessibility">
-        <a href="#main-content">Skip to Main Content</a>
-    </div>
+    <a class="accessibility" href="#main-content">Skip to Main Content</a>
 
     <header role="banner">
 

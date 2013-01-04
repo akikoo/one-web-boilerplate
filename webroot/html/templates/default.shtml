@@ -5,14 +5,12 @@
 <!--#elif expr="${PAGE} != 'home'" -->
 <!--#set var="HEADERTAG" value="div" -->
 <!--#endif -->
-<body class="layout-constrained">
+<body class="l-constrained">
 
-    <div class="layout-page">
+    <div class="l-page">
 
-        <div class="accessibility">
-            <a href="#main-content">Skip to Main Content</a>
-        </div>
-
+        <a class="accessibility" href="#main-content">Skip to Main Content</a>
+        
         <header role="banner">
 
             <!-- No h1 here since this is not the homepage-->
