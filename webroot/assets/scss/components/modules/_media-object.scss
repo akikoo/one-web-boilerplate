@@ -15,29 +15,29 @@
  */
 .media {
     margin: 0 0 1em;
-    .media__img {
-        float: left;
-        margin: 0 10px 0 0;
-        img {
-            display: block;
-        }
-    }
-    .media__img--ext {
-        float: right; 
-        margin: 0 0 0 10px;
-    }
-    .media__body {
-        display: table-cell; /* 1 */
-        width: 10000px; /* 2 */
-        *width: auto; /* 3 */
-        *zoom: 1; /* 4 */
-    }
     p {
         margin: 0 0 1em;
     }
     @include x-clearfix();
 }
 
+.media__img {
+    float: left;
+    margin: 0 10px 0 0;
+    img {
+        display: block;
+    }
+}
+.media__img--ext {
+    float: right; 
+    margin: 0 0 0 10px;
+}
+.media__body {
+    display: table-cell; /* 1 */
+    width: 10000px; /* 2 */
+    *width: auto; /* 3 */
+    *zoom: 1; /* 4 */
+}
 
 /*
  * Reusable  icons
