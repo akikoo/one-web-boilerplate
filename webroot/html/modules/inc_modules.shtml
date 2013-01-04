@@ -125,6 +125,12 @@
 </div>
 
 <div class="module">
+    <h3>Module: <a href="/html/modules/patterns/grid.html">/html/modules/patterns/grid.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/grid.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/grid.html" --></textarea></div>
+</div>
+
+<div class="module">
     <h3>Module: <a href="/html/modules/patterns/heading-1.html">/html/modules/patterns/heading-1.html</a></h3>
     <div class='display'><!--#include virtual="/html/modules/patterns/heading-1.html" --></div>
     <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/heading-1.html" --></textarea></div>
