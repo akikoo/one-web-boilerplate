@@ -19,6 +19,22 @@
 
 
 /* ==========================================================================
+   Contents
+   ========================================================================== */
+/**
+ * BASE.........................Global base styles
+ * LINKS........................Default link styles and states
+ * TYPOGRAPHY...................Font, sizes, line heights
+ * GROUPED DECLARATIONS.........Global grouped styles
+ * LISTS........................Ordered, unordered and definition lists
+ * EMBEDDED CONTENT.............Image, video etc.
+ * FIGURES......................Figure styles
+ * FORMS........................See Forms module
+ * TABLES.......................Global table styles
+ */
+
+
+/* ==========================================================================
    @group Base
    ========================================================================== */
 
@@ -109,33 +125,42 @@ h6 {
     font-weight: normal;
 }
 
-h1 {
+/**
+ * Double-stranded heading hierarchy. 
+ * See http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/
+ */
+h1, 
+.h1 {
     font-size: x-relative-size(48); 
     line-height: x-relative-size(36, 36, '');
     margin: x-relative-size($base-line-height, 24) 0 x-relative-size($base-line-height, 24);
 }
 
-h2 {
+h2, 
+.h2 {
     font-size: x-relative-size(24); 
     line-height: x-relative-size($base-line-height, 24, '');
     margin: 0 0 x-relative-size($base-line-height, 24);
 }
 
-h3 {
+h3, 
+.h3 {
     color: $color-heading;
     font-size: x-relative-size(21); 
     line-height: x-relative-size($base-line-height, 21, '');
     margin: 0 0 x-relative-size($base-line-height, 21);
 }
 
-h4 {
+h4, 
+.h4 {
     font-size: x-relative-size(16); 
     line-height: x-relative-size($base-line-height, 16, '');
     margin: 0 0 x-relative-size($base-line-height, 16);
     font-weight: bold;
 }
 
-h5 {
+h5, 
+.h5 {
     font-size: x-relative-size(14);
     line-height: x-relative-size($base-line-height, 14, ''); 
     margin: 0 0 x-relative-size($base-line-height, 14);
@@ -144,7 +169,8 @@ h5 {
     color: #555;
 }
 
-h6 {
+h6, 
+.h6 {
     font-size: x-relative-size(12); 
     line-height: x-relative-size($base-line-height, 12, ''); 
     margin: 0 0 x-relative-size($base-line-height, 12);

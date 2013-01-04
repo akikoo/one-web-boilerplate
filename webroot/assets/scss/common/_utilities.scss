@@ -17,6 +17,15 @@
 
 
 /* ==========================================================================
+   Contents
+   ========================================================================== */
+/**
+ * H5BP.........................HTML5 Boilerplate helpers
+ * OTHER........................Various other helpers
+ */
+
+
+/* ==========================================================================
    @group Utilities (H5BP). Helper classes from the HTML5 Mobile boilerplate.
    ========================================================================== */
 
@@ -112,7 +121,7 @@ textarea[contenteditable] {
 /* 
  * Visually hiding content that will be read by a screen reader.
  */
-.accessibility a {
+/*a*/.accessibility {
     position: absolute;
     left: -10000px;
     top: auto;
@@ -122,7 +131,7 @@ textarea[contenteditable] {
 }
 
 /* Active when the user tabs to the link */
-.accessibility a:focus {
+/*a*/.accessibility:focus {
     position: static;
     width: auto;
     height: auto;
