@@ -62,14 +62,16 @@ main.scss -->   |                                                       |  --> m
  * Apply a natural box layout model to all elements.
  * http://paulirish.com/2012/box-sizing-border-box-ftw/
  */
-/* line 53, ../scss/common/_elements.scss */
-* {
+/* line 55, ../scss/common/_elements.scss */
+*,
+*:before,
+*:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 61, ../scss/common/_elements.scss */
+/* line 64, ../scss/common/_elements.scss */
 html,
 button,
 input,
@@ -79,7 +81,7 @@ textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 66, ../scss/common/_elements.scss */
+/* line 69, ../scss/common/_elements.scss */
 body {
   font-size: 1em;
   /* 16px */
@@ -90,7 +92,7 @@ body {
 /* 
  * =hr (a better looking default horizontal rule)
  */
-/* line 74, ../scss/common/_elements.scss */
+/* line 77, ../scss/common/_elements.scss */
 hr {
   display: block;
   height: 1px;
@@ -103,7 +105,7 @@ hr {
 /* ==========================================================================
    @group Links
    ========================================================================== */
-/* line 87, ../scss/common/_elements.scss */
+/* line 90, ../scss/common/_elements.scss */
 a {
   color: #3399cc;
   text-decoration: none;
@@ -111,7 +113,7 @@ a {
   white-space: pre-wrap;
 }
 
-/* line 99, ../scss/common/_elements.scss */
+/* line 102, ../scss/common/_elements.scss */
 a:hover,
 a:active {
   color: #3399cc;
@@ -127,7 +129,7 @@ a:active {
 /* 
  * Typefaces: Serif
  */
-/* line 123, ../scss/common/_elements.scss */
+/* line 126, ../scss/common/_elements.scss */
 h1,
 h2,
 h3,
@@ -142,7 +144,7 @@ h6 {
  * Double-stranded heading hierarchy. 
  * See http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/
  */
-/* line 133, ../scss/common/_elements.scss */
+/* line 136, ../scss/common/_elements.scss */
 h1,
 .h1 {
   font-size: 3em;
@@ -150,7 +152,7 @@ h1,
   margin: 1em 0 1em;
 }
 
-/* line 140, ../scss/common/_elements.scss */
+/* line 143, ../scss/common/_elements.scss */
 h2,
 .h2 {
   font-size: 1.5em;
@@ -158,7 +160,7 @@ h2,
   margin: 0 0 1em;
 }
 
-/* line 147, ../scss/common/_elements.scss */
+/* line 150, ../scss/common/_elements.scss */
 h3,
 .h3 {
   color: black;
@@ -167,7 +169,7 @@ h3,
   margin: 0 0 1.14285714285714em;
 }
 
-/* line 155, ../scss/common/_elements.scss */
+/* line 158, ../scss/common/_elements.scss */
 h4,
 .h4 {
   font-size: 1em;
@@ -176,7 +178,7 @@ h4,
   font-weight: bold;
 }
 
-/* line 163, ../scss/common/_elements.scss */
+/* line 166, ../scss/common/_elements.scss */
 h5,
 .h5 {
   font-size: 0.875em;
@@ -187,7 +189,7 @@ h5,
   color: #555;
 }
 
-/* line 173, ../scss/common/_elements.scss */
+/* line 176, ../scss/common/_elements.scss */
 h6,
 .h6 {
   font-size: 0.75em;
@@ -198,12 +200,12 @@ h6,
   color: #555;
 }
 
-/* line 182, ../scss/common/_elements.scss */
+/* line 185, ../scss/common/_elements.scss */
 blockquote {
   margin: 0 40px 1.5em;
 }
 
-/* line 187, ../scss/common/_elements.scss */
+/* line 190, ../scss/common/_elements.scss */
 p,
 pre {
   line-height: 1.5;
@@ -213,7 +215,7 @@ pre {
 /* ==========================================================================
    @group Grouped declarations
    ========================================================================== */
-/* line 203, ../scss/common/_elements.scss */
+/* line 206, ../scss/common/_elements.scss */
 ul,
 ol,
 dl,
@@ -228,7 +230,7 @@ fieldset {
 /* ==========================================================================
    @group Lists
    ========================================================================== */
-/* line 215, ../scss/common/_elements.scss */
+/* line 218, ../scss/common/_elements.scss */
 ul ul,
 ul ol,
 ol ol,
@@ -236,7 +238,7 @@ ol ul {
   margin: 0;
 }
 
-/* line 219, ../scss/common/_elements.scss */
+/* line 222, ../scss/common/_elements.scss */
 dt {
   font-weight: bold;
 }
@@ -247,12 +249,12 @@ dt {
 /*
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
  */
-/* line 231, ../scss/common/_elements.scss */
+/* line 234, ../scss/common/_elements.scss */
 img {
   vertical-align: middle;
 }
 
-/* line 235, ../scss/common/_elements.scss */
+/* line 238, ../scss/common/_elements.scss */
 img {
   background: #fff;
   border: 1px solid #dddddd;
@@ -265,7 +267,7 @@ img {
 /*
  * Flexible images and embedded videos
  */
-/* line 253, ../scss/common/_elements.scss */
+/* line 256, ../scss/common/_elements.scss */
 img,
 audio,
 video,
@@ -286,19 +288,19 @@ svg {
 /* ==========================================================================
    @group Tables
    ========================================================================== */
-/* line 272, ../scss/common/_elements.scss */
+/* line 275, ../scss/common/_elements.scss */
 table {
   border-top: 1px solid #dddddd;
   border-left: 1px solid #dddddd;
 }
 
-/* line 277, ../scss/common/_elements.scss */
+/* line 280, ../scss/common/_elements.scss */
 caption {
   font-weight: bold;
   text-align: left;
 }
 
-/* line 283, ../scss/common/_elements.scss */
+/* line 286, ../scss/common/_elements.scss */
 td,
 th {
   text-align: left;
@@ -307,7 +309,7 @@ th {
   padding: 2px 6px;
 }
 
-/* line 290, ../scss/common/_elements.scss */
+/* line 293, ../scss/common/_elements.scss */
 th {
   background: #eeeeee;
 }
@@ -465,20 +467,15 @@ textarea[contenteditable] {
 .l-constrained {
   width: 95%;
   max-width: 62em;
+  /* Make sure the grid doesn't get too wide */
   margin: 0 auto;
 }
 
 /* Grid container (row), containing any number of cells/columns 
    ========================================================================== */
-/* line 47, ../scss/components/_layout.scss */
+/* line 48, ../scss/components/_layout.scss */
 .l-row {
-  display: block;
   margin: 0 auto 20px;
-  /* min-width: x-relative-size(768, $base-font-size); */
-  /* For oldIE, will be overwritten inside @media query */
-  /*max-width: 1280px;*/
-  /* Make sure the grid doesn't get too wide */
-  width: 100%;
   *zoom: 1;
 }
 /* line 19, ../scss/mixins/_all.scss */
@@ -491,17 +488,12 @@ textarea[contenteditable] {
   clear: both;
 }
 
-/* line 57, ../scss/components/_layout.scss */
-.l-row .l-row {
-  min-width: 0;
-}
-
 /* Grid cells. No explicit width by default. Extend with `.l-cell--n` classes.
    ========================================================================== */
 /**
 * In order to work around browsers' different rounding behaviours, we'll float 
 * the last column in a row to the right so the edge aligns. You can override 
-* that behaviour by adding class="layout-cell--end" in the last column. 
+* that behaviour by adding class="l-cell--end" in the last column. 
 * 
 * Idea taken from: 
 * http://foundation.zurb.com/docs/grid.php 
@@ -509,9 +501,8 @@ textarea[contenteditable] {
 * 
 */
 @media only screen and (min-width: 48em) {
-  /* line 75, ../scss/components/_layout.scss */
+  /* line 67, ../scss/components/_layout.scss */
   .l-cell {
-    display: inline;
     float: left;
     min-height: 1px;
     position: relative;
@@ -520,21 +511,21 @@ textarea[contenteditable] {
 }
 
 /* Cancel the left margin in the first item */
-/* line 87, ../scss/components/_layout.scss */
+/* line 78, ../scss/components/_layout.scss */
 .l-cell:first-child,
 .l-cell .l-cell:first-child {
   margin-left: 0;
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 91, ../scss/components/_layout.scss */
+  /* line 82, ../scss/components/_layout.scss */
   .l-cell:last-child {
     float: right;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 97, ../scss/components/_layout.scss */
+  /* line 88, ../scss/components/_layout.scss */
   .l-cell.l-cell--end {
     float: left;
   }
@@ -543,49 +534,49 @@ textarea[contenteditable] {
 /* Cell dimensions (assuming we're using six columns; this can be changed in _settings.scss)
    ========================================================================== */
 @media only screen and (min-width: 48em) {
-  /* line 108, ../scss/components/_layout.scss */
+  /* line 99, ../scss/components/_layout.scss */
   .l-cell--1 {
     width: 13.3333333333333%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 114, ../scss/components/_layout.scss */
+  /* line 105, ../scss/components/_layout.scss */
   .l-cell--2 {
     width: 30.6666666666667%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 120, ../scss/components/_layout.scss */
+  /* line 111, ../scss/components/_layout.scss */
   .l-cell--3 {
     width: 48%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 126, ../scss/components/_layout.scss */
+  /* line 117, ../scss/components/_layout.scss */
   .l-cell--4 {
     width: 65.3333333333333%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 132, ../scss/components/_layout.scss */
+  /* line 123, ../scss/components/_layout.scss */
   .l-cell--5 {
     width: 82.6666666666667%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 138, ../scss/components/_layout.scss */
+  /* line 129, ../scss/components/_layout.scss */
   .l-cell--6 {
     width: 100%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 146, ../scss/components/_layout.scss */
+  /* line 137, ../scss/components/_layout.scss */
   .l-cell--3 .l-cell--2 {
     margin-left: 8.33333333333333%;
     width: 63.8888888888889%;
@@ -593,7 +584,7 @@ textarea[contenteditable] {
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 152, ../scss/components/_layout.scss */
+  /* line 143, ../scss/components/_layout.scss */
   .l-cell--3 .l-cell--1 {
     margin-left: 8.33333333333333%;
     width: 27.7777777777778%;

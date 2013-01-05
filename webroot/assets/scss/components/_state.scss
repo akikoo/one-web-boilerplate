@@ -6,11 +6,13 @@
 // Ems are based on generic browser default setting of 16px font size.
 // 
 // Set only global states here. Module states should be defined in modules, 
-// and kept together with Sass. State classes may indicate JS dependancy, for 
-// example '.js-is-hidden'.
+// and kept together with Sass. State classes may indicate JS dependancy, for example 
+// '.js-is-hidden'. Classes starting with 'js-' should be reserved for JavaScript 
+// only, and not for styling. For styling, use '.is-hidden', for example.
 // 
 // Consider using either:
 //     class (.is-collapsed / .is-error / .is-hidden)
+//     class, JS (.js-is-hidden)
 //     pseudo-class (:hover) 
 //     attribute states (data-state="transitioning")
 //     @media queries
