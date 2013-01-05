@@ -26,13 +26,6 @@
     box-shadow: none;
     margin: 0 0 x-relative-size($base-line-height);
     height: 12em;
-    @include x-respond-to($breakpoint-medium) { 
-       /* float: right;
-        width: 36%;*/
-        @include x-old-ie {
-            // These hacks won't appear in the normal stylesheet
-        }
-    }
 }
 
 /**

@@ -25,6 +25,25 @@
 // ========================================================================== //
 
 
+/**
+ * How to generate files for both modern browsers and oldIE, from the same source:
+ * 
+ * .selector {
+ *     @include x-respond-to($breakpoint-medium) { 
+ *         float: left;
+ *         width: 50%;
+ *         @include x-old-ie {
+ *             // These hacks won't appear in the normal stylesheet.
+ *             // Serve fixed-width layout to oldIE (overwrite width declaration above).
+ *             // Alternatively, you could remove this and set fixed width to the parent instead.
+ *             width: x-relative-size(384, $base-font-size); 
+ *         }
+ *     }
+ * }
+ * 
+ */
+
+
 /* ==========================================================================
    @group Layout
    ========================================================================== */

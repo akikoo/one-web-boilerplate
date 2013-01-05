@@ -457,13 +457,30 @@ textarea[contenteditable] {
 
 /* 3. HTML5 boilerplate helper classes (SCSS partial) */
 /* 1. Reset, base elements, utilities */
+/**
+ * How to generate files for both modern browsers and oldIE, from the same source:
+ * 
+ * .selector {
+ *     @include x-respond-to($breakpoint-medium) { 
+ *         float: left;
+ *         width: 50%;
+ *         @include x-old-ie {
+ *             // These hacks won't appear in the normal stylesheet.
+ *             // Serve fixed-width layout to oldIE (overwrite width declaration above).
+ *             // Alternatively, you could remove this and set fixed width to the parent instead.
+ *             width: x-relative-size(384, $base-font-size); 
+ *         }
+ *     }
+ * }
+ * 
+ */
 /* ==========================================================================
    @group Layout
    ========================================================================== */
 /* 
  * Center the layout and set max width too. 
  */
-/* line 35, ../scss/components/_layout.scss */
+/* line 53, ../scss/components/_layout.scss */
 .l-constrained {
   width: 95%;
   max-width: 62em;
@@ -473,7 +490,7 @@ textarea[contenteditable] {
 
 /* Grid container (row), containing any number of cells/columns 
    ========================================================================== */
-/* line 48, ../scss/components/_layout.scss */
+/* line 66, ../scss/components/_layout.scss */
 .l-row {
   margin: 0 auto 20px;
   *zoom: 1;
@@ -501,7 +518,7 @@ textarea[contenteditable] {
 * 
 */
 @media only screen and (min-width: 48em) {
-  /* line 67, ../scss/components/_layout.scss */
+  /* line 85, ../scss/components/_layout.scss */
   .l-cell {
     float: left;
     min-height: 1px;
@@ -511,21 +528,23 @@ textarea[contenteditable] {
 }
 
 /* Cancel the left margin in the first item */
-/* line 78, ../scss/components/_layout.scss */
+/* line 96, ../scss/components/_layout.scss */
 .l-cell:first-child,
 .l-cell .l-cell:first-child {
   margin-left: 0;
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 82, ../scss/components/_layout.scss */
+  /* line 100, ../scss/components/_layout.scss */
   .l-cell:last-child {
     float: right;
   }
 }
 
+/* Cell modifiers
+   ========================================================================== */
 @media only screen and (min-width: 48em) {
-  /* line 88, ../scss/components/_layout.scss */
+  /* line 110, ../scss/components/_layout.scss */
   .l-cell.l-cell--end {
     float: left;
   }
@@ -534,49 +553,49 @@ textarea[contenteditable] {
 /* Cell dimensions (assuming we're using six columns; this can be changed in _settings.scss)
    ========================================================================== */
 @media only screen and (min-width: 48em) {
-  /* line 99, ../scss/components/_layout.scss */
+  /* line 121, ../scss/components/_layout.scss */
   .l-cell--1 {
     width: 13.3333333333333%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 105, ../scss/components/_layout.scss */
+  /* line 127, ../scss/components/_layout.scss */
   .l-cell--2 {
     width: 30.6666666666667%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 111, ../scss/components/_layout.scss */
+  /* line 133, ../scss/components/_layout.scss */
   .l-cell--3 {
     width: 48%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 117, ../scss/components/_layout.scss */
+  /* line 139, ../scss/components/_layout.scss */
   .l-cell--4 {
     width: 65.3333333333333%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 123, ../scss/components/_layout.scss */
+  /* line 145, ../scss/components/_layout.scss */
   .l-cell--5 {
     width: 82.6666666666667%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 129, ../scss/components/_layout.scss */
+  /* line 151, ../scss/components/_layout.scss */
   .l-cell--6 {
     width: 100%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 137, ../scss/components/_layout.scss */
+  /* line 159, ../scss/components/_layout.scss */
   .l-cell--3 .l-cell--2 {
     margin-left: 8.33333333333333%;
     width: 63.8888888888889%;
@@ -584,15 +603,13 @@ textarea[contenteditable] {
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 143, ../scss/components/_layout.scss */
+  /* line 165, ../scss/components/_layout.scss */
   .l-cell--3 .l-cell--1 {
     margin-left: 8.33333333333333%;
     width: 27.7777777777778%;
   }
 }
 
-/* Cell modifiers
-   ========================================================================== */
 /* 2. Layout                          */
 /* ==========================================================================
    @group Module imports
@@ -848,25 +865,18 @@ textarea {
   margin: 0 0 1.5em;
   height: 12em;
 }
-@media only screen and (min-width: 48em) {
-  /* line 16, ../scss/components/modules/_styleguide.scss */
-  .source-styleguide {
-    /* float: right;
-     width: 36%;*/
-  }
-}
 
 /**
 * Temp grid visualizations for the Style Guide module
 */
 /* First level cells */
-/* line 42, ../scss/components/modules/_styleguide.scss */
+/* line 35, ../scss/components/modules/_styleguide.scss */
 .l-row--styleguide .l-cell {
   background: #ddd;
 }
 
 /* Nested cells */
-/* line 46, ../scss/components/modules/_styleguide.scss */
+/* line 39, ../scss/components/modules/_styleguide.scss */
 .l-row--styleguide .l-cell .l-cell {
   background: #aaa;
 }
