@@ -88,6 +88,11 @@
         min-height: 1px;
         position: relative;
         margin: 0 0 0 $gutter;
+        /*
+         * Allow the browser to break lines within words in order to prevent overflow 
+         * when an otherwise unbreakable string is too long to fit in its containing cell.
+         */
+        word-wrap: break-word; 
     }
 }
 

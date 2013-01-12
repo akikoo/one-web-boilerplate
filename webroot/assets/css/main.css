@@ -524,18 +524,23 @@ textarea[contenteditable] {
     min-height: 1px;
     position: relative;
     margin: 0 0 0 4%;
+    /*
+     * Allow the browser to break lines within words in order to prevent overflow 
+     * when an otherwise unbreakable string is too long to fit in its containing cell.
+     */
+    word-wrap: break-word;
   }
 }
 
 /* Cancel the left margin in the first item */
-/* line 96, ../scss/components/_layout.scss */
+/* line 101, ../scss/components/_layout.scss */
 .l-cell:first-child,
 .l-cell .l-cell:first-child {
   margin-left: 0;
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 100, ../scss/components/_layout.scss */
+  /* line 105, ../scss/components/_layout.scss */
   .l-cell:last-child {
     float: right;
   }
@@ -544,7 +549,7 @@ textarea[contenteditable] {
 /* Cell modifiers
    ========================================================================== */
 @media only screen and (min-width: 48em) {
-  /* line 110, ../scss/components/_layout.scss */
+  /* line 115, ../scss/components/_layout.scss */
   .l-cell.l-cell--end {
     float: left;
   }
@@ -553,49 +558,49 @@ textarea[contenteditable] {
 /* Cell dimensions (assuming we're using six columns; this can be changed in _settings.scss)
    ========================================================================== */
 @media only screen and (min-width: 48em) {
-  /* line 121, ../scss/components/_layout.scss */
+  /* line 126, ../scss/components/_layout.scss */
   .l-cell--1 {
     width: 13.3333333333333%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 127, ../scss/components/_layout.scss */
+  /* line 132, ../scss/components/_layout.scss */
   .l-cell--2 {
     width: 30.6666666666667%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 133, ../scss/components/_layout.scss */
+  /* line 138, ../scss/components/_layout.scss */
   .l-cell--3 {
     width: 48%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 139, ../scss/components/_layout.scss */
+  /* line 144, ../scss/components/_layout.scss */
   .l-cell--4 {
     width: 65.3333333333333%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 145, ../scss/components/_layout.scss */
+  /* line 150, ../scss/components/_layout.scss */
   .l-cell--5 {
     width: 82.6666666666667%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 151, ../scss/components/_layout.scss */
+  /* line 156, ../scss/components/_layout.scss */
   .l-cell--6 {
     width: 100%;
   }
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 159, ../scss/components/_layout.scss */
+  /* line 164, ../scss/components/_layout.scss */
   .l-cell--3 .l-cell--2 {
     margin-left: 8.33333333333333%;
     width: 63.8888888888889%;
@@ -603,7 +608,7 @@ textarea[contenteditable] {
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 165, ../scss/components/_layout.scss */
+  /* line 170, ../scss/components/_layout.scss */
   .l-cell--3 .l-cell--1 {
     margin-left: 8.33333333333333%;
     width: 27.7777777777778%;
