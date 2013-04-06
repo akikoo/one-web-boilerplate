@@ -20,9 +20,9 @@
                 <p class="vcard author">
                     <span class="fn">Aki Karkkainen</span>,
                     <!--#config timefmt="${robot}" --><time class="published" datetime="<!--#flastmod file="view1.shtml" -->">
-                                                            <!--#config timefmt="${human}" --><!--#flastmod file="view1.shtml" -->
-                                                            <!--#config timefmt="${robot}" --><span class="value-title" title="<!--#flastmod file="view1.shtml" -->"> </span>
-                    </time>	
+                    <!--#config timefmt="${human}" --><!--#flastmod file="view1.shtml" -->
+                    <!--#config timefmt="${robot}" --><span class="value-title" title="<!--#flastmod file="view1.shtml" -->"> </span>
+                    </time>
                 </p>
             </footer>
         </div>
