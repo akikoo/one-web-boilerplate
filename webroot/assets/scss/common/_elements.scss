@@ -50,11 +50,28 @@
  * Apply a natural box layout model to all elements.
  * http://paulirish.com/2012/box-sizing-border-box-ftw/
  */
-*, 
-*:before, 
-*:after {
+
+/* The placeholder rule */ 
+%border-box-model { 
     @include box-sizing(border-box); 
+} 
+
+/* The box model conditional */ 
+@if $global-border-box-model == true { 
+    *, 
+    *:before, 
+    *:after {
+        @include box-sizing(border-box); 
+    }
+} 
+
+/* Individual component conditional override example
+.element { 
+    @if $global-border-box-model == false { 
+        @extend %border-box-model;
+    } 
 }
+*/ 
 
 
 html,
@@ -125,7 +142,6 @@ h4,
 h5, 
 h6 {
     color: $color-text;
-    font-weight: normal;
 }
 
 /**
@@ -159,7 +175,6 @@ h4,
     font-size: x-relative-size(16); 
     line-height: x-relative-size($base-line-height, 16, '');
     margin: 0 0 x-relative-size($base-line-height, 16);
-    font-weight: bold;
 }
 
 h5, 

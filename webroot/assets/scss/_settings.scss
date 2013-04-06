@@ -25,8 +25,15 @@
 // Column number, gutter etc. 
 
 // Defaults, feel free to change
-$columns: 6;   // any number will do 
-$gutter: 4%;    // rendered as left margin (first item in a row will have zero margin)
+$columns                    : 6;    // Any number will do. 
+$gutter                     : 4%;   // Rendered as left margin (first item in a row will have zero margin).
+
+
+// ========================================================================== //
+// =Box model setting (true uses border-box, false uses content-box (browser default)).
+//  See http://www.adobe.com/devnet/html5/articles/css-everything-is-global-and-how-to-deal-with-it.html
+// ========================================================================== //
+$global-border-box-model    : true;
 
 
 // ========================================================================== //
