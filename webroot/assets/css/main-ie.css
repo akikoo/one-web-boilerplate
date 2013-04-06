@@ -62,7 +62,9 @@ main.scss -->   |                                                       |  --> m
  * Apply a natural box layout model to all elements.
  * http://paulirish.com/2012/box-sizing-border-box-ftw/
  */
-/* line 55, ../scss/common/_elements.scss */
+/* The placeholder rule */
+/* The box model conditional */
+/* line 63, ../scss/common/_elements.scss */
 *,
 *:before,
 *:after {
@@ -71,7 +73,14 @@ main.scss -->   |                                                       |  --> m
   box-sizing: border-box;
 }
 
-/* line 64, ../scss/common/_elements.scss */
+/* Individual component conditional override example
+.element { 
+    @if $global-border-box-model == false { 
+        @extend %border-box-model;
+    } 
+}
+*/
+/* line 81, ../scss/common/_elements.scss */
 html,
 button,
 input,
@@ -81,7 +90,7 @@ textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 69, ../scss/common/_elements.scss */
+/* line 86, ../scss/common/_elements.scss */
 body {
   font-size: 1em;
   /* 16px */
@@ -92,7 +101,7 @@ body {
 /* 
  * =hr (a better looking default horizontal rule)
  */
-/* line 77, ../scss/common/_elements.scss */
+/* line 94, ../scss/common/_elements.scss */
 hr {
   display: block;
   height: 1px;
@@ -105,7 +114,7 @@ hr {
 /* ==========================================================================
    @group Links
    ========================================================================== */
-/* line 90, ../scss/common/_elements.scss */
+/* line 107, ../scss/common/_elements.scss */
 a {
   color: #3399cc;
   text-decoration: none;
@@ -113,7 +122,7 @@ a {
   white-space: pre-wrap;
 }
 
-/* line 102, ../scss/common/_elements.scss */
+/* line 119, ../scss/common/_elements.scss */
 a:hover,
 a:active {
   color: #3399cc;
@@ -129,7 +138,7 @@ a:active {
 /* 
  * Typefaces: Serif
  */
-/* line 126, ../scss/common/_elements.scss */
+/* line 143, ../scss/common/_elements.scss */
 h1,
 h2,
 h3,
@@ -137,14 +146,13 @@ h4,
 h5,
 h6 {
   color: #222222;
-  font-weight: normal;
 }
 
 /**
  * Double-stranded heading hierarchy. 
  * See http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/
  */
-/* line 136, ../scss/common/_elements.scss */
+/* line 152, ../scss/common/_elements.scss */
 h1,
 .h1 {
   font-size: 3em;
@@ -152,7 +160,7 @@ h1,
   margin: 1em 0 1em;
 }
 
-/* line 143, ../scss/common/_elements.scss */
+/* line 159, ../scss/common/_elements.scss */
 h2,
 .h2 {
   font-size: 1.5em;
@@ -160,7 +168,7 @@ h2,
   margin: 0 0 1em;
 }
 
-/* line 150, ../scss/common/_elements.scss */
+/* line 166, ../scss/common/_elements.scss */
 h3,
 .h3 {
   color: black;
@@ -169,16 +177,15 @@ h3,
   margin: 0 0 1.14285714285714em;
 }
 
-/* line 158, ../scss/common/_elements.scss */
+/* line 174, ../scss/common/_elements.scss */
 h4,
 .h4 {
   font-size: 1em;
   line-height: 1.5;
   margin: 0 0 1.5em;
-  font-weight: bold;
 }
 
-/* line 166, ../scss/common/_elements.scss */
+/* line 181, ../scss/common/_elements.scss */
 h5,
 .h5 {
   font-size: 0.875em;
@@ -189,7 +196,7 @@ h5,
   color: #555;
 }
 
-/* line 176, ../scss/common/_elements.scss */
+/* line 191, ../scss/common/_elements.scss */
 h6,
 .h6 {
   font-size: 0.75em;
@@ -200,12 +207,12 @@ h6,
   color: #555;
 }
 
-/* line 185, ../scss/common/_elements.scss */
+/* line 200, ../scss/common/_elements.scss */
 blockquote {
   margin: 0 40px 1.5em;
 }
 
-/* line 190, ../scss/common/_elements.scss */
+/* line 205, ../scss/common/_elements.scss */
 p,
 pre {
   line-height: 1.5;
@@ -215,7 +222,7 @@ pre {
 /* ==========================================================================
    @group Grouped declarations
    ========================================================================== */
-/* line 206, ../scss/common/_elements.scss */
+/* line 221, ../scss/common/_elements.scss */
 ul,
 ol,
 dl,
@@ -230,7 +237,7 @@ fieldset {
 /* ==========================================================================
    @group Lists
    ========================================================================== */
-/* line 218, ../scss/common/_elements.scss */
+/* line 233, ../scss/common/_elements.scss */
 ul ul,
 ul ol,
 ol ol,
@@ -238,7 +245,7 @@ ol ul {
   margin: 0;
 }
 
-/* line 222, ../scss/common/_elements.scss */
+/* line 237, ../scss/common/_elements.scss */
 dt {
   font-weight: bold;
 }
@@ -249,12 +256,12 @@ dt {
 /*
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
  */
-/* line 234, ../scss/common/_elements.scss */
+/* line 249, ../scss/common/_elements.scss */
 img {
   vertical-align: middle;
 }
 
-/* line 238, ../scss/common/_elements.scss */
+/* line 253, ../scss/common/_elements.scss */
 img {
   background: #fff;
   border: 1px solid #dddddd;
@@ -267,7 +274,7 @@ img {
 /*
  * Flexible images and embedded videos
  */
-/* line 256, ../scss/common/_elements.scss */
+/* line 271, ../scss/common/_elements.scss */
 img,
 audio,
 video,
@@ -288,19 +295,19 @@ svg {
 /* ==========================================================================
    @group Tables
    ========================================================================== */
-/* line 275, ../scss/common/_elements.scss */
+/* line 290, ../scss/common/_elements.scss */
 table {
   border-top: 1px solid #dddddd;
   border-left: 1px solid #dddddd;
 }
 
-/* line 280, ../scss/common/_elements.scss */
+/* line 295, ../scss/common/_elements.scss */
 caption {
   font-weight: bold;
   text-align: left;
 }
 
-/* line 286, ../scss/common/_elements.scss */
+/* line 301, ../scss/common/_elements.scss */
 td,
 th {
   text-align: left;
@@ -309,7 +316,7 @@ th {
   padding: 2px 6px;
 }
 
-/* line 293, ../scss/common/_elements.scss */
+/* line 308, ../scss/common/_elements.scss */
 th {
   background: #eeeeee;
 }
@@ -512,7 +519,7 @@ textarea[contenteditable] {
 /**
 * In order to work around browsers' different rounding behaviours, we'll float 
 * the last column in a row to the right so the edge aligns. You can override 
-* that behaviour by adding class="l-cell--end" in the last column. 
+* that behaviour by adding class="l-cell-end" in the last column. 
 * 
 * Idea taken from: 
 * http://foundation.zurb.com/docs/grid.php 
@@ -547,50 +554,50 @@ textarea[contenteditable] {
 /* Cell modifiers
    ========================================================================== */
 /* line 115, ../scss/components/_layout.scss */
-.l-cell.l-cell--end {
+.l-cell.l-cell-end {
   float: left;
 }
 
 /* Cell dimensions (assuming we're using six columns; this can be changed in _settings.scss)
    ========================================================================== */
 /* line 126, ../scss/components/_layout.scss */
-.l-cell--1 {
+.l-cell-1 {
   width: 13.3333333333333%;
 }
 
 /* line 132, ../scss/components/_layout.scss */
-.l-cell--2 {
+.l-cell-2 {
   width: 30.6666666666667%;
 }
 
 /* line 138, ../scss/components/_layout.scss */
-.l-cell--3 {
+.l-cell-3 {
   width: 48%;
 }
 
 /* line 144, ../scss/components/_layout.scss */
-.l-cell--4 {
+.l-cell-4 {
   width: 65.3333333333333%;
 }
 
 /* line 150, ../scss/components/_layout.scss */
-.l-cell--5 {
+.l-cell-5 {
   width: 82.6666666666667%;
 }
 
 /* line 156, ../scss/components/_layout.scss */
-.l-cell--6 {
+.l-cell-6 {
   width: 100%;
 }
 
 /* line 164, ../scss/components/_layout.scss */
-.l-cell--3 .l-cell--2 {
+.l-cell-3 .l-cell-2 {
   margin-left: 8.33333333333333%;
   width: 63.8888888888889%;
 }
 
 /* line 170, ../scss/components/_layout.scss */
-.l-cell--3 .l-cell--1 {
+.l-cell-3 .l-cell-1 {
   margin-left: 8.33333333333333%;
   width: 27.7777777777778%;
 }
@@ -602,7 +609,8 @@ textarea[contenteditable] {
 /* ==========================================================================
    @group Buttons
    ========================================================================== */
-/* line 7, ../scss/components/modules/_buttons.scss */
+/* line 8, ../scss/components/modules/_buttons.scss */
+.btn,
 button,
 input[type="button"],
 input[type="submit"] {
@@ -629,22 +637,35 @@ input[type="submit"] {
   box-shadow: rgba(0, 0, 0, 0.03) 0 -1px 0 inset;
 }
 
+/* Buttons that are actually links.
+   ========================================================================== */
+/* line 25, ../scss/components/modules/_buttons.scss */
+a.btn {
+  white-space: nowrap;
+}
+
+/* line 31, ../scss/components/modules/_buttons.scss */
+a.btn:hover,
+a.btn:focus,
+a.btn:active {
+  color: #222222;
+}
+
 /* ==========================================================================
    @group Forms
    ========================================================================== */
 /* 
- * Remove default fieldset styles. 
+ * Override default fieldset styles. 
  */
 /* line 8, ../scss/components/modules/_forms.scss */
 fieldset {
-  border: 0;
-  padding: 0;
+  border: 1px solid #dddddd;
 }
 
 /* 
  * Allow only vertical resizing of textareas. 
  */
-/* line 16, ../scss/components/modules/_forms.scss */
+/* line 15, ../scss/components/modules/_forms.scss */
 textarea {
   resize: vertical;
 }
@@ -655,7 +676,7 @@ textarea {
 /* 
  * Wrapper for label and input. 
  */
-/* line 30, ../scss/components/modules/_forms.scss */
+/* line 29, ../scss/components/modules/_forms.scss */
 .control {
   margin: 0.8em 0;
 }
@@ -669,14 +690,7 @@ textarea {
 /* 
  * Label for single inputs (and legend for input groups). 
  */
-/* line 53, ../scss/components/modules/_forms.scss */
-.label-text,
-.label-select,
-.label-file {
-  display: block;
-}
-
-/* line 57, ../scss/components/modules/_forms.scss */
+/* line 56, ../scss/components/modules/_forms.scss */
 label {
   cursor: pointer;
 }
@@ -684,7 +698,7 @@ label {
 /*
  * See http://www.456bereastreet.com/archive/201210/how_to_line_wrap_text_in_legend_elements_even_in_ie/
  */
-/* line 64, ../scss/components/modules/_forms.scss */
+/* line 63, ../scss/components/modules/_forms.scss */
 legend {
   display: table;
   /* Enable line-wrapping in IE8+ */
@@ -700,13 +714,11 @@ legend {
  * Text input styles. 
  */
 /*input*/
-/* line 88, ../scss/components/modules/_forms.scss */
+/* line 87, ../scss/components/modules/_forms.scss */
 .control-text,
 select,
 textarea {
   border: 1px solid #dddddd;
-  display: block;
-  width: 100%;
   padding: 0.25em;
 }
 
@@ -718,21 +730,14 @@ textarea {
 /* line 6, ../scss/components/modules/_logo.scss */
 .logo {
   color: #222222;
-  background: #fee620;
   display: block;
-  padding: 1.5em 1.5em;
+  padding: 1.5em 0;
   /* 24 / 32 = 0.75em */
-  margin: 0.75em 0 0;
   border-bottom: none;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
 }
 
 /*a*/
-/* line 18, ../scss/components/modules/_logo.scss */
+/* line 15, ../scss/components/modules/_logo.scss */
 .logo:hover,
 .logo:active,
 .logo:focus {
@@ -773,23 +778,23 @@ textarea {
 }
 
 /* line 24, ../scss/components/modules/_media-object.scss */
-.media__img {
+.media-img {
   float: left;
   margin: 0 10px 0 0;
 }
 /* line 27, ../scss/components/modules/_media-object.scss */
-.media__img img {
+.media-img img {
   display: block;
 }
 
 /* line 31, ../scss/components/modules/_media-object.scss */
-.media__img--ext {
+.media-img-ext {
   float: right;
   margin: 0 0 0 10px;
 }
 
 /* line 35, ../scss/components/modules/_media-object.scss */
-.media__body {
+.media-body {
   display: table-cell;
   /* 1 */
   width: 10000px;
@@ -804,24 +809,24 @@ textarea {
  * Reusable  icons
  */
 /* line 45, ../scss/components/modules/_media-object.scss */
-.media__icon {
+.media-icon {
   display: inline-block;
   width: 16px;
   height: 16px;
   margin: 0 5px 0 0;
-  background: url(http://placekitten.com/16/16);
+  background: url("/assets/img/img-50.jpg");
 }
 
 /* line 53, ../scss/components/modules/_media-object.scss */
-.media__icon--a {
+.media-icon-a {
   background-position: 0 0;
 }
 
 /* ==========================================================================
-   @group Styleguide display and source --Not for PROD
+   @group Styleguide display and source --Not for PROD.
    ========================================================================== */
 /* 
- * Styleguide module heading 
+ * Styleguide module heading.
  */
 /* line 8, ../scss/components/modules/_styleguide.scss */
 .heading-styleguide {
@@ -831,16 +836,15 @@ textarea {
 }
 
 /* 
- * Module source wrapper 
+ * Module source wrapper.
  */
 /*textarea*/
 /* line 16, ../scss/components/modules/_styleguide.scss */
 .source-styleguide {
   width: 100%;
-  outline: 1px solid #dddddd;
-  border: none;
+  border: 1px solid #dddddd;
   overflow: auto;
-  padding: 0 1px;
+  padding: 1em;
   vertical-align: middle;
   font-size: 0.6875em;
   line-height: 1.45454545454546;
@@ -849,20 +853,73 @@ textarea {
   box-shadow: none;
   margin: 0 0 1.5em;
   height: 12em;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  display: none;
+  display: block;
 }
 
-/**
-* Temp grid visualizations for the Style Guide module
-*/
+/* Colors.
+   ========================================================================== */
+/* line 38, ../scss/components/modules/_styleguide.scss */
+.colors-styleguide li {
+  display: inline-block;
+  width: 3em;
+  height: 3em;
+  border: 1px solid #dddddd;
+}
+
+/* line 45, ../scss/components/modules/_styleguide.scss */
+.colors-styleguide-1 {
+  background: #222222;
+}
+
+/* line 49, ../scss/components/modules/_styleguide.scss */
+.colors-styleguide-2 {
+  background: #eeeeee;
+}
+
+/* line 53, ../scss/components/modules/_styleguide.scss */
+.colors-styleguide-3 {
+  background: #dddddd;
+}
+
+/* line 57, ../scss/components/modules/_styleguide.scss */
+.colors-styleguide-4 {
+  background: #fee620;
+}
+
+/* Type.
+   ========================================================================== */
+/* line 64, ../scss/components/modules/_styleguide.scss */
+.font-family-sans {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 68, ../scss/components/modules/_styleguide.scss */
+.font-family-serif {
+  font-family: Cambria, Georgia, Times, "Times New Roman";
+}
+
+/* line 72, ../scss/components/modules/_styleguide.scss */
+.font-family-monospace {
+  font-family: "Bitstream Vera Sans", Consolas, Menlo, "Lucida Console", "Liberation Mono", Courier, monospace;
+}
+
+/* Temp grid visualizations for the Style Guide module.
+   ========================================================================== */
 /* First level cells */
-/* line 35, ../scss/components/modules/_styleguide.scss */
-.l-row--styleguide .l-cell {
+/* line 80, ../scss/components/modules/_styleguide.scss */
+.l-row-styleguide .l-cell {
   background: #ddd;
 }
 
 /* Nested cells */
-/* line 39, ../scss/components/modules/_styleguide.scss */
-.l-row--styleguide .l-cell .l-cell {
+/* line 84, ../scss/components/modules/_styleguide.scss */
+.l-row-styleguide .l-cell .l-cell {
   background: #aaa;
 }
 

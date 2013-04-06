@@ -74,7 +74,7 @@
 /**
 * In order to work around browsers' different rounding behaviours, we'll float 
 * the last column in a row to the right so the edge aligns. You can override 
-* that behaviour by adding class="l-cell--end" in the last column. 
+* that behaviour by adding class="l-cell-end" in the last column. 
 * 
 * Idea taken from: 
 * http://foundation.zurb.com/docs/grid.php 
@@ -112,7 +112,7 @@
 /* Cell modifiers
    ========================================================================== */
 
-.l-cell.l-cell--end {
+.l-cell.l-cell-end {
     @include x-respond-to($breakpoint-medium) { 
         float: left; 
     }
@@ -123,37 +123,37 @@
    ========================================================================== */
 
 // First level
-.l-cell--1 {
+.l-cell-1 {
     @include x-respond-to($breakpoint-medium) { 
         @include x-columns(1);
     }
 }
 
-.l-cell--2 {
+.l-cell-2 {
     @include x-respond-to($breakpoint-medium) { 
         @include x-columns(2);
     }
 }
 
-.l-cell--3 {
+.l-cell-3 {
     @include x-respond-to($breakpoint-medium) { 
         @include x-columns(3);
     }
 }
 
-.l-cell--4 {
+.l-cell-4 {
     @include x-respond-to($breakpoint-medium) { 
         @include x-columns(4);
     }
 }
 
-.l-cell--5 {
+.l-cell-5 {
     @include x-respond-to($breakpoint-medium) { 
         @include x-columns(5);
     }
 }
 
-.l-cell--6 {
+.l-cell-6 {
     @include x-respond-to($breakpoint-medium) { 
         @include x-columns(6);
     }
@@ -161,13 +161,13 @@
 
 // Second level
 // nestedcolumns(children, parent);
-.l-cell--3 .l-cell--2 {
+.l-cell-3 .l-cell-2 {
     @include x-respond-to($breakpoint-medium) { 
         @include x-nestedcolumns(2, 3);
     }
 }
 
-.l-cell--3 .l-cell--1 {
+.l-cell-3 .l-cell-1 {
     @include x-respond-to($breakpoint-medium) { 
         @include x-nestedcolumns(1, 3);
     }

@@ -1,9 +1,9 @@
 /* ==========================================================================
-   @group Styleguide display and source --Not for PROD
+   @group Styleguide display and source --Not for PROD.
    ========================================================================== */
 
 /* 
- * Styleguide module heading 
+ * Styleguide module heading.
  */
 .heading-styleguide {
     padding: x-relative-size($base-line-height, 84) 1%;
@@ -11,14 +11,13 @@
 }
 
 /* 
- * Module source wrapper 
+ * Module source wrapper.
  */
 /*textarea*/.source-styleguide {
     width: 100%;
-    outline: 1px solid $color-border;
-    border: none;
+    border: 1px solid $color-border;
     overflow: auto;
-    padding: 0 1px; 
+    padding: 1em; 
     vertical-align: middle;
     font-size: x-relative-size(11); 
     line-height: x-relative-size(16, 11, ''); /* Custom line-height */
@@ -26,16 +25,62 @@
     box-shadow: none;
     margin: 0 0 x-relative-size($base-line-height);
     height: 12em;
+    @include border-radius(4px);
+    display: none;
+    @include x-respond-to($breakpoint-medium) { 
+        display: block;
+    }
 }
 
-/**
-* Temp grid visualizations for the Style Guide module
-*/
+
+/* Colors.
+   ========================================================================== */
+.colors-styleguide li {
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    border: 1px solid $color-border;
+}
+
+.colors-styleguide-1 {
+    background: $color-text; 
+}
+
+.colors-styleguide-2 {
+    background: $color-background; 
+}
+
+.colors-styleguide-3 {
+    background: $color-border; 
+}
+
+.colors-styleguide-4 {
+    background: $color-border-heading; 
+}
+
+
+/* Type.
+   ========================================================================== */
+.font-family-sans { 
+    font-family: $font-family-sans;
+}
+
+.font-family-serif { 
+    font-family: $font-family-serif;
+}
+
+.font-family-monospace { 
+    font-family: $font-family-monospace;
+}
+
+
+/* Temp grid visualizations for the Style Guide module.
+   ========================================================================== */
 /* First level cells */
-.l-row--styleguide .l-cell {
+.l-row-styleguide .l-cell {
     background: #ddd;
 }
 /* Nested cells */
-.l-row--styleguide .l-cell .l-cell {
+.l-row-styleguide .l-cell .l-cell {
     background: #aaa;
 }

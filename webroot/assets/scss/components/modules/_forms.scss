@@ -3,11 +3,10 @@
    ========================================================================== */
 
 /* 
- * Remove default fieldset styles. 
+ * Override default fieldset styles. 
  */
 fieldset {
-    border: 0;
-    padding: 0;
+    border: 1px solid $color-border;
 }
 
 /* 
@@ -51,7 +50,7 @@ textarea {
 .label-text, 
 .label-select, 
 .label-file  {
-    display: block;
+
 }
 
 label {
@@ -87,7 +86,5 @@ legend {
 select, 
 textarea {
     border: 1px solid $color-border;
-    display: block;
-    width: 100%;
     padding: x-relative-size($base-line-height, 96);
 }

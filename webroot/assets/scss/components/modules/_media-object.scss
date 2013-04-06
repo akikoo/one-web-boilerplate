@@ -21,18 +21,18 @@
     @include x-clearfix();
 }
 
-.media__img {
+.media-img {
     float: left;
     margin: 0 10px 0 0;
     img {
         display: block;
     }
 }
-.media__img--ext {
+.media-img-ext {
     float: right; 
     margin: 0 0 0 10px;
 }
-.media__body {
+.media-body {
     display: table-cell; /* 1 */
     width: 10000px; /* 2 */
     *width: auto; /* 3 */
@@ -42,14 +42,14 @@
 /*
  * Reusable  icons
  */
-.media__icon {
+.media-icon {
     display: inline-block;
     width: 16px;
     height: 16px;
     margin: 0 5px 0 0;
-    background: url(http://placekitten.com/16/16);
+    background: url('/assets/img/img-50.jpg');
 }
 
-.media__icon--a {
+.media-icon-a {
     background-position: 0 0;
 }
