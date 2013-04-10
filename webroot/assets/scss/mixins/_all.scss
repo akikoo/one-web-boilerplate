@@ -28,9 +28,11 @@
 
 // Media queries
 // =============
-// Mixin inspired by http://jakearchibald.github.com/sass-ie/
+// Mixin inspired by 
+// http://jakearchibald.github.com/sass-ie/
+// http://alwaystwisted.com/post.php?s=2013-04-01-my-media-query-mixin
 $fix-mqs: false !default;
-@mixin x-respond-to($breakpoint) {
+@mixin x-respond-to($breakpoint, $query1: min, $query2: width) {
 
     // Old-IE gets a mid-screen sized desktop version, with styles up until predefined width ($fix-mqs).
     @if $fix-mqs {
@@ -40,7 +42,7 @@ $fix-mqs: false !default;
     }
     // Modern browsers
     @else {
-        @media only screen and (min-width: $breakpoint) { 
+        @media only screen and (#{$query1}-#{$query2}: $breakpoint) { 
             @content; 
         }
     }
