@@ -157,7 +157,7 @@ h1,
 .h1 {
   font-size: 3em;
   line-height: 1;
-  margin: 1em 0 1em;
+  margin: 0.5em 0;
 }
 
 /* line 159, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
@@ -165,7 +165,7 @@ h2,
 .h2 {
   font-size: 1.5em;
   line-height: 1;
-  margin: 0 0 1em;
+  margin: 1em 0;
 }
 
 /* line 166, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
@@ -174,45 +174,43 @@ h3,
   color: black;
   font-size: 1.3125em;
   line-height: 1.14285714285714;
-  margin: 0 0 1.14285714285714em;
+  margin: 1.14285714285714em 0;
 }
 
 /* line 174, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 h4,
 .h4 {
-  font-size: 1em;
-  line-height: 1.5;
-  margin: 0 0 1.5em;
+  font-size: 1.125em;
+  line-height: 1.33333333333333;
+  margin: 1.33333333333333em 0;
 }
 
 /* line 181, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 h5,
 .h5 {
-  font-size: 0.875em;
-  line-height: 1.71428571428571;
-  margin: 0 0 1.71428571428571em;
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 1.5em 0;
   text-transform: uppercase;
   letter-spacing: 0.071428571428571em;
-  color: #555;
 }
 
-/* line 191, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+/* line 190, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 h6,
 .h6 {
-  font-size: 0.75em;
-  line-height: 2;
-  margin: 0 0 2em;
+  font-size: 0.875em;
+  line-height: 1.71428571428571;
+  margin: 1.71428571428571em 0;
   text-transform: uppercase;
   letter-spacing: 0.083333333333333em;
-  color: #555;
 }
 
-/* line 200, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+/* line 198, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 blockquote {
   margin: 0 40px 1.5em;
 }
 
-/* line 205, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+/* line 203, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 p,
 pre {
   line-height: 1.5;
@@ -222,7 +220,7 @@ pre {
 /* ==========================================================================
    @group Grouped declarations
    ========================================================================== */
-/* line 221, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+/* line 219, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 ul,
 ol,
 dl,
@@ -237,7 +235,7 @@ fieldset {
 /* ==========================================================================
    @group Lists
    ========================================================================== */
-/* line 233, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+/* line 231, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 ul ul,
 ul ol,
 ol ol,
@@ -245,7 +243,7 @@ ol ul {
   margin: 0;
 }
 
-/* line 237, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+/* line 235, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 dt {
   font-weight: bold;
 }
@@ -256,12 +254,12 @@ dt {
 /*
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
  */
-/* line 249, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+/* line 247, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 img {
   vertical-align: middle;
 }
 
-/* line 253, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+/* line 251, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 img {
   background: #fff;
   border: 1px solid #dddddd;
@@ -274,7 +272,7 @@ img {
 /*
  * Flexible images and embedded videos
  */
-/* line 271, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+/* line 269, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 img,
 audio,
 video,
@@ -295,19 +293,19 @@ svg {
 /* ==========================================================================
    @group Tables
    ========================================================================== */
-/* line 290, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+/* line 288, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 table {
   border-top: 1px solid #dddddd;
   border-left: 1px solid #dddddd;
 }
 
-/* line 295, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+/* line 293, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 caption {
   font-weight: bold;
   text-align: left;
 }
 
-/* line 301, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+/* line 299, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 td,
 th {
   text-align: left;
@@ -316,7 +314,7 @@ th {
   padding: 2px 6px;
 }
 
-/* line 308, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
+/* line 306, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/common/_elements.scss */
 th {
   background: #eeeeee;
 }
@@ -833,13 +831,15 @@ textarea {
   padding: 0.285714285714286em 1%;
   border-left: 0.5em solid #fee620;
   /* 24 / 48 */
+  margin: 0 0 1.14285714285714em;
+  /* Override default */
 }
 
 /* 
  * Module source wrapper.
  */
 /*textarea*/
-/* line 16, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
+/* line 17, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
 .source-styleguide {
   width: 100%;
   border: 1px solid #dddddd;
@@ -864,7 +864,7 @@ textarea {
 
 /* Colors.
    ========================================================================== */
-/* line 38, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
+/* line 39, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
 .colors-styleguide li {
   display: inline-block;
   width: 3em;
@@ -872,39 +872,39 @@ textarea {
   border: 1px solid #dddddd;
 }
 
-/* line 45, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
+/* line 46, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
 .colors-styleguide-1 {
   background: #222222;
 }
 
-/* line 49, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
+/* line 50, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
 .colors-styleguide-2 {
   background: #eeeeee;
 }
 
-/* line 53, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
+/* line 54, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
 .colors-styleguide-3 {
   background: #dddddd;
 }
 
-/* line 57, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
+/* line 58, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
 .colors-styleguide-4 {
   background: #fee620;
 }
 
 /* Type.
    ========================================================================== */
-/* line 64, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
+/* line 65, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
 .font-family-sans {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 68, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
+/* line 69, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
 .font-family-serif {
   font-family: Cambria, Georgia, Times, "Times New Roman";
 }
 
-/* line 72, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
+/* line 73, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
 .font-family-monospace {
   font-family: "Bitstream Vera Sans", Consolas, Menlo, "Lucida Console", "Liberation Mono", Courier, monospace;
 }
@@ -912,13 +912,13 @@ textarea {
 /* Temp grid visualizations for the Style Guide module.
    ========================================================================== */
 /* First level cells */
-/* line 80, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
+/* line 81, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
 .l-row-styleguide .l-cell {
   background: #ddd;
 }
 
 /* Nested cells */
-/* line 84, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
+/* line 85, /Users/aki/NetBeansProjects/one-web-boilerplate/webroot/assets/scss/components/modules/_styleguide.scss */
 .l-row-styleguide .l-cell .l-cell {
   background: #aaa;
 }

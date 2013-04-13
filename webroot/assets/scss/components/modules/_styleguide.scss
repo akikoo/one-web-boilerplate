@@ -8,6 +8,7 @@
 .heading-styleguide {
     padding: x-relative-size($base-line-height, 84) 1%;
     border-left: x-relative-size($base-line-height, 48) solid $color-logo-background; /* 24 / 48 */
+    margin: 0 0 x-relative-size($base-line-height, 21); /* Override default */
 }
 
 /* 

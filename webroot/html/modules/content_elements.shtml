@@ -11,9 +11,9 @@
 <p>6 columns by default. Can easily be changed in /assets/scss/_settings.scss. Then go to /assets/scss/components/_layout.scss, to generate new styles. Finally, update markup in /html/modules/patterns/grid.html.</p>
 
 
-<h3 class="heading-styleguide">Grid</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Grid</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/grid.html" -->
     </div>
     <div class="l-cell l-cell-2">
@@ -23,9 +23,10 @@
     </div>
 </div>
 
-<h3 class="heading-styleguide">Colors</h3>
+
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Colors</h3>
         <ul class="colors-styleguide">
             <li class="colors-styleguide-1"></li>
             <li class="colors-styleguide-2"></li>
@@ -48,9 +49,9 @@
 </div>
 
 
-<h3 class="heading-styleguide">Font stacks</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Font stacks</h3>
         <p>
             <span class="font-family-sans">"Helvetica Neue", Helvetica, Arial, sans-serif</span><br>
             <span class="font-family-serif">Cambria, Georgia, Times, "Times New Roman"</span><br>
@@ -76,9 +77,9 @@
 <p>Sectioning elements include body, article, section, nav, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer and address.</p>
 
 
-<h3 class="heading-styleguide">Headings</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Headings</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-1.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-2.html" -->
 <!--#include virtual="${MODULES}/${PATTERNS}/heading-3.html" -->
@@ -113,9 +114,9 @@
 <p>Grouping elements are listed below.</p>
 
 
-<h3 class="heading-styleguide">Horizontal rule</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Horizontal rule</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/hr.html" -->
     </div>
     <div class="l-cell l-cell-2">
@@ -126,9 +127,9 @@
 </div>
 
 
-<h3 class="heading-styleguide">Pre-formatted text</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Pre-formatted text</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/preformatted.html" -->
     </div>
     <div class="l-cell l-cell-2">
@@ -139,9 +140,9 @@
 </div>
 
 
-<h3 class="heading-styleguide">Blockquote</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Blockquote</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/blockquote.html" -->
     </div>
     <div class="l-cell l-cell-2">
@@ -152,9 +153,9 @@
 </div>
 
 
-<h3 class="heading-styleguide">Ordered list</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Ordered list</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/list-ordered.html" -->
     </div>
     <div class="l-cell l-cell-2">
@@ -165,9 +166,9 @@
 </div>
 
 
-<h3 class="heading-styleguide">Unordered list</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Unordered list</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/list-unordered.html" -->
     </div>
     <div class="l-cell l-cell-2">
@@ -178,9 +179,9 @@
 </div>
 
 
-<h3 class="heading-styleguide">Definition list</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Definition list</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/list-definition.html" -->
     </div>
     <div class="l-cell l-cell-2">
@@ -191,9 +192,9 @@
 </div>
 
 
-<h3 class="heading-styleguide">Figure</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Figure</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/figure.html" -->
     </div>
     <div class="l-cell l-cell-2">
@@ -211,9 +212,9 @@
 <h2>4. Text-level semantics</h2>
 
 
-<h3 class="heading-styleguide">Paragraph</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Paragraph</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/text.html" -->
     </div>
     <div class="l-cell l-cell-2">
@@ -234,6 +235,7 @@
 
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Embedded image</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/embedded-img.html" -->
     </div>
     <div class="l-cell l-cell-2">
@@ -253,6 +255,7 @@
 
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Table</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/table.html" -->
     </div>
     <div class="l-cell l-cell-2">
@@ -274,6 +277,7 @@
 
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Form</h3>
         <form action="#">
             <fieldset>
                 <legend>Group title</legend>
@@ -311,9 +315,9 @@
 <p>Design and mark-up patterns unique to this site.</p>
 
 
-<h3 class="heading-styleguide">Media object (simple)</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Media object (simple)</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/mediaobject-simple.html" -->
     </div>
     <div class="l-cell l-cell-2">
@@ -324,9 +328,9 @@
 </div>
 
 
-<h3 class="heading-styleguide">Media object (extra content block on the right)</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Media object (extra content block on the right)</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/mediaobject-rightcontent.html" -->
     </div>
     <div class="l-cell l-cell-2">
@@ -337,9 +341,9 @@
 </div>
 
 
-<h3 class="heading-styleguide">Media object (nested)</h3>
 <div class="l-row">
     <div class="l-cell l-cell-4">
+        <h3 class="heading-styleguide">Media object (nested)</h3>
 <!--#include virtual="${MODULES}/${PATTERNS}/mediaobject-nested.html" -->
     </div>
     <div class="l-cell l-cell-2">

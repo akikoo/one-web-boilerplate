@@ -150,16 +150,16 @@ h6 {
  */
 h1, 
 .h1 {
-    font-size: x-relative-size(48); 
+    font-size: x-relative-size(48);
     line-height: x-relative-size(36, 36, '');
-    margin: x-relative-size($base-line-height, 24) 0 x-relative-size($base-line-height, 24);
+    margin: x-relative-size($base-line-height, 48) 0;
 }
 
 h2, 
 .h2 {
     font-size: x-relative-size(24); 
     line-height: x-relative-size($base-line-height, 24, '');
-    margin: 0 0 x-relative-size($base-line-height, 24);
+    margin: x-relative-size($base-line-height, 24) 0;
 }
 
 h3, 
@@ -167,34 +167,32 @@ h3,
     color: $color-heading;
     font-size: x-relative-size(21); 
     line-height: x-relative-size($base-line-height, 21, '');
-    margin: 0 0 x-relative-size($base-line-height, 21);
+    margin: x-relative-size($base-line-height, 21) 0;
 }
 
 h4, 
 .h4 {
-    font-size: x-relative-size(16); 
-    line-height: x-relative-size($base-line-height, 16, '');
-    margin: 0 0 x-relative-size($base-line-height, 16);
+    font-size: x-relative-size(18); 
+    line-height: x-relative-size($base-line-height, 18, '');
+    margin: x-relative-size($base-line-height, 18) 0;
 }
 
 h5, 
 .h5 {
-    font-size: x-relative-size(14);
-    line-height: x-relative-size($base-line-height, 14, ''); 
-    margin: 0 0 x-relative-size($base-line-height, 14);
+    font-size: x-relative-size(16);
+    line-height: x-relative-size($base-line-height, 16, ''); 
+    margin: x-relative-size($base-line-height, 16) 0;
     text-transform: uppercase;
     letter-spacing: x-relative-size(1, 14);
-    color: #555;
 }
 
 h6, 
 .h6 {
-    font-size: x-relative-size(12); 
-    line-height: x-relative-size($base-line-height, 12, ''); 
-    margin: 0 0 x-relative-size($base-line-height, 12);
+    font-size: x-relative-size(14); 
+    line-height: x-relative-size($base-line-height, 14, ''); 
+    margin: x-relative-size($base-line-height, 14) 0;
     text-transform: uppercase;
     letter-spacing: x-relative-size(1, 12);
-    color: #555;
 }
 
 blockquote {
