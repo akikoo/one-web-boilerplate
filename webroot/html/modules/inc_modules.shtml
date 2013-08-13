@@ -59,9 +59,33 @@
 </div>
 
 <div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-color.html">/html/modules/patterns/form-color.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/form-color.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-color.html" --></textarea></div>
+</div>
+
+<div class="module">
     <h3>Module: <a href="/html/modules/patterns/form-datalist.html">/html/modules/patterns/form-datalist.html</a></h3>
     <div class='display'><!--#include virtual="/html/modules/patterns/form-datalist.html" --></div>
     <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-datalist.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-date.html">/html/modules/patterns/form-date.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/form-date.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-date.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-datetime-local.html">/html/modules/patterns/form-datetime-local.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/form-datetime-local.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-datetime-local.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-datetime.html">/html/modules/patterns/form-datetime.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/form-datetime.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-datetime.html" --></textarea></div>
 </div>
 
 <div class="module">
@@ -74,6 +98,12 @@
     <h3>Module: <a href="/html/modules/patterns/form-file.html">/html/modules/patterns/form-file.html</a></h3>
     <div class='display'><!--#include virtual="/html/modules/patterns/form-file.html" --></div>
     <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-file.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-month.html">/html/modules/patterns/form-month.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/form-month.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-month.html" --></textarea></div>
 </div>
 
 <div class="module">
@@ -95,6 +125,18 @@
 </div>
 
 <div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-range.html">/html/modules/patterns/form-range.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/form-range.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-range.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-search.html">/html/modules/patterns/form-search.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/form-search.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-search.html" --></textarea></div>
+</div>
+
+<div class="module">
     <h3>Module: <a href="/html/modules/patterns/form-select-multiple.html">/html/modules/patterns/form-select-multiple.html</a></h3>
     <div class='display'><!--#include virtual="/html/modules/patterns/form-select-multiple.html" --></div>
     <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-select-multiple.html" --></textarea></div>
@@ -104,6 +146,12 @@
     <h3>Module: <a href="/html/modules/patterns/form-select.html">/html/modules/patterns/form-select.html</a></h3>
     <div class='display'><!--#include virtual="/html/modules/patterns/form-select.html" --></div>
     <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-select.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-tel.html">/html/modules/patterns/form-tel.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/form-tel.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-tel.html" --></textarea></div>
 </div>
 
 <div class="module">
@@ -119,9 +167,21 @@
 </div>
 
 <div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-time.html">/html/modules/patterns/form-time.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/form-time.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-time.html" --></textarea></div>
+</div>
+
+<div class="module">
     <h3>Module: <a href="/html/modules/patterns/form-url.html">/html/modules/patterns/form-url.html</a></h3>
     <div class='display'><!--#include virtual="/html/modules/patterns/form-url.html" --></div>
     <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-url.html" --></textarea></div>
+</div>
+
+<div class="module">
+    <h3>Module: <a href="/html/modules/patterns/form-week.html">/html/modules/patterns/form-week.html</a></h3>
+    <div class='display'><!--#include virtual="/html/modules/patterns/form-week.html" --></div>
+    <div class="source"><textarea rows='6'><!--#include virtual="/html/modules/patterns/form-week.html" --></textarea></div>
 </div>
 
 <div class="module">
